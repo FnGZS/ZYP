@@ -1,0 +1,417 @@
+/* pages/index/index.wxss */
+@import '../../style/base64/index.wxss';
+@import '../../style/tabbar.wxss';
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.guide-all {
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+ 
+  /* background: pink; */
+  animation: Gradual 12s forwards;
+}
+
+@keyframes Gradual {
+  0% {
+    opacity: 0.0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 0.0;
+  }
+  100%{
+    opacity: 0.0;
+  }
+}
+
+.guide {
+  width: 100%;
+  height: 80%;
+  bottom: 0rpx;
+  /* background: rebeccapurple; */
+  position: fixed;
+}
+
+.guide-top {
+  width: 100%;
+  height: 300rpx;
+  /* background: antiquewhite; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guide-top-img {
+  width: 250rpx;
+  height: 250rpx;
+  animation: rotate 12s;
+  /* background: rosybrown; */
+}
+
+@keyframes rotate {
+  0% {
+    width: 100rpx;
+    height: 100rpx;
+    /* margin-left: 0rpx; */
+    opacity: 0.0;
+  }
+
+  25% {
+    width: 250rpx;
+    height: 250rpx;
+    margin-top:0rpx;
+    margin-left: 0rpx;
+    opacity: 1;
+    transform: rotateY(1440deg);
+  }
+  50%{
+  width: 250rpx;
+    height: 250rpx;
+        margin-top:0rpx;
+        /* margin-left: 0rpx; */
+    opacity: 1;
+       transform: rotateY(1440deg);
+  }
+  70%{
+    width: 100rpx;
+    height: 100rpx;
+        margin-top:-80rpx;
+        /* margin-left: -10rpx; */
+    opacity: 1;
+       transform: rotateY(1440deg);
+  }
+  100%{
+        margin-top:-80rpx;
+        /* margin-left: -10rpx; */
+     width: 100rpx;
+    height: 100rpx;
+    opacity: 1;
+       transform: rotateY(1440deg);
+  }
+}
+
+.guide-middle {
+  width: 100%;
+  height: 200rpx;
+  /* background: coral; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.guide-middle-left {
+  width: 250rpx;
+  height: 80rpx;
+  opacity: 0.0;
+  /* background: aliceblue; */
+  animation: guideleft 12s linear ;
+}
+
+.guide-middle-rigth {
+  width: 250rpx;
+  height: 80rpx;
+  opacity: 0.0;
+  /* background: aliceblue; */
+  animation: guiderigth 12s linear ;
+}
+
+@keyframes guideleft {
+  0% {
+    opacity: 0.0;
+  }
+
+  25% {
+    opacity: 0.0;
+  }
+
+  50% {
+    opacity: 1;
+    margin-top: 0rpx;
+    margin-right: 0rpx;
+    width: 250rpx;
+    height: 80rpx;
+  }
+
+  75% {
+    opacity: 1;
+    width: 180rpx;
+    height: 60rpx;
+    margin-top: -520rpx;
+    margin-right: -120rpx;
+  }
+
+  100% {
+    opacity: 0.0;
+    width: 180rpx;
+    height: 60rpx;
+     margin-top: -520rpx;
+    margin-rigth: -120rpx;
+  }
+}
+
+@keyframes guiderigth {
+  0% {
+    opacity: 0.0;
+  }
+
+  25% {
+    opacity: 0.0;
+  }
+
+  50% {
+    opacity: 1;
+    width: 250rpx;
+    height: 80rpx;
+    margin-top: 0rpx;
+    margin-left: 0rpx;
+  }
+
+  75% {
+    opacity: 1;
+    width: 180rpx;
+    height: 60rpx;
+    margin-top: -520rpx;
+    margin-left: -120rpx;
+  }
+
+  100% {
+    opacity: 0;
+    width: 180rpx;
+    height: 60rpx;
+     margin-top: -520rpx;
+    margin-left: -120rpx;
+  }
+}
+
+.guide-top-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.guide-middle-image {
+  width: 100%;
+  height: 100%;
+}
+
+.index-head, .index-head-swiper {
+  width: 750rpx;
+  height: 400rpx;
+}
+
+.index-head {
+  position: relative;
+}
+
+.index-head-bg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  height: 93rpx;
+}
+
+.index-head-bg image {
+  width: 94%;
+  height: 100%;
+}
+
+.index-head swiper {
+  width: 100%;
+  display: block;
+  height: 100%;
+}
+
+.index-head-swiper-image {
+  width: 100%;
+  height: 100%;
+}
+
+.conter {
+  width: 100%;
+  height: 100%;
+  animation: opaque 12s forwards;
+}
+.conter-no {
+  width: 100%;
+  height: 100%;
+    animation: opaque-no 2s forwards;
+}
+@keyframes opaque-no{
+  0%{
+    opacity: .0;
+  }
+  100%{
+    opacity: 1；
+  }
+}
+@keyframes opaque {
+  0% {
+    opacity: 0.0;
+  }
+
+  60% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+/* 导航的样式 */
+
+.index-body-icon{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 750rpx;
+height: 287.5rpx;
+}
+.index-body-icon-bg{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+width: 640rpx;
+height: 230.5rpx;
+
+}
+
+.index-body-icon-bg-content{
+  width:130rpx;
+  height: 130rpx;
+  text-align: center;
+}
+.index-body-icon-bg-content-icon{
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.index-body-icon-bg-content-icon-border{
+  width: 60rpx;
+  height: 60rpx;
+  border: 1px solid #ececec;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.index-body-icon-bg-content-icon image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.index-body-icon-bg-content-text{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 21rpx;
+  color: #959595;
+}
+/* 投票 */
+
+.index-toupiao{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 68.7rpx;
+
+}
+.index-toupiao-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 68.7rpx;
+  background-color: #f7f7f7
+}
+.index-toupiao-img image{
+  width: 150rpx;
+  height: 24rpx;
+}
+.video-box {
+  z-index: 1;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0 30rpx; */
+  position: absolute;
+  top:30rpx;
+  left: 78rpx;
+}
+
+.icon {
+  width:24px;
+  height:24px;
+
+}
+
+.box {
+  width: 100%;
+  z-index: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+
+
+}
+
+.box .club {
+  width: 335rpx;
+  position: relative;
+  
+}
+
+.club image {
+  height: 200rpx;
+  width: 300rpx;
+   border-radius: 10rpx;
+}
+
+.club text {
+  display: block;
+  width: 100%;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.box .club:nth-child(1) {
+  transform-origin: center center;
+
+}
+
+.box .club:nth-child(2) {
+  transform-origin: center center;
+
+}
+
+.box .club:nth-child(3) {
+  transform-origin: center center;
+
+}
+
+.box .club:nth-child(1) text, .box .club:nth-child(3) text {
+  
+}
