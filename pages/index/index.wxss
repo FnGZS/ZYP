@@ -329,7 +329,7 @@ height: 230.5rpx;
 }
 /* 投票 */
 
-.index-toupiao{
+.index-title{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -337,7 +337,7 @@ height: 230.5rpx;
   height: 68.7rpx;
 
 }
-.index-toupiao-text{
+.index-title-text{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -345,7 +345,7 @@ height: 230.5rpx;
   height: 68.7rpx;
   background-color: #f7f7f7
 }
-.index-toupiao-img image{
+.index-title-img image{
   width: 150rpx;
   height: 24rpx;
 }
@@ -414,4 +414,14 @@ height: 230.5rpx;
 
 .box .club:nth-child(1) text, .box .club:nth-child(3) text {
   
+}
+/* 校内时事样式 */
+.index-current-scorll{
+  width: 100%;
+  /* background: red; */
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap:wrap;
+background: white;
 }

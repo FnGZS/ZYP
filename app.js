@@ -5,7 +5,8 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    wx.setStorageSync('GradualNum', 1);
+    wx.setStorageSync('GradualNum',1);
+    wx.hideTabBar();
     // 登录
     wx.login({
       success: res => {
@@ -33,22 +34,24 @@ App({
       }
     })
   },
-  Navigation: function(event, that) {
 
-    var link = '';
-   if (event.currentTarget.dataset.id == 1) {
-      link = '../index/index';
-    } else if (event.currentTarget.dataset.id == 2) {
-      link = '../userinfo/userinfo';
-    } else if (event.currentTarget.dataset.id == 3) {
-      link = '../userinfo/userinfo';
-    } else if (event.currentTarget.dataset.id == 4) {
-      link = '../user/user';
-    }
-    wx.navigateTo({
-      url: link
-    })
-  },
+  // Navigation: function(event, that) {
+
+  //   var link = '';
+  //  if (event.currentTarget.dataset.id == 1) {
+  //     link = '../index/index';
+  //   } else if (event.currentTarget.dataset.id == 2) {
+  //     link = '../userinfo/userinfo';
+  //   } else if (event.currentTarget.dataset.id == 3) {
+  //     link = '../userinfo/userinfo';
+  //   } else if (event.currentTarget.dataset.id == 4) {
+  //     link = '../user/user';
+  //   }
+  //   wx.navigateTo({
+  //     url: link
+  //   })
+  // },
+  
   globalData: {
     userInfo: null,
     PHPURL: "https://www.sxscott.com/gujie/index.php",

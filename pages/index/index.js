@@ -19,7 +19,7 @@ Page({
     clubs: [], //原始数据
     animations: [],
     touchDot: '',
-    done: false,
+    done: false, 
     time: 0,
     container: [], //记录当前5个位置为哪5个item，理解为5个容器
     curPos: 2, //记录当前显示位置是第几个容器（从0开始）
@@ -27,20 +27,20 @@ Page({
     curIndex: 1,//从显示位置的item在clubs中的index
     postions: [0, 1, 2, 3, 4],//container中5个容器所在位置
     opacities: [0, 0.8, 1, 0.8, 0],
-
+    move:0,
     Gradual:'',
     Gradualcon: '',
     GradualNum:0,
-    //底部导航栏
-    footSrc2: '../../images/首页.png',
-    footSrc3: '../../images/投票.png',
-    footSrc4: '../../images/时事.png',
-    footSrc5: '../../images/我的.png'
+    // //底部导航栏
+    // footSrc2: '../../images/首页.png',
+    // footSrc3: '../../images/投票.png',
+    // footSrc4: '../../images/时事.png',
+    // footSrc5: '../../images/我的.png'
   },
-  Navigation: function (event) {
-    var that = this;
-    app.Navigation(event, that);
-  },
+  // Navigation: function (event) {
+  //   var that = this;
+  //   app.Navigation(event, that);
+  // },
 //轮播图
   setImgBroadcast:function(){
     let that=this;
@@ -183,7 +183,6 @@ Page({
   onLoad: function (options) {
      let that=this;
     // that.Startpage();
-    
      that.setImgBroadcast();
      that.setvoteBroadcast();
     
@@ -200,16 +199,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
     var that=this;
+
+    // 动画效果组件
+ 
+
+
     var GradualNum = wx.getStorageSync('GradualNum');
     console.log(GradualNum);
     if (GradualNum) {
      that.setData({
        GradualNum: GradualNum
      })
+      setTimeout(function () {
+        that.setData({
+          move: 1
+        })
+        wx.showTabBar({
+          aniamtion: true,
+        })
+      }, 8000) //延
     }
   },
+  //控制动画的时候底部滚动时间不被触发
+stopPageScroll(){
 
+  return;
+},
   /**
    * 生命周期函数--监听页面隐藏
    */

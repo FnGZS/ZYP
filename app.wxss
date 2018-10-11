@@ -51,7 +51,7 @@ border-top:1px solid #ddd;
 }
 
 .foot-no {
-height:100rpx;
+height:90rpx;
 
 width:100%;
 

@@ -1,3 +1,4 @@
+<view class='index-page' catchtouchmove='{{move ?"":"stopPageScroll"}}'>
 <view class='{{GradualNum?"guide-all":""}}' wx:if="{{GradualNum}}" animation="{{Gradual}}">
   <!-- 引导页面从此开始 -->
   <view class='guide'>
@@ -26,8 +27,8 @@
   </view>
 </view>
 
-<!-- 首页的轮播加磨砂校徽 -->
-<view class='{{GradualNum?"conter":"conter-no"}}'>
+<!-- 首页的轮播加磨砂校徽{{move?"true":"false"}} -->
+<view class='{{GradualNum?"conter":"conter-no"}}' >
   <view class='index-head'>
     <view class='index-head-bg'>
       <image src='/images/head-bg.png'></image>
@@ -115,9 +116,9 @@
       </view>
     </view>
   </view>
-  <view class='index-toupiao'>
-    <view class='index-toupiao-text'>
-      <view class='index-toupiao-img'>
+  <view class='index-title'>
+    <view class='index-title-text'>
+      <view class='index-title-img'>
         <image src='/images/xiaoyuantoupiao.png'></image>
       </view>
     </view>
@@ -161,12 +162,43 @@
 
     </view>
     <view class='index-toupiao-bg-caidai-right'>
-
     </view>
   </view>
   <!-- ------------------------------- -->
+    <view class='index-title'>
+    <view class='index-title-text'>
+      <view class='index-title-img'>
+        <image src='/images/xiaoyuanshishi.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='index-current-scorll'>
+      <view class='index-current' >
+         <view class='index-current-head'>
+         
+         </view>
+         <view class='index-current-img'>
+         
+         </view>
+         <view class='index-current-cont'>
+         
+         </view>
+      </view>
+            <view class='index-current'>
+         <view class='index-current-head'>
+         
+         </view>
+         <view class='index-current-img'>
+         
+         </view>
+         <view class='index-current-cont'>
+         
+         </view>
+      </view>
+  </view>
 </view>
-<view class='{{GradualNum?"foot":"foot-no"}}' >
+
+<!-- <view class='{{GradualNum?"foot":"foot-no"}}' >
   <view class="tab">
     <image src='{{footSrc2}}' data-id='1' bindtap='Navigation'></image>
     <view>
@@ -191,4 +223,5 @@
       我的
     </view>
   </view>
+</view> -->
 </view>
