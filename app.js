@@ -30,14 +30,12 @@ App({
               console.log(platUserInfoMap);
               // console.log(JSON.stringify(data));
                wx.request({
-                 url: 'http://192.168.1.106:8080/api/user/login',
+                 url: 'http://www.sxscott.com:8080/crazyBird/user/login',
                  method: 'POST',
                  data: {
-                   platCode: resp.code,
-                   platUserInfoMap: platUserInfoMap,
-                   }
-                 ,
-               
+                    platCode: resp.code,
+                    platUserInfoMap: platUserInfoMap,
+                   },
                  header: {
                    'content-type': 'application/json' // 默认值
                  },
