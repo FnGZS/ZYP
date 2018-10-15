@@ -94,13 +94,13 @@ page {
   70%{
     width: 100rpx;
     height: 100rpx;
-        margin-top:-80rpx;
+        margin-top:-50rpx;
         /* margin-left: -10rpx; */
     opacity: 1;
        transform: rotateY(1440deg);
   }
   100%{
-        margin-top:-80rpx;
+        margin-top:-50rpx;
         /* margin-left: -10rpx; */
      width: 100rpx;
     height: 100rpx;
@@ -155,7 +155,7 @@ page {
     opacity: 1;
     width: 180rpx;
     height: 60rpx;
-    margin-top: -520rpx;
+    margin-top: -480rpx;
     margin-right: -120rpx;
   }
 
@@ -163,7 +163,7 @@ page {
     opacity: 0.0;
     width: 180rpx;
     height: 60rpx;
-     margin-top: -520rpx;
+     margin-top: -480rpx;
     margin-rigth: -120rpx;
   }
 }
@@ -189,7 +189,7 @@ page {
     opacity: 1;
     width: 180rpx;
     height: 60rpx;
-    margin-top: -520rpx;
+    margin-top: -480rpx;
     margin-left: -120rpx;
   }
 
@@ -197,7 +197,7 @@ page {
     opacity: 0;
     width: 180rpx;
     height: 60rpx;
-     margin-top: -520rpx;
+     margin-top: -480rpx;
     margin-left: -120rpx;
   }
 }
@@ -424,4 +424,41 @@ justify-content: center;
 align-items: center;
 flex-wrap:wrap;
 background: white;
+}
+.index-current{
+  width: 700rpx;
+  height: 500rpx;
+  margin-top:10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+}
+
+.index-current-head{
+  width: 80%;
+  /* background: red; */
+  height: 50rpx;
+  font-size: 30rpx;
+ 
+}
+.index-current-img{
+  width: 90%;
+  height: 300rpx;
+   margin-top:-40rpx;
+  /* background: blueviolet; */
+}
+.index-current-img image{
+  width: 100%;
+  height: 100%;
+  
+}
+.index-current-cont{
+  width: 90%;
+  height: 30rpx;
+  /* background: lavenderblush; */
+  font-size:25rpx;
+  overflow: hidden;
+  margin-top: -20rpx;
+  color:#797979;
 }

@@ -1,26 +1,19 @@
-<view class='{{GradualNum?"foot":"foot-no"}}'>
-  <view class="tab">
-    <image src='{{footSrc2}}' data-id='1' bindtap='Navigation'></image>
-    <view>
-      首页
+<view class='user-conter'>
+  <view class='user-img'>
+    <image src=''></image>
+  </view>
+  <view class='user-btn'>
+    <view class="container">
+      <view class="userinfo" style="opacity:1.0">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <block wx:else>
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+      </view>
+      <view class="usermotto">
+         <view class=''></view>
+      </view>
     </view>
   </view>
-  <view class="tab">
-    <image src='{{footSrc3}}' data-id='2' bindtap='Navigation'></image>
-    <view>
-      投票 
-    </view>
-  </view>
-  <view class="tab">
-    <image src='{{footSrc4}}' data-id='3' bindtap='Navigation'></image>
-    <view>
-      时事
-    </view>
-  </view>
-  <view class="tab">
-    <image src='{{footSrc5}}' data-id='4' bindtap='Navigation'></image>
-    <view>
-    我的
-    </view>
- </view>
 </view>

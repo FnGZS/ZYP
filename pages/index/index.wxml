@@ -1,204 +1,204 @@
 <view class='index-page' catchtouchmove='{{move ?"":"stopPageScroll"}}'>
-<view class='{{GradualNum?"guide-all":""}}' wx:if="{{GradualNum}}" animation="{{Gradual}}">
-  <!-- 引导页面从此开始 -->
-  <view class='guide'>
-    <!-- logo图 有旋转淡入放大效果-->
-    <view class='guide-top'>
-      <view class='guide-top-img'>
-        <image src='../../images/YPCloge.png'> </image>
+  <view class='{{GradualNum?"guide-all":""}}' wx:if="{{GradualNum}}" animation="{{Gradual}}">
+    <!-- 引导页面从此开始 -->
+    <view class='guide'>
+      <!-- logo图 有旋转淡入放大效果-->
+      <view class='guide-top'>
+        <view class='guide-top-img'>
+          <image src='../../images/YPCloge.png'> </image>
+        </view>
       </view>
-    </view>
-    <!-- 校训淡入放大移入效果-->
-    <view class='guide-middle'>
-      <view class='guide-middle-left'>
-        <image class='guide-middle-image' src='../../images/indextext-1.png'></image>
+      <!-- 校训淡入放大移入效果-->
+      <view class='guide-middle'>
+        <view class='guide-middle-left'>
+          <image class='guide-middle-image' src='../../images/indextext-1.png'></image>
+        </view>
+        <view class='guide-middle-rigth'>
+          <image class='guide-middle-image' src='../../images/indextext-2.png'></image>
+        </view>
       </view>
-      <view class='guide-middle-rigth'>
-        <image class='guide-middle-image' src='../../images/indextext-2.png'></image>
-      </view>
-    </view>
-    <!-- 小程序名字以及版本号淡入效果 -->
-    <view class="weui-footer weui-footer_fixed-bottom">
-      <view class="weui-footer__links">
-        <navigator url="" class="weui-footer__link">在元培</navigator>
-      </view>
-      <view class="weui-footer__text">Copyright © 2018-2019 疯鸟网络</view>
-    </view>
-  </view>
-</view>
-
-<!-- 首页的轮播加磨砂校徽{{move?"true":"false"}} -->
-<view class='{{GradualNum?"conter":"conter-no"}}' >
-  <view class='index-head'>
-    <view class='index-head-bg'>
-      <image src='/images/head-bg.png'></image>
-    </view>
-    <view class='index-head-swiper'>
-      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{imgUrls}}" wx:key="key">
-          <swiper-item>
-            <image src="{{item}}" class="index-head-swiper-image" />
-            <!-- <image src="/images/ceshi.png" class="index-head-swiper-image" /> -->
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
-  </view>
-  <!-- 首页八个导航 -->
-  <view class='index-body'>
-    <view class='index-body-icon'>
-      <view class='index-body-icon-bg'>
-        <view class='index-body-icon-bg-content'>
-          <view class='index-body-icon-bg-content-icon'>
-            <view class='index-body-icon-bg-content-icon-border'>
-              <image src='/images/icon-toupiao.png'></image>
-            </view>
-          </view>
-          <view class='index-body-icon-bg-content-text'>校园投票</view>
+      <!-- 小程序名字以及版本号淡入效果 -->
+      <view class="weui-footer weui-footer_fixed-bottom">
+        <view class="weui-footer__links">
+          <navigator url="" class="weui-footer__link">在元培</navigator>
         </view>
-        <view class='index-body-icon-bg-content'>
-          <view class='index-body-icon-bg-content-icon'>
-            <view class='index-body-icon-bg-content-icon-border'>
-              <image src='/images/icon-shishi.png'></image>
-            </view>
-
-          </view>
-          <view class='index-body-icon-bg-content-text'>校园时事</view>
-        </view>
-        <view class='index-body-icon-bg-content'>
-          <view class='index-body-icon-bg-content-icon'>
-            <view class='index-body-icon-bg-content-icon-border'>
-              <image src='/images/icon-tongzhi.png'></image>
-            </view>
-          </view>
-          <view class='index-body-icon-bg-content-text'>校讯通知</view>
-        </view>
-        <view class='index-body-icon-bg-content'>
-          <view class='index-body-icon-bg-content-icon'>
-            <view class='index-body-icon-bg-content-icon-border'>
-              <image src='/images/icon-gaobai.png'></image>
-            </view>
-          </view>
-          <view class='index-body-icon-bg-content-text'>告白专区</view>
-        </view>
-        <view class='index-body-icon-bg-content'>
-          <view class='index-body-icon-bg-content-icon'>
-            <view class='index-body-icon-bg-content-icon-border'>
-              <image src='/images/icon-ershou.png'></image>
-            </view>
-          </view>
-          <view class='index-body-icon-bg-content-text'>校园二手</view>
-        </view>
-        <view class='index-body-icon-bg-content'>
-          <view class='index-body-icon-bg-content-icon'>
-            <view class='index-body-icon-bg-content-icon-border'>
-              <image src='/images/icon-zhaoling.png'></image>
-            </view>
-          </view>
-          <view class='index-body-icon-bg-content-text'>失物招领</view>
-        </view>
-        <view class='index-body-icon-bg-content'>
-          <view class='index-body-icon-bg-content-icon'>
-            <view class='index-body-icon-bg-content-icon-border'>
-              <image src='/images/icon-shetuan.png'></image>
-            </view>
-          </view>
-          <view class='index-body-icon-bg-content-text'>社团活动</view>
-        </view>
-        <view class='index-body-icon-bg-content'>
-          <view class='index-body-icon-bg-content-icon'>
-            <view class='index-body-icon-bg-content-icon-border'>
-              <image src='/images/icon-kebiao.png'></image>
-            </view>
-          </view>
-          <view class='index-body-icon-bg-content-text'>课表查询</view>
-        </view>
+        <view class="weui-footer__text">Copyright © 2018-2019 疯鸟网络</view>
       </view>
     </view>
   </view>
-  <view class='index-title'>
-    <view class='index-title-text'>
-      <view class='index-title-img'>
-        <image src='/images/xiaoyuantoupiao.png'></image>
+
+  <!-- 首页的轮播加磨砂校徽{{move?"true":"false"}} -->
+  <view class='{{GradualNum?"conter":"conter-no"}}'>
+    <view class='index-head'>
+      <view class='index-head-bg'>
+        <image src='/images/head-bg.png'></image>
+      </view>
+      <view class='index-head-swiper'>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{imgUrls}}" wx:key="key">
+            <swiper-item>
+              <image src="{{item}}" class="index-head-swiper-image" />
+              <!-- <image src="/images/ceshi.png" class="index-head-swiper-image" /> -->
+            </swiper-item>
+          </block>
+        </swiper>
       </view>
     </view>
-  </view>
-  <view class='index-toupiao-bg'>
-    <view class='index-toupiao-bg-caidai-left'>
+    <!-- 首页八个导航 -->
+    <view class='index-body'>
+      <view class='index-body-icon'>
+        <view class='index-body-icon-bg'>
+          <view class='index-body-icon-bg-content'>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-toupiao.png'></image>
+              </view>
+            </view>
+            <view class='index-body-icon-bg-content-text'>校园投票</view>
+          </view>
+          <view class='index-body-icon-bg-content'>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-shishi.png'></image>
+              </view>
 
+            </view>
+            <view class='index-body-icon-bg-content-text'>校园时事</view>
+          </view>
+          <view class='index-body-icon-bg-content'>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-tongzhi.png'></image>
+              </view>
+            </view>
+            <view class='index-body-icon-bg-content-text'>校讯通知</view>
+          </view>
+          <view class='index-body-icon-bg-content'>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-gaobai.png'></image>
+              </view>
+            </view>
+            <view class='index-body-icon-bg-content-text'>告白专区</view>
+          </view>
+          <view class='index-body-icon-bg-content'>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-ershou.png'></image>
+              </view>
+            </view>
+            <view class='index-body-icon-bg-content-text'>校园二手</view>
+          </view>
+          <view class='index-body-icon-bg-content'>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-zhaoling.png'></image>
+              </view>
+            </view>
+            <view class='index-body-icon-bg-content-text'>失物招领</view>
+          </view>
+          <view class='index-body-icon-bg-content'>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-shetuan.png'></image>
+              </view>
+            </view>
+            <view class='index-body-icon-bg-content-text'>社团活动</view>
+          </view>
+          <view class='index-body-icon-bg-content'>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-kebiao.png'></image>
+              </view>
+            </view>
+            <view class='index-body-icon-bg-content-text'>课表查询</view>
+          </view>
+        </view>
+      </view>
     </view>
-    <view class='video-box'>
+    <view class='index-title'>
+      <view class='index-title-text'>
+        <view class='index-title-img'>
+          <image src='/images/xiaoyuantoupiao.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='index-toupiao-bg'>
+      <view class='index-toupiao-bg-caidai-left'>
 
-      <view class="box" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchend">
-        <!-- <block wx:for="{{clubs}}">
+      </view>
+      <view class='video-box'>
+
+        <view class="box" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchend">
+          <!-- <block wx:for="{{clubs}}">
      <view class="club" animation="{{item.animation}}" style='z-index:{{item.zindex}};'>
       <image src="{{item.image}}"/>
       <text>item.name}}</text>
     </view>
   </block> -->
-        <block>
-          <view class="club" animation="{{animation1}}" style='z-index:{{zindex[0]}};opacity:{{opacities[0]}};'>
-            <image src="{{container[0].image}}" />
-            <text>{{container[0].name}}</text>
-          </view>
-          <view class="club" animation="{{animation2}}" style='z-index:{{zindex[1]}};opacity:{{opacities[1]}};'>
-            <image src="{{container[1].image}}" />
-            <text>{{container[1].name}}</text>
-          </view>
-          <view class="club" animation="{{animation3}}" style='z-index:{{zindex[2]}};opacity:{{opacities[2]}};'>
-            <image src="{{container[2].image}}" />
-            <text>{{container[2].name}}</text>
-          </view>
-          <view class="club" animation="{{animation4}}" style='z-index:{{zindex[3]}};opacity:{{opacities[3]}};'>
-            <image src="{{container[3].image}}" />
-            <text>{{container[3].name}}</text>
-          </view>
-          <view class="club" animation="{{animation5}}" style='z-index:{{zindex[4]}};opacity:{{opacities[4]}};'>
-            <image src="{{container[4].image}}" />
-            <text>{{container[4].name}}</text>
-          </view>
-        </block>
-      </view>
+          <block>
+            <view class="club" animation="{{animation1}}" style='z-index:{{zindex[0]}};opacity:{{opacities[0]}};'>
+              <image src="{{container[0].image}}" />
+              <text>{{container[0].name}}</text>
+            </view>
+            <view class="club" animation="{{animation2}}" style='z-index:{{zindex[1]}};opacity:{{opacities[1]}};'>
+              <image src="{{container[1].image}}" />
+              <text>{{container[1].name}}</text>
+            </view>
+            <view class="club" animation="{{animation3}}" style='z-index:{{zindex[2]}};opacity:{{opacities[2]}};'>
+              <image src="{{container[2].image}}" />
+              <text>{{container[2].name}}</text>
+            </view>
+            <view class="club" animation="{{animation4}}" style='z-index:{{zindex[3]}};opacity:{{opacities[3]}};'>
+              <image src="{{container[3].image}}" />
+              <text>{{container[3].name}}</text>
+            </view>
+            <view class="club" animation="{{animation5}}" style='z-index:{{zindex[4]}};opacity:{{opacities[4]}};'>
+              <image src="{{container[4].image}}" />
+              <text>{{container[4].name}}</text>
+            </view>
+          </block>
+        </view>
 
+      </view>
+      <view class='index-toupiao-bg-caidai-right'>
+      </view>
     </view>
-    <view class='index-toupiao-bg-caidai-right'>
-    </view>
-  </view>
-  <!-- ------------------------------- -->
+    <!-- ------------------------------- -->
     <view class='index-title'>
-    <view class='index-title-text'>
-      <view class='index-title-img'>
-        <image src='/images/xiaoyuanshishi.png'></image>
+      <view class='index-title-text'>
+        <view class='index-title-img'>
+          <image src='/images/xiaoyuanshishi.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='index-current-scorll'>
+      <view class='index-current'>
+        <view class='index-current-head'>
+           KPL春季联赛
+        </view>
+        <view class='index-current-img'>
+         <image src='/images/mes.png'></image>
+        </view>
+        <view class='index-current-cont'>
+          东西对决，志竞巅峰！每周三至周日17：00直播
+        </view>
+      </view>
+        <view class='index-current'>
+        <view class='index-current-head'>
+           KPL春季联赛
+        </view>
+        <view class='index-current-img'>
+         <image src='/images/mes.png'></image>
+        </view>
+        <view class='index-current-cont'>
+          东西对决，志竞巅峰！每周三至周日17：00直播
+        </view>
       </view>
     </view>
   </view>
-  <view class='index-current-scorll'>
-      <view class='index-current' >
-         <view class='index-current-head'>
-         
-         </view>
-         <view class='index-current-img'>
-         
-         </view>
-         <view class='index-current-cont'>
-         
-         </view>
-      </view>
-            <view class='index-current'>
-         <view class='index-current-head'>
-         
-         </view>
-         <view class='index-current-img'>
-         
-         </view>
-         <view class='index-current-cont'>
-         
-         </view>
-      </view>
-  </view>
-</view>
 
-<!-- <view class='{{GradualNum?"foot":"foot-no"}}' >
+  <!-- <view class='{{GradualNum?"foot":"foot-no"}}' >
   <view class="tab">
     <image src='{{footSrc2}}' data-id='1' bindtap='Navigation'></image>
     <view>
