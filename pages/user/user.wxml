@@ -1,22 +1,93 @@
 <view class='user-conter'>
   <view class='user-img'>
-    <image src=''></image>
+    <image src='../../images/school.png'></image>
   </view>
   <view class='user-btn'>
     <view class="container">
-    <view class='container-bg'>
-    </view>
-      <view class="userinfo"  style="opacity:1.0">
+      <view class='container-bg'>
+      </view>
+      <view class="userinfo" style="opacity:1.0">
         <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
         <block wx:else>
           <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
           <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         </block>
       </view>
-        <view class="usermotto">
-          <view class=''></view>
+      <view class="usermotto">
+        <view class='usermotto-top'>
+          <view class='user-cont'>
+            <view class='user-cont-left'>
+
+            </view>
+            <view class='user-cont-center'>
+              我参与的投票活动
+            </view>
+            <view class='user-cont-rigth'>
+
+            </view>
+          </view>
+          <view class='user-cont'>
+            <view class='user-cont-left'>
+
+            </view>
+            <view class='user-cont-center'>
+              我参与的投票活动
+            </view>
+            <view class='user-cont-rigth'>
+
+            </view>
+          </view>
+
         </view>
+        <view class='usermotto-foot'>
+          <view class='user-cont'>
+            <view class='user-cont-left'>
+
+            </view>
+            <view class='user-cont-center'>
+              我参与的投票活动
+            </view>
+            <view class='user-cont-rigth'>
+
+            </view>
+          </view>
+          <view class='user-cont'>
+            <view class='user-cont-left'>
+
+            </view>
+            <view class='user-cont-center'>
+              我参与的投票活动
+            </view>
+            <view class='user-cont-rigth'>
+
+            </view>
+          </view>
+          <view class='user-cont'>
+            <view class='user-cont-left'>
+
+            </view>
+            <view class='user-cont-center'>
+              我参与的投票活动
+            </view>
+            <view class='user-cont-rigth'>
+
+            </view>
+          </view>
+           <view class='user-cont'>
+            <view class='user-cont-left'>
+
+            </view>
+            <view class='user-cont-center'>
+              我参与的投票活动
+            </view>
+            <view class='user-cont-rigth'>
+
+            </view>
+          </view>
+        </view>
+        <!-- <view class='iconfont icon-bangdingweixin'></view> -->
       </view>
     </view>
-     
+  </view>
+
 </view>

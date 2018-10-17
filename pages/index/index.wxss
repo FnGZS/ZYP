@@ -1,6 +1,6 @@
 /* pages/index/index.wxss */
 @import '../../style/base64/index.wxss';
-@import '../../style/tabbar.wxss';
+/* @import '../../style/tabbar.wxss'; */
 page {
   width: 100%;
   height: 100%;
