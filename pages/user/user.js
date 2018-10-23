@@ -53,6 +53,12 @@ Page({
       hasUserInfo: true
     })
   },
+ //绑定页面
+  binding:function(){
+    wx.navigateTo({
+      url: 'binding/binding'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

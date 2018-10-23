@@ -14,76 +14,63 @@
         </block>
       </view>
       <view class="usermotto">
-        <view class='usermotto-top'>
-          <view class='user-cont'>
-            <view class='user-cont-left'>
-
+        <view class='usermotto-top' style='border-top: 1rpx solid #E1E1E4'>
+          <view class='user-cont' bindtap='binding'>
+            <view class='user-cont-left iconfont icon-bangdingweixin'>
             </view>
             <view class='user-cont-center'>
-              我参与的投票活动
+              绑定学号
             </view>
             <view class='user-cont-rigth'>
-
+              <image src='../../images/right.png'></image>
             </view>
           </view>
           <view class='user-cont'>
-            <view class='user-cont-left'>
-
+            <view class='user-cont-left iconfont icon-toupiao'>
             </view>
             <view class='user-cont-center'>
-              我参与的投票活动
+              我参与的投票
             </view>
             <view class='user-cont-rigth'>
-
+              <image src='../../images/right.png'></image>
             </view>
           </view>
 
         </view>
-        <view class='usermotto-foot'>
+        <view class='usermotto-foot' style='border-top: 1rpx solid #E1E1E4'>
           <view class='user-cont'>
-            <view class='user-cont-left'>
-
+            <view class='user-cont-left iconfont icon-yijianfankui01'>
             </view>
             <view class='user-cont-center'>
-              我参与的投票活动
+              意见反馈
             </view>
             <view class='user-cont-rigth'>
-
-            </view>
-          </view>
-          <view class='user-cont'>
-            <view class='user-cont-left'>
-
-            </view>
-            <view class='user-cont-center'>
-              我参与的投票活动
-            </view>
-            <view class='user-cont-rigth'>
-
+              <image src='../../images/right.png'></image>
             </view>
           </view>
           <view class='user-cont'>
-            <view class='user-cont-left'>
+            <view class='user-cont-left iconfont icon-bangzhu-yin'>
 
             </view>
             <view class='user-cont-center'>
-              我参与的投票活动
+              帮助
             </view>
             <view class='user-cont-rigth'>
-
+              <image src='../../images/right.png'></image>
             </view>
           </view>
-           <view class='user-cont'>
-            <view class='user-cont-left'>
+          <view class='user-cont'>
+            <view class='user-cont-left iconfont icon-guanyuwomen'>
 
             </view>
             <view class='user-cont-center'>
-              我参与的投票活动
+              关于我们
             </view>
             <view class='user-cont-rigth'>
-
+              <image src='../../images/right.png'></image>
             </view>
           </view>
+
         </view>
         <!-- <view class='iconfont icon-bangdingweixin'></view> -->
       </view>

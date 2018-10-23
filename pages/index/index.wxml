@@ -1,4 +1,4 @@
-<view class='index-page' catchtouchmove='{{move ?"":"stopPageScroll"}}'>
+<view class='index-page' catchtouchmove='{{move}}'>
   <view class='{{GradualNum?"guide-all":""}}' wx:if="{{GradualNum}}" animation="{{Gradual}}">
     <!-- 引导页面从此开始 -->
     <view class='guide'>
@@ -35,7 +35,7 @@
       </view>
       <view class='index-head-swiper'>
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
-          <block wx:for="{{imgUrls}}" wx:key="key">
+          <block wx:for="{{imgUrlsloca}}" wx:key="key">
             <swiper-item>
               <image src="{{item}}" class="index-head-swiper-image" />
               <!-- <image src="/images/ceshi.png" class="index-head-swiper-image" /> -->
@@ -175,24 +175,24 @@
     <view class='index-current-scorll'>
       <view class='index-current'>
         <view class='index-current-head'>
-           KPL春季联赛
+           创新创业学院成立！
         </view>
         <view class='index-current-img'>
-         <image src='/images/mes.png'></image>
+         <image src='/images/mes1.jpg'></image>
         </view>
         <view class='index-current-cont'>
-          东西对决，志竞巅峰！每周三至周日17：00直播
+        学院与建设银行绍兴分行举行创新创业学院合作共建仪式
         </view>
       </view>
         <view class='index-current'>
         <view class='index-current-head'>
-           KPL春季联赛
+           校园文化
         </view>
         <view class='index-current-img'>
-         <image src='/images/mes.png'></image>
+         <image src='/images/mes2.jpg'></image>
         </view>
         <view class='index-current-cont'>
-          东西对决，志竞巅峰！每周三至周日17：00直播
+         社团文化建设 花开香满校园
         </view>
       </view>
     </view>

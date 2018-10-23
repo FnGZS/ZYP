@@ -1,18 +1,18 @@
-const HOST = require('../config.js')
+const url = require('../config.js')
 
 function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
-
+ 
   // 登录信息过期处理类型
   const OTCB = outTimeAuthCbOrNeedAuth || function () { getCurrentPages().pop().onLoad(getCurrentPages().pop().options) }
   const _sets = options
-
+  // console.log(_sets.url)
   if (typeof _sets.type === 'undefined') { _sets.type = 'POST' }
   if (typeof _sets.data === 'undefined') { _sets.data = {} }
 
   // 如果不是明确不需要登录权限 而且 没有 G_authorization 的缓存信息 
-  if (outTimeAuthCbOrNeedAuth !== false && !wx.getStorageSync('G_authorization')) {
+  if (outTimeAuthCbOrNeedAuth !== false && !wx.getStorageSync('authorization')) {
 
-    getApp().uploadUserInfo(OTCB)
+    // getApp().uploadUserInfo(OTCB)
     return
   }
 
@@ -32,23 +32,23 @@ function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
   bcallback()
 
   wx.request({
-    url: HOST + _sets.url,
+    url: url.host + _sets.url,
     method: _sets.type,
     data: _sets.data,
     header: {
       'content-type': 'application/json',
-      'authorization': outTimeAuthCbOrNeedAuth !== false ? wx.getStorageSync('G_authorization') : ''
+      'authorization': outTimeAuthCbOrNeedAuth !== false ? wx.getStorageSync('authorization') : ''
     },
     success(res) {
-
+      console.log(res.data);
       if (res.data.code == 200) {
-
-        scallback(res.data)
+    
+            scallback(res.data)
       } else {
 
         if (res.data.code == 401) {
 
-          getApp().uploadUserInfo(OTCB)
+          // getApp().uploadUserInfo(OTCB)
         } else {
 
           wx.showModal({

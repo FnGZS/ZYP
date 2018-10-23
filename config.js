@@ -6,9 +6,9 @@
 // var host = "http://192.168.0.188:8086/"
 //var host = "http://192.168.0.188:8080/"
 //开发
-//var host = "http://116.62.43.194/api"  
+// var host = "http://192.168.31.112:8080/com.crazyBird"  
 //正式
-var host = "http://192.168.1.106:8080/api"
+var host = "https://www.sxscott.com/crazyBird"
 
 //本地
 //var host ="http://smartdove.iask.in:17946/api"
@@ -16,7 +16,7 @@ var host = "http://192.168.1.106:8080/api"
 //var host="https://buguanjiatest.site/api"
 //var host = "http://192.168.0.168:8080/"
 
-var companyId=wx.getStorageSync('companyId')
+
 
 
 var config = {
@@ -25,6 +25,8 @@ var config = {
 
     // 登录地址，用于建立会话
   loginUrl: `${host}/user/login`,
+
+  bindingUrl: `${host}/user/binding`,
 
   //第三方平台登录
   plantLoginUrl: `${host}/user/account/platform/login`,
@@ -56,8 +58,6 @@ var config = {
     // 获取样品备注
     remarksUrl: `${host}/samples/{sampleId}/remarks`,
 
-    // 获取公司样品输入帮助信息
-    sampleInputHelpUrl: `${host}/companys/${companyId}/sampleInputHelp`,
 
     // 获取标记云
     cloudUrl: `${host}/tags/cloud`,
@@ -65,8 +65,7 @@ var config = {
      // 获取标记
     tagUrl: `${host}/tags`,
 
-    // 获取公司自定义字段列表
-    attributesUrl: `${host}/companys/${companyId}/attributes`,
+
 
 //获取公司
     companysUrl: `${host}/companys`,

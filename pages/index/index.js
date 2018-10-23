@@ -10,6 +10,11 @@ Page({
   data: {
     //轮播用的
     imgUrls: [],
+    imgUrlsloca: [
+      "http://www.ypc.edu.cn/__local/9/5B/C1/24B378BB085392BB7BDB78C5D67_5A4253C8_1C000.jpg",
+      "http://www.ypc.edu.cn/__local/0/23/F0/E9F68E4E359ED2EFB543E026F61_37E9AC58_53E86.jpg",
+      "http://www.ypc.edu.cn/__local/3/B4/AD/96325368E3BAC585F82849E32D3_7AA48327_86DB6.jpg"
+    ],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -62,48 +67,12 @@ Page({
         that.setData({
           imgUrls: arr
         })
-      
+        console.log(that.data.imgUrlsloca);
       },
 
     })
   },
-  //启动页动画效果
-  // Startpage:function(){
-  //   var GradualNum =wx.getStorageSync('GradualNum');
-  //   if (GradualNum){
-  //       var animation1 = wx.createAnimation({
-  //         // 动画持续时间，单位ms，默认值 400
-  //         duration: 9000,
-  //         // timingFunction: 'ease ',
-  //         // 延迟多长时间开始
-  //         delay: 0,
-  //       })
-  //     var animation2 = wx.createAnimation({
-  //       // 动画持续时间，单位ms，默认值 400
-  //       duration: 6000,
-  //       // timingFunction: 'ease ',
-     
-  //       // 延迟多长时间开始
-  //        delay: 0,
-  //     })
-  //       this.animation1 = animation1;
-  //     this.animation2 = animation2;
-  //       // console.log('1143');
-  //       this.animation1.opacity(1).step({ duration: 4000 }).opacity(.0).step({  duration: 3000 });
-  //     this.animation2.opacity(.0).step({ duration: 3000 }).opacity(1).step({ duration: 3000 });
-  //     this.setData({
-  //       //输出动画
-  //       Gradual: animation1.export(),
-  //       Gradualcon: animation2.export(),
-  //     })
-  //     // const that = this
-  //     // that.setData({
-  //     //   Gradualcon: that.animation2.export()
-  //     // })
-   
-  //   }
-  //   wx.setStorageSync('GradualNum', 0)
-  // },
+ 
 
   //投票轮播
   setvoteBroadcast:function(){
@@ -212,14 +181,20 @@ Page({
      that.setData({
        GradualNum: GradualNum
      })
+     console.log(that.data.move)
+     if(that.data.move==0){
+       that.setData({
+         move: 'stopPageScroll'
+       })
       setTimeout(function () {
-        that.setData({
-          move: 1
-        })
         wx.showTabBar({
           aniamtion: true,
         })
+        that.setData({
+          move: ''
+        })
       }, 8000) //延
+    }
     }
   },
   //控制动画的时候底部滚动时间不被触发

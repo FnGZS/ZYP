@@ -6,16 +6,17 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    wx.setStorageSync('GradualNum',1);
+    wx.setStorageSync('GradualNum',1);//用来判断是不是第一次打开小程序
     wx.hideTabBar();
     // 登录
     wx.login({
       success: resp => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log(resp.code);
+        // console.log(resp.code);
     var that=this;
     // 获取用户信息
     wx.getSetting({
+     
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
@@ -30,7 +31,7 @@ App({
               console.log(platUserInfoMap);
               // console.log(JSON.stringify(data));
                wx.request({
-                 url: 'http://www.sxscott.com:8080/crazyBird/user/login',
+                 url: url.loginUrl,
                  method: 'POST',
                  data: {
                     platCode: resp.code,
@@ -38,8 +39,16 @@ App({
                    },
                  header: {
                    'content-type': 'application/json' // 默认值
+                  
                  },
                  success(res) {
+                   wx.setStorageSync("isLogin", 1)
+                   that.globalData.nickName = res.data.userName
+                   that.globalData.headimgurl = res.data.avatar
+                   wx.setStorageSync("nickName", res.data.userName)
+                   wx.setStorageSync("avatar", res.data.avatar)
+                   wx.setStorageSync("userKey", res.data.userKey)
+                   wx.setStorageSync("authorization", res.data.authorization)
                    console.log(res)
                  }
                })
@@ -58,28 +67,18 @@ App({
 
   },
 
-  // Navigation: function(event, that) {
 
-  //   var link = '';
-  //  if (event.currentTarget.dataset.id == 1) {
-  //     link = '../index/index';
-  //   } else if (event.currentTarget.dataset.id == 2) {
-  //     link = '../userinfo/userinfo';
-  //   } else if (event.currentTarget.dataset.id == 3) {
-  //     link = '../userinfo/userinfo';
-  //   } else if (event.currentTarget.dataset.id == 4) {
-  //     link = '../user/user';
-  //   }
-  //   wx.navigateTo({
-  //     url: link
-  //   })
-  // },
-  
   globalData: {
     userInfo: null,
     PHPURL: "https://www.sxscott.com/gujie/index.php",
     IMGURL: "https://www.sxscott.com/gujie/public",
     platUserInfoMap:{},
-    userInfo:''
+    userInfo:'',
+    authorization: '',
+    nickName:'',
+    headimgurl:'',
+    authorization:'',
+
+
   }
 })

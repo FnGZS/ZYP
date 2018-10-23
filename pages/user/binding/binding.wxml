@@ -1,0 +1,33 @@
+<view class='cont'>
+  <view class='cont-big'>
+
+    <view class='cont-ipm'>
+      <view class='cont-head'>
+        <view class='Firsttitle'>学号绑定</view>
+        <view class='Secondtitle'>Student number binding</view>
+      </view>
+      <view class='cont-middle'>
+        <view class='cont-middle-input'>
+          <input maxlength="10" bindinput='watchID' placeholder="请输入学号" />
+        </view>
+        <view class='cont-middle-input'>
+          <input maxlength="10"  bindinput='watchPassWord' placeholder="请输入身份证后六位" />
+        </view>
+        <view class='cont-middle-help'>
+         注意事项:
+          <ul>
+           <li>1.此学号仅可用自己的学号绑定</li>
+           <li>2.密码请输入身份证后六位</li>
+           <li>3.绑定后无法更改</li>
+          </ul>
+        </view>
+      </view>
+      <view class='cont-bottom'>
+        <view class='cont-btn'>
+         <button  bindtap="Submission"> 提交</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='cont-bg'></view>
+</view>

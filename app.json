@@ -4,6 +4,7 @@
     "pages/vote/vote",
     "pages/currentaffairs/currentaffairs",
     "pages/user/user",
+    "pages/user/binding/binding",
     "pages/logoMode/logoMode",
     "pages/logs/logs"
   ],
