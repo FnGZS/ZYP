@@ -7,38 +7,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-    watchID:'',
-    watchPassWord:'',
+    watchID: '',
+    watchPassWord: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log(wx.getStorageSync("authorization"));
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
-  watchID: function (event){
+  watchID: function(event) {
     console.log(event.detail.value);
-    let that=this;
+    let that = this;
     that.setData({
       watchID: event.detail.value,
     })
   },
-  watchPassWord: function (event) {
+  watchPassWord: function(event) {
     let that = this;
     that.setData({
       watchPassWord: event.detail.value,
     })
   },
-  Submission:function(){
-    var that=this;
+  Submission: function() {
+    var that = this;
     let infoOpt = {
       url: '/user/binding',
       type: 'POST',
@@ -51,16 +51,28 @@ Page({
         'authorization': wx.getStorageSync("authorization"),
       },
 
-      
+
     }
     let infoCb = {}
-    infoCb.success = function (data) {
-      console.log(data);
+    infoCb.success = function(data) {
+      if (data.code == 200) {
+        wx.setStorageSync('isbound',1);
+        wx.setStorageSync('authorization', data.asToken);
+        wx.showModal({
+          title: '提示',
+          content: data.message || '处理失败',
+          showCancel: false,
+          success(res) {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        });
+      }
     }
-    infoCb.beforeSend = () => {
-    }
+    infoCb.beforeSend = () => {}
     infoCb.complete = () => {
-      
+
     }
     sendAjax(infoOpt, infoCb, () => {
       // that.onLoad()
@@ -71,42 +83,42 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

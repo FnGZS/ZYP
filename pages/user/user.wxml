@@ -19,7 +19,7 @@
             <view class='user-cont-left iconfont icon-bangdingweixin'>
             </view>
             <view class='user-cont-center'>
-              绑定学号
+              {{isboundUser}}
             </view>
             <view class='user-cont-rigth'>
               <image src='../../images/right.png'></image>
