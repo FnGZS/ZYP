@@ -10,7 +10,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isboundUser:'绑定学号',
   },
 
   /**
@@ -44,6 +45,7 @@ Page({
         }
       })
     }
+ 
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -55,9 +57,12 @@ Page({
   },
  //绑定页面
   binding:function(){
-    wx.navigateTo({
-      url: 'binding/binding'
-    })
+    // console.log('12321313');
+    if (wx.getStorageSync('isbound') == 2) {
+      wx.navigateTo({
+        url: 'binding/binding'
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -77,7 +82,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('123');
+    console.log(wx.getStorageSync('isbound'));
+    if (wx.getStorageSync('isbound') == '1') {
+      this.setData({
+        isboundUser: '已绑定学号'
+      })
+    }
   },
 
   /**

@@ -46,6 +46,7 @@ App({
                    that.globalData.nickName = res.data.userName
                    that.globalData.headimgurl = res.data.avatar
                    wx.setStorageSync("nickName", res.data.userName)
+                   wx.setStorageSync("isbound", res.data.isbound)
                    wx.setStorageSync("avatar", res.data.avatar)
                    wx.setStorageSync("userKey", res.data.userKey)
                    wx.setStorageSync("authorization", res.data.authorization)
