@@ -48,13 +48,13 @@
     <view class='index-body'>
       <view class='index-body-icon'>
         <view class='index-body-icon-bg'>
-          <view class='index-body-icon-bg-content'>
+          <view class='index-body-icon-bg-content' bindtap='vote'>
             <view class='index-body-icon-bg-content-icon'>
               <view class='index-body-icon-bg-content-icon-border'>
                 <image src='/images/icon-toupiao.png'></image>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>校园投票</view>
+            <view class='index-body-icon-bg-content-text' >校园投票</view>
           </view>
           <view class='index-body-icon-bg-content'>
             <view class='index-body-icon-bg-content-icon'>

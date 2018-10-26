@@ -1,0 +1,75 @@
+<view id='vote'>
+  <scroll-view class="scroll-con" scroll-y scroll-top="{{scrollTop}}" bindscroll="handleScroll" bindscrolltolower="scrollToLower" style='height:{{phoneHeight}}rpx'>
+    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true" class='lunbotu' s>
+      <block wx:for="{{imgUrls}}" wx:key="key">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='recommend'>
+      <view class='recommend-top'>
+        <image src='http://www.zjw77.club/someimg/tuijian.png? + Math.random() / 9999'></image>
+      </view>
+      <view class='recommend-main' bindtap='toSpecialDetail'>
+
+        <view class='recommend-img'>
+          <image src='http://www.zjw77.club/someimg/votenav.jpg'></image>
+        </view>
+        <view class='recommend-text'>
+          <view class='recommend-title'>绍兴文理学院元培学院“蔡元培”奖学金投票</view>
+          <view class='recommend-status'></view>
+          <view class='recommend-time'>2018.11.10 - 2018.11.17</view>
+        </view>
+      </view>
+      <view class='{{navIsToTop == 0? "voteSquare-nav":"voteSquare-nav-totop"}}'>
+
+        <view class='nav-notStart {{navId == 0?"nav-active":""}}' bindtap='nav_notStart'>
+          <view>未开始</view>
+          <view class=' {{navId == 0?"nav-line":""}} '></view>
+        </view>
+        <view class='nav-begining {{navId == 1?"nav-active":""}}' bindtap='nav_begining'>
+          <view>进行中</view>
+          <view class='{{navId == 1?"nav-line":""}} '></view>
+        </view>
+        <view class='nav-finished {{navId == 2?"nav-active":""}}' bindtap='nav_finished'>
+          <view>已结束</view>
+          <view class='{{navId == 2?"nav-line":""}} '></view>
+        </view>
+      </view>
+    </view>
+    <view class='voteSquare' id='view_A'>
+      <!-- <view class='voteSquare-nav-totop' wx:if="{{navIsToTop == 1}}">
+        <view class='nav-notStart {{navId == 0?"nav-active":""}}' bindtap='nav_notStart'>
+          <view>未开始</view>
+          <view class=' {{navId == 0?"nav-line":""}} '></view>
+        </view>
+        <view class='nav-begining {{navId == 1?"nav-active":""}}' bindtap='nav_begining'>
+          <view>进行中</view>
+          <view class='{{navId == 1?"nav-line":""}} '></view>
+        </view>
+        <view class='nav-finished {{navId == 2?"nav-active":""}}' bindtap='nav_finished'>
+          <view>已结束</view>
+          <view class='{{navId == 2?"nav-line":""}} '></view>
+        </view>
+      </view> -->
+      <view wx:if="{{voteList.length == 0}}" class='noMore'>
+        <view class='iconfont icon-ku'></view>
+        <view class='noMore-text'>暂无更多活动</view>
+      </view>
+      <view class='voteList' wx:for="{{voteList}}" wx:key="key" bindtap='toVoteDetail' data-id='{{item.id}}'>
+        <view class='list-main' style='  background: url("{{item.actionImage}}");background-size: 100% 100%;'>
+          <view class='list-shadow'></view>
+          <view class='list-main-title'>{{item.actionName}}</view>
+          <view class='list-main-partin'>{{item.visitNum}}人访问</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view>
+  <loading hidden="{{lodingHidden}}">
+    加载中..
+  </loading>
+</view>

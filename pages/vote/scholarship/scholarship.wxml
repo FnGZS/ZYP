@@ -1,0 +1,143 @@
+<view class='scholarship' style='height:{{phoneHeight}}rpx'>
+  <!-- 投票顶部图 -->
+  <view class='navpic'>
+    <image src='{{navpic}}'></image>
+    <view class='navpic-text' style='background:{{voteStatusColor}}'>{{voteStatusText}}</view>
+  </view>
+  <!-- 投票数量统计 -->
+  <view class='count'>
+    <view class='count-part'>
+      <view class='count-part-num'>{{userList.length}}</view>
+      <view class='count-part-text'>参赛选手</view>
+    </view>
+    <view class='count-line'></view>
+    <view class='count-vote'>
+      <view class='count-vote-num'>{{voteSum}}</view>
+      <view class='count-vote-text'>累计投票</view>
+    </view>
+    <view class='count-line'></view>
+    <view class='count-visit'>
+      <view class='count-visit-num'>{{visitNum}}</view>
+      <view class='count-visit-text'>访问次数</view>
+    </view>
+  </view>
+  <!-- 投票倒计时 -->
+  <view class='tiemDown' wx:if="{{status == 0}}">
+    <view class='tiemDown-text'>距离投票开始还有：</view>
+    <view class='tiemDown-time'>{{voteTimeDay}}</view>
+    <view class='tiemDown-tiemText'>天</view>
+    <view class='tiemDown-time'>{{voteTimeHour}}</view>
+    <view class='tiemDown-tiemText'>时</view>
+    <view class='tiemDown-time'>{{voteTimeMin}}</view>
+    <view class='tiemDown-tiemText'>分</view>
+    <view class='tiemDown-time'>{{voteTimeSec}}</view>
+    <view class='tiemDown-tiemText'>秒</view>
+  </view>
+  <view class='tiemDown' wx:if="{{status == 1}}">
+    <view class='tiemDown-text'>距离投票结束还有：</view>
+    <view class='tiemDown-time'>{{voteTimeDay}}</view>
+    <view class='tiemDown-tiemText'>天</view>
+    <view class='tiemDown-time'>{{voteTimeHour}}</view>
+    <view class='tiemDown-tiemText'>时</view>
+    <view class='tiemDown-time'>{{voteTimeMin}}</view>
+    <view class='tiemDown-tiemText'>分</view>
+    <view class='tiemDown-time'>{{voteTimeSec}}</view>
+    <view class='tiemDown-tiemText'>秒</view>
+  </view>
+  <view class='tiemDown' wx:if="{{status == 2}}">
+    <view class='tiemDown-text'>投票已结束</view>
+  </view>
+  <!-- 全部参赛显示 -->
+  <view id='nav-all' hidden='{{currentNavId==0?"":"hidden"}}'>
+    <!-- 投票搜索 -->
+    <view class='search'>
+      <input placeholder="请输入编号或名称" placeholder-class="search-input" bindinput='search_content' />
+      <view class='search-text' bindtap='search'>搜 索</view>
+    </view>
+    <view class='userList'>
+      <view class='user' wx:for="{{userList}}" wx:for-index="userNum" wx:key="key" hidden='{{userHidden[userNum]}}' bindtap='toVoteDetail' data-id='{{item.serialId}}'>
+        <image src='{{item.imageUrl}}'></image>
+        <view class='user-number'>{{item.serialId}}</view>
+        <view class='user-name'>{{item.className}} {{item.peopleName}} </view>
+        <view class='user-line'></view>
+        <view class='user-bottom'>
+          <view class='user-voteNum'>{{item.num}}票</view>
+        </view>
+        <view class='{{user_choose[userNum] == 0 ? "user-choose" : "user-choose-active"}}'  ></view>
+        <view class='iconfont  {{user_choose[userNum] == 0 ? "gouBlank" : "icon-gou"}}' bindtap='{{voteBtnClick > 0?"userChoose":""}}' data-num='{{userNum}}'></view>
+      </view>
+    </view>
+    <view class='btn' bindtap='{{voteBtnClick > 0 ?"voteBtn":""}}' style='background:{{voteBtnColor}}'>{{voteBtnText}}</view>
+  </view>
+  <!-- 排行榜显示 -->
+  <view id='nav-rank' hidden='{{currentNavId==1?"":"hidden"}}'>
+    <view class='rank'>
+      <view class='rank-main' wx:for="{{userRank}}" wx:for-index="rankNum" wx:key="key">
+        <view class='rank-main-img'>
+          <image src='{{item.imageUrl}}'></image>
+        </view>
+        <view class='rank-main-mes'>
+          <view class='rank-main-mes-number'>编号：{{item.serialId}}</view>
+          <view class='rank-main-mes-name'>{{item.className}} {{item.peopleName}}</view>
+          <view class='rank-main-mes-motto'>{{item.content}}</view>
+        </view>
+        <view class='rank-voteNum'>{{item.num}}票</view>
+        <view class='iconfont icon-paiming'></view>
+        <view class='rank-num'>{{rankNum + 1}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view id='nav-rule' hidden='{{currentNavId==2?"":"hidden"}}'>
+    <view class='rule'>
+      <view class='rule-text'>
+        <view class='rule-lineLeft'></view>
+        <view class='rule-word'>投票规则</view>
+        <view class='rule-lineRight'></view>
+      </view>
+      <view class='rule-main'>
+        <view class='rule-main-startTime'>
+          <view class='iconfont icon-kaishishijian'></view>
+          <view class='rule-main-startTimeTitle'>开始时间：</view>
+          <view class='rule-main-startTimeContent'>{{startTime}}</view>
+        </view>
+        <view class='rule-main-endTime'>
+          <view class='iconfont icon-kaishishijian'></view>
+          <view class='rule-main-endTimeTitle'>截止时间：</view>
+          <view class='rule-main-endTimeContent'>{{endTime}}</view>
+        </view>
+        <view class='rule-main-limit'>
+          <view class='iconfont icon-tanhao'></view>
+          <view class='rule-main-limitTitle'>投票限定：</view>
+          <view class='rule-main-limitContent'>{{rule_limt}}</view>
+        </view>
+        <view class='rule-main-intro'>
+          <view class='iconfont icon-jieshao'></view>
+          <view class='rule-main-introTitle'>投票介绍：</view>
+          <view class='rule-main-introContent'>{{rule_intro}}</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <!-- 底部导航 -->
+  <view class='bottom-nav'>
+    <view class='bottom-all {{currentNavId==0?"bottom-nav-active":""}}' bindtap='nav_all'>
+      <view class='iconfont icon-quanbu'></view>
+      <view class='bottom-all-text'>全部参赛</view>
+    </view>
+    <view class='bottom-rank {{currentNavId==1?"bottom-nav-active":""}}' bindtap='nav_rank'>
+      <view class='iconfont icon-paihang'></view>
+      <view class='bottom-rank-text'>排行榜</view>
+    </view>
+    <view class='bottom-rule {{currentNavId==2?"bottom-nav-active":""}}' bindtap='nav_rule'>
+      <view class='iconfont icon-guize'></view>
+      <view class='bottom-rule-text'>投票规则</view>
+    </view>
+  </view>
+</view>
+<view>
+    <loading hidden="{{lodingHidden}}">
+        加载中..
+    </loading>
+</view>
