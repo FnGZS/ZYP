@@ -1,47 +1,49 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/vote/vote",
     "pages/currentaffairs/currentaffairs",
     "pages/user/user",
     "pages/user/binding/binding",
+    "pages/vote/index",
+    "pages/vote/scholarship/scholarship",
+    "pages/vote/voteDetail/voteDetail",
     "pages/logoMode/logoMode",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
- "tabBar": {
-  "color": "#CECECE",
-  "selectedColor": "#E9524A",
-  "list": [
-    {
-      "selectedIconPath": "images/首页2.png",
-      "iconPath": "images/首页.png",
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    },
-    {
-      "selectedIconPath": "images/投票2.png",
-      "iconPath": "images/投票.png",
-      "pagePath": "pages/vote/vote",
-      "text": "投票 "
-    },
-    {
-      "selectedIconPath": "images/时事2.png",
-      "iconPath": "images/时事.png",
-      "pagePath": "pages/currentaffairs/currentaffairs",
-      "text": "时事"
-    },
-    {
-      "selectedIconPath": "images/我的2.png",
-      "iconPath": "images/我的.png",
-      "pagePath": "pages/user/user",
-      "text": "我的"
-    }
-  ]
-}
+  "tabBar": {
+    "color": "#CECECE",
+    "selectedColor": "#E9524A",
+    "list": [
+      {
+        "selectedIconPath": "images/首页2.png",
+        "iconPath": "images/首页.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/投票2.png",
+        "iconPath": "images/投票.png",
+        "pagePath": "pages/vote/index",
+        "text": "投票 "
+      },
+      {
+        "selectedIconPath": "images/时事2.png",
+        "iconPath": "images/时事.png",
+        "pagePath": "pages/currentaffairs/currentaffairs",
+        "text": "时事"
+      },
+      {
+        "selectedIconPath": "images/我的2.png",
+        "iconPath": "images/我的.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  }
 }

@@ -146,6 +146,12 @@ Page({
     })
 
   },
+  vote:function(){
+    console.log('123123');
+    wx.switchTab({
+      url: '../vote/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -172,9 +178,6 @@ Page({
     var that=this;
 
     // 动画效果组件
- 
-
-
     var GradualNum = wx.getStorageSync('GradualNum');
     console.log(GradualNum);
     if (GradualNum) {
