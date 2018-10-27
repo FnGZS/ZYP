@@ -28,7 +28,7 @@ App({
               var platUserInfoMap = that.globalData.platUserInfoMap;
               platUserInfoMap["encryptedData"] = userResult.encryptedData;
               platUserInfoMap["iv"] = userResult.iv;
-              console.log(platUserInfoMap);
+              // console.log(platUserInfoMap);
               // console.log(JSON.stringify(data));
                wx.request({
                  url: url.loginUrl,
@@ -50,6 +50,7 @@ App({
                    wx.setStorageSync("avatar", res.data.avatar)
                    wx.setStorageSync("userKey", res.data.userKey)
                    wx.setStorageSync("authorization", res.data.authorization)
+                   wx.setStorageSync("userId", res.data.userId)
                    console.log(res)
                  }
                })

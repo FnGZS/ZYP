@@ -1,4 +1,5 @@
 // pages/user/user.js
+var url = require('../../config.js')
 var app = getApp()
 Page({
 
@@ -12,12 +13,13 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isboundUser:'绑定学号',
+    platUserInfoMap:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
     wx.setStorageSync('GradualNum', 0);
     if (app.globalData.userInfo) {
       this.setData({
@@ -48,13 +50,15 @@ Page({
  
   },
   getUserInfo: function (e) {
-    console.log(e)
+    var that=this;
+    console.log(e);
+
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
-    })
-  },
+    }) 
+},
  //绑定页面
   binding:function(){
     // console.log('12321313');
@@ -70,7 +74,7 @@ Page({
   onReady: function () {
     var that = this;
     var GradualNum = wx.getStorageSync('GradualNum');
-    console.log(GradualNum);
+    // console.log(GradualNum);
     if (GradualNum) {
       that.setData({
         GradualNum: GradualNum
@@ -82,9 +86,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('123');
+    // console.log('123');
     console.log(wx.getStorageSync('isbound'));
-    if (wx.getStorageSync('isbound') == '1') {
+    if (wx.getStorageSync('isbound') == 1 ) {
       this.setData({
         isboundUser: '已绑定学号'
       })
