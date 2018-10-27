@@ -5,9 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentTab: 0
   },
-
+  //滑动切换
+  swiperTab: function (e) {
+    console.log(e);
+    this.setData({
+      currentTab: e.detail.current
+    });
+  },
+  //点击切换
+  clickTab: function (e) {
+    var _this = this;
+    if (_this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      _this.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

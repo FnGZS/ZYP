@@ -1,2 +1,70 @@
-<!--pages/currentaffairs/currentaffairs.wxml-->
-<text>pages/currentaffairs/currentaffairs.wxml</text>
+<view class="cont">
+  <view class='cont-head'>
+    <view class='cont-head-text'>
+      <view class='text-icon'>
+        重要
+      </view>
+      <view class='text-cont'>
+        认真学习贯彻习近平总书记重要指示精神奋力续写新时代"八八战略"崭新篇章
+      </view>
+      <view class='text-time'>
+        2018-10-11
+      </view>
+    </view>
+    <view class='cont-head-image'>
+      <image src='../../images/mes1.jpg'></image>
+    </view>
+  </view>
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">最新</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">热门</view>
+  </view>
+
+
+
+  <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:80%;' circular='true'>
+    <swiper-item>
+      <view class='current'>
+        <view class=' current-image '>
+        <image src='../../images/mes2.jpg'></image>
+        </view>
+        <view class='current-text '>
+          <view class='current-text-cont '>
+            學院建設銀行紹興分行舉行創新創業學院合作共建儀式
+          </view>
+          <view class='current-text-Identification '>
+            <view class='Identification'>
+              招生就業処
+            </view>
+            <view class='time'>
+              2018-10-10 15:02:20</view>
+          </view>
+        </view>
+      </view>
+
+           <view class='current'>
+        <view class=' current-image '>
+        <image src='../../images/mes2.jpg'></image>
+        </view>
+        <view class='current-text '>
+          <view class='current-text-cont '>
+            學院建設銀行紹興分行舉行創新創業學院合作共建儀式
+          </view>
+          <view class='current-text-Identification '>
+            <view class='Identification'>
+              招生就業処
+            </view>
+            <view class='time'>
+              2018-10-10 15:02:20</view>
+          </view>
+        </view>
+      </view>
+      
+    </swiper-item>
+    <swiper-item>
+      <view>热门</view>
+    </swiper-item>
+
+  </swiper>
+
+</view>

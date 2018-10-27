@@ -44,7 +44,8 @@ Page({
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res.data)
+   if(res.code==500){}
+   else {
         if (res.data.code == 400 && that.data.voteList.length != 0) {
           that.setData({
             lodingHidden:'hidden'
@@ -56,6 +57,7 @@ Page({
           })
         } else {
           var voteList = that.data.voteList;
+        
           for (var i = 0; i < res.data.voteList.length; i++) {
             voteList.push(res.data.voteList[i]);
           }
@@ -64,6 +66,7 @@ Page({
             lodingHidden: 'hidden'
           })
         }
+      }
       }
     })
   },

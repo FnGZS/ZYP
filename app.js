@@ -42,6 +42,7 @@ App({
                   
                  },
                  success(res) {
+                   console.log(res);
                    wx.setStorageSync("isLogin", 1)
                    that.globalData.nickName = res.data.userName
                    that.globalData.headimgurl = res.data.avatar

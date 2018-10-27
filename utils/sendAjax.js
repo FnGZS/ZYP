@@ -1,13 +1,19 @@
 const url = require('../config.js')
 
 function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
- 
+
   // 登录信息过期处理类型
-  const OTCB = outTimeAuthCbOrNeedAuth || function () { getCurrentPages().pop().onLoad(getCurrentPages().pop().options) }
+  const OTCB = outTimeAuthCbOrNeedAuth || function() {
+    getCurrentPages().pop().onLoad(getCurrentPages().pop().options)
+  }
   const _sets = options
   // console.log(_sets.url)
-  if (typeof _sets.type === 'undefined') { _sets.type = 'POST' }
-  if (typeof _sets.data === 'undefined') { _sets.data = {} }
+  if (typeof _sets.type === 'undefined') {
+    _sets.type = 'POST'
+  }
+  if (typeof _sets.data === 'undefined') {
+    _sets.data = {}
+  }
 
   // 如果不是明确不需要登录权限 而且 没有 G_authorization 的缓存信息 
   if (outTimeAuthCbOrNeedAuth !== false && !wx.getStorageSync('authorization')) {
@@ -19,15 +25,17 @@ function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
   // 纠正method大写
   _sets.type = _sets.type.toUpperCase();
 
-  const bcallback = callback.beforeSend || function (data) {
+  const bcallback = callback.beforeSend || function(data) {
     wx.showToast({
       title: '正在加载...',
       icon: 'loading',
       duration: 10000
     })
   };
-  const scallback = callback.success || function (data) { };
-  const ccallback = callback.complete || function (data) { wx.hideToast() };
+  const scallback = callback.success || function(data) {};
+  const ccallback = callback.complete || function(data) {
+    wx.hideToast()
+  };
 
   bcallback()
 
@@ -42,20 +50,23 @@ function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
     success(res) {
       console.log(res.data);
       if (res.data.code == 200) {
-    
-            scallback(res.data)
+
+        scallback(res.data)
       } else {
 
         if (res.data.code == 401) {
 
           // getApp().uploadUserInfo(OTCB)
         } else {
-
-          wx.showModal({
-            title: '提示',
-            content: res.data.message || '处理失败',
-            showCancel: false
-          });
+          if (res.data.code == 400) {
+            scallback(res.data)
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: res.data.message || '处理失败',
+              showCancel: false
+            });
+          }
         }
       }
     },

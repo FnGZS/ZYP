@@ -2,6 +2,7 @@
 var app = getApp()
 var URL = getApp().globalData.PHPURL;
 var IMGURL = getApp().globalData.IMGURL;
+const sendAjax = require('../../utils/sendAjax.js')
 Page({
 
   /**
@@ -24,7 +25,7 @@ Page({
     clubs: [], //原始数据
     animations: [],
     touchDot: '',
-    done: false, 
+    done: false,
     time: 0,
     container: [], //记录当前5个位置为哪5个item，理解为5个容器
     curPos: 2, //记录当前显示位置是第几个容器（从0开始）
@@ -32,10 +33,10 @@ Page({
     curIndex: 1,//从显示位置的item在clubs中的index
     postions: [0, 1, 2, 3, 4],//container中5个容器所在位置
     opacities: [0, 0.8, 1, 0.8, 0],
-    move:0,
-    Gradual:'',
+    move: 0,
+    Gradual: '',
     Gradualcon: '',
-    GradualNum:0,
+    GradualNum: 0,
     // //底部导航栏
     // footSrc2: '../../images/首页.png',
     // footSrc3: '../../images/投票.png',
@@ -46,9 +47,9 @@ Page({
   //   var that = this;
   //   app.Navigation(event, that);
   // },
-//轮播图
-  setImgBroadcast:function(){
-    let that=this;
+  //轮播图
+  setImgBroadcast: function () {
+    let that = this;
     console.log()
     wx.request({
       url: URL + '/Sowingmap/img_play',
@@ -72,21 +73,46 @@ Page({
 
     })
   },
- 
+
 
   //投票轮播
-  setvoteBroadcast:function(){
+  setvoteBroadcast: function () {
+    var that=this;
+    let infoOpt = {
+      url: '/vote/getAction/hot',
+      type: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+       console.log(data);
+    }
+    infoCb.beforeSend = () => { }
+    infoCb.complete = () => {
+
+    }
+    sendAjax(infoOpt, infoCb, () => {
+      // that.onLoad()
+      // wx.setStorageSync('G_needUploadIndex', true)
+    });
     var data = [{ //原始数据，可为动态
       image: '../../images/poster2.png',
-      name: '投票进行中'
+      name: '投票进行中',
+      id:'1'
     },
     {
       image: '../../images/poster.png',
-      name: '特等奖学金'
+      name: '特等奖学金',
+      id: '2'
     },
     {
       image: '../../images/poster3.png',
-      name: '全新投票系统'
+      name: '全新投票系统',
+      id: '3'
     }
     ]
 
@@ -146,7 +172,7 @@ Page({
     })
 
   },
-  vote:function(){
+  vote: function () {
     console.log('123123');
     wx.switchTab({
       url: '../vote/index',
@@ -156,55 +182,55 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     let that=this;
+    let that = this;
     // that.Startpage();
-     that.setImgBroadcast();
-     that.setvoteBroadcast();
-    
+    that.setImgBroadcast();
+    that.setvoteBroadcast();
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
- 
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
-    var that=this;
+
+    var that = this;
 
     // 动画效果组件
     var GradualNum = wx.getStorageSync('GradualNum');
     console.log(GradualNum);
     if (GradualNum) {
-     that.setData({
-       GradualNum: GradualNum
-     })
-     console.log(that.data.move)
-     if(that.data.move==0){
-       that.setData({
-         move: 'stopPageScroll'
-       })
-      setTimeout(function () {
-        wx.showTabBar({
-          aniamtion: true,
-        })
+      that.setData({
+        GradualNum: GradualNum
+      })
+      console.log(that.data.move)
+      if (that.data.move == 0) {
         that.setData({
-          move: ''
+          move: 'stopPageScroll'
         })
-      }, 8000) //延
-    }
+        setTimeout(function () {
+          wx.showTabBar({
+            aniamtion: true,
+          })
+          that.setData({
+            move: ''
+          })
+        }, 8000) //延
+      }
     }
   },
   //控制动画的时候底部滚动时间不被触发
-stopPageScroll(){
+  stopPageScroll() {
 
-  return;
-},
+    return;
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -239,7 +265,7 @@ stopPageScroll(){
   onShareAppMessage: function () {
 
   },
-   //设置位置
+  //设置位置
   /**
    * pos:显示位置在container中的位置
    * index：显示位置的clubs索引
@@ -324,27 +350,27 @@ stopPageScroll(){
     var animation1 = wx.createAnimation({
       duration: 500,
       timingFunction: "ease",
-    //  delay: 0
+      //  delay: 0
     })
     var animation2 = wx.createAnimation({
       duration: 500,
       timingFunction: "ease",
-    //  delay: 0
+      //  delay: 0
     })
     var animation3 = wx.createAnimation({
       duration: 500,
       timingFunction: "ease",
-    //  delay: 0
+      //  delay: 0
     })
     var animation4 = wx.createAnimation({
       duration: 500,
       timingFunction: "ease",
-     // delay: 0
+      // delay: 0
     })
     var animation5 = wx.createAnimation({
       duration: 500,
       timingFunction: "ease",
-//delay: 0
+      //delay: 0
     })
 
     this.animation1 = animation1;
