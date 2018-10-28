@@ -19,52 +19,46 @@
     <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">最新</view>
     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">热门</view>
   </view>
-
-
-
-  <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:80%;' circular='true'>
-    <swiper-item>
-      <view class='current'>
+  <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{listhigth}}rpx;' circular='true'>
+    
+       <swiper-item>
+      <view class='current' wx:for="{{newmeslist}}" wx:key="*this" >
         <view class=' current-image '>
-        <image src='../../images/mes2.jpg'></image>
+        <image src='{{item.affairsPic}}'></image>
         </view>
         <view class='current-text '>
           <view class='current-text-cont '>
-            學院建設銀行紹興分行舉行創新創業學院合作共建儀式
+             {{item.title}}
           </view>
           <view class='current-text-Identification '>
             <view class='Identification'>
-              招生就業処
+              {{item.subordinate}}
             </view>
             <view class='time'>
-              2018-10-10 15:02:20</view>
+              {{item.gmtCreated}}</view>
           </view>
         </view>
-      </view>
-
-           <view class='current'>
+      </view>     
+    </swiper-item>
+    <swiper-item>
+      <view class='current' wx:for="{{hotmeslist}}" wx:key="*this" >
         <view class=' current-image '>
-        <image src='../../images/mes2.jpg'></image>
+        <image src='{{item.affairsPic}}'></image>
         </view>
         <view class='current-text '>
           <view class='current-text-cont '>
-            學院建設銀行紹興分行舉行創新創業學院合作共建儀式
+             {{item.title}}
           </view>
           <view class='current-text-Identification '>
             <view class='Identification'>
-              招生就業処
+              {{item.subordinate}}
             </view>
             <view class='time'>
-              2018-10-10 15:02:20</view>
+              {{item.gmtCreated}}</view>
           </view>
         </view>
-      </view>
-      
+      </view>     
     </swiper-item>
-    <swiper-item>
-      <view>热门</view>
-    </swiper-item>
-
   </swiper>
 
 </view>
