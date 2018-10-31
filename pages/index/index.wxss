@@ -355,9 +355,9 @@ height: 230.5rpx;
 .video-box {
   z-index: 1;
   width: 80%;
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
   /* padding: 0 30rpx; */
   position: absolute;
   top:30rpx;

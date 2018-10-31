@@ -15,10 +15,10 @@
       </view>
       <view class="usermotto">
         <view class='usermotto-top' style='border-top: 1rpx solid #E1E1E4'>
-          <view class='user-cont' bindtap='binding'>
+          <view class='user-cont' >
             <view class='user-cont-left iconfont icon-bangdingweixin'>
             </view>
-            <view class='user-cont-center'>
+            <view class='user-cont-center' bindtap='binding'>
               {{isboundUser}}
             </view>
             <view class='user-cont-rigth'>
