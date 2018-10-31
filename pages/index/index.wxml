@@ -1,41 +1,13 @@
-<view class='index-page' catchtouchmove='{{move}}'>
-  <view class='{{GradualNum?"guide-all":""}}' wx:if="{{GradualNum}}" animation="{{Gradual}}">
-    <!-- 引导页面从此开始 -->
-    <view class='guide'>
-      <!-- logo图 有旋转淡入放大效果-->
-      <view class='guide-top'>
-        <view class='guide-top-img'>
-          <image src='../../images/YPCloge.png'> </image>
-        </view>
-      </view>
-      <!-- 校训淡入放大移入效果-->
-      <view class='guide-middle'>
-        <view class='guide-middle-left'>
-          <image class='guide-middle-image' src='../../images/indextext-1.png'></image>
-        </view>
-        <view class='guide-middle-rigth'>
-          <image class='guide-middle-image' src='../../images/indextext-2.png'></image>
-        </view>
-      </view>
-      <!-- 小程序名字以及版本号淡入效果 -->
-      <view class="weui-footer weui-footer_fixed-bottom">
-        <view class="weui-footer__links">
-          <navigator url="" class="weui-footer__link">在元培</navigator>
-        </view>
-        <view class="weui-footer__text">Copyright © 2018-2019 疯鸟网络</view>
-      </view>
-    </view>
-  </view>
-
+<view class='index-page'>
   <!-- 首页的轮播加磨砂校徽{{move?"true":"false"}} -->
-  <view class='{{GradualNum?"conter":"conter-no"}}'>
+  <view class='conter-no'>
     <view class='index-head'>
       <view class='index-head-bg'>
         <image src='/images/head-bg.png'></image>
       </view>
       <view class='index-head-swiper'>
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
-          <block wx:for="{{imgUrlsloca}}" wx:key="key">
+          <block wx:for="{{imgUrls}}" wx:key="key">
             <swiper-item>
               <image src="{{item}}" class="index-head-swiper-image" />
               <!-- <image src="/images/ceshi.png" class="index-head-swiper-image" /> -->
@@ -136,6 +108,7 @@
       <text>item.name}}</text>
     </view>
   </block> -->
+
           <block>
             <view class="club" animation="{{animation1}}" style='z-index:{{zindex[0]}};opacity:{{opacities[0]}};'>
               <image src="{{container[0].image}}" />
@@ -159,7 +132,6 @@
             </view>
           </block>
         </view>
-
       </view>
       <view class='index-toupiao-bg-caidai-right'>
       </view>

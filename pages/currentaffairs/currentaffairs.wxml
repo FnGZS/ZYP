@@ -20,7 +20,7 @@
     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">热门</view>
   </view>
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{listhigth}}rpx;' circular='true'>
-    
+
        <swiper-item>
       <view class='current' wx:for="{{newmeslist}}" wx:key="*this" >
         <view class=' current-image '>

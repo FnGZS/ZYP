@@ -6,8 +6,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    wx.setStorageSync('GradualNum',1);//用来判断是不是第一次打开小程序
-    wx.hideTabBar();
+
     // 登录
     wx.login({
       success: resp => {
