@@ -60,5 +60,5 @@
       </view>     
     </swiper-item>
   </swiper>
-
+ <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
 </view>
