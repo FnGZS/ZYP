@@ -1,10 +1,11 @@
 {
   "pages": [
-  
     "pages/index/index",
     "pages/user/user",
     "pages/currentaffairs/currentaffairs",
+
     "pages/currentaffairs/detailPage/detailPage",
+
     "pages/user/binding/binding",
     "pages/vote/index",
     "pages/vote/scholarship/scholarship",
