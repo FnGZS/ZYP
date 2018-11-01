@@ -1,11 +1,12 @@
 // pages/detail/detail.js
+const sendAjax = require('../../../utils/sendAjax.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    message:[],
   },
 
   /**
@@ -13,6 +14,30 @@ Page({
    */
   onLoad: function (options) {
 
+    var that = this;
+    let infoOpt = {
+      url: '/affaris/affairsDetails/' + options.id,
+      type: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json',
+        'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      that.setData({
+         message:data.details
+      })
+      console.log(that.data.message);
+    }
+
+
+    sendAjax(infoOpt, infoCb, () => {
+      // that.onLoad()
+      // wx.setStorageSync('G_needUploadIndex', true)
+    });
   },
 
   /**

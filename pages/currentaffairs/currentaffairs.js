@@ -54,26 +54,28 @@ Page({
      },
    }
    let infoCb = {}
-   infoCb.success = function (data) {
+   infoCb.success = function (data) { 
+
      if (data.message!=null)
     {
         that.setData({
           isBottomhot:1,
         })
+
     }else{
+       var returnArr = that.data.hotmeslist;
+       for (var i = 0; i < data.items.length; i++) {
+         returnArr.push(data.items[i]);
+       }
+       that.setData({
+         hotmeslist: returnArr
+       })
        that.setData({
          isBottomhot: 0,
        })
     }
 
-    var returnArr=that.data.hotmeslist;
-    for(var i=0;i<data.items.length;i++)
-    {
-       returnArr.push(data.items[i]);
-    }
-   that.setData({
-     hotmeslist:returnArr
-   })
+    
      if (that.data.hotmeslist == "") {
        that.setData({
          hothigth: 0
@@ -110,23 +112,25 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-      console.log(data.message)
+      console.log(data)
       if (data.message != null) {
         that.setData({
           isBottomnew: 1,
         })
+        
       } else {
+        var returnArr = that.data.newmeslist;
+        for (var i = 0; i < data.items.length; i++) {
+          returnArr.push(data.items[i]);
+        }
+        that.setData({
+          newmeslist: returnArr
+        })
         that.setData({
           isBottomnew: 0,
         })
       }
-      var returnArr = that.data.newmeslist;
-      for (var i = 0; i < data.items.length; i++) {
-        returnArr.push(data.items[i]);
-      }
-      that.setData({
-        newmeslist: returnArr
-      })
+    
       if (that.data.newmeslist== "" )
       {
         that.setData({
@@ -252,7 +256,13 @@ Page({
       this.getnewmes();
     }
   },
-
+//跳转详情页
+  detailPage:function(e){
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'detailPage/detailPage?id=' + id
+    });
+  },
   /**
    * 用户点击右上角分享
    */

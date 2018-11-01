@@ -23,7 +23,7 @@ App({
             success: userResult => {
               // 可以将 res 发送给后台解码出 unionId
               that.globalData.userInfo = userResult.userInfo
-              console.log(userResult);
+              // console.log(userResult);
               var platUserInfoMap = that.globalData.platUserInfoMap;
               platUserInfoMap["encryptedData"] = userResult.encryptedData;
               platUserInfoMap["iv"] = userResult.iv;
@@ -41,7 +41,7 @@ App({
                   
                  },
                  success(res) {
-                   console.log(res);
+                  //  console.log(res);
                    wx.setStorageSync("isLogin", 1)
                    that.globalData.nickName = res.data.userName
                    that.globalData.headimgurl = res.data.avatar
@@ -51,7 +51,7 @@ App({
                    wx.setStorageSync("userKey", res.data.userKey)
                    wx.setStorageSync("authorization", res.data.authorization)
                    wx.setStorageSync("userId", res.data.userId)
-                   console.log(res)
+                  //  console.log(res)
                  }
                })
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回

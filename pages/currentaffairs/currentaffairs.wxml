@@ -22,7 +22,7 @@
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{listhigth}}rpx;' circular='true'>
 
        <swiper-item>
-      <view class='current' wx:for="{{newmeslist}}" wx:key="*this" >
+      <view class='current' wx:for="{{newmeslist}}" wx:key="*this" bindtap='detailPage'  data-id="{{item.id}}" >
         <view class=' current-image '>
         <image src='{{item.affairsPic}}'></image>
         </view>
@@ -41,7 +41,7 @@
       </view>     
     </swiper-item>
     <swiper-item>
-      <view class='current' wx:for="{{hotmeslist}}" wx:key="*this" >
+      <view class='current' wx:for="{{hotmeslist}}" wx:key="*this" bindtap='detailPage'  data-id="{{item.id}}" >
         <view class=' current-image '>
         <image src='{{item.affairsPic}}'></image>
         </view>

@@ -68,7 +68,7 @@ Page({
         that.setData({
           imgUrls: arr
         })
-        console.log(that.data.imgUrlsloca);
+        // console.log(that.data.imgUrlsloca);
       },
 
     })
