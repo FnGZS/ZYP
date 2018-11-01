@@ -8,13 +8,14 @@
 }
 .detailPage-body{
   position: relative;
-  display: flex;
-  justify-content: center;
+  margin-left:3%;
 }
 .detailPage-body-box{
   position: absolute;
-  top: -90rpx;
-  width: 94%;
+  top: -90rpx; 
+ width:95%;
+left:8rpx;
+
 }
 .detailPage-body-box-up{
   width: 100%;

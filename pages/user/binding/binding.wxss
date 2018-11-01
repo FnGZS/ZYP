@@ -45,6 +45,7 @@ page {
   padding-top: 50rpx;
   color: #6b7281;
   line-height: 70rpx;
+
 }
 
 .Secondtitle {

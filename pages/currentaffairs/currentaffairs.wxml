@@ -30,12 +30,12 @@
           <view class='current-text-cont '>
              {{item.title}}
           </view>
-          <view class='current-text-Identification '>
+          <view class='current-text-Identification'>
             <view class='Identification'>
               {{item.subordinate}}
             </view>
             <view class='time'>
-              {{item.gmtCreated}}</view>
+              {{item.year}}-{{item.day}}</view>
           </view>
         </view>
       </view>     
@@ -54,7 +54,7 @@
               {{item.subordinate}}
             </view>
             <view class='time'>
-              {{item.gmtCreated}}</view>
+               {{item.year}}-{{item.day}}</view>
           </view>
         </view>
       </view>     

@@ -25,7 +25,7 @@
     </view>
       
     <view class='detailPage-body-box-down-box' >
-        <text decode="{{true}}">{{message.content}}</text>
+        <text decode="{{true}}">&ensp;&ensp;&ensp;{{message.content}}</text>
         
     </view>
     <view class='detailPage-body-box-down-bottom'>

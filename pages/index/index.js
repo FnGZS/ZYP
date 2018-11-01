@@ -173,9 +173,15 @@ Page({
 
   },
   vote: function () {
-    console.log('123123');
+    // console.log('123123');
     wx.switchTab({
       url: '../vote/index',
+    })
+  },
+  currentaffairs: function () {
+    // console.log('123123');
+    wx.switchTab({
+      url: '../currentaffairs/currentaffairs',
     })
   },
   /**

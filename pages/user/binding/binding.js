@@ -9,6 +9,7 @@ Page({
   data: {
     watchID: '',
     watchPassWord: '',
+    isshow:0,
   },
 
   /**
@@ -70,10 +71,7 @@ Page({
         });
       }
     }
-    infoCb.beforeSend = () => {}
-    infoCb.complete = () => {
-
-    }
+ 
     sendAjax(infoOpt, infoCb, () => {
       // that.onLoad()
       // wx.setStorageSync('G_needUploadIndex', true)
@@ -84,7 +82,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+      var that=this;
+    console.log(wx.getStorageSync('isbound'));
+      that.setData({
+        isshow: wx.getStorageSync('isbound')
+      })
   },
 
   /**
