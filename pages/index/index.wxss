@@ -362,8 +362,12 @@ height: 230.5rpx;
   position: absolute;
   top:30rpx;
   left: 78rpx;
-}
 
+}
+.aaa{
+  width: 100%;
+  display: inline-block;
+}
 .icon {
   width:24px;
   height:24px;
@@ -374,8 +378,7 @@ height: 230.5rpx;
   width: 100%;
   z-index: 0;
   white-space: nowrap;
-  display: flex;
-  flex-direction: row;
+display: flex;
 
 
 }
@@ -390,6 +393,7 @@ height: 230.5rpx;
   height: 200rpx;
   width: 300rpx;
    border-radius: 10rpx;
+   
 }
 
 .club text {

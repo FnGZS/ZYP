@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    GradualNum: 0,
+
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -20,7 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    wx.setStorageSync('GradualNum', 0);
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -62,32 +62,23 @@ Page({
  //绑定页面
   binding:function(){
     // console.log('12321313');
-    if (wx.getStorageSync('isbound') == 2) {
       wx.navigateTo({
         url: 'binding/binding'
       })
-    }
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
     var that = this;
-    var GradualNum = wx.getStorageSync('GradualNum');
-    // console.log(GradualNum);
-    if (GradualNum) {
-      that.setData({
-        GradualNum: GradualNum
-      })
-    }
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // console.log('123');
-    console.log(wx.getStorageSync('isbound'));
+
     if (wx.getStorageSync('isbound') == 1 ) {
       this.setData({
         isboundUser: '已绑定学号'

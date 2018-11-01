@@ -202,34 +202,6 @@ Page({
   onShow: function () {
 
     var that = this;
-
-    // 动画效果组件
-    var GradualNum = wx.getStorageSync('GradualNum');
-    console.log(GradualNum);
-    if (GradualNum) {
-      that.setData({
-        GradualNum: GradualNum
-      })
-      console.log(that.data.move)
-      if (that.data.move == 0) {
-        that.setData({
-          move: 'stopPageScroll'
-        })
-        setTimeout(function () {
-          wx.showTabBar({
-            aniamtion: true,
-          })
-          that.setData({
-            move: ''
-          })
-        }, 8000) //延
-      }
-    }
-  },
-  //控制动画的时候底部滚动时间不被触发
-  stopPageScroll() {
-
-    return;
   },
   /**
    * 生命周期函数--监听页面隐藏
