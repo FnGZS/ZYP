@@ -8,7 +8,7 @@
   <view class='detail-center'>
     <view class='detail-center-text'>个人介绍</view>
     <view class='detail-center-line'></view>
-    <view class='detail-center-text'>票数 :
+    <view class='detail-center-text'>当前票数 :
       <span class='detail-center-voteNum'>{{detail.num}}票</span>
     </view>
   </view>

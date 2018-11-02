@@ -74,7 +74,7 @@ page {
   height: 500rpx;
   /* background: papayawhip; */
   border: 2rpx solid #f7f7f7;
-    box-shadow: 1rpx 1rpx 50rpx #E1E1E4;
+    box-shadow: 1rpx 1rpx 20rpx #E1E1E4;
 }
 .swiper-tab {
   margin: 0 auto;

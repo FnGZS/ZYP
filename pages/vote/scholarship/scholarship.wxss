@@ -126,7 +126,8 @@
   height: 80rpx;
   background: #fff;
   display: flex;
-  padding-left: 5%;
+ justify-content: center;
+ align-items: center;
 }
 
 .tiemDown-text {
@@ -140,12 +141,13 @@
   font-size: 28rpx;
   /* font-weight: bold; */
   height: 36rpx;
-  margin-top: 22rpx;
   padding-top: 4rpx;
   padding-left: 8rpx;
   padding-right: 8rpx;
+  padding-bottom: 8rpx;
   color: #fff;
-  background: linear-gradient(to bottom, #859398, #283048);
+  background: linear-gradient(to left, #fec163, #de4313);
+  border-radius: 10rpx;
 }
 
 .tiemDown-tiemText {
@@ -210,8 +212,8 @@
   border-radius: 10rpx;
 }
 .user-choose{
-  width: 100%;
-  height: 100%;
+  width: 0rpx;
+  height: 0rpx;
   position: absolute;
   background: #C0C1C6;
   top: 0;
@@ -222,10 +224,10 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #C0C1C6;
+  background: black;
   top: 0;
   left: 0;
-  opacity: 0.4;
+  opacity: 0.2;
 }
 .gouBlank{
   position: absolute;
@@ -490,10 +492,11 @@ box-shadow: 10rpx 5rpx 5px #888888;
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  height: 100rpx;
+  height: 80rpx;
   width: 100%;
   display: flex;
-  background: #fff;
+  background: #F7F7FA;
+  border-top: 1rpx solid rgb(235, 235, 236);
 }
 .bottom-nav-active{
     color: #f09819;
@@ -510,13 +513,14 @@ box-shadow: 10rpx 5rpx 5px #888888;
 .icon-quanbu {
   flex: 1;
   text-align: center;
-  line-height: 60rpx;
-  font-size: 40rpx;
+font-size:30rpx;
+line-height:50rpx;
+
 }
 
 .bottom-all-text {
   flex: 1;
-  font-size: 25rpx;
+  font-size: 20rpx;
   text-align: center;
   /* font-weight: bolder; */
 }
@@ -533,8 +537,8 @@ box-shadow: 10rpx 5rpx 5px #888888;
 .icon-paihang {
   flex: 1;
   text-align: center;
-  line-height: 60rpx;
-  font-size: 50rpx;
+  line-height: 50rpx;
+  font-size: 40rpx;
 }
 
 .bottom-rank-text {
@@ -554,12 +558,16 @@ box-shadow: 10rpx 5rpx 5px #888888;
 .icon-guize {
   flex: 1;
   text-align: center;
-  line-height: 60rpx;
-  font-size: 40rpx;
+font-size:30rpx;
+line-height:50rpx;
 }
 
 .bottom-rule-text {
   flex: 1;
-  font-size: 25rpx;
+  font-size: 20rpx;
   text-align: center;
+}
+.nullbtn{
+  width: 100%;
+  height: 20rpx;
 }
