@@ -4,11 +4,17 @@ Page({
     detail:null,
     competeList:null,
     honorList:null,
-    recommendList:null
-
+    recommendList:null,
+   phoneHeight:''
+  },
+  getPhoneInfo: function () {
+    this.setData({
+      phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight
+    })
   },
   onLoad: function (options) {
     console.log(options)
+    this.getPhoneInfo();
     var detail = JSON.parse(options.userDetail);
     // console.log(JSON.parse(options));
     

@@ -29,12 +29,18 @@ Page({
     startTime: null, //投票开始时间
     endTime: null, //投票结束时间
     rule_limt: null, //投票限制
-    rule_intro: null //投票介绍
-
+    rule_intro: null, //投票介绍
+phoneHeight:''
   },
-
+  getPhoneInfo: function () {
+    this.setData({
+      phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight
+    })
+  },
   onLoad: function (options) {
+    this.getPhoneInfo();
     var that = this;
+    
     console.log(options)
     this.setData({
       id: options.id
@@ -112,7 +118,7 @@ Page({
     } else if (status == 1) { //投票进行中
       that.checkVote(status);
       that.setData({
-        voteStatusColor: 'linear-gradient(to left, #ffe259, #f09819)',
+        voteStatusColor: 'linear-gradient(to right, #FF4341, #FC5841)',
         voteStatusText: '投票进行中',
         lodingHidden: 'hidden'
       })
@@ -120,7 +126,7 @@ Page({
     } else if (status == 2) {
       that.checkVote(status);
       that.setData({
-        voteStatusColor: 'red',
+        voteStatusColor: '#FF4341',
         voteStatusText: '投票已结束',
         lodingHidden: 'hidden'
       })
@@ -145,25 +151,27 @@ Page({
         if (res.data.status == 0) {
           if (voteStatus == 1) {
             that.setData({
-              voteBtnColor: 'linear-gradient(to left, #ffe259, #f09819)',
+              voteBtnColor: 'linear-gradient(to right, #FF4341, #FC5841)',
               voteBtnText: '投票',
               voteBtnClick: 1
             })
           } else if (voteStatus == 2) {
             that.setData({
-              voteBtnColor: 'red',
+              voteBtnColor: '#FF4341',
               voteBtnText: '投票已结束',
               voteBtnClick: 0
             })
           }
 
         } else {
+          console.log(res.data.detail);
           var detail = res.data.detail;
           var isVote = detail.split(',');
           var user_choose = that.data.user_choose;
           for (var i = 0; i < isVote.length; i++) {
             user_choose[isVote[i] - 1] = true;
           }
+          console.log(user_choose);
           that.setData({
             voteBtnColor: 'grey',
             voteBtnText: '已投票',
@@ -291,6 +299,7 @@ Page({
         creatVote.push(userList[i].id);
       }
     }
+    console.log(creatVote);
     if (creatVote.length == 0) {
       wx.showToast({
         title: '您还未勾选任何人',
@@ -300,6 +309,7 @@ Page({
     } else {
       
       var voteString = creatVote.join(",");
+      console.log(voteString);
       wx.request({
         method: 'POST',
         url: this.data.URL + '/vote/create',
@@ -320,7 +330,7 @@ Page({
               icon: 'none',
               duration: 1500
             })
-            that.onLoad();
+            that.onLoad(that.data.id);
           } else {
             var message = res.data.message;
             wx.showToast({
@@ -335,7 +345,7 @@ Page({
 
   },
   toVoteDetail:function(e){
-    console.log(e)
+    console.log(123123123);
     var id = e.currentTarget.dataset.id;
     var userDetail = this.data.userList[id - 1];
     console.log(userDetail)

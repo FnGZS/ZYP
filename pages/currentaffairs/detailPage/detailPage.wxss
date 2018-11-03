@@ -8,6 +8,7 @@
 }
 .detailPage-body{
   position: relative;
+<<<<<<< HEAD:pages/detailPage/detailPage.wxss
 
 }
 .detailPage-body-box{
@@ -15,6 +16,16 @@
   margin-left: 3%;
   top: -90rpx;
   width: 94%;
+=======
+  margin-left:3%;
+}
+.detailPage-body-box{
+  position: absolute;
+  top: -90rpx; 
+ width:95%;
+left:8rpx;
+
+>>>>>>> d5c83cb10a1ff3487a93deb2fadbddb3f9ac5170:pages/currentaffairs/detailPage/detailPage.wxss
 }
 .detailPage-body-box-up{
   width: 100%;

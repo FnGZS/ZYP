@@ -7,27 +7,32 @@ Page({
    */
   data: {
     currentTab: 0,
-    hotpageNo:0,
+    hotpageNo:1,
     hotpageSize:5,
     hotmeslist:[],
-    newpageNo: 0,
+    newpageNo: 1,
     newpageSize: 5,
     newmeslist: [],
     newhigth:0,
     hothigth:0,
-    listhigth:0
+    listhigth:0,
+    isBottom:0,
+    isBottomhot:0,
+    isBottomnew:0,
   },
+
   //设置最新热门的高度
   sethight:function(){
-  
     var _this=this;
     if (_this.data.currentTab == 1) {
       _this.setData({
+        isBottom: _this.data.isBottomhot,
         listhigth: _this.data.hothigth
       })
     }
     else {
       _this.setData({
+        isBottom: _this.data.isBottomnew,
         listhigth: _this.data.newhigth
       })
     }
@@ -49,26 +54,42 @@ Page({
      },
    }
    let infoCb = {}
-   infoCb.success = function (data) {
-     console.log(data);
-     if (data.items == "") {
+   infoCb.success = function (data) { 
+
+     if (data.message!=null)
+    {
+        that.setData({
+          isBottomhot:1,
+        })
+
+    }else{
+       var returnArr = that.data.hotmeslist;
+       for (var i = 0; i < data.items.length; i++) {
+         returnArr.push(data.items[i]);
+       }
+       that.setData({
+         hotmeslist: returnArr
+       })
+       that.setData({
+         isBottomhot: 0,
+       })
+    }
+
+    
+     if (that.data.hotmeslist == "") {
        that.setData({
          hothigth: 0
        })
      }
      else {
        that.setData({
-         hothigth: data.items.length * 220 + 40,
+         hothigth: that.data.hotmeslist.length * 220 + 40,
        })
      }
     //  console.log(data.items.length);
-     that.setData({
-       hotmeslist:data.items
-     })
+
      that.sethight();
    }
-
-
    sendAjax(infoOpt, infoCb, () => {
      
    });
@@ -91,8 +112,26 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-      console.log(data);
-      if(data.items== "" )
+      console.log(data)
+      if (data.message != null) {
+        that.setData({
+          isBottomnew: 1,
+        })
+        
+      } else {
+        var returnArr = that.data.newmeslist;
+        for (var i = 0; i < data.items.length; i++) {
+          returnArr.push(data.items[i]);
+        }
+        that.setData({
+          newmeslist: returnArr
+        })
+        that.setData({
+          isBottomnew: 0,
+        })
+      }
+    
+      if (that.data.newmeslist== "" )
       {
         that.setData({
           newhigth:0
@@ -100,18 +139,17 @@ Page({
       }
       else {
         that.setData({
-          newhigth:data.items.length*220+40,
+          newhigth: that.data.newmeslist.length*220+40,
         })
       }
-      that.setData({
-        newmeslist: data.items
-      })
+   
       that.sethight();
     }
     sendAjax(infoOpt, infoCb, () => {
     
     });
   },
+  
   //滑动切换
   swiperTab: function (e) {
     var _this=this;
@@ -148,15 +186,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.gethotmes();
-    this.getnewmes();
+   
   },
 
   /**
@@ -177,16 +214,55 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+ 
+     this.setData({
+       currentTab: this.data.currentTab,
+       hotpageNo: 1,
+       hotpageSize: 5,
+       hotmeslist: [],
+       newpageNo: 1,
+       newpageSize: 5,
+       newmeslist: [],
+       newhigth: 0,
+       hothigth: 0,
+       listhigth: 0,
+       isBottom: 0,
+       isBottomhot: 0,
+       isBottomnew: 0,
+     })
+    this.gethotmes();
+    this.getnewmes();
+    wx.stopPullDownRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.currentTab == 1) {
+      var pageNo = this.data.hotpageNo;
+      pageNo++;
+      this.setData({
+        hotpageNo: pageNo,
+      })
+      this.gethotmes();
+    }
+    if (this.data.currentTab == 0) {
+      var pageNo = this.data.newpageNo;
+      pageNo++;
+      this.setData({
+        newpageNo: pageNo,
+      })
+      this.getnewmes();
+    }
   },
-
+//跳转详情页
+  detailPage:function(e){
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'detailPage/detailPage?id=' + id
+    });
+  },
   /**
    * 用户点击右上角分享
    */

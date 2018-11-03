@@ -1,0 +1,37 @@
+<view class='detailPage-head'>
+  <image src='{{message.affairsPic}}'></image>
+</view>
+<view class='detailPage-body'>
+  <view class='detailPage-body-box'>
+   <view class='detailPage-body-box-up'>
+     <image src='/images/detailPage-title.png'></image>
+     
+     <view  class='detailPage-body-box-up-left'>
+     <view class='detailPage-body-box-up-left-month'>{{message.day}}</view>
+        <view class='detailPage-body-box-up-left-year'>{{message.year}}</view>
+     </view>
+     <view  class='detailPage-body-box-up-right'>
+       <view  class='detailPage-body-box-up-right-box'>{{message.title}}</view>
+     </view>
+   </view>
+   <view class='detailPage-body-box-down'>
+    <view class='detailPage-body-box-down-title'>
+    
+    <image src='/images/detailPage-tiaowen.png'></image>
+    <view class='detailPage-body-box-down-title-number'>
+    <view class='detailPage-body-box-down-title-number-time'>发布时间：{{message.minute}} </view>
+    <view class='detailPage-body-box-down-title-number-lll'>浏览量：{{message.brows}} </view> 
+    </view>
+    </view>
+      
+    <view class='detailPage-body-box-down-box' >
+        <text decode="{{true}}">&ensp;&ensp;&ensp;{{message.content}}</text>
+        
+    </view>
+    <view class='detailPage-body-box-down-bottom'>
+      <image src='/images/detailPage-yy.png'></image>
+      <view class='detailPage-body-box-down-bottom-laiyuan'>{{message.subordinate}}</view>
+    </view>
+   </view>
+  </view>
+</view>

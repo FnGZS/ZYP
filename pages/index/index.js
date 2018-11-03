@@ -10,11 +10,7 @@ Page({
    */
   data: {
     //轮播用的
-    imgUrls: [],
     imgUrlsloca: [
-      "http://www.ypc.edu.cn/__local/9/5B/C1/24B378BB085392BB7BDB78C5D67_5A4253C8_1C000.jpg",
-      "http://www.ypc.edu.cn/__local/0/23/F0/E9F68E4E359ED2EFB543E026F61_37E9AC58_53E86.jpg",
-      "http://www.ypc.edu.cn/__local/3/B4/AD/96325368E3BAC585F82849E32D3_7AA48327_86DB6.jpg"
     ],
     indicatorDots: true,
     autoplay: true,
@@ -42,6 +38,10 @@ Page({
     // footSrc3: '../../images/投票.png',
     // footSrc4: '../../images/时事.png',
     // footSrc5: '../../images/我的.png'
+    newpageNo:1,
+    newpageSize:2,
+    isBottomnew:0,
+    newmeslist:[],
   },
   // Navigation: function (event) {
   //   var that = this;
@@ -49,35 +49,80 @@ Page({
   // },
   //轮播图
   setImgBroadcast: function () {
-    let that = this;
-    console.log()
-    wx.request({
-      url: URL + '/Sowingmap/img_play',
+    var that = this;
+    let infoOpt = {
+      url: '/affaris/broad',
+      type: 'GET',
       data: {
+
       },
-      method: 'post',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/json',
+        'authorization': wx.getStorageSync("authorization"),
       },
-      success: function (res) {
-        var imgUrls = JSON.parse(res.data.img)
-        var arr = [];
-        for (var i = 0; i < imgUrls.length; i++) {
-          arr[i] = IMGURL + '/' + 'sowing_map' + '/' + imgUrls[i];
+
+
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      // console.log(data.tags);
+      that.setData({
+        imgUrlsloca: data.tags
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+      // that.onLoad()
+      // wx.setStorageSync('G_needUploadIndex', true)
+    });
+
+  },
+//获取时事
+  getnewmes: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/affaris/getAffairsList',
+      type: 'GET',
+      data: {
+        typeId: 2,
+        pageNo: that.data.newpageNo,
+        pageSize: that.data.newpageSize,
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      // console.log(data)
+      if (data.message != null) {
+        that.setData({
+          isBottomnew: 1,
+        })
+
+      } else {
+        var returnArr = that.data.newmeslist;
+        for (var i = 0; i < data.items.length; i++) {
+          returnArr.push(data.items[i]);
         }
         that.setData({
-          imgUrls: arr
+          newmeslist: returnArr
         })
-        console.log(that.data.imgUrlsloca);
-      },
+        that.setData({
+          isBottomnew: 0,
+        })
+      }
+      // console.log(that.data.newmeslist);
+    }
+    sendAjax(infoOpt, infoCb, () => {
 
-    })
+    });
   },
-
-
   //投票轮播
   setvoteBroadcast: function () {
     var that=this;
+    var arr=[];
     let infoOpt = {
       url: '/vote/getAction/hot',
       type: 'GET',
@@ -89,93 +134,81 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-       console.log(data);
-    }
-    infoCb.beforeSend = () => { }
-    infoCb.complete = () => {
+  // console.log(data);
+      that.setData({
+        clubs: data.voteList
+      })
+      //给5个容器赋值clubs0，1，2去到pos
+      //pos的0，1，2，3，4为clubs的last，0，1，2，2+1
+      //即pos的2（显示）位置是clubs的1位置
+      that.setPos(2, 1);
 
+      //初始化到正确的位置
+      var animation1 = wx.createAnimation({
+        duration: 500,
+        timingFunction: "ease",
+        delay: 0
+      })
+      var animation2 = wx.createAnimation({
+        duration: 500,
+        timingFunction: "ease",
+        delay: 0
+      })
+      var animation3 = wx.createAnimation({
+        duration: 500,
+        timingFunction: "ease",
+        delay: 0
+      })
+      var animation4 = wx.createAnimation({
+        duration: 500,
+        timingFunction: "ease",
+        delay: 0
+      })
+      var animation5 = wx.createAnimation({
+        duration: 500,
+        timingFunction: "ease",
+        delay: 0
+      })
+
+      that.animation1 = animation1;
+      that.animation2 = animation2;
+      that.animation3 = animation3;
+      that.animation4 = animation4;
+      that.animation5 = animation5;
+
+      that.animation1.translateX('0%').opacity(0).scale(0).step();
+      that.animation2.translateX('-100%').opacity(0.4).scale(0.8).step();
+      that.animation3.translateX('-152%').opacity(1).scale(1).step();
+      that.animation4.translateX('-200%').opacity(0.4).scale(0.8).step();
+      that.animation5.translateX('-300%').opacity(0).scale(0).step();
+
+      that.setData({
+        animation1: animation1.export(),
+        animation2: animation2.export(),
+        animation3: animation3.export(),
+        animation4: animation4.export(),
+        animation5: animation5.export()
+      })
     }
+
     sendAjax(infoOpt, infoCb, () => {
       // that.onLoad()
       // wx.setStorageSync('G_needUploadIndex', true)
     });
-    var data = [{ //原始数据，可为动态
-      image: '../../images/poster2.png',
-      name: '投票进行中',
-      id:'1'
-    },
-    {
-      image: '../../images/poster.png',
-      name: '特等奖学金',
-      id: '2'
-    },
-    {
-      image: '../../images/poster3.png',
-      name: '全新投票系统',
-      id: '3'
-    }
-    ]
 
-    this.setData({
-      clubs: data
-    })
-    //给5个容器赋值clubs0，1，2去到pos
-    //pos的0，1，2，3，4为clubs的last，0，1，2，2+1
-    //即pos的2（显示）位置是clubs的1位置
-    this.setPos(2, 1);
-
-    //初始化到正确的位置
-    var animation1 = wx.createAnimation({
-      duration: 500,
-      timingFunction: "ease",
-      delay: 0
-    })
-    var animation2 = wx.createAnimation({
-      duration: 500,
-      timingFunction: "ease",
-      delay: 0
-    })
-    var animation3 = wx.createAnimation({
-      duration: 500,
-      timingFunction: "ease",
-      delay: 0
-    })
-    var animation4 = wx.createAnimation({
-      duration: 500,
-      timingFunction: "ease",
-      delay: 0
-    })
-    var animation5 = wx.createAnimation({
-      duration: 500,
-      timingFunction: "ease",
-      delay: 0
-    })
-
-    this.animation1 = animation1;
-    this.animation2 = animation2;
-    this.animation3 = animation3;
-    this.animation4 = animation4;
-    this.animation5 = animation5;
-
-    this.animation1.translateX('0%').opacity(0).scale(0).step();
-    this.animation2.translateX('-100%').opacity(0.4).scale(0.8).step();
-    this.animation3.translateX('-152%').opacity(1).scale(1).step();
-    this.animation4.translateX('-200%').opacity(0.4).scale(0.8).step();
-    this.animation5.translateX('-300%').opacity(0).scale(0).step();
-
-    this.setData({
-      animation1: animation1.export(),
-      animation2: animation2.export(),
-      animation3: animation3.export(),
-      animation4: animation4.export(),
-      animation5: animation5.export()
-    })
+  
 
   },
   vote: function () {
-    console.log('123123');
+    // console.log('123123');
     wx.switchTab({
       url: '../vote/index',
+    })
+  },
+  currentaffairs: function () {
+    // console.log('123123');
+    wx.switchTab({
+      url: '../currentaffairs/currentaffairs',
     })
   },
   /**
@@ -186,7 +219,7 @@ Page({
     // that.Startpage();
     that.setImgBroadcast();
     that.setvoteBroadcast();
-
+    that.getnewmes();
   },
 
   /**
@@ -216,12 +249,56 @@ Page({
   onUnload: function () {
 
   },
-
+  //跳转详情页
+  detailPage: function (e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../currentaffairs/detailPage/detailPage?id=' + id
+    });
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    let that = this;
+    // that.Startpage();
+    that.setData({
+      imgUrlsloca: [ ],
+      indicatorDots: true,
+      autoplay: true,
+      interval: 5000,
+      duration: 1000,
+      circular: true,
+      //投票用的
+      clubs: [], //原始数据
+      animations: [],
+      touchDot: '',
+      done: false,
+      time: 0,
+      container: [], //记录当前5个位置为哪5个item，理解为5个容器
+      curPos: 2, //记录当前显示位置是第几个容器（从0开始）
+      zindex: [0, 10, 100, 10, 0], //与container中的对应
+      curIndex: 1,//从显示位置的item在clubs中的index
+      postions: [0, 1, 2, 3, 4],//container中5个容器所在位置
+      opacities: [0, 0.8, 1, 0.8, 0],
+      move: 0,
+      Gradual: '',
+      Gradualcon: '',
+      GradualNum: 0,
+      // //底部导航栏
+      // footSrc2: '../../images/首页.png',
+      // footSrc3: '../../images/投票.png',
+      // footSrc4: '../../images/时事.png',
+      // footSrc5: '../../images/我的.png'
+      newpageNo: 1,
+      newpageSize: 2,
+      isBottomnew: 0,
+      newmeslist: [],
+    })
+    that.setImgBroadcast();
+    that.setvoteBroadcast();
+    that.getnewmes();
+    wx.stopPullDownRefresh();
   },
 
   /**
