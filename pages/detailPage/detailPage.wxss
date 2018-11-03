@@ -8,11 +8,11 @@
 }
 .detailPage-body{
   position: relative;
-  display: flex;
-  justify-content: center;
+
 }
 .detailPage-body-box{
   position: absolute;
+  margin-left: 3%;
   top: -90rpx;
   width: 94%;
 }
@@ -73,6 +73,7 @@ color: #ffffff;
   justify-content: center;
   align-items: center;
   font-size: 30rpx;
+  color: #ffffff;
 }
 .detailPage-body-box-down{
   position: relative;
@@ -81,7 +82,7 @@ color: #ffffff;
   width: 100%;
   min-height: 570rpx;
   border-radius: 10rpx;
-  background: #f7f7f7;
+  background: #f2f4ff;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -127,6 +128,8 @@ color: #ffffff;
 .detailPage-body-box-down-title>image{
   width: 100%;
   height: 30rpx;
+  opacity:0.6;
+
 }
 .detailPage-body-box-down-bottom{
   width: 710rpx;

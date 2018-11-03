@@ -1,5 +1,5 @@
 <view class='detailPage-head'>
-  <image src='/images/school.png'></image>
+  <image src='/images/mes2.jpg'></image>
 </view>
 <view class='detailPage-body'>
   <view class='detailPage-body-box'>
@@ -11,8 +11,7 @@
         <view class='detailPage-body-box-up-left-year'>二零一八</view>
      </view>
      <view  class='detailPage-body-box-up-right'>
-       <view  class='detailPage-body-box-up-right-box'>学院与建设银行绍兴分行举行
-创新创业学院合作共建仪式</view>
+       <view  class='detailPage-body-box-up-right-box'>学院与建设银行绍兴分行</view>
      </view>
    </view>
    <view class='detailPage-body-box-down'>
