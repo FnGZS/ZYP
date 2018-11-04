@@ -288,7 +288,7 @@ Page({
     var creatVote = [];
     for (var i = 0; i < userList.length; i++) {
       if (user_choose[i] == true) {
-        creatVote.push(userList[i].id);
+        creatVote.push(userList[i].serialId);
       }
     }
     if (creatVote.length == 0) {
