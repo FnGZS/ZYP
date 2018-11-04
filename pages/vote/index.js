@@ -1,8 +1,9 @@
 const url = require('../../config.js')
+const sendAjax = require('../../utils/sendAjax.js')
 Page({
   data: {
     // URL: getApp().globalData.URL,
-    scrollTop: 0,  //距离顶部的高度
+    scrollTop:0,  //距离顶部的高度
     phoneHeight: 0, //系统手机的高度
     lodingHidden: '', //是否加载
     navId: 0, //导航栏Id
@@ -14,7 +15,8 @@ Page({
       '../../images/poster2.png',
       '../../images/poster3.png'
     ],
-    voteList: [] //投票列表
+    voteList: [], //投票列表
+    scrollheight:0,
   },
   onLoad: function (options) {
     this.getPhoneInfo();
@@ -31,9 +33,9 @@ Page({
     var that = this;
     var navId = that.data.navId
     var pageNum = that.data.currentPageNum;
-    wx.request({
-      method: 'POST',
-      url: url.host + '/vote/getAction',
+    let infoOpt = {
+      url: '/vote/getAction',
+      type: 'POST',
       data: {
         status: navId,
         // status:0,
@@ -41,34 +43,46 @@ Page({
         pageSize: 5
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       },
-      success(res) {
-   if(res.code==500){}
-   else {
-        if (res.data.code == 400 && that.data.voteList.length != 0) {
-          that.setData({
-            lodingHidden:'hidden'
-          })
-          wx.showToast({
-            title: '已经到底了',
-            icon:'none',
-            duration:1000
-          })
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      if (res.code == 500) { }
+      else {
+        // console.log(1);
+        if (res.code == 400 ) {
+          if (that.data.voteList.length != 0)
+          {
+            wx.showToast({
+              title: '暂无更多',
+              icon: 'none',
+              duration: 1000
+            })
+          }else 
+          {
+          }
         } else {
           var voteList = that.data.voteList;
-        
-          for (var i = 0; i < res.data.voteList.length; i++) {
-            voteList.push(res.data.voteList[i]);
+          for (var i = 0; i < res.voteList.length; i++) {
+            voteList.push(res.voteList[i]);
           }
           that.setData({
             voteList: voteList,
-            lodingHidden: 'hidden'
+        
           })
         }
       }
-      }
-    })
+    }
+    infoCb.beforeSend = () => { }
+    infoCb.complete = () => {
+
+    }
+    sendAjax(infoOpt, infoCb, () => {
+      // that.onLoad()
+      // wx.setStorageSync('G_needUploadIndex', true)
+    });
   },
   //获取导航栏的内容到顶部的高度
   getTabToTop: function () {
@@ -86,8 +100,13 @@ Page({
   // 滚动条位置
   handleScroll: function (e) {
     // console.log(e.detail.scrollTop)
+    var a = e.detail.scrollTop
+  this.setData({
+    scrollheight:a
+  })
     this.getTabToTop();
     var that = this;
+
     var A = that.data.scrollTopA;
     if (A <= 20) {
       that.setData({
@@ -145,11 +164,25 @@ Page({
     this.getVoteList();
   },
   toVoteDetail:function(e){
-    console.log(e)
+  //  var isbound=wx.getStorageSync('isbound', 1);//判断是否绑定了学号
+  //  if(isbound==2)
+  //  {
+  //    wx.showModal({
+  //      title: '提示',
+  //      content: '您还未绑定学号',
+  //      showCancel: false,
+  //      success(res) {
+  //        wx.switchTab({
+  //          url: '../user/user',
+  //        })
+  //      }
+  //    })
+  //  }else if(isbound==1){
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: 'scholarship/scholarship?id=' + id,
     })
+  //  }
   },
   toSpecialDetail:function(){
     wx.navigateTo({
@@ -164,8 +197,81 @@ Page({
   },
   onUnload: function () {
   },
-  onPullDownRefresh: function () {
+  refresh:function(){
+   var that=this
+    if (that.data.scrollheight<-80){
+    setTimeout(function () {
+   that.setData({
+     currentPageNum: 1
+   })
+      var navId = that.data.navId
+      var pageNum = that.data.currentPageNum;
+      let infoOpt = {
+        url: '/vote/getAction',
+        type: 'POST',
+        data: {
+          status: navId,
+          // status:0,
+          pageNo: pageNum,
+          pageSize: 5
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+        console.log(res);
+        if (res.code == 500) { }
+        else {
+          // console.log(1);
+          if (res.code == 400) {
+        
+          } else {
+            var voteList = that.data.voteList;
+            for (var i = 0; i < res.voteList.length; i++) {
+              voteList.push(res.voteList[i]);
+            }
+            that.setData({
+              voteList: voteList,
+
+            })
+          }
+        }
+      }
+  
+      sendAjax(infoOpt, infoCb, () => {
+        // that.onLoad()
+        // wx.setStorageSync('G_needUploadIndex', true)
+      });
+    }, 100);
+    }
+
   },
+   onPullDownRefresh: function () {
+
+     this.getVoteList();
+     wx.stopPullDownRefresh();
+  //   this.setData({
+  //     // URL: getApp().globalData.URL,
+  //     scrollTop: 0,  //距离顶部的高度
+  //     phoneHeight: 0, //系统手机的高度
+  //     lodingHidden: '', //是否加载
+  //     navId: 0, //导航栏Id
+  //     currentPageNum: 1, //当前的页面
+  //     scrollTopA: 500, //下面导航条距离顶部的高度（初始值设置高一点）
+  //     navIsToTop: 0, //导航条是否到达顶部
+  //     imgUrls: [
+  //       '../../images/poster.png',
+  //       '../../images/poster2.png',
+  //       '../../images/poster3.png'
+  //     ],
+  //     voteList: [] //投票列表
+  //   })
+  //   this.getPhoneInfo();
+  //   this.getVoteList();
+  //   wx.stopPullDownRefresh();
+   },
   onReachBottom: function () {
 
   },

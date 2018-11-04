@@ -3,7 +3,7 @@ Page({
   data: {
     URL: url.host,
     id: null,  //活动ID
-    studentId: 1,  //用户ID
+    studentId: wx.getStorageSync("userId"),  //用户ID
     currentNavId: 0, //当前导航栏ID
     lodingHidden: '',
     voteTimeAll: '',
@@ -77,6 +77,7 @@ phoneHeight:''
         'content-type': 'application/json'
       },
       success(res) {
+        console.log(res);
         var voteDetail = res.data;
         var diffTime = parseInt(voteDetail.timeDiff / 1000)
         that.setData({
@@ -216,6 +217,7 @@ phoneHeight:''
             'content-type': 'application/json'
           },
           success(res) {
+          
             var userList = res.data.voteDetailList;
             var j = 0;
             for (var i = 0; i < userHidden.length; i++) {
@@ -252,6 +254,7 @@ phoneHeight:''
   //获取当前投票排行
   getVoteRank: function () {
     var that = this;
+    console.log(this.data.id);
     wx.request({
       url: this.data.URL + `/vote/getAction/detail/rank/${this.data.id}`,
       data: {},
@@ -259,6 +262,7 @@ phoneHeight:''
         'content-type': 'application/json'
       },
       success(res) {
+        
         that.setData({
           userRank: res.data.voteDetailList
         })
@@ -291,12 +295,26 @@ phoneHeight:''
   // 投票
   voteBtn: function () {
     var that = this;
+    var isbound = wx.getStorageSync('isbound', 1);//判断是否绑定了学号
+   if(isbound==2)
+   {
+     wx.showModal({
+       title: '提示',
+       content: '您还未绑定学号',
+       showCancel: false,
+       success(res) {
+         wx.switchTab({
+           url: '../user/user',
+         })
+       }
+     })
+     }else if(isbound==1){
     var user_choose = this.data.user_choose;
     var userList = this.data.userList;
     var creatVote = [];
     for (var i = 0; i < userList.length; i++) {
       if (user_choose[i] == true) {
-        creatVote.push(userList[i].id);
+        creatVote.push(userList[i].serialId);
       }
     }
     console.log(creatVote);
@@ -309,7 +327,8 @@ phoneHeight:''
     } else {
       
       var voteString = creatVote.join(",");
-      console.log(voteString);
+      console.log(that.data.studentId);
+      console.log(that.data.id);
       wx.request({
         method: 'POST',
         url: this.data.URL + '/vote/create',
@@ -330,7 +349,9 @@ phoneHeight:''
               icon: 'none',
               duration: 1500
             })
-            that.onLoad(that.data.id);
+            var op = {id:that.data.id};
+            console.log(op);
+            that.onLoad(op);
           } else {
             var message = res.data.message;
             wx.showToast({
@@ -342,7 +363,7 @@ phoneHeight:''
         }
       })
     }
-
+     }
   },
   toVoteDetail:function(e){
     console.log(123123123);

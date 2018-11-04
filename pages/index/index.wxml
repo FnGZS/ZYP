@@ -110,23 +110,23 @@
   </block> -->
 
           <block>
-            <view class="club" animation="{{animation1}}" style='z-index:{{zindex[0]}};opacity:{{opacities[0]}};'>
+            <view class="club" animation="{{animation1}}" style='z-index:{{zindex[0]}};opacity:{{opacities[0]}};' data-id='{{container[0].id}}' bindtap='toVote'>
               <image src="{{container[0].actionImage}}" />
               <text>{{container[0].actionName}}</text>
             </view>
-            <view class="club" animation="{{animation2}}" style='z-index:{{zindex[1]}};opacity:{{opacities[1]}};'>
+            <view class="club" animation="{{animation2}}" style='z-index:{{zindex[1]}};opacity:{{opacities[1]}};' data-id='{{container[1].id}}'  bindtap='toVote'>
               <image src="{{container[1].actionImage}}" />
               <text>{{container[1].actionName}}</text>
             </view>
-            <view class="club" animation="{{animation3}}" style='z-index:{{zindex[2]}};opacity:{{opacities[2]}};'>
+            <view class="club" animation="{{animation3}}" style='z-index:{{zindex[2]}};opacity:{{opacities[2]}};' data-id='{{container[2].id}}'  bindtap='toVote'>
               <image src="{{container[2].actionImage}}" />
               <text>{{container[2].actionName}}</text>
             </view>
-            <view class="club" animation="{{animation4}}" style='z-index:{{zindex[3]}};opacity:{{opacities[3]}};'>
+            <view class="club" animation="{{animation4}}" style='z-index:{{zindex[3]}};opacity:{{opacities[3]}};' data-id='{{container[3].id}}'  bindtap='toVote'>
               <image src="{{container[3].actionImage}}" />
               <text>{{container[3].actionName}}</text>
             </view>
-            <view class="club" animation="{{animation5}}" style='z-index:{{zindex[4]}};opacity:{{opacities[4]}};'>
+            <view class="club" animation="{{animation5}}" style='z-index:{{zindex[4]}};opacity:{{opacities[4]}};' data-id='{{container[3].id}}'  bindtap='toVote'>
               <image src="{{container[4].actionImage}}" />
               <text>{{container[4].actionName}}</text>
             </view>

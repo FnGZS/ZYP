@@ -119,6 +119,14 @@ Page({
 
     });
   },
+  //投票跳转
+  toVote:function(e){
+    console.log(123);
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../vote/scholarship/scholarship?id=' + id
+    });
+  },
   //投票轮播
   setvoteBroadcast: function () {
     var that=this;
@@ -138,6 +146,7 @@ Page({
       that.setData({
         clubs: data.voteList
       })
+      console.log(that.data.clubs);
       //给5个容器赋值clubs0，1，2去到pos
       //pos的0，1，2，3，4为clubs的last，0，1，2，2+1
       //即pos的2（显示）位置是clubs的1位置
