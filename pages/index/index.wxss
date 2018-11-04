@@ -471,5 +471,5 @@ text-align: center;
   overflow: hidden;
   margin-top: -20rpx;
   color:#797979;
-  line-height: 30rpx;
+  line-height:30rpx;
 }
