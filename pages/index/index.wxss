@@ -355,15 +355,19 @@ height: 230.5rpx;
 .video-box {
   z-index: 1;
   width: 80%;
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
   /* padding: 0 30rpx; */
   position: absolute;
   top:30rpx;
-  left: 78rpx;
-}
+  left: 70rpx;
 
+}
+.aaa{
+  width: 100%;
+  display: inline-block;
+}
 .icon {
   width:24px;
   height:24px;
@@ -374,8 +378,7 @@ height: 230.5rpx;
   width: 100%;
   z-index: 0;
   white-space: nowrap;
-  display: flex;
-  flex-direction: row;
+display: flex;
 
 
 }
@@ -390,6 +393,7 @@ height: 230.5rpx;
   height: 200rpx;
   width: 300rpx;
    border-radius: 10rpx;
+   
 }
 
 .club text {
@@ -442,13 +446,15 @@ background: white;
   width: 80%;
   /* background: red; */
   height: 50rpx;
-  font-size: 30rpx;
- 
+  font-size: 25rpx;
+ line-height: 88rpx;
+ font-weight:bolder;
+text-align: center;
 }
 .index-current-img{
   width: 90%;
-  height: 300rpx;
-   margin-top:-40rpx;
+  height: 350rpx;
+
   /* background: blueviolet; */
 }
 .index-current-img image{
@@ -457,11 +463,13 @@ background: white;
   
 }
 .index-current-cont{
-  width: 90%;
+  text-align: right;
+  width: 70%;
   height: 30rpx;
   /* background: lavenderblush; */
   font-size:25rpx;
   overflow: hidden;
   margin-top: -20rpx;
   color:#797979;
+  line-height:30rpx;
 }

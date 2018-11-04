@@ -50,7 +50,7 @@ function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
     success(res) {
       // console.log(res.data);
       if (res.data.code == 200) {
-
+     
         scallback(res.data)
       } else {
 

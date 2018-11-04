@@ -55,19 +55,22 @@
       <view class='search-text' bindtap='search'>搜 索</view>
     </view>
     <view class='userList'>
-      <view class='user' wx:for="{{userList}}" wx:for-index="userNum" wx:key="key" hidden='{{userHidden[userNum]}}' bindtap='toVoteDetail' data-id='{{item.serialId}}'>
-        <image src='{{item.imageUrl}}'></image>
+      <view class='user' wx:for="{{userList}}" wx:for-index="userNum" wx:key="key" hidden='{{userHidden[userNum]}}' >
+      <view bindtap='toVoteDetail'  data-id='{{item.serialId}}'>
+        <image src='{{item.imageUrl}}' ></image>
+        </view>
         <view class='user-number'>{{item.serialId}}</view>
         <view class='user-name'>{{item.className}} {{item.peopleName}} </view>
         <view class='user-line'></view>
         <view class='user-bottom'>
           <view class='user-voteNum'>{{item.num}}票</view>
         </view>
-        <view class='{{user_choose[userNum] == 0 ? "user-choose" : "user-choose-active"}}'  ></view>
+        <view class='{{user_choose[userNum] == 0 ? "user-choose" : "user-choose-active"}}'   bindtap='toVoteDetail'  data-id='{{item.serialId}}' ></view>
         <view class='iconfont  {{user_choose[userNum] == 0 ? "gouBlank" : "icon-gou"}}' bindtap='{{voteBtnClick > 0?"userChoose":""}}' data-num='{{userNum}}'></view>
       </view>
     </view>
     <view class='btn' bindtap='{{voteBtnClick > 0 ?"voteBtn":""}}' style='background:{{voteBtnColor}}'>{{voteBtnText}}</view>
+    <view class='nullbtn'></view>
   </view>
   <!-- 排行榜显示 -->
   <view id='nav-rank' hidden='{{currentNavId==1?"":"hidden"}}'>

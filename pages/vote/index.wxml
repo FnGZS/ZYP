@@ -1,6 +1,6 @@
 <view id='vote'>
   <scroll-view class="scroll-con" scroll-y scroll-top="{{scrollTop}}" bindscroll="handleScroll" bindscrolltolower="scrollToLower" style='height:{{phoneHeight}}rpx'>
-    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true" class='lunbotu' s>
+    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true" class='lunbotu' >
       <block wx:for="{{imgUrls}}" wx:key="key">
         <swiper-item>
           <image src="{{item}}" class="slide-image" />

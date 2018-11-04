@@ -3,15 +3,19 @@
   height: 100%;
 }
 .head {
-  width: 100%;
-  height: 300rpx;
-  background: linear-gradient(to bottom,#EF3B36,#FBD786);
+  width: 90%;
+  height: 200rpx;
+  margin: 0 auto;
+   margin-top:10rpx;
+  margin-bottom:10rpx;
+  background: linear-gradient(to right,#FF4341,#F27D6E);
   position: relative;
+  border-radius: 30rpx;
 }
 
 .detail-headimg {
-  width: 150rpx;
-  height: 150rpx;
+  width: 120rpx;
+  height: 120rpx;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -29,11 +33,13 @@
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-top:20rpx;
+
 }
 .detail-center{
   height: 80rpx;
   width: 100%;
-  background: linear-gradient(to right,#ff7e5f,#feb47b,#ff7e5f);
+  background: linear-gradient(to right,#FF4341,#F27D6E,#FF4341);
   display: flex;
 }
 .detail-center-line{

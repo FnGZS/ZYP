@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -65,7 +65,19 @@
 				{
 					"id": -1,
 					"name": "投票",
-					"pathName": "pages/vote/index"
+					"pathName": "pages/vote/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "时事详情",
+					"pathName": "pages/detailPage/detailPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "投票详情",
+					"pathName": "pages/vote/voteDetail/voteDetail"
 				}
 			]
 		}

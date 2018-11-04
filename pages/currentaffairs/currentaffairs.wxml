@@ -20,9 +20,9 @@
     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">热门</view>
   </view>
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{listhigth}}rpx;' circular='true'>
-    
+
        <swiper-item>
-      <view class='current' wx:for="{{newmeslist}}" wx:key="*this" >
+      <view class='current' wx:for="{{newmeslist}}" wx:key="*this" bindtap='detailPage'  data-id="{{item.id}}" >
         <view class=' current-image '>
         <image src='{{item.affairsPic}}'></image>
         </view>
@@ -30,18 +30,18 @@
           <view class='current-text-cont '>
              {{item.title}}
           </view>
-          <view class='current-text-Identification '>
+          <view class='current-text-Identification'>
             <view class='Identification'>
               {{item.subordinate}}
             </view>
             <view class='time'>
-              {{item.gmtCreated}}</view>
+              {{item.year}}-{{item.day}}</view>
           </view>
         </view>
       </view>     
     </swiper-item>
     <swiper-item>
-      <view class='current' wx:for="{{hotmeslist}}" wx:key="*this" >
+      <view class='current' wx:for="{{hotmeslist}}" wx:key="*this" bindtap='detailPage'  data-id="{{item.id}}" >
         <view class=' current-image '>
         <image src='{{item.affairsPic}}'></image>
         </view>
@@ -54,11 +54,11 @@
               {{item.subordinate}}
             </view>
             <view class='time'>
-              {{item.gmtCreated}}</view>
+               {{item.year}}-{{item.day}}</view>
           </view>
         </view>
       </view>     
     </swiper-item>
   </swiper>
-
+ <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
 </view>

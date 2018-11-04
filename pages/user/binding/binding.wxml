@@ -1,5 +1,5 @@
 <view class='cont'>
-  <view class='cont-big'>
+  <view class='cont-big' wx:if="{{isshow==2}}">
 
     <view class='cont-ipm'>
       <view class='cont-head'>
@@ -29,5 +29,21 @@
       </view>
     </view>
   </view>
+  <view wx:elif="{{isshow==1}}" >
+   
+    <view class='cont-ipm'>
+      <view class='cont-head' style='padding-top:200rpx;'>
+        <view class='Firsttitle' >您的学号已绑定</view>
+        <view class='Secondtitle'>Your student number has been bound.</view>
+      </view>
+    
+        <view class='cont-middle-help' style='text-align:center; background:none;'>
+         注意:需修改绑定信息请与客服联系
+      
+        </view>
+   
+      </view>
+</view>
+
   <view class='cont-bg'></view>
 </view>
