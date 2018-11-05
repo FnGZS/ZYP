@@ -11,14 +11,38 @@ Page({
     scrollTopA: 500, //下面导航条距离顶部的高度（初始值设置高一点）
     navIsToTop: 0, //导航条是否到达顶部
     imgUrls: [
-      '../../images/poster.png',
-      '../../images/poster2.png',
-      '../../images/poster3.png'
     ],
     voteList: [], //投票列表
     scrollheight:0,
   },
+  //获取轮播图
+  getslide:function(){
+    var that=this;
+    let infoOpt = {
+      url: '/vote/getAction/slide',
+      type: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      that.setData({
+        imgUrls:res.items
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+      // that.onLoad()
+      // wx.setStorageSync('G_needUploadIndex', true)
+    });
+
+  },
   onLoad: function (options) {
+    this.getslide();
     this.getPhoneInfo();
     this.getVoteList();
   },
