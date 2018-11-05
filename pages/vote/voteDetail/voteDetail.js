@@ -5,7 +5,8 @@ Page({
     competeList:null,
     honorList:null,
     recommendList:null,
-   phoneHeight:''
+   phoneHeight:'',
+    scientific:null
   },
   getPhoneInfo: function () {
     this.setData({
@@ -16,7 +17,7 @@ Page({
     console.log(options)
     this.getPhoneInfo();
     var detail = JSON.parse(options.userDetail);
-    // console.log(JSON.parse(options));
+    console.log(detail);
     
     var compete = detail.compete;
     var honor = detail.honor;
@@ -24,13 +25,16 @@ Page({
     var competeList = compete.split('；');
     var honorList = honor.split('；');
     var recommendList = recommend.split('——');
+    var scientific = detail.scientific;
+    var scientificList = scientific.split('；');
     console.log(recommendList)
 
     this.setData({
       detail: detail,
       competeList: competeList,
       honorList: honorList,
-      recommendList: recommendList
+      recommendList: recommendList,
+      scientific: scientificList
     })
   },
   //获取用户详情

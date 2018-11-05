@@ -1,4 +1,6 @@
 // pages/detail/detail.js
+ var WxParse = require('../../../wxParse/wxParse.js');
+
 const sendAjax = require('../../../utils/sendAjax.js')
 Page({
 
@@ -27,10 +29,13 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
+      console.log(data);
+      var article = data.details.content
+      var arr = WxParse.wxParse('article', 'html', article, that, 30)
       that.setData({
-         message:data.details
+        message: data.details
       })
-      console.log(that.data.message);
+ 
     }
 
 

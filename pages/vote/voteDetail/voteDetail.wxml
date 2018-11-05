@@ -32,7 +32,7 @@
           <view class='content-main'>
             <view class='content-main-node'>科研立项：</view>
             <view class='content-text'>
-              <view class='content-text-list'> 绍兴市大学生科技创新项目“基于嵌入式技术智能探险机器人的设计与研制”</view>
+              <view class='content-text-list'wx:for="{{scientific}}"  wx:key="key"> {{item}}</view>
             </view>
           </view>
           <view class='content-main'>

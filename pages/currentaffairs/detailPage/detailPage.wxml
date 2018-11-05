@@ -5,7 +5,6 @@
   <view class='detailPage-body-box'>
    <view class='detailPage-body-box-up'>
      <image src='/images/detailPage-title.png'></image>
-     
      <view  class='detailPage-body-box-up-left'>
      <view class='detailPage-body-box-up-left-month'>{{message.day}}</view>
         <view class='detailPage-body-box-up-left-year'>{{message.year}}</view>
@@ -25,8 +24,8 @@
     </view>
       
     <view class='detailPage-body-box-down-box' >
-        <text decode="{{true}}">&ensp;&ensp;&ensp;{{message.content}}</text>
-        
+        <import src="../../../wxParse/wxParse.wxml"/>
+   <template is="wxParse"  class="" data="{{wxParseData:article.nodes}}"/>
     </view>
     <view class='detailPage-body-box-down-bottom'>
       <image src='/images/detailPage-yy.png'></image>
