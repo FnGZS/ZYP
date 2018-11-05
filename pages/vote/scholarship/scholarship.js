@@ -30,6 +30,8 @@ Page({
     endTime: null, //投票结束时间
     rule_limt: null, //投票限制
     rule_intro: null, //投票介绍
+    voteMax:null,
+    votemin:'',
 phoneHeight:''
   },
   getPhoneInfo: function () {
@@ -90,7 +92,9 @@ phoneHeight:''
           rule_intro: voteDetail.actionIntro,
           voteSum: voteDetail.voteSum,
           visitNum: voteDetail.visitNum,
-          voteTimeAll: diffTime
+          voteTimeAll: diffTime,
+          voteMin: voteDetail.voteMin,
+          voteMax: voteDetail.voteMax,
         })
         console.log(voteDetail.status)
         if (voteDetail.status != 2) {

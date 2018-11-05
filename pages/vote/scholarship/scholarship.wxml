@@ -112,7 +112,7 @@
         <view class='rule-main-limit'>
           <view class='iconfont icon-tanhao'></view>
           <view class='rule-main-limitTitle'>投票限定：</view>
-          <view class='rule-main-limitContent'>{{rule_limt}}</view>
+          <view class='rule-main-limitContent'>最少投{{voteMin}}票，最多投{{voteMax}}票</view>
         </view>
         <view class='rule-main-intro'>
           <view class='iconfont icon-jieshao'></view>

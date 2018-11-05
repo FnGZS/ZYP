@@ -23,7 +23,6 @@
         </view>
       </view>
       <view class='{{navIsToTop == 0? "voteSquare-nav":"voteSquare-nav-totop"}}'>
-
         <view class='nav-notStart {{navId == 0?"nav-active":""}}' bindtap='nav_notStart'>
           <view>未开始</view>
           <view class=' {{navId == 0?"nav-line":""}} '></view>
