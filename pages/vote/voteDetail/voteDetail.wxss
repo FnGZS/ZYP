@@ -1,23 +1,27 @@
+
 .voteDetail{
   width: 100%;
   height: 100%;
 }
 .head {
-  width: 90%;
-  height: 200rpx;
+  width: 100%;
+  height: 400rpx;
   margin: 0 auto;
    margin-top:10rpx;
   margin-bottom:10rpx;
-  background: linear-gradient(to right,#FF4341,#F27D6E);
+  background: url("https://www.sxscott.com/crazyBirdimg/test/preview.jpg")no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size:100% 100%;
+  /* background: linear-gradient(to right,#FF4341,#F27D6E); */
   position: relative;
-  border-radius: 30rpx;
+
 }
 
 .detail-headimg {
-  width: 120rpx;
-  height: 120rpx;
+  width: 200rpx;
+  height: 200rpx;
   position: absolute;
-  top: 40%;
+  top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -28,9 +32,9 @@
 }
 .detail-headtext{
   position: absolute;
-  color: #fff;
+  color: #000000;
   font-size: 25rpx;
-  top: 75%;
+  top: 74%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin-top:20rpx;
@@ -39,7 +43,7 @@
 .detail-center{
   height: 80rpx;
   width: 100%;
-  background: linear-gradient(to right,#FF4341,#F27D6E,#FF4341);
+  background: linear-gradient(to right,#3f3a3e,#fff9ed,#3f3a3e);
   display: flex;
 }
 .detail-center-line{
