@@ -1,4 +1,5 @@
 const url = require('../../../config.js')
+const sendAjax = require('../../../utils/sendAjax.js')
 Page({
   data: {
     URL: url.host,
@@ -31,8 +32,11 @@ Page({
     rule_limt: null, //投票限制
     rule_intro: null, //投票介绍
     voteMax:null,
-    votemin:'',
-phoneHeight:''
+    voteMin:null,
+phoneHeight:'',
+    isshow:0,
+    watchID: '',
+    watchPassWord: '',
   },
   getPhoneInfo: function () {
     this.setData({
@@ -296,22 +300,91 @@ phoneHeight:''
       user_choose: user_choose
     })
   },
+  //关闭弹窗
+  Close:function(){
+    var that=this;
+    that.setData({
+      isshow:0
+    })
+  },
+  watchID: function (event) {
+    console.log(event.detail.value);
+    let that = this;
+    that.setData({
+      watchID: event.detail.value,
+    })
+  },
+  watchPassWord: function (event) {
+    let that = this;
+    that.setData({
+      watchPassWord: event.detail.value,
+    })
+  },
+  Submission: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/user/binding',
+      type: 'POST',
+      data: {
+        schoolNum: that.data.watchID,
+        password: that.data.watchPassWord,
+      },
+      header: {
+        'content-type': 'application/json',
+        'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data)
+      if (data.code == 200) {
+        // wx.setStorageSync('isbound', 1);
+        // wx.setStorageSync('authorization', data.asToken);
+        wx.showModal({
+          title: '提示',
+          content: data.message || '处理失败',
+          showCancel: false,
+        });
+        if (data.result)
+        {
+          wx.setStorageSync('isbound', 1);
+         wx.setStorageSync('authorization', data.asToken);
+          that.setData({
+            isshow: 0
+          })
+        }
+      }
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+      // that.onLoad()
+      // wx.setStorageSync('G_needUploadIndex', true)
+    });
+
+  },
+  catchtouchmove:function(){
+    return
+  },
   // 投票
   voteBtn: function () {
     var that = this;
+    // console.log(123);
     var isbound = wx.getStorageSync('isbound', 1);//判断是否绑定了学号
    if(isbound==2)
    {
-     wx.showModal({
-       title: '提示',
-       content: '您还未绑定学号',
-       showCancel: false,
-       success(res) {
-         wx.switchTab({
-           url: '../user/user',
-         })
-       }
+    that.setData({
+      isshow:1,
      })
+    if (wx.pageScrollTo) {
+      wx.pageScrollTo({
+        scrollTop: 0
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+      })
+    }
      }else if(isbound==1){
     var user_choose = this.data.user_choose;
     var userList = this.data.userList;
@@ -321,15 +394,27 @@ phoneHeight:''
         creatVote.push(userList[i].serialId);
       }
     }
-    console.log(creatVote);
+    console.log(creatVote.length);
     if (creatVote.length == 0) {
       wx.showToast({
         title: '您还未勾选任何人',
         icon: 'none',
         duration: 1500
       })
-    } else {
-      
+    } else if (creatVote.length < that.data.voteMin) {
+      wx.showToast({
+        title: '最少选择' + that.data.voteMin + '个人',
+        icon: 'none',
+        duration: 1500
+      })
+    }
+    else if (creatVote.length > that.data.voteMax){
+      wx.showToast({
+        title: '最多选择' + that.data.voteMax+'个人',
+        icon: 'none',
+        duration: 1500
+      })
+    }else {
       var voteString = creatVote.join(",");
       console.log(that.data.studentId);
       console.log(that.data.id);
@@ -346,7 +431,7 @@ phoneHeight:''
           'content-type': 'application/json'
         },
         success(res) {
-          console.log(res)
+          // console.log(res)
           if (res.data.message == "投票成功") {
             wx.showToast({
               title: '投票成功',
@@ -370,7 +455,6 @@ phoneHeight:''
      }
   },
   toVoteDetail:function(e){
-    console.log(123123123);
     var id = e.currentTarget.dataset.id;
     var userDetail = this.data.userList[id - 1];
     console.log(userDetail)

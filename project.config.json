@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -84,6 +84,12 @@
 					"id": 7,
 					"name": "wxParse测试",
 					"pathName": "wxParse/wxParse",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "投片详情",
+					"pathName": "pages/vote/scholarship/scholarship",
 					"query": ""
 				}
 			]

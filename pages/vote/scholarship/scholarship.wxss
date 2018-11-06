@@ -574,3 +574,85 @@ line-height:50rpx;
   width: 100%;
   height: 20rpx;
 }
+.isbound{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+   z-index: 5000;
+}
+.isbound-bg{
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: .4;
+}
+
+.cont-middle{
+  width: 550rpx;
+  height:800rpx;
+background: rgb(250, 250, 250);
+position: absolute;
+top:250rpx;
+left: 100rpx;
+}
+.cont-title{
+  width: 100%;
+  height: 100rpx;
+  background: rgb(250, 250, 250);
+  text-align: center;
+  line-height:88rpx;
+  font-size: 40rpx;
+    color: #6b7281;
+    margin-top:50rpx;
+    border-bottom: 1rpx solid rgb(196, 199, 204);
+}
+.cont-middle-input {
+  width: 80%;
+  height: 60rpx;
+  background: white;
+  margin: 0 auto;
+  margin-top: 40rpx;
+
+  font-size: 26rpx;
+    /* line-height:880rpx; */
+}
+.cont-middle-input input {
+  width: 100%;
+  height: 100%;
+  margin-left: 40rpx;
+  font-size: 30rpx;
+}
+.cont-middle-help {
+  width: 75%;
+  height: 200rpx;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  padding-left: 40rpx;
+  padding-top:20rpx;
+  font-size: 30rpx;
+  color: #6b7281;
+}
+
+.cont-middle-help ul {
+  width: 100%;
+  height: 200rpx;
+ font-size: 20rpx;
+}
+
+.cont-middle-help ul li {
+  width: 100%;
+  height: 30rpx;
+  float: left;
+  margin-top: 10rpx;
+}
+.cont-btn button{
+  width: 250rpx;
+  height: 70rpx;
+  background: #F56E4E;
+  font-size: 30rpx;
+  color: white;
+position: absolute;
+top:940rpx;
+left: 240rpx;
+}

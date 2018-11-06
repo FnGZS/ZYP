@@ -1,6 +1,5 @@
 <view class='cont'>
   <view class='cont-big' wx:if="{{isshow==2}}">
-
     <view class='cont-ipm'>
       <view class='cont-head'>
         <view class='Firsttitle'>学号绑定</view>
