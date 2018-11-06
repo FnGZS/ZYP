@@ -428,7 +428,8 @@ phoneHeight:'',
           detail: voteString
         },
         header: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'authorization': wx.getStorageSync("authorization"),
         },
         success(res) {
           // console.log(res)

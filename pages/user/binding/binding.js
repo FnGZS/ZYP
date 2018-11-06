@@ -57,21 +57,28 @@ Page({
     let infoCb = {}
     infoCb.success = function(data) {
       if (data.code == 200) {
-        wx.setStorageSync('isbound',1);
-        wx.setStorageSync('authorization', data.asToken);
+        // wx.setStorageSync('isbound', 1);
+        // wx.setStorageSync('authorization', data.asToken);
         wx.showModal({
           title: '提示',
           content: data.message || '处理失败',
           showCancel: false,
-          success(res) {
+          
+        });
+        console.log(data.result);
+        if (data.result) {
+          wx.setStorageSync('isbound', 1);
+          wx.setStorageSync('authorization', data.asToken);
+          that.setData({
+            isshow: 0
+          })
             wx.navigateBack({
               delta: 1
-            })
-          }
-        });
+            })  
+        }
       }
     }
- 
+  
     sendAjax(infoOpt, infoCb, () => {
       // that.onLoad()
       // wx.setStorageSync('G_needUploadIndex', true)
