@@ -103,7 +103,7 @@
   <!-- 排行榜显示 -->
   <view id='nav-rank' hidden='{{currentNavId==1?"":"hidden"}}'>
     <view class='rank'>
-      <view class='rank-main' wx:for="{{userRank}}" wx:for-index="rankNum" wx:key="key">
+      <view class='rank-main' wx:for="{{userRank}}" wx:for-index="rankNum" wx:key="key"  >
         <view class='rank-main-img'>
           <image src='{{item.imageUrl}}'></image>
         </view>

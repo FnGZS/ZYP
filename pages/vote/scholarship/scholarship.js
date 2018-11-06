@@ -270,7 +270,7 @@ phoneHeight:'',
         'content-type': 'application/json'
       },
       success(res) {
-        
+         console.log(res);
         that.setData({
           userRank: res.data.voteDetailList
         })
@@ -457,7 +457,8 @@ phoneHeight:'',
   toVoteDetail:function(e){
     var id = e.currentTarget.dataset.id;
     var userDetail = this.data.userList[id - 1];
-    console.log(userDetail)
+
+    console.log(this.data.userList)
     wx.navigateTo({
       url: '../voteDetail/voteDetail?userDetail=' + JSON.stringify(userDetail),
     })
