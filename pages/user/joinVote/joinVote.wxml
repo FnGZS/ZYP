@@ -1,0 +1,41 @@
+
+<!-- <view class='joinVote'>
+  <view class='joinVote-box'>
+    <view class='joinVote-box-up'>
+      <view class='joinVote-box-up-text'>投票活动</view>
+      <view class='joinVote-box-up-img'><image src='../../../images/right.png'></image></view>
+    </view>
+    <view class='joinVote-box-down'>
+      <view class='joinVote-box-time'>2018-11-06 00：00</view>
+      <view class='joinVote-box-state'>进行中</view>
+    </view>
+  </view>
+</view>
+<view class='joinVote'>
+  <view class='joinVote-box'>
+    <view class='joinVote-box-up'>
+      <view class='joinVote-box-up-text'>投票活动</view>
+      <view class='joinVote-box-up-img'><image src='../../../images/right.png'></image></view>
+    </view>
+    <view class='joinVote-box-down'>
+      <view class='joinVote-box-time'>2018-11-06 00：00</view>
+      <view class='joinVote-box-state'>进行中</view>
+    </view>
+  </view>
+</view>
+<view class='joinVote'>
+  <view class='joinVote-box'>
+    <view class='joinVote-box-up'>
+      <view class='joinVote-box-up-text'>投票活动</view>
+      <view class='joinVote-box-up-img'><image src='../../../images/right.png'></image></view>
+    </view>
+    <view class='joinVote-box-down'>
+      <view class='joinVote-box-time'>2018-11-06 00：00</view>
+      <view class='joinVote-box-state'>进行中</view>
+    </view>
+  </view>
+</view> -->
+<view class='jionVote-empty'>
+  <view class='joinVote-empty-img'><image src='https://www.sxscott.com/crazyBirdimg/test/iconVote.png'></image></view>
+  <view>暂时没有投票记录，马上发起投票吧！</view>
+</view>

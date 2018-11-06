@@ -1,0 +1,22 @@
+<!--pages/user/ideaBack/ideaBack.wxml-->
+<view class='ideaBack'>
+<view class='ideaBack-content'>
+<view class='ideaBack-content-text'>请填写你的意见/建议  <text>*</text></view>
+<view class='ideaBack-content-btn1'>
+<input type='text'  placeholder="请留下您的宝贵意见，我们将不断进步，谢谢。"></input>
+</view>
+</view>
+<view class='ideaBack-content'>
+<view class='ideaBack-content-text'>请填写你的手机号码  </view>
+<view class='ideaBack-content-btn2'>
+<input type='text'  placeholder="+86"></input>
+</view>
+</view>
+<view class='ideaBack-content'>
+<view class='ideaBack-content-text'>请填写你的微信号  </view>
+<view class='ideaBack-content-btn2'>
+<input type='text'  placeholder=""></input>
+</view>
+</view>
+</view>
+<view class='ideaBack-bottom'>提交</view>

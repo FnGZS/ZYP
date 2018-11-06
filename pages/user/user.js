@@ -67,6 +67,34 @@ Page({
       })
 
   },
+  joinVote: function () {
+    // console.log('12321313');
+    wx.navigateTo({
+      url: 'joinVote/joinVote'
+    })
+
+  },
+  ideaBack: function () {
+    // console.log('12321313');
+    wx.navigateTo({
+      url: 'ideaBack/ideaBack'
+    })
+
+  },
+  help: function () {
+    // console.log('12321313');
+    wx.navigateTo({
+      url: 'help/help'
+    })
+
+  },
+  aboutUs: function () {
+    // console.log('12321313');
+    wx.navigateTo({
+      url: 'aboutUs/aboutUs'
+    })
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,0 +1,45 @@
+page{
+  width: 100%;
+  height: 100%;
+  
+}
+.help{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100rpx;
+  border-top: 4rpx solid #eeeeee;
+  border-bottom: 4rpx solid #eeeeee;
+}
+.help-box{
+  width: 86%;
+  height:100%;
+}
+.help-box-title{
+  width: 100%;
+  height: 160rpx;
+  font-weight: 700;
+   font-size: 45rpx;
+  line-height: 200rpx;
+}
+.help-box-body{
+  width: 100%;
+  height: 110rpx;
+  line-height: 110rpx;
+}
+.help-box-body text{
+  
+  text-decoration: underline;
+}
+.help-box-body p{
+  font-weight: 600;
+}
+.help-box-bottom{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #00c2ff;
+}
