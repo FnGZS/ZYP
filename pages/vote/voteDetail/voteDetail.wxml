@@ -35,7 +35,7 @@
           <view class='content-main2'>{{detail.className}}</view>
         </view> 
         <view class='detail-main-content1'>
-          <view class='content-title1'>政治面貌：</view>
+          <view class='content-title1'>政治 面貌：</view>
           <view class='content-main2'>{{detail.political}}</view>
         </view> 
         <view class='detail-main-content1' wx:if="{{detail.post != '' || detail.post != null }}">

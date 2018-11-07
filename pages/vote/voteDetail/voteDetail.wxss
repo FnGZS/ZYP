@@ -157,11 +157,11 @@
   margin-left:19rpx; 
 }
 .content-title1{
-  width: 24%;
+  width: 27.5%;
     line-height: 40rpx;
 }
 .content-title2{
-  width: 29%;
+  width: 32%;
     line-height: 40rpx;
 }
 .content-title3{

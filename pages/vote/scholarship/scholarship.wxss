@@ -397,7 +397,7 @@ box-shadow: 10rpx 5rpx 5px #888888;
 .rank-num{
 position:absolute;
 right:38rpx;
-margin-top:7rpx;
+margin-top:10rpx;
 color:#fff;
 font-size:28rpx;
 top:10rpx;
