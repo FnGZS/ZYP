@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
 <scroll-view scroll-y="true" style="width: 100%; height: 100%">
     <!--音乐图标-->
@@ -54,3 +55,38 @@
 
     <!--<audio bindplay="audioPlay" id='myAudio' loop='true' controls='false' src="http://card.mugeda.com/campaigns/55b9e370a3664e7315000124/20161229062354/58648ba592b5793474145000/5864dddf92b57934d85e60fc.mp3"></audio>-->
 </scroll-view>
+=======
+
+  <view class='about-box'>
+
+  <view class='about-box-head'>
+  <view class='about-box-head-icon'>
+  <view class='about-box-head-icon-box'>
+  <image src='https://www.sxscott.com/crazyBirdimg/test/ypLogo.png'></image></view>
+  
+  </view>
+  <view class='about-box-head-text'>缘培
+  </view>
+  </view>
+  <view class='about-box-body'>
+    <view class='about-box-body-content'>缘培小程序是为绍兴文理学院元培学院提供生活学习上服务的优质平台，板块有校园投票/时事/通知/表白/二手等，缘培是为您提供方便的好帮手。</view>
+  </view>
+  <view class='about-box-foot'>
+  <view class='about-box-foot-title'>您可以通过以下方式联系到我们
+  </view>
+  <view class='about-box-foot-content'>
+  <view>客服/商务微信：<text>Effort</text></view>
+  
+  <view>客服/商务QQ：<text>26324636</text></view>
+  <view>联系邮箱<text>26324636@qq.com</text></view>
+  </view>
+  </view>
+  </view>
+  <view class="weui-footer weui-footer_fixed-bottom">
+      <view class="weui-footer__links">
+        <navigator url="" class="weui-footer__link">缘培</navigator>
+      </view>
+      <view class="weui-footer__text">Copyright © 2018-2019 疯鸟网络</view>
+    </view>
+
+>>>>>>> 10071263e149883dd8dfbe5446a21401107fdb22

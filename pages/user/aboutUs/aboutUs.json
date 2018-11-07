@@ -1,7 +1,11 @@
 {
+<<<<<<< HEAD
   "navigationBarTitleText": "关于我们",
   "navigationBarBackgroundColor": "#fff",
   "disableScroll": true,
   "backgroundColor": "#A68AC7",
   "backgroundTextStyle": "light"
+=======
+  "navigationBarTitleText": "关于我们"
+>>>>>>> 10071263e149883dd8dfbe5446a21401107fdb22
 }

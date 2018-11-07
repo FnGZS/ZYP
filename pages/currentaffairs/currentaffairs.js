@@ -19,6 +19,7 @@ Page({
     isBottom:0,
     isBottomhot:0,
     isBottomnew:0,
+    superhotmes:[],
   },
 
   //设置最新热门的高度
@@ -36,6 +37,31 @@ Page({
         listhigth: _this.data.newhigth
       })
     }
+  },
+  //获取最热的推荐时市
+  getaffaris:function(){
+    var that = this;
+    let infoOpt = {
+      url: '/affaris/recommend',
+      type: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data);
+      that.setData({
+        superhotmes:data
+      })
+    }
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+
   },
  //获取热门时事
  gethotmes:function(){
@@ -177,6 +203,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getaffaris();
     this.gethotmes();
     this.getnewmes();
 
