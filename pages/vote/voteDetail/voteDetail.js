@@ -14,10 +14,10 @@ Page({
     })
   },
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     this.getPhoneInfo();
     var detail = JSON.parse(options.userDetail);
-    console.log(detail);
+    // console.log(detail);
     
     var compete = detail.compete;
     var honor = detail.honor;
@@ -27,7 +27,7 @@ Page({
     var recommendList = recommend.split('——');
     var scientific = detail.scientific;
     var scientificList = scientific.split('；');
-    console.log(recommendList)
+    // console.log(recommendList)
 
     this.setData({
       detail: detail,

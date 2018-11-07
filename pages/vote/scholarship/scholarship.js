@@ -47,7 +47,7 @@ phoneHeight:'',
     this.getPhoneInfo();
     var that = this;
     
-    console.log(options)
+    // console.log(options)
     this.setData({
       id: options.id
       // id:1
@@ -83,7 +83,7 @@ phoneHeight:'',
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res);
+        // console.log(res);
         var voteDetail = res.data;
         var diffTime = parseInt(voteDetail.timeDiff / 1000)
         that.setData({
@@ -100,7 +100,7 @@ phoneHeight:'',
           voteMin: voteDetail.voteMin,
           voteMax: voteDetail.voteMax,
         })
-        console.log(voteDetail.status)
+        // console.log(voteDetail.status)
         if (voteDetail.status != 2) {
           countdown(that);
         }
@@ -143,7 +143,7 @@ phoneHeight:'',
   },
   // 检测是否投过票
   checkVote: function (voteStatus) {
-    console.log(voteStatus)
+    // console.log(voteStatus)
     var that = this;
     var studentId = wx.getStorageSync("userId");
     wx.request({
@@ -157,7 +157,7 @@ phoneHeight:'',
         'content-type': 'application/json'
       },
       success(res) {
-        console.log(res)
+        // console.log(res)
         if (res.data.status == 0) {
           if (voteStatus == 1) {
             that.setData({
@@ -174,14 +174,14 @@ phoneHeight:'',
           }
 
         } else {
-          console.log(res.data.detail);
+          // console.log(res.data.detail);
           var detail = res.data.detail;
           var isVote = detail.split(',');
           var user_choose = that.data.user_choose;
           for (var i = 0; i < isVote.length; i++) {
             user_choose[isVote[i] - 1] = true;
           }
-          console.log(user_choose);
+          // console.log(user_choose);
           that.setData({
             voteBtnColor: 'grey',
             voteBtnText: '已投票',
@@ -263,7 +263,7 @@ phoneHeight:'',
   //获取当前投票排行
   getVoteRank: function () {
     var that = this;
-    console.log(this.data.id);
+    // console.log(this.data.id);
     wx.request({
       url: this.data.URL + `/vote/getAction/detail/rank/${this.data.id}`,
       data: {},
@@ -271,7 +271,7 @@ phoneHeight:'',
         'content-type': 'application/json'
       },
       success(res) {
-         console.log(res);
+        //  console.log(res);
         that.setData({
           userRank: res.data.voteDetailList
         })
@@ -282,7 +282,7 @@ phoneHeight:'',
   initChoose: function () {
     var that=this;
     var userList = that.data.userList;
-    console.log(userList);
+    // console.log(userList);
     var user_choose = [];
     var userHidden = [];
     for (var i = 0; i < userList.length; i++) {
@@ -311,7 +311,7 @@ phoneHeight:'',
     })
   },
   watchID: function (event) {
-    console.log(event.detail.value);
+    // console.log(event.detail.value);
     let that = this;
     that.setData({
       watchID: event.detail.value,
@@ -339,7 +339,7 @@ phoneHeight:'',
     }
     let infoCb = {}
     infoCb.success = function (data) {
-      console.log(data)
+      // console.log(data)
       if (data.code == 200) {
         // wx.setStorageSync('isbound', 1);
         // wx.setStorageSync('authorization', data.asToken);
@@ -371,7 +371,7 @@ phoneHeight:'',
   // 投票
   voteBtn: function () {
     var that = this;
-     console.log(wx.getStorageSync("userId"));
+    //  console.log(wx.getStorageSync("userId"));
     var isbound = wx.getStorageSync('isbound', 1);//判断是否绑定了学号
    if(isbound==2)
    {
@@ -397,7 +397,7 @@ phoneHeight:'',
         creatVote.push(userList[i].serialId);
       }
     }
-    console.log(creatVote.length);
+    // console.log(creatVote.length);
     if (creatVote.length == 0) {
       wx.showToast({
         title: '您还未勾选任何人',
@@ -419,10 +419,10 @@ phoneHeight:'',
       })
     }else {
       var voteString = creatVote.join(",");
-      console.log(that.data.studentId);
-      console.log(that.data.id);
-      console.log(creatVote.length);
-      console.log(voteString);
+      // console.log(that.data.studentId);
+      // console.log(that.data.id);
+      // console.log(creatVote.length);
+      // console.log(voteString);
 
       var studentId=wx.getStorageSync("userId");
 
@@ -440,7 +440,7 @@ phoneHeight:'',
           'authorization': wx.getStorageSync("authorization"),
         },
         success(res) {
-          console.log(res)
+          // console.log(res)
           if (res.data.message == "投票成功") {
             wx.showToast({
               title: '投票成功',
@@ -448,7 +448,7 @@ phoneHeight:'',
               duration: 1500
             })
             var op = {id:that.data.id};
-            console.log(op);
+            // console.log(op);
             that.onLoad(op);
           } else {
             var message = res.data.message;
@@ -467,7 +467,7 @@ phoneHeight:'',
     var id = e.currentTarget.dataset.id;
     var userDetail = this.data.userList[id - 1];
 
-    console.log(this.data.userList)
+    // console.log(this.data.userList)
     wx.navigateTo({
       url: '../voteDetail/voteDetail?userDetail=' + JSON.stringify(userDetail),
     })
@@ -525,10 +525,10 @@ function countdown(that) {
       voteTimeSec: '00'
     });
     clearTimeout(timeout);
-    console.log(seconds);
+    // console.log(seconds);
     setTimeout(function () {
       that.onLoad();
-      console.log(that.voteBtnClick)
+      // console.log(that.voteBtnClick)
     }, 500)
 
   } else {

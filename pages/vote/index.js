@@ -29,7 +29,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      console.log(res);
+      // console.log(res);
       that.setData({
         imgUrls:res.items
       })
@@ -42,7 +42,7 @@ Page({
 
   },
   onLoad: function (options) {
-    console.log(111);
+    // console.log(111);
     this.getslide();
     this.getPhoneInfo();
     this.getVoteList();
@@ -73,7 +73,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      console.log(res);
+      // console.log(res);
       if (res.code == 500) { }
       else {
         // console.log(1);
@@ -148,13 +148,13 @@ Page({
   },
   //滚动到底部
   scrollToLower: function () {
-    console.log('滚动到底部')
+    // console.log('滚动到底部')
     var currentPageNum = this.data.currentPageNum + 1;
     this.setData({
       currentPageNum: currentPageNum,
       lodingHidden: ''
     })
-    console.log(this.data.currentPageNum)
+    // console.log(this.data.currentPageNum)
     this.getVoteList();
   },
   nav_notStart: function () {
@@ -260,7 +260,7 @@ Page({
       }
       let infoCb = {}
       infoCb.success = function (res) {
-        console.log(res);
+        // console.log(res);
         if (res.code == 500) { }
         else {
           // console.log(1);

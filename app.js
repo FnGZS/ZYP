@@ -18,7 +18,7 @@ App({
         wx.getSetting({
          
           success: res => {
-                   console.log(res);
+                  //  console.log(res);
     
             if (res.authSetting['scope.userInfo']) {
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
@@ -27,7 +27,7 @@ App({
                   // console.log(222);
                   // 可以将 res 发送给后台解码出 unionId
                   that.globalData.userInfo = userResult.userInfo
-                  console.log(userResult);
+                  // console.log(userResult);
                   var platUserInfoMap = that.globalData.platUserInfoMap;
                   platUserInfoMap["encryptedData"] = userResult.encryptedData;
                   platUserInfoMap["iv"] = userResult.iv;
@@ -45,7 +45,7 @@ App({
 
                     },
                     success(res) {
-                      console.log(res);
+                      // console.log(res);
                       wx.setStorageSync("userId", res.data.userId)
                       wx.setStorageSync("isLogin", 1)
                       that.globalData.nickName = res.data.userName
@@ -61,9 +61,9 @@ App({
                   })
                   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                   // 所以此处加入 callback 以防止这种情况
-                  console.log(that.userInfoReadyCallback);
+                  // console.log(that.userInfoReadyCallback);
                   if (that.userInfoReadyCallback) {
-                    console.log(222);
+                    // console.log(222);
                     that.userInfoReadyCallback(userResult)
                   }
                 }

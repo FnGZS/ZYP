@@ -26,7 +26,7 @@ Page({
 
   },
   watchID: function(event) {
-    console.log(event.detail.value);
+    // console.log(event.detail.value);
     let that = this;
     that.setData({
       watchID: event.detail.value,
@@ -65,7 +65,7 @@ Page({
           showCancel: false,
           
         });
-        console.log(data.result);
+        // console.log(data.result);
         if (data.result) {
           wx.setStorageSync('isbound',1);
           wx.setStorageSync('authorization', data.asToken);
@@ -90,7 +90,7 @@ Page({
    */
   onShow: function() {
       var that=this;
-    console.log(wx.getStorageSync('isbound'));
+    // console.log(wx.getStorageSync('isbound'));
       that.setData({
         isshow: wx.getStorageSync('isbound')
       })

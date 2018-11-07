@@ -49,7 +49,7 @@ Page({
   // },
   //轮播图
   setImgBroadcast: function () {
-    console.log(222);
+    // console.log(222);
     var that = this;
     let infoOpt = {
       url: '/affaris/broad',
@@ -66,7 +66,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-       console.log(data.tags);
+      //  console.log(data.tags);
       that.setData({
         imgUrlsloca: data.tags
       })
@@ -122,7 +122,7 @@ Page({
   },
   //投票跳转
   toVote:function(e){
-    console.log(123);
+    // console.log(123);
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../vote/scholarship/scholarship?id=' + id
@@ -147,7 +147,7 @@ Page({
       that.setData({
         clubs: data.voteList
       })
-      console.log(that.data.clubs);
+      // console.log(that.data.clubs);
       //给5个容器赋值clubs0，1，2去到pos
       //pos的0，1，2，3，4为clubs的last，0，1，2，2+1
       //即pos的2（显示）位置是clubs的1位置
@@ -227,7 +227,7 @@ Page({
   onLoad: function (options) {
     let that = this;
     // that.Startpage();
-    console.log(111);
+    // console.log(111);
     that.setImgBroadcast();
     that.setvoteBroadcast();
     that.getnewmes();
