@@ -103,8 +103,16 @@
   background-size:100% 100%;  */
   /* padding-bottom: 100rpx; */
 }
+.detail-main-content1{
+
+}
 .detail-main-content{
   font-size: 25rpx;
+}
+.detail-main-content1{
+  font-size: 25rpx;
+  margin-left: 5%;
+  display: flex;
 }
 .detail-main-content2{
   display: flex;
@@ -116,6 +124,12 @@
   overflow: hidden; 
   padding-left: 40%;
 
+}
+.record-circular{
+    width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  border: 5rpx solid #FFA500;
 }
 .record-circular1{
   width: 30rpx;
@@ -142,8 +156,12 @@
   background: #A9A9A9;
   margin-left:19rpx; 
 }
+.content-title1{
+  width: 24%;
+    line-height: 40rpx;
+}
 .content-title2{
-  width: 32%;
+  width: 29%;
     line-height: 40rpx;
 }
 .content-title3{

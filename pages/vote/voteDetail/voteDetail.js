@@ -17,7 +17,7 @@ Page({
     // console.log(options)
     this.getPhoneInfo();
     var detail = JSON.parse(options.userDetail);
-    // console.log(detail);
+    console.log(detail);
     
     var compete = detail.compete;
     var honor = detail.honor;
