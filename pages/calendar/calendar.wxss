@@ -1,0 +1,6 @@
+.calendar{
+  width: 100%;
+}
+.calendar image{
+  width: 100%;
+}

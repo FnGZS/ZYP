@@ -1,0 +1,3 @@
+<view class='calendar'>
+  <image src='{{calendar}}' data-pic='{{calendar}}' bindtap='previewImage' mode="widthFix"></image>
+</view>

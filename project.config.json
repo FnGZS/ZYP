@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -91,6 +91,17 @@
 					"name": "投片详情",
 					"pathName": "pages/vote/scholarship/scholarship",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "关于我们",
+					"pathName": "pages/user/aboutUs/aboutUs",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "校历",
+					"pathName": "pages/calendar/calendar"
 				}
 			]
 		}
