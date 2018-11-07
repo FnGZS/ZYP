@@ -421,12 +421,11 @@ phoneHeight:'',
       var voteString = creatVote.join(",");
       console.log(that.data.studentId);
       console.log(that.data.id);
-<<<<<<< HEAD
       console.log(creatVote.length);
       console.log(voteString);
-=======
+
       var studentId=wx.getStorageSync("userId");
->>>>>>> 0c341d966dcaed3a2bbcf6f22669a5ca207d7b30
+
       wx.request({
         method: 'POST',
         url: this.data.URL + '/vote/create',
