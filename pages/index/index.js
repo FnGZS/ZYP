@@ -598,5 +598,18 @@ Page({
       return index - 1;
     }
     return this.data.clubs.length - 1;
+  },
+  //暂未开发
+  noDevelop:function(){
+    wx.showToast({
+      title: '暂未开放，敬请期待ha~',
+      icon:'none',
+      duration:1000
+    })
+  },
+  toCalendar:function(){
+    wx.navigateTo({
+      url: '../calendar/calendar',
+    })
   }
 })

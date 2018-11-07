@@ -26,9 +26,9 @@
                 <image src='/images/icon-toupiao.png'></image>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text' >校园投票</view>
+            <view class='index-body-icon-bg-content-text'>校园投票</view>
           </view>
-          <view class='index-body-icon-bg-content'bindtap='currentaffairs'>
+          <view class='index-body-icon-bg-content' bindtap='currentaffairs'>
             <view class='index-body-icon-bg-content-icon'>
               <view class='index-body-icon-bg-content-icon-border'>
                 <image src='/images/icon-shishi.png'></image>
@@ -37,53 +37,64 @@
             </view>
             <view class='index-body-icon-bg-content-text'>校园时事</view>
           </view>
-          <view class='index-body-icon-bg-content'>
+          <view class='index-body-icon-bg-content' bindtap='toCalendar'>
             <view class='index-body-icon-bg-content-icon'>
               <view class='index-body-icon-bg-content-icon-border'>
                 <image src='/images/icon-tongzhi.png'></image>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>校讯通知</view>
+            <view class='index-body-icon-bg-content-text'>校园校历</view>
           </view>
-          <view class='index-body-icon-bg-content'>
-            <view class='index-body-icon-bg-content-icon'>
-              <view class='index-body-icon-bg-content-icon-border'>
-                <image src='/images/icon-gaobai.png'></image>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+
+            <view class='iconfont icon-box'>
+              <view class='index-body-icon-bg-content-icon1'>
+                <view class='index-body-icon-bg-content-icon-border1'>
+                  <image src='/images/icon-gaobai.png'></image>
+                </view>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>告白专区</view>
+            <view class='index-body-icon-bg-content-text1'>告白专区</view>
           </view>
-          <view class='index-body-icon-bg-content'>
-            <view class='index-body-icon-bg-content-icon'>
-              <view class='index-body-icon-bg-content-icon-border'>
-                <image src='/images/icon-ershou.png'></image>
+          <view class='index-body-icon-bg-content'  bindtap='noDevelop'>
+            <view class='iconfont icon-box'>
+              <view class='index-body-icon-bg-content-icon1'>
+                <view class='index-body-icon-bg-content-icon-border1'>
+                  <image src='/images/icon-ershou.png'></image>
+                </view>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>校园二手</view>
+            <view class='index-body-icon-bg-content-text1'>校园二手</view>
           </view>
-          <view class='index-body-icon-bg-content'>
-            <view class='index-body-icon-bg-content-icon'>
-              <view class='index-body-icon-bg-content-icon-border'>
-                <image src='/images/icon-zhaoling.png'></image>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+            <view class='iconfont icon-box'>
+              <view class='index-body-icon-bg-content-icon1'>
+                <view class='index-body-icon-bg-content-icon-border1'>
+                  <image src='/images/icon-zhaoling.png'></image>
+                </view>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>失物招领</view>
+            <view class='index-body-icon-bg-content-text1'>失物招领</view>
           </view>
-          <view class='index-body-icon-bg-content'>
-            <view class='index-body-icon-bg-content-icon'>
-              <view class='index-body-icon-bg-content-icon-border'>
-                <image src='/images/icon-shetuan.png'></image>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+            <view class='iconfont icon-box'>
+              <view class='index-body-icon-bg-content-icon1'>
+                <view class='index-body-icon-bg-content-icon-border1'>
+                  <image src='/images/icon-shetuan.png'></image>
+                </view>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>社团活动</view>
+            <view class='index-body-icon-bg-content-text1'>社团活动</view>
           </view>
-          <view class='index-body-icon-bg-content'>
-            <view class='index-body-icon-bg-content-icon'>
-              <view class='index-body-icon-bg-content-icon-border'>
-                <image src='/images/icon-kebiao.png'></image>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+            <view class='iconfont icon-box'>
+              <view class='index-body-icon-bg-content-icon1'>
+                <view class='index-body-icon-bg-content-icon-border1'>
+                  <image src='/images/icon-kebiao.png'></image>
+                </view>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>课表查询</view>
+            <view class='index-body-icon-bg-content-text1'>课表查询</view>
           </view>
         </view>
       </view>
@@ -114,19 +125,19 @@
               <image src="{{container[0].actionImage}}" />
               <text>{{container[0].actionName}}</text>
             </view>
-            <view class="club" animation="{{animation2}}" style='z-index:{{zindex[1]}};opacity:{{opacities[1]}};' data-id='{{container[1].id}}'  bindtap='toVote'>
+            <view class="club" animation="{{animation2}}" style='z-index:{{zindex[1]}};opacity:{{opacities[1]}};' data-id='{{container[1].id}}' bindtap='toVote'>
               <image src="{{container[1].actionImage}}" />
               <text>{{container[1].actionName}}</text>
             </view>
-            <view class="club" animation="{{animation3}}" style='z-index:{{zindex[2]}};opacity:{{opacities[2]}};' data-id='{{container[2].id}}'  bindtap='toVote'>
+            <view class="club" animation="{{animation3}}" style='z-index:{{zindex[2]}};opacity:{{opacities[2]}};' data-id='{{container[2].id}}' bindtap='toVote'>
               <image src="{{container[2].actionImage}}" />
               <text>{{container[2].actionName}}</text>
             </view>
-            <view class="club" animation="{{animation4}}" style='z-index:{{zindex[3]}};opacity:{{opacities[3]}};' data-id='{{container[3].id}}'  bindtap='toVote'>
+            <view class="club" animation="{{animation4}}" style='z-index:{{zindex[3]}};opacity:{{opacities[3]}};' data-id='{{container[3].id}}' bindtap='toVote'>
               <image src="{{container[3].actionImage}}" />
               <text>{{container[3].actionName}}</text>
             </view>
-            <view class="club" animation="{{animation5}}" style='z-index:{{zindex[4]}};opacity:{{opacities[4]}};' data-id='{{container[3].id}}'  bindtap='toVote'>
+            <view class="club" animation="{{animation5}}" style='z-index:{{zindex[4]}};opacity:{{opacities[4]}};' data-id='{{container[3].id}}' bindtap='toVote'>
               <image src="{{container[4].actionImage}}" />
               <text>{{container[4].actionName}}</text>
             </view>
@@ -145,18 +156,18 @@
       </view>
     </view>
     <view class='index-current-scorll'>
-      <view class='index-current'  wx:for="{{newmeslist}}" wx:key="key" bindtap='detailPage'  data-id="{{item.id}}" >
-        <view class='index-current-head' >
-           {{item.title}}
+      <view class='index-current' wx:for="{{newmeslist}}" wx:key="key" bindtap='detailPage' data-id="{{item.id}}">
+        <view class='index-current-head'>
+          {{item.title}}
         </view>
         <view class='index-current-img'>
-         <image src='{{item.affairsPic}}'></image>
+          <image src='{{item.affairsPic}}'></image>
         </view>
         <view class='index-current-cont'>
-       {{item.year}}-{{item.day}}
+          {{item.year}}-{{item.day}}
         </view>
       </view>
-  
+
     </view>
   </view>
 
