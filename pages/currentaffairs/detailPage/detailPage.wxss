@@ -16,6 +16,7 @@ page{
   position: relative;
 }
 .detailPage-body-box{
+ 
   position: absolute;
   left: 0;
   right:0;
@@ -70,10 +71,9 @@ color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 .detailPage-body-box-up-right-box{
- width:500rpx;
+   width: 95%;
   min-height: 60%;
   display: flex;
   word-wrap: wrap;
