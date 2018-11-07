@@ -73,14 +73,15 @@ color: #ffffff;
   align-items: center;
 }
 .detailPage-body-box-up-right-box{
-  width: 85%;
+ width:500rpx;
   min-height: 60%;
   display: flex;
   word-wrap: wrap;
   justify-content: center;
   align-items: center;
-  font-size: 30rpx;
-  color: #000;
+  /* font-size: 30rpx; */
+  color:white;
+
 }
 .detailPage-body-box-down{
   position: relative;

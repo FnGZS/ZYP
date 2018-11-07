@@ -11,7 +11,7 @@ page {
 .cont-head {
   width: 100%;
   height: 400rpx;
-  background: red;
+  /* background: red; */
 }
 .head-bg{
   width: 100%;
