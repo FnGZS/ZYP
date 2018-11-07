@@ -42,6 +42,7 @@ Page({
 
   },
   onLoad: function (options) {
+    console.log(111);
     this.getslide();
     this.getPhoneInfo();
     this.getVoteList();
@@ -188,6 +189,8 @@ Page({
     this.getVoteList();
   },
   toVoteDetail:function(e){
+    var islogin=(wx.getStorageSync("isLogin"));
+    if(islogin){
   //  var isbound=wx.getStorageSync('isbound', 1);//判断是否绑定了学号
   //  if(isbound==2)
   //  {
@@ -206,7 +209,19 @@ Page({
     wx.navigateTo({
       url: 'scholarship/scholarship?id=' + id,
     })
-  //  }
+   }
+   else {
+      wx.showModal({
+       title: '提示',
+       content: '请登录',
+       showCancel: false,
+       success(res) {
+         wx.switchTab({
+           url: '../user/user',
+         })
+       }
+     })
+   }
   },
   toSpecialDetail:function(){
     wx.navigateTo({

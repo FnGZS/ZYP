@@ -145,12 +145,13 @@ phoneHeight:'',
   checkVote: function (voteStatus) {
     console.log(voteStatus)
     var that = this;
+    var studentId = wx.getStorageSync("userId");
     wx.request({
       method: 'POST',
       url: this.data.URL + '/vote/check',
       data: {
         actionId: that.data.id,
-        studentId: that.data.studentId
+        studentId: studentId
       },
       header: {
         'content-type': 'application/json'
@@ -279,14 +280,16 @@ phoneHeight:'',
   },
   //初始化选中状态
   initChoose: function () {
-    var userList = this.data.userList;
+    var that=this;
+    var userList = that.data.userList;
+    console.log(userList);
     var user_choose = [];
     var userHidden = [];
     for (var i = 0; i < userList.length; i++) {
       user_choose.push(false);
       userHidden.push('');
     }
-    this.setData({
+    that.setData({
       user_choose: user_choose,
       userHidden: userHidden
     })
@@ -368,7 +371,7 @@ phoneHeight:'',
   // 投票
   voteBtn: function () {
     var that = this;
-    // console.log(123);
+     console.log(wx.getStorageSync("userId"));
     var isbound = wx.getStorageSync('isbound', 1);//判断是否绑定了学号
    if(isbound==2)
    {
@@ -418,14 +421,18 @@ phoneHeight:'',
       var voteString = creatVote.join(",");
       console.log(that.data.studentId);
       console.log(that.data.id);
+<<<<<<< HEAD
       console.log(creatVote.length);
       console.log(voteString);
+=======
+      var studentId=wx.getStorageSync("userId");
+>>>>>>> 0c341d966dcaed3a2bbcf6f22669a5ca207d7b30
       wx.request({
         method: 'POST',
         url: this.data.URL + '/vote/create',
         data: {
           actionId: that.data.id,
-          studentId: that.data.studentId,
+          studentId: studentId,
           sum: creatVote.length,
           detail: voteString
         },

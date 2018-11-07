@@ -3,9 +3,9 @@ const url = require('../config.js')
 function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
 
   // 登录信息过期处理类型
-  const OTCB = outTimeAuthCbOrNeedAuth || function() {
-    getCurrentPages().pop().onLoad(getCurrentPages().pop().options)
-  }
+  // const OTCB = outTimeAuthCbOrNeedAuth || function() {
+  //   getCurrentPages().pop().onLoad(getCurrentPages().pop().options)
+  // }
   const _sets = options
   // console.log(_sets.url)
   if (typeof _sets.type === 'undefined') {
@@ -16,11 +16,11 @@ function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
   }
 
   // 如果不是明确不需要登录权限 而且 没有 G_authorization 的缓存信息 
-  if (outTimeAuthCbOrNeedAuth !== false && !wx.getStorageSync('authorization')) {
-
-    // getApp().uploadUserInfo(OTCB)
-    return
-  }
+  // if (outTimeAuthCbOrNeedAuth !== false && !wx.getStorageSync('authorization')) {
+  // console.log(1111);
+  //   // getApp().uploadUserInfo(OTCB)
+  //   return
+  // }
 
   // 纠正method大写
   _sets.type = _sets.type.toUpperCase();

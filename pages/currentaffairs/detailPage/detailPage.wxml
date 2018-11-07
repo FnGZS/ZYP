@@ -4,7 +4,7 @@
 <view class='detailPage-body'>
   <view class='detailPage-body-box'>
    <view class='detailPage-body-box-up'>
-     <image src='/images/detailPage-title.png'></image>
+     <image src='https://www.sxscott.com/crazyBirdimg/test/detailPage-title.png'></image>
      <view  class='detailPage-body-box-up-left'>
      <view class='detailPage-body-box-up-left-month'>{{message.day}}</view>
         <view class='detailPage-body-box-up-left-year'>{{message.year}}</view>
