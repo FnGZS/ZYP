@@ -67,7 +67,7 @@ Page({
         });
         console.log(data.result);
         if (data.result) {
-          wx.setStorageSync('isbound', 1);
+          wx.setStorageSync('isbound',  );
           wx.setStorageSync('authorization', data.asToken);
           that.setData({
             isshow: 0
