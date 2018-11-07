@@ -1,14 +1,15 @@
 <view class="cont">
-  <view class='cont-head'>
+  <view class='cont-head' data-id="{{superhotmes.id}}" bindtap='detailPage' >
+  <view class='head-bg'></view>
     <view class='cont-head-text'>
       <view class='text-icon'>
         重要
       </view>
       <view class='text-cont'>
-        认真学习贯彻习近平总书记重要指示精神奋力续写新时代"八八战略"崭新篇章
+        {{superhotmes.title}}
       </view>
       <view class='text-time'>
-        2018-10-11
+        {{superhotmes.year}}-{{superhotmes.day}}
       </view>
     </view>
     <view class='cont-head-image'>
