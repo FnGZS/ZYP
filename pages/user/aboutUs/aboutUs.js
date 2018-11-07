@@ -292,11 +292,11 @@ Page({
   myImg: function myImg() {
     wx.previewImage({
       current: '',
-      urls: ['https://c.jiangwenqiang.com/api/my.jpg']
+      urls: ['http://www.sxscott.com/crazyBirdimg/aboutTeam/wx.jpg']
     });
     if (wx.saveImageToPhotosAlbum) {
       wx.saveImageToPhotosAlbum({
-        filePath: 'https://c.jiangwenqiang.com/api/my.jpg'
+        filePath: 'http://www.sxscott.com/crazyBirdimg/aboutTeam/wx.jpg'
       });
     }
   },
@@ -304,19 +304,19 @@ Page({
   /**
    * 文本剪切
    */
-  copyText: function copyText() {
-    wx.setClipboardData({
-      data: 'https://github.com/Say-hi/wx-Map',
-      success: function success() {
-        wx.showToast({
-          title: '地址已复制,请粘贴到浏览器地址栏打开',
-          image: '../../images/keai.png',
-          mask: 'true',
-          duration: 3000
-        });
-      }
-    });
-  },
+  // copyText: function copyText() {
+  //   wx.setClipboardData({
+  //     data: 'https://github.com/Say-hi/wx-Map',
+  //     success: function success() {
+  //       wx.showToast({
+  //         title: '地址已复制,请粘贴到浏览器地址栏打开',
+  //         image: '../../images/keai.png',
+  //         mask: 'true',
+  //         duration: 3000
+  //       });
+  //     }
+  //   });
+  // },
   // 设置背景播放器
   setBackAudio () {
     // let that = this

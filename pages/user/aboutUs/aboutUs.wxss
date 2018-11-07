@@ -3903,3 +3903,10 @@ page {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+.weui-footer__link{
+  color: #ddd;
+
+}
+.weui-footer__text{
+  color: #ddd;
+}
