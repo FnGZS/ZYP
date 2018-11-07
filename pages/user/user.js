@@ -24,17 +24,17 @@ Page({
   onLoad: function () {
 
     if (app.globalData.userInfo) {
-      console.log(1)
+      // console.log(1)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
     } else if (this.data.canIUse) {
-      console.log(2)
+      // console.log(2)
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
-        console.log(12)
+        // console.log(12)
         app.globalData.userInfo = res.userInfo
         this.setData({
           userInfo: res.userInfo,
@@ -52,7 +52,7 @@ Page({
           })
         },
         fail: res => {
-          console.log(4);
+          // console.log(4);
           this.setData({
             getUserInfoFail: true
           })
@@ -63,7 +63,7 @@ Page({
   },
   getUserInfo: function (e) {
     var that=this;
-    console.log(e);
+    // console.log(e);
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
 
@@ -90,7 +90,7 @@ Page({
       }
       let infoCb = {}
       infoCb.success = function (res) {
-        console.log(res)
+        // console.log(res)
         wx.setStorageSync("userId", res.userId)
         wx.setStorageSync("isLogin", 1)
         wx.setStorageSync("nickName", res.userName)
@@ -120,7 +120,7 @@ Page({
     }
 },
   login: function () {
-    console.log(111)
+    // console.log(111)
     var that = this
     // if (typeof success == "function") {
     //   console.log(6);
@@ -160,8 +160,8 @@ Page({
             }
             let infoCb = {}
             infoCb.success = function (res) {
-              console.log(11111);
-              console.log(res)
+              // console.log(11111);
+              // console.log(res)
               wx.setStorageSync("userId", res.userId)
               wx.setStorageSync("isLogin", 1)
               wx.setStorageSync("nickName", res.userName)
@@ -189,8 +189,8 @@ Page({
             //平台登录
           },
           fail: function (res) {
-            console.log(8);
-            console.log(res);
+            // console.log(8);
+            // console.log(res);
             that.setData({
               getUserInfoFail: true
             })
