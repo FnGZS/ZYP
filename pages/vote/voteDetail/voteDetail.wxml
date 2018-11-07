@@ -13,6 +13,39 @@
     </view>
   </view>
   <view class='detail-main'>
+
+    <view class='detail-main-list'>
+      <view class='detail-main-left'>
+        <view class='record-xian'>
+          <view class='record-circular'></view>
+          <view class='record-line'></view>
+        </view>
+      </view>
+      <view class='detail-main-right'>
+        <view class='detail-main-content1'>
+          <view class='content-title1'>分院/书院：</view>
+          <view class='content-main2'>{{detail.branch}}</view>
+        </view>
+        <view class='detail-main-content1'>
+          <view class='content-title1'>姓　 　名：</view>
+          <view class='content-main2'>{{detail.peopleName}}</view>
+        </view> 
+        <view class='detail-main-content1'>
+          <view class='content-title1'>班　 　级：</view>
+          <view class='content-main2'>{{detail.className}}</view>
+        </view> 
+        <view class='detail-main-content1'>
+          <view class='content-title1'>政治 面貌：</view>
+          <view class='content-main2'>{{detail.political}}</view>
+        </view> 
+        <view class='detail-main-content1' wx:if="{{detail.post != '' || detail.post != null }}">
+          <view class='content-title1'>职　 　务：</view>
+          <view class='content-main2'>{{detail.post}}</view>
+        </view> 
+        
+      </view>
+    </view>
+
     <view class='detail-main-list'>
       <view class='detail-main-left'>
         <view class='record-xian'>
@@ -32,13 +65,13 @@
           <view class='content-main'>
             <view class='content-main-node'>科研立项：</view>
             <view class='content-text'>
-              <view class='content-text-list'wx:for="{{scientific}}"  wx:key="key"> {{item}}</view>
+              <view class='content-text-list' wx:for="{{scientific}}" wx:key="key"> {{item}}</view>
             </view>
           </view>
           <view class='content-main'>
             <view class='content-main-node'>获奖荣誉：</view>
             <view class='content-text'>
-              <view class='content-text-list' wx:for="{{honorList}}"  wx:key="key">{{item}}</view>
+              <view class='content-text-list' wx:for="{{honorList}}" wx:key="key">{{item}}</view>
             </view>
           </view>
         </view>
