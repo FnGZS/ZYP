@@ -49,6 +49,7 @@ Page({
   // },
   //轮播图
   setImgBroadcast: function () {
+    console.log(222);
     var that = this;
     let infoOpt = {
       url: '/affaris/broad',
@@ -65,7 +66,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-      // console.log(data.tags);
+       console.log(data.tags);
       that.setData({
         imgUrlsloca: data.tags
       })
@@ -226,6 +227,7 @@ Page({
   onLoad: function (options) {
     let that = this;
     // that.Startpage();
+    console.log(111);
     that.setImgBroadcast();
     that.setvoteBroadcast();
     that.getnewmes();
