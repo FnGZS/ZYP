@@ -27,11 +27,23 @@ page{
   border: 1px solid #e8e8e8;
   border-radius: 10rpx;
 }
+.ideaBack-content-btn1 textarea{
+ width:678rpx;
+height:200rpx;
+display:block;
+position:relative;
+
+
+}
 .ideaBack-content-btn2{
   width: 100%;
   height: 60rpx;
   border: 1px solid #e8e8e8;
   border-radius: 10rpx;
+}
+.ideaBack-content-btn2 input{
+  width: 100%;
+  height: 60rpx;
 }
 .ideaBack-bottom{
   position: absolute;
@@ -40,6 +52,18 @@ page{
   height: 80rpx;
   background: #e8e8e8;
   color: #888888;
+  font-size: 34rpx;
+  line-height: 80rpx;
+  text-align: center;
+  
+}
+.ideaBack-bottomTijiao{
+   position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80rpx;
+  background: #ff4042;
+  color: #fff;
   font-size: 34rpx;
   line-height: 80rpx;
   text-align: center;

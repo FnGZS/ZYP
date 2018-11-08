@@ -1,18 +1,86 @@
-// pages/user/ideaBack/ideaBack.js
+
+const sendAjax = require('../../../utils/sendAjax.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userProposal:"",
+    userPhone:"",
+    userWxid:"",
+    btnColor:true
+  },
+  userProposal:function(e){
+    var that = this
+    
+    that.setData({
+      userProposal : e.detail.value
+    })
+    if ( e.detail.value == ""){
+      that.setData({
+        btnColor:true
+      })
+    }else{
+      that.setData({
+        btnColor: false
+      })
+    }
+  },
+  userPhone: function (e) {
+    var that = this
+    that.setData({
+      userPhone : e.detail.value
+    })
+  },
+  userWxid: function (e) {
+    var that = this
+    that.setData({
+      userWxid : e.detail.value
+    })
+  },
+  tijiao:function(){
+
+    
+ 
+    var that = this;
+    console.log(that.data)
+    let infoOpt = {
+      url: '/opinion/creat',
+      type: 'post',
+      data: {
+        "proposal": "userProposal",
+        "phone": "userPhone",
+        "wxid": "userWxid"
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data);
+      wx.showToast({
+        title: '提交成功',
+        icon: 'success',
+        duration: 1000
+
+      })
+      setTimeout(function () {
+        wx.switchTab({
+          url: '/pages/user/user'
+        })
+      }, 1000)  
+    }
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
@@ -26,7 +94,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
