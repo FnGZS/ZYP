@@ -215,6 +215,9 @@ Page({
           two_five: 'animated flipInY'
         });
       }, 1000);
+      setTimeout(function () {
+        that.showEig();
+      }, 2500);
     } else if (this.data.currentIndex === 2) {
       setTimeout(function () {
         that.setData({
@@ -231,6 +234,7 @@ Page({
           three_six: 'animated tada'
         });
       }, 2000);
+      
     }
   },
 
