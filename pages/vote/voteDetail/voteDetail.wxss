@@ -1,20 +1,20 @@
-
-.voteDetail{
+.voteDetail {
   width: 100%;
   height: 100%;
 }
+
 .head {
   width: 100%;
   height: 300rpx;
   margin: 0 auto;
-   margin-top:10rpx;
-  margin-bottom:10rpx;
+  /* margin-top:10rpx;
+  margin-bottom:10rpx; */
   background: url("https://www.sxscott.com/crazyBirdimg/test/voteBg.jpg")no-repeat;
   background-size: 100% 100%;
-  -moz-background-size:100% 100%;
+  -moz-background-size: 100% 100%;
   /* background: linear-gradient(to right,#FF4341,#F27D6E); */
   position: relative;
-
+  box-shadow: 0rpx 0rpx 20rpx 5rpx #b369fd;
 }
 
 .detail-headimg {
@@ -25,182 +25,213 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.detail-headimg image{
+
+.detail-headimg image {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.detail-headtext{
+
+.detail-headtext {
   position: absolute;
   color: #fff;
   font-size: 25rpx;
   top: 74%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-top:20rpx;
-
+  margin-top: 20rpx;
 }
-.detail-center{
+
+.detail-center {
   height: 80rpx;
   width: 100%;
-  background: linear-gradient(to right,#b76bfe,#6c47ed,#b76bfe);
+  background: linear-gradient(to right, #b76bfe, #6c47ed, #b76bfe);
+  box-shadow: 0rpx 40rpx 20rpx 10rpx #b369fd;
   display: flex;
 }
-.detail-center-line{
+
+.detail-center-line {
   height: 40rpx;
   width: 3rpx;
   background: #fff;
   margin-top: 20rpx;
 }
-.detail-center-text{
+
+.detail-center-text {
   /* width: 49%; */
-  flex:1;
+  flex: 1;
   color: #fff;
   text-align: center;
   line-height: 80rpx;
   font-size: 25rpx;
 }
-.detail-center-voteNum{
+
+.detail-center-voteNum {
   color: #fff;
 }
-.detail-main{
 
+.detail-main {
   margin-top: 50rpx;
   /* background: #fff; */
 }
-.detail-main-list{
+
+.detail-main-list {
   display: flex;
-
 }
-.detail-main-left{
+
+.detail-main-left {
   width: 15%;
-
 }
-.detail-main-right{
+
+.detail-main-right {
   width: 75%;
   margin-right: 5%;
-box-shadow:0rpx 0rpx 20rpx 5rpx #e2e2e2;
- color:#818181;
+  box-shadow: 0rpx 0rpx 20rpx 5rpx #e2e2e2;
+  color: #818181;
   position: relative;
   -moz-border-radius: 20rpx;
   -webkit-border-radius: 20rpx;
   border-radius: 20rpx;
-  padding:20rpx;
+  padding: 20rpx;
   margin-bottom: 50rpx;
 }
-.detail-main-right:before{
- content:"";
+
+.detail-main-right:before {
+  content: "";
   position: absolute;
   right: 100%;
   top: 25rpx;
   width: 0;
   height: 0;
   border-top: 13rpx solid transparent;
-  border-right: 20rpx solid #EAEAEA;
+  border-right: 20rpx solid #eaeaea;
   border-bottom: 13rpx solid transparent;
 }
-.detail-main-right{
-  /* background: url('http://www.zjw77.club/someimg/voteDetailBAc.png');
-  background-size:100% 100%;  */
-  /* padding-bottom: 100rpx; */
-}
-.detail-main-content1{
 
+.detail-main-right {
+  /* background: url('http://www.zjw77.club/someimg/voteDetailBAc.png');
+  background-size:100% 100%;  *//* padding-bottom: 100rpx; */
 }
-.detail-main-content{
+
+.detail-main-content1 {
+}
+
+.detail-main-content {
   font-size: 25rpx;
 }
-.detail-main-content1{
+
+.detail-main-content1 {
   font-size: 25rpx;
   margin-left: 5%;
   display: flex;
 }
-.detail-main-content2{
-  display: flex;
-font-size:28rpx;
 
+.detail-main-content2 {
+  display: flex;
+  font-size: 28rpx;
 }
-.record-xian{ 
+
+.record-xian {
   width: 100%;
   height: 100%;
-  overflow: hidden; 
+  overflow: hidden;
   padding-left: 40%;
+}
 
-}
-.record-circular{
-    width: 30rpx;
-  height: 30rpx;
-  border-radius: 50%;
-  border: 5rpx solid #FFA500;
-}
-.record-circular1{
+.record-circular {
   width: 30rpx;
   height: 30rpx;
   border-radius: 50%;
-  border: 5rpx solid #2BA5FF;
-  
+  margin-top: 20rpx;
+  border: 5rpx solid #ffa500;
+  box-shadow: 0rpx 0rpx 20rpx 5rpx #ffa500;
 }
-.record-circular2{
+
+.record-circular1 {
   width: 30rpx;
   height: 30rpx;
   border-radius: 50%;
-  border: 5rpx solid #A020F0;
+  border: 5rpx solid #2ba5ff;
+  margin-top: 20rpx;
+  box-shadow: 0rpx 0rpx 20rpx 5rpx #2ba5ff;
 }
-.record-circular3{
+
+.record-circular2 {
   width: 30rpx;
   height: 30rpx;
   border-radius: 50%;
-  border: 5rpx solid #FF4040;
+  border: 5rpx solid #a020f0;
+  margin-top: 20rpx;
+  box-shadow: 0rpx 0rpx 20rpx 5rpx #a020f0;
 }
-.record-line{
+
+.record-circular3 {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  border: 5rpx solid #ff4040;
+  margin-top: 20rpx;
+  box-shadow: 0rpx 0rpx 20rpx 5rpx #ff4040;
+}
+
+.record-line {
   width: 2rpx;
-   height: 100%; 
-  background: #A9A9A9;
-  margin-left:19rpx; 
+  height: 100%;
+  background: #a9a9a9;
+  margin-left: 19rpx;
 }
-.content-title1{
+
+.content-title1 {
   width: 27.5%;
-    line-height: 40rpx;
-    font-size: 28rpx;
+  line-height: 40rpx;
+  font-size: 25rpx;
 }
-.content-title2{
+
+.content-title2 {
   width: 32%;
-    line-height: 40rpx;
+  line-height: 40rpx;
 }
-.content-title3{
+
+.content-title3 {
   width: 35%;
   line-height: 40rpx;
-  font-size:28rpx;
-
+  font-size: 28rpx;
 }
-.content-main{
+
+.content-main {
   display: flex;
 }
-.content-main2{
+
+.content-main2 {
   width: 68%;
   line-height: 40rpx;
 }
-.content-main3{
+
+.content-main3 {
   width: 65%;
 }
-.content-main3-text{
-    line-height: 40rpx;
+
+.content-main3-text {
+  line-height: 40rpx;
 }
-.content-main3-peo{
+
+.content-main3-peo {
   margin-top: 20rpx;
   float: right;
   line-height: 40rpx;
 }
-.content-main-node{
+
+.content-main-node {
   width: 32%;
   margin-left: 6%;
   line-height: 40rpx;
 }
-.content-text{
-  width: 100%;
 
+.content-text {
+  width: 100%;
 }
-.content-text-list{
+
+.content-text-list {
   /* margin-bottom: 10rpx; */
   line-height: 40rpx;
 }

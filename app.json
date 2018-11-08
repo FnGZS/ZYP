@@ -1,17 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-
     "pages/user/user",
     "pages/currentaffairs/currentaffairs",
-
     "pages/currentaffairs/detailPage/detailPage",
     "pages/user/joinVote/joinVote",
     "pages/user/ideaBack/ideaBack",
     "pages/user/help/help",
     "pages/user/aboutUs/aboutUs",
     "pages/user/binding/binding",
-    
     "pages/vote/index",
     "pages/vote/scholarship/scholarship",
     "pages/vote/voteDetail/voteDetail",

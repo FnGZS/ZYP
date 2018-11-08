@@ -47,11 +47,11 @@ Page({
     console.log(that.data)
     let infoOpt = {
       url: '/opinion/creat',
-      type: 'post',
+      type: 'POST',
       data: {
-        "proposal": "userProposal",
-        "phone": "userPhone",
-        "wxid": "userWxid"
+        proposal: that.data.userProposal,
+        phone: that.data.userPhone,
+        wxid: that.data.userWxids
       },
       header: {
         'content-type': 'application/json'
@@ -60,17 +60,17 @@ Page({
     let infoCb = {}
     infoCb.success = function (data) {
       console.log(data);
-      wx.showToast({
-        title: '提交成功',
-        icon: 'success',
-        duration: 1000
+      // wx.showToast({
+      //   title: '提交成功',
+      //   icon: 'success',
+      //   duration: 1000
 
-      })
-      setTimeout(function () {
-        wx.switchTab({
-          url: '/pages/user/user'
-        })
-      }, 1000)  
+      // })
+      // setTimeout(function () {
+      //   wx.switchTab({
+      //     url: '/pages/user/user'
+      //   })
+      // }, 1000)  
     }
     sendAjax(infoOpt, infoCb, () => {
 

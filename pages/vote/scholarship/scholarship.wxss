@@ -66,6 +66,7 @@
   font-size: 30rpx;
   /* font-weight: bold; */
   line-height: 80rpx;
+   box-shadow:0rpx 0rpx 10rpx 2rpx #FD5441;
 }
 
 .count {
@@ -169,7 +170,7 @@
   padding-left: 15rpx;
   /* border: 1px solid #ddd; */
 background:#f4f4f4;
-
+box-shadow:10rpx 10rpx 15rpx #E1E1E4;
   width: 65%;
   height: 60rpx;
   border-radius: 10rpx;
@@ -191,6 +192,7 @@ background:#f4f4f4;
   text-align: center;
   line-height: 60rpx;
   border-radius: 10rpx;
+  box-shadow:10rpx 10rpx 15rpx #eea849;
 }
 
 .userList {
