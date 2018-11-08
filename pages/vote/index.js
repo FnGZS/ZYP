@@ -73,7 +73,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      // console.log(res);
+      console.log(res);
       if (res.code == 500) { }
       else {
         // console.log(1);
@@ -90,6 +90,7 @@ Page({
           }
         } else {
           var voteList = that.data.voteList;
+          console.log(voteList);
           for (var i = 0; i < res.voteList.length; i++) {
             voteList.push(res.voteList[i]);
           }
@@ -97,6 +98,7 @@ Page({
             voteList: voteList,
         
           })
+       
         }
       }
     }
@@ -237,11 +239,13 @@ Page({
   onUnload: function () {
   },
   refresh:function(){
+    console.log(123);
    var that=this
     if (that.data.scrollheight<-80){
     setTimeout(function () {
    that.setData({
-     currentPageNum: 1
+     currentPageNum: 1,
+     voteList:[]
    })
       var navId = that.data.navId
       var pageNum = that.data.currentPageNum;
@@ -275,6 +279,7 @@ Page({
               voteList: voteList,
 
             })
+         
           }
         }
       }
