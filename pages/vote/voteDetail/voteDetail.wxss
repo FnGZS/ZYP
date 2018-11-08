@@ -79,7 +79,8 @@
 .detail-main-right{
   width: 75%;
   margin-right: 5%;
-  background: #EAEAEA;
+box-shadow:0rpx 0rpx 20rpx 5rpx #e2e2e2;
+ color:#818181;
   position: relative;
   -moz-border-radius: 20rpx;
   -webkit-border-radius: 20rpx;
@@ -116,7 +117,8 @@
 }
 .detail-main-content2{
   display: flex;
-  font-size: 25rpx;
+font-size:28rpx;
+
 }
 .record-xian{ 
   width: 100%;
@@ -159,6 +161,7 @@
 .content-title1{
   width: 27.5%;
     line-height: 40rpx;
+    font-size: 28rpx;
 }
 .content-title2{
   width: 32%;
@@ -167,6 +170,8 @@
 .content-title3{
   width: 35%;
   line-height: 40rpx;
+  font-size:28rpx;
+
 }
 .content-main{
   display: flex;
