@@ -3,20 +3,20 @@
 <view class='ideaBack-content'>
 <view class='ideaBack-content-text'>请填写你的意见/建议  <text>*</text></view>
 <view class='ideaBack-content-btn1'>
-<input type='text'  placeholder="请留下您的宝贵意见，我们将不断进步，谢谢。"></input>
+<textarea type='text' bindinput="userProposal"  placeholder="请在这里留下您的宝贵意见/建议，缘培将不断进步，谢谢。"></textarea>
 </view>
 </view>
 <view class='ideaBack-content'>
 <view class='ideaBack-content-text'>请填写你的手机号码  </view>
 <view class='ideaBack-content-btn2'>
-<input type='text'  placeholder="+86"></input>
+<input type='number'  bindinput="userPhone"  placeholder="+86"></input>
 </view>
 </view>
 <view class='ideaBack-content'>
 <view class='ideaBack-content-text'>请填写你的微信号  </view>
 <view class='ideaBack-content-btn2'>
-<input type='text'  placeholder=""></input>
+<input type='text' bindinput="userWxid"  placeholder=""></input>
 </view>
 </view>
 </view>
-<view class='ideaBack-bottom'>提交</view>
+<view class='{{btnColor?"ideaBack-bottom":"ideaBack-bottomTijiao"}}'  bindtap='{{btnColor?"":"tijiao"}}' >提交</view>
