@@ -100,7 +100,7 @@ phoneHeight:'',
           voteMin: voteDetail.voteMin,
           voteMax: voteDetail.voteMax,
         })
-        // console.log(voteDetail.status)
+         console.log(voteDetail)
         if (voteDetail.status != 2) {
           countdown(that);
         }
@@ -467,7 +467,7 @@ phoneHeight:'',
     var id = e.currentTarget.dataset.id;
     var userDetail = this.data.userList[id - 1];
 
-    // console.log(this.data.userList)
+     console.log(this.data.userList)
     wx.navigateTo({
       url: '../voteDetail/voteDetail?userDetail=' + JSON.stringify(userDetail),
     })
