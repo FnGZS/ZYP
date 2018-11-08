@@ -40,9 +40,6 @@ Page({
     })
   },
   tijiao:function(){
-
-    
- 
     var that = this;
     console.log(that.data)
     let infoOpt = {
@@ -51,7 +48,7 @@ Page({
       data: {
         proposal: that.data.userProposal,
         phone: that.data.userPhone,
-        wxid: that.data.userWxids
+        wxid: that.data.userWxid
       },
       header: {
         'content-type': 'application/json'
@@ -60,22 +57,12 @@ Page({
     let infoCb = {}
     infoCb.success = function (data) {
       console.log(data);
-      // wx.showToast({
-      //   title: '提交成功',
-      //   icon: 'success',
-      //   duration: 1000
-
-      // })
-      // setTimeout(function () {
-      //   wx.switchTab({
-      //     url: '/pages/user/user'
-      //   })
-      // }, 1000)  
+      
     }
     sendAjax(infoOpt, infoCb, () => {
-
+      
     });
-
+    
   },
   /**
    * 生命周期函数--监听页面加载
