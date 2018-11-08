@@ -443,7 +443,7 @@ phoneHeight:'',
           // console.log(res)
           if (res.data.message == "投票成功") {
             wx.showToast({
-              title: '投票成功',
+              title: wx.getStorageSync("userName")+'投票成功',
               icon: 'none',
               duration: 1500
             })
