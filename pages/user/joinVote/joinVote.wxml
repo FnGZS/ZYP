@@ -35,7 +35,14 @@
     </view>
   </view>
 </view> -->
-<view class='jionVote-empty'>
+<view class='jionVote-empty'  wx:if="{{isshow}}">
   <view class='joinVote-empty-img'><image src='https://www.sxscott.com/crazyBirdimg/test/iconVote.png'></image></view>
   <view>暂时没有投票记录，马上发起投票吧！</view>
 </view>
+   <view class='voteList' wx:for="{{voteRecord}}" wx:key="key" bindtap='toVoteDetail' data-id='{{item.id}}'>
+        <view class='list-main' style='  background: url("{{item.actionImage}}");background-size: 100% 100%;'>
+          <view class='list-shadow'></view>
+          <view class='list-main-title'>{{item.actionName}}</view>
+          <view class='list-main-partin'>{{item.visitNum}}人访问</view>
+        </view>
+      </view>

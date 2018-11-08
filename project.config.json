@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -107,7 +107,13 @@
 				{
 					"id": -1,
 					"name": "奖学金投票",
-					"pathName": "pages/vote/scholarship/scholarship"
+					"pathName": "pages/vote/scholarship/scholarship",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我参与的投票",
+					"pathName": "pages/user/joinVote/joinVote"
 				}
 			]
 		}

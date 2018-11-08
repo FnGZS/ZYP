@@ -2,7 +2,7 @@
 page{
   width: 100%;
   height: 100%;
-  background: #efeff4;
+  background:white;
   display: flex;
   flex-direction: column;
 }
@@ -77,4 +77,55 @@ page{
 .joinVote-empty-img image{
   width: 100%;
   height: 100%;
+}
+.voteList {
+  width: 100%;
+  /* display: flex;
+  flex-wrap: wrap; */
+    /* padding-left: 5%;
+  padding-right: 5%; */
+  
+  margin-top:20rpx;
+}
+
+.list-main {
+  width: 90%;
+  height: 300rpx;
+  background: #fff;
+  box-shadow: 7rpx 7rpx 20rpx rgb(170, 170, 170);
+margin: 0 auto;
+  margin-top: 15rpx;
+  /* margin-right: 2%; */
+
+  position: relative;
+}
+.list-shadow{
+  width: 100%;
+  height: 60rpx;
+  background: black;
+  position: absolute;
+  bottom: 0;
+  opacity: 0.4;
+}
+.list-main-title{
+  width: 60%;
+  position: absolute;
+  font-size: 24rpx;
+  color: #fff;
+  bottom: 10rpx;
+  left: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.list-main-partin{
+  width: 25%;
+  position: absolute;
+  font-size: 24rpx;
+  color: #fff;
+  bottom: 10rpx;
+  right: 20rpx;
+  text-align: center;
 }
