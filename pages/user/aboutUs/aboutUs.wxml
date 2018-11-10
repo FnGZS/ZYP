@@ -57,6 +57,7 @@
 </scroll-view>
 
 
+<<<<<<< HEAD
   <!-- <view class='about-box'>
 
   <view class='about-box-head'>
@@ -82,6 +83,8 @@
   </view>
   </view>
   </view> -->
+=======
+>>>>>>> e5c25682b38aebe0e317f97427d09c657316bdee
   <view class="weui-footer weui-footer_fixed-bottom">
       <view class="weui-footer__links">
         <navigator url="" class="weui-footer__link">缘培</navigator>
