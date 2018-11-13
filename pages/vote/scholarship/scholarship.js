@@ -46,15 +46,11 @@ Page({
   onLoad: function (options) {
     this.getPhoneInfo();
     var that = this;
-<<<<<<< HEAD
        
-    //  console.log(options)
-    that.setData({
-=======
 
     // console.log(options)
     this.setData({
->>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
+
       id: options.id
       // id:1
     })
@@ -92,33 +88,6 @@ Page({
         'content-type': 'application/json',
         // 'authorization': wx.getStorageSync("authorization"),
       },
-<<<<<<< HEAD
-      success(res) {
-        // console.log(res);
-        var voteDetail = res.data;
-        var diffTime = parseInt(voteDetail.timeDiff / 1000)
-        that.setData({
-          navpic: voteDetail.actionImage,
-          status: voteDetail.status,
-          userList: voteDetail.voteDetailList,
-          startTime: voteDetail.startTime,
-          endTime: voteDetail.endTime,
-          rule_limt: voteDetail.voteRuler,
-          rule_intro: voteDetail.actionIntro,
-          voteSum: voteDetail.voteSum,
-          visitNum: voteDetail.visitNum,
-          voteTimeAll: diffTime,
-          voteMin: voteDetail.voteMin,
-          voteMax: voteDetail.voteMax,
-        })
-        //  console.log(voteDetail)
-        if (voteDetail.status != 2) {
-          countdown(that);
-        }
-=======
->>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
-
-
     }
     let infoCb = {}
     infoCb.success = function (res) {
@@ -312,17 +281,14 @@ Page({
   //获取当前投票排行
   getVoteRank: function () {
     var that = this;
-<<<<<<< HEAD
-    wx.request({
-      url: this.data.URL + `/vote/getAction/detail/rank/${this.data.id}`,
-      data: {},
-=======
+
+ 
     let infoOpt = {
       url: `/vote/getAction/detail/rank/` + this.data.id,
       type: 'GET',
       data: {
       },
->>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
+
       header: {
         'content-type': 'application/json',
         // 'authorization': wx.getStorageSync("authorization"),
@@ -341,12 +307,9 @@ Page({
   },
   //初始化选中状态
   initChoose: function () {
-<<<<<<< HEAD
+
     var that=this;
-    // console.log(123);
-=======
-    var that = this;
->>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
+   
     var userList = that.data.userList;
     // console.log(userList);
     var user_choose = [];
@@ -533,14 +496,11 @@ Page({
   toVoteDetail: function (e) {
     var id = e.currentTarget.dataset.id;
     var userDetail = this.data.userList[id - 1];
+    var activeid = this.data.id;
 
-<<<<<<< HEAD
-    //  console.log(this.data.userList)
-=======
-    console.log(this.data.userList)
->>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
+
     wx.navigateTo({
-      url: '../voteDetail/voteDetail?userDetail=' + JSON.stringify(userDetail),
+      url: '../voteDetail/voteDetail?userDetail=' + e.currentTarget.dataset.id ,
     })
   },
   // 点击底部导航-全部参赛
