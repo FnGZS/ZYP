@@ -54,7 +54,7 @@
                 </view>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text1'>告白专区</view>
+            <view class='index-body-icon-bg-content-text1'>校园跑男</view>
           </view>
           <view class='index-body-icon-bg-content'  bindtap='noDevelop'>
             <view class='iconfont icon-box'>

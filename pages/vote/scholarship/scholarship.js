@@ -46,13 +46,14 @@ phoneHeight:'',
   onLoad: function (options) {
     this.getPhoneInfo();
     var that = this;
-    
-    // console.log(options)
-    this.setData({
+       
+    //  console.log(options)
+    that.setData({
       id: options.id
       // id:1
     })
     this.getVoteDetail(); //获取投票详情
+    // console.log(that.data.id)
     this.getVoteRank(); //获取投票排行
 
     // wx.request({
@@ -100,7 +101,7 @@ phoneHeight:'',
           voteMin: voteDetail.voteMin,
           voteMax: voteDetail.voteMax,
         })
-         console.log(voteDetail)
+        //  console.log(voteDetail)
         if (voteDetail.status != 2) {
           countdown(that);
         }
@@ -263,7 +264,6 @@ phoneHeight:'',
   //获取当前投票排行
   getVoteRank: function () {
     var that = this;
-    // console.log(this.data.id);
     wx.request({
       url: this.data.URL + `/vote/getAction/detail/rank/${this.data.id}`,
       data: {},
@@ -281,6 +281,7 @@ phoneHeight:'',
   //初始化选中状态
   initChoose: function () {
     var that=this;
+    // console.log(123);
     var userList = that.data.userList;
     // console.log(userList);
     var user_choose = [];
@@ -467,7 +468,7 @@ phoneHeight:'',
     var id = e.currentTarget.dataset.id;
     var userDetail = this.data.userList[id - 1];
 
-     console.log(this.data.userList)
+    //  console.log(this.data.userList)
     wx.navigateTo({
       url: '../voteDetail/voteDetail?userDetail=' + JSON.stringify(userDetail),
     })
