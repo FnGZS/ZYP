@@ -245,12 +245,14 @@ box-shadow:10rpx 10rpx 15rpx #E1E1E4;
   background: #E5E5E5;
 }
 .icon-gou{
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 50rpx;
-  /* color: #13B7F3; */
-  color: #EE2C2C;
+position:absolute;
+bottom:25rpx;
+right:5rpx;
+font-size:50rpx;
+color:#EE2C2C;
+width:45rpx;
+height:45rpx;
+
 }
 /* .icon-gou-active{
   color: #13B7F3;

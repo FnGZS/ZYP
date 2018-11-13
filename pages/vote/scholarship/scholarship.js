@@ -31,10 +31,10 @@ Page({
     endTime: null, //投票结束时间
     rule_limt: null, //投票限制
     rule_intro: null, //投票介绍
-    voteMax:null,
-    voteMin:null,
-phoneHeight:'',
-    isshow:0,
+    voteMax: null,
+    voteMin: null,
+    phoneHeight: '',
+    isshow: 0,
     watchID: '',
     watchPassWord: '',
   },
@@ -46,9 +46,15 @@ phoneHeight:'',
   onLoad: function (options) {
     this.getPhoneInfo();
     var that = this;
+<<<<<<< HEAD
        
     //  console.log(options)
     that.setData({
+=======
+
+    // console.log(options)
+    this.setData({
+>>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
       id: options.id
       // id:1
     })
@@ -77,12 +83,16 @@ phoneHeight:'',
   //获取投票详情
   getVoteDetail: function () {
     var that = this;
-    wx.request({
-      url: this.data.URL + `/vote/getAction/detail/${this.data.id}`,
-      data: {},
-      header: {
-        'content-type': 'application/json'
+    let infoOpt = {
+      url: '/vote/getAction/detail/' + this.data.id,
+      type: 'GET',
+      data: {
       },
+      header: {
+        'content-type': 'application/json',
+        // 'authorization': wx.getStorageSync("authorization"),
+      },
+<<<<<<< HEAD
       success(res) {
         // console.log(res);
         var voteDetail = res.data;
@@ -105,12 +115,40 @@ phoneHeight:'',
         if (voteDetail.status != 2) {
           countdown(that);
         }
+=======
+>>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
 
-        that.initChoose(); //初始化选中
-        that.checkStatus(); //检测当前活动状态
+
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      var voteDetail = res;
+      // console.log(res);
+      var diffTime = parseInt(voteDetail.timeDiff / 1000)
+      that.setData({
+        navpic: voteDetail.actionImage,
+        status: voteDetail.status,
+        userList: voteDetail.voteDetailList,
+        startTime: voteDetail.startTime,
+        endTime: voteDetail.endTime,
+        rule_limt: voteDetail.voteRuler,
+        rule_intro: voteDetail.actionIntro,
+        voteSum: voteDetail.voteSum,
+        visitNum: voteDetail.visitNum,
+        voteTimeAll: diffTime,
+        voteMin: voteDetail.voteMin,
+        voteMax: voteDetail.voteMax,
+      })
+      console.log(voteDetail)
+      if (voteDetail.status != 2) {
+        countdown(that);
       }
-    })
+      that.initChoose(); //初始化选中
+      that.checkStatus(); //检测当前活动状态
+    }
+    sendAjax(infoOpt, infoCb, () => {
 
+    });
   },
   //检测投票状态
   checkStatus: function () {
@@ -147,53 +185,58 @@ phoneHeight:'',
     // console.log(voteStatus)
     var that = this;
     var studentId = wx.getStorageSync("userId");
-    wx.request({
-      method: 'POST',
-      url: this.data.URL + '/vote/check',
+    let infoOpt = {
+      url: '/vote/check',
+      type: 'POST',
       data: {
         actionId: that.data.id,
         studentId: studentId
       },
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        // 'authorization': wx.getStorageSync("authorization"),
       },
-      success(res) {
-        // console.log(res)
-        if (res.data.status == 0) {
-          if (voteStatus == 1) {
-            that.setData({
-              voteBtnColor: 'linear-gradient(to right, #FF4341, #FC5841)',
-              voteBtnText: '投票',
-              voteBtnClick: 1
-            })
-          } else if (voteStatus == 2) {
-            that.setData({
-              voteBtnColor: '#FF4341',
-              voteBtnText: '投票已结束',
-              voteBtnClick: 0
-            })
-          }
-
-        } else {
-          // console.log(res.data.detail);
-          var detail = res.data.detail;
-          var isVote = detail.split(',');
-          var user_choose = that.data.user_choose;
-          for (var i = 0; i < isVote.length; i++) {
-            user_choose[isVote[i] - 1] = true;
-          }
-          // console.log(user_choose);
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      // console.log(res);
+      if (res.status == 0) {
+        if (voteStatus == 1) {
           that.setData({
-            voteBtnColor: 'grey',
-            voteBtnText: '已投票',
-            user_choose: user_choose,
-            voteBtnClick: 0,
-            lodingHidden: 'hidden'
+            voteBtnColor: 'linear-gradient(to right, #FF4341, #FC5841)',
+            voteBtnText: '投票',
+            voteBtnClick: 1
+          })
+        } else if (voteStatus == 2) {
+          that.setData({
+            voteBtnColor: '#FF4341',
+            voteBtnText: '投票已结束',
+            voteBtnClick: 0
           })
         }
 
+      } else {
+        // console.log(res.data.detail);
+        var detail = res.detail;
+        var isVote = detail.split(',');
+        var user_choose = that.data.user_choose;
+        for (var i = 0; i < isVote.length; i++) {
+          user_choose[isVote[i] - 1] = true;
+        }
+        // console.log(user_choose);
+        that.setData({
+          voteBtnColor: 'grey',
+          voteBtnText: '已投票',
+          user_choose: user_choose,
+          voteBtnClick: 0,
+          lodingHidden: 'hidden'
+        })
       }
-    })
+    }
+    sendAjax(infoOpt, infoCb, () => {
+      // that.onLoad()
+      // wx.setStorageSync('G_needUploadIndex', true)
+    });
   },
   // 搜索内容
   search_content: function (e) {
@@ -216,37 +259,42 @@ phoneHeight:'',
       })
     } else {
       if (isNaN(search_content)) { //不是数字
-        wx.request({
-          url: this.data.URL + '/vote/search',
-          method: 'POST',
+        let infoOpt = {
+          url: '/vote/search',
+          type: 'POST',
           data: {
             actionId: that.data.id,
             peopleName: search_content
           },
           header: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            // 'authorization': wx.getStorageSync("authorization"),
           },
-          success(res) {
-          
-            var userList = res.data.voteDetailList;
-            var j = 0;
-            for (var i = 0; i < userHidden.length; i++) {
-              if (userList.length > j) {
-                if (i == userList[j].serialId - 1) {
-                  userHidden[i] = '';
-                  j++;
-                } else {
-                  userHidden[i] = 'hidden';
-                }
+        }
+        let infoCb = {}
+        infoCb.success = function (res) {
+          var userList = res.voteDetailList;
+          var j = 0;
+          for (var i = 0; i < userHidden.length; i++) {
+            if (userList.length > j) {
+              if (i == userList[j].serialId - 1) {
+                userHidden[i] = '';
+                j++;
               } else {
                 userHidden[i] = 'hidden';
               }
+            } else {
+              userHidden[i] = 'hidden';
             }
-            that.setData({
-              userHidden: userHidden
-            })
           }
-        })
+          that.setData({
+            userHidden: userHidden
+          })
+        }
+        sendAjax(infoOpt, infoCb, () => {
+          // that.onLoad()
+          // wx.setStorageSync('G_needUploadIndex', true)
+        });
       } else { //是数字
         for (var i = 0; i < userHidden.length; i++) {
           if (i == search_content - 1) {
@@ -264,24 +312,41 @@ phoneHeight:'',
   //获取当前投票排行
   getVoteRank: function () {
     var that = this;
+<<<<<<< HEAD
     wx.request({
       url: this.data.URL + `/vote/getAction/detail/rank/${this.data.id}`,
       data: {},
-      header: {
-        'content-type': 'application/json'
+=======
+    let infoOpt = {
+      url: `/vote/getAction/detail/rank/` + this.data.id,
+      type: 'GET',
+      data: {
       },
-      success(res) {
-        //  console.log(res);
-        that.setData({
-          userRank: res.data.voteDetailList
-        })
-      }
-    })
+>>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
+      header: {
+        'content-type': 'application/json',
+        // 'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      that.setData({
+        userRank: res.voteDetailList
+      })
+    }
+    sendAjax(infoOpt, infoCb, () => {
+      // that.onLoad()
+      // wx.setStorageSync('G_needUploadIndex', true)
+    });
   },
   //初始化选中状态
   initChoose: function () {
+<<<<<<< HEAD
     var that=this;
     // console.log(123);
+=======
+    var that = this;
+>>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
     var userList = that.data.userList;
     // console.log(userList);
     var user_choose = [];
@@ -305,10 +370,10 @@ phoneHeight:'',
     })
   },
   //关闭弹窗
-  Close:function(){
-    var that=this;
+  Close: function () {
+    var that = this;
     that.setData({
-      isshow:0
+      isshow: 0
     })
   },
   watchID: function (event) {
@@ -349,10 +414,9 @@ phoneHeight:'',
           content: data.message || '处理失败',
           showCancel: false,
         });
-        if (data.result)
-        {
+        if (data.result) {
           wx.setStorageSync('isbound', 1);
-         wx.setStorageSync('authorization', data.asToken);
+          wx.setStorageSync('authorization', data.asToken);
           that.setData({
             isshow: 0
           })
@@ -366,7 +430,7 @@ phoneHeight:'',
     });
 
   },
-  catchtouchmove:function(){
+  catchtouchmove: function () {
     return
   },
   // 投票
@@ -374,85 +438,84 @@ phoneHeight:'',
     var that = this;
     //  console.log(wx.getStorageSync("userId"));
     var isbound = wx.getStorageSync('isbound', 1);//判断是否绑定了学号
-   if(isbound==2)
-   {
-    that.setData({
-      isshow:1,
-     })
-    if (wx.pageScrollTo) {
-      wx.pageScrollTo({
-        scrollTop: 0
+    if (isbound == 2) {
+      that.setData({
+        isshow: 1,
       })
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
-      })
-    }
-     }else if(isbound==1){
-    var user_choose = this.data.user_choose;
-    var userList = this.data.userList;
-    var creatVote = [];
-    for (var i = 0; i < userList.length; i++) {
-      if (user_choose[i] == true) {
-        creatVote.push(userList[i].serialId);
+      if (wx.pageScrollTo) {
+        wx.pageScrollTo({
+          scrollTop: 0
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+        })
       }
-    }
-    // console.log(creatVote.length);
-    if (creatVote.length == 0) {
-      wx.showToast({
-        title: '您还未勾选任何人',
-        icon: 'none',
-        duration: 1500
-      })
-    } else if (creatVote.length < that.data.voteMin) {
-      wx.showToast({
-        title: '最少选择' + that.data.voteMin + '个人',
-        icon: 'none',
-        duration: 1500
-      })
-    }
-    else if (creatVote.length > that.data.voteMax){
-      wx.showToast({
-        title: '最多选择' + that.data.voteMax+'个人',
-        icon: 'none',
-        duration: 1500
-      })
-    }else {
-      var voteString = creatVote.join(",");
-      // console.log(that.data.studentId);
-      // console.log(that.data.id);
+    } else if (isbound == 1) {
+      var user_choose = this.data.user_choose;
+      var userList = this.data.userList;
+      var creatVote = [];
+      for (var i = 0; i < userList.length; i++) {
+        if (user_choose[i] == true) {
+          creatVote.push(userList[i].serialId);
+        }
+      }
       // console.log(creatVote.length);
-      // console.log(voteString);
+      if (creatVote.length == 0) {
+        wx.showToast({
+          title: '您还未勾选任何人',
+          icon: 'none',
+          duration: 1500
+        })
+      } else if (creatVote.length < that.data.voteMin) {
+        wx.showToast({
+          title: '最少选择' + that.data.voteMin + '个人',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+      else if (creatVote.length > that.data.voteMax) {
+        wx.showToast({
+          title: '最多选择' + that.data.voteMax + '个人',
+          icon: 'none',
+          duration: 1500
+        })
+      } else {
+        var voteString = creatVote.join(",");
+        // console.log(that.data.studentId);
+        // console.log(that.data.id);
+        // console.log(creatVote.length);
+        // console.log(voteString);
 
-      var studentId=wx.getStorageSync("userId");
-
-      wx.request({
-        method: 'POST',
-        url: this.data.URL + '/vote/create',
-        data: {
-          actionId: that.data.id,
-          studentId: studentId,
-          sum: creatVote.length,
-          detail: voteString
-        },
-        header: {
-          'content-type': 'application/json',
-          'authorization': wx.getStorageSync("authorization"),
-        },
-        success(res) {
-          // console.log(res)
-          if (res.data.message == "投票成功") {
+        var studentId = wx.getStorageSync("userId");
+        let infoOpt = {
+          url: '/vote/create',
+          type: 'POST',
+          data: {
+            actionId: that.data.id,
+            studentId: studentId,
+            sum: creatVote.length,
+            detail: voteString
+          },
+          header: {
+            'content-type': 'application/json',
+            // 'authorization': wx.getStorageSync("authorization"),
+          },
+        }
+        let infoCb = {}
+        infoCb.success = function (res) {
+          if (res.message == "投票成功") {
             wx.showToast({
-              title: wx.getStorageSync("userName")+'投票成功',
+              title: wx.getStorageSync("userName") + '投票成功',
               icon: 'none',
               duration: 1500
             })
-            var op = {id:that.data.id};
+            var op = { id: that.data.id };
             // console.log(op);
             that.onLoad(op);
           } else {
-            var message = res.data.message;
+            var message = res.message;
             wx.showToast({
               title: message,
               icon: 'none',
@@ -460,31 +523,39 @@ phoneHeight:'',
             })
           }
         }
-      })
+        sendAjax(infoOpt, infoCb, () => {
+          // that.onLoad()
+          // wx.setStorageSync('G_needUploadIndex', true)
+        });
+      }
     }
-     }
   },
-  toVoteDetail:function(e){
+  toVoteDetail: function (e) {
     var id = e.currentTarget.dataset.id;
     var userDetail = this.data.userList[id - 1];
 
+<<<<<<< HEAD
     //  console.log(this.data.userList)
+=======
+    console.log(this.data.userList)
+>>>>>>> aa8c16e497c2e889f327091c758c2620d4126d39
     wx.navigateTo({
       url: '../voteDetail/voteDetail?userDetail=' + JSON.stringify(userDetail),
     })
   },
   // 点击底部导航-全部参赛
   nav_all: function () {
-    // this.getVoteDetail(); //获取投票详情
     this.setData({
       currentNavId: 0
     })
+    this.getVoteDetail(); //获取投票详情
   },
   // 点击底部导航-排行榜
   nav_rank: function () {
     this.setData({
       currentNavId: 1
     })
+    this.getVoteRank(); //获取投票排行
   },
   // 点击底部导航-排行榜
   nav_rule: function () {

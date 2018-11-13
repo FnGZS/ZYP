@@ -57,7 +57,7 @@
 </scroll-view>
 
 
-  <view class='about-box'>
+  <!-- <view class='about-box'>
 
   <view class='about-box-head'>
   <view class='about-box-head-icon'>
@@ -81,7 +81,7 @@
   <view>联系邮箱<text>26324636@qq.com</text></view>
   </view>
   </view>
-  </view>
+  </view> -->
   <view class="weui-footer weui-footer_fixed-bottom">
       <view class="weui-footer__links">
         <navigator url="" class="weui-footer__link">缘培</navigator>
