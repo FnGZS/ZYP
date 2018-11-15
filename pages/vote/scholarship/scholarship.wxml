@@ -84,7 +84,7 @@
     </view>
     <view class='userList'>
       <view class='user' wx:for="{{userList}}" wx:for-index="userNum" wx:key="key" hidden='{{userHidden[userNum]}}' >
-      <view bindtap='toVoteDetail'  data-id='{{item.serialId}}'>
+      <view bindtap='toVoteDetail'  data-id='{{item.serialId}}' data-pepoid='{{item.id}}'>
         <image src='{{item.imageUrl}}' ></image>
         </view>
         <view class='user-number'>{{item.serialId}}</view>
@@ -93,7 +93,7 @@
         <view class='user-bottom'>
           <view class='user-voteNum'>{{item.num}}票</view>
         </view>
-        <view class='{{user_choose[userNum] == 0 ? "user-choose" : "user-choose-active"}}'   bindtap='toVoteDetail'  data-id='{{item.serialId}}' ></view>
+        <view class='{{user_choose[userNum] == 0 ? "user-choose" : "user-choose-active"}}'   bindtap='toVoteDetail'  data-id='{{item.serialId}}' data-pepoid='{{item.id}}'></view>
         <view class='iconfont  {{user_choose[userNum] == 0 ? "gouBlank" : "icon-gou"}}' bindtap='{{voteBtnClick > 0?"userChoose":""}}' data-num='{{userNum}}'></view>
       </view>
     </view>

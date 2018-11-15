@@ -53,6 +53,7 @@ Page({
     // console.log(options)
     this.getPhoneInfo();
     var detail = options.userDetail;
+    console.log(options)
     this.getuserDetail(detail);
     
   },

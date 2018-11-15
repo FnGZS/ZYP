@@ -92,7 +92,7 @@ Page({
     let infoCb = {}
     infoCb.success = function (res) {
       var voteDetail = res;
-      // console.log(res);
+      console.log(res);
       var diffTime = parseInt(voteDetail.timeDiff / 1000)
       that.setData({
         navpic: voteDetail.actionImage,
@@ -494,11 +494,9 @@ Page({
     }
   },
   toVoteDetail: function (e) {
-   console.log(e);
-
-
+    console.log(e);
     wx.navigateTo({
-      url: '../voteDetail/voteDetail?userDetail=' + e.currentTarget.dataset.id ,
+      url: '../voteDetail/voteDetail?userDetail=' + e.currentTarget.dataset.pepoid ,
     })
   },
   // 点击底部导航-全部参赛
