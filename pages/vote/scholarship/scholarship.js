@@ -494,9 +494,7 @@ Page({
     }
   },
   toVoteDetail: function (e) {
-    var id = e.currentTarget.dataset.id;
-    var userDetail = this.data.userList[id - 1];
-    var activeid = this.data.id;
+   console.log(e);
 
 
     wx.navigateTo({

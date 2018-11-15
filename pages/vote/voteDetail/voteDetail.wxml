@@ -1,9 +1,9 @@
 <view class='voteDetail'>
   <view class='head'>
     <view class='detail-headimg'>
-      <image src='{{detail.imageUrl}}'></image>
+      <image src='{{mes.imageUrl}}'></image>
     </view>
-    <view class='detail-headtext'>{{detail.className}} {{detail.peopleName}}</view>
+    <view class='detail-headtext'>{{mes.className}} {{mes.peopleName}}</view>
   </view>
   <view class='detail-center'>
     <view class='detail-center-text'>个人介绍</view>
@@ -14,7 +14,7 @@
   </view>
   <view class='detail-main'>
 
-    <view class='detail-main-list'  wx-for='{{mes}}'>
+    <view class='detail-main-list'    wx-for='{{mes}}'>
       <view class='detail-main-left'>
         <view class='record-xian'>
           <view class='record-circular'></view>
@@ -24,47 +24,9 @@
       <view class='detail-main-right'>
         <view class='detail-main-content1'>
              <import src="../../../wxParse/wxParse.wxml"/>
-   <template is="wxParse"  class="" data="{{wxParseData:arr[0].nodes}}"/>
+   <template is="wxParse"  class="" data="{{wxParseData:arry.nodes}}"/>
         </view>
       </view>
     </view>
-
-   
-    <view class='detail-main-list'>
-      <view class='detail-main-left'>
-        <view class='record-xian'>
-          <view class='record-circular2'></view>
-          <view class='record-line'></view>
-        </view>
-      </view>
-      <view class='detail-main-right'>
-        <view class='detail-main-content2'>
-          <view class='content-title2'>2、主要事迹：</view>
-          <view class='content-main2'>{{detail.story}}</view>
-
-        </view>
-      </view>
-    </view>
-
-    <view class='detail-main-list'>
-      <view class='detail-main-left'>
-        <view class='record-xian'>
-          <view class='record-circular3'></view>
-          <view class='record-line'></view>
-        </view>
-      </view>
-      <view class='detail-main-right'>
-        <view class='detail-main-content2'>
-          <view class='content-title3'>3、教授推荐词：</view>
-          <view class='content-main3'>
-            <view class='content-main3-text'>{{recommendList[0]}}</view>
-            <view class='content-main3-peo'>——{{recommendList[1]}}</view>
-          </view>
-
-        </view>
-      </view>
-    </view>
-
-
   </view>
 </view>

@@ -9,7 +9,8 @@ Page({
     recommendList:null,
    phoneHeight:'',
     scientific:null,
-    mes:[]
+    mes:[],
+    messtring:[],
   },
   getPhoneInfo: function () {
     this.setData({
@@ -32,18 +33,13 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-     var arry=[];
-   var arr=JSON.parse(res.detail)
-    for(var i=0;i<arr.length;i++){
-        arry[i]='arr['+i+']'
-    }
-    console.log(arry);
-   var qqq='arr[0]';
-      var qqa = arr[0]
-      var arry = WxParse.wxParse(qqq, 'html', qqa, that, 30);
+      console.log(res);
+      var arry = WxParse.wxParse('arry', 'html', res.detail, that, 30);
       that.setData({
-        mes: arr
+        mes: res,
       })
+      
+
     }
     sendAjax(infoOpt, infoCb, () => {
       // that.onLoad()
