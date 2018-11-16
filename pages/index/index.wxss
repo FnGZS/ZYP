@@ -455,10 +455,15 @@ display: flex;
 
 .club text {
   display: block;
-  width: 100%;
+  width: 80%;
   font-size: 24rpx;
   line-height: 40rpx;
   text-align: center;
+   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .box .club:nth-child(1) {

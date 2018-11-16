@@ -11,15 +11,15 @@
       <view class='recommend-top'>
         <image src='http://www.zjw77.club/someimg/tuijian.png? + Math.random() / 9999'></image>
       </view>
-      <view class='recommend-main' bindtap='toSpecialDetail'>
+      <view class='recommend-main' data-id='{{specialList.id}}' bindtap='toSpecialDetail'>
 
         <view class='recommend-img'>
           <image src='http://www.zjw77.club/someimg/votenav.jpg'></image>
         </view>
         <view class='recommend-text'>
-          <view class='recommend-title'>绍兴文理学院元培学院“蔡元培”奖学金投票</view>
+          <view class='recommend-title'>{{specialList.actionName}}</view>
           <view class='recommend-status'></view>
-          <view class='recommend-time'>2018.11.10 - 2018.11.17</view>
+          <view class='recommend-time'>{{specialList.startTime}} - {{specialList.endTime}}</view>
         </view>
       </view>
       <view class='{{navIsToTop == 0? "voteSquare-nav":"voteSquare-nav-totop"}}'>

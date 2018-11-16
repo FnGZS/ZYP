@@ -12,6 +12,7 @@ Page({
     navIsToTop: 0, //导航条是否到达顶部
     imgUrls: [
     ],
+    specialList:[],
     voteList: [], //投票列表
     scrollheight:0,
   },
@@ -45,6 +46,7 @@ Page({
     // console.log(111);
     this.getslide();
     this.getPhoneInfo();
+    this.getSpecial();
     this.getVoteList();
   },
   //获取系统手机高度
@@ -52,6 +54,35 @@ Page({
     this.setData({
       phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight
     })
+  },
+  //获取特别推荐
+  getSpecial:function(){
+    var that = this;
+    let infoOpt = {
+      url: '/vote/getAction/special',
+      type: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      var specialList = res.voteList[0];
+      specialList.startTime = specialList.startTime.substring(0,10);
+      specialList.endTime = specialList.endTime.substring(0, 10);
+      that.setData({
+        specialList: specialList
+      });
+      console.log(that.data.specialList)
+    }
+    infoCb.beforeSend = () => { }
+    infoCb.complete = () => {
+
+    }
+    sendAjax(infoOpt, infoCb, () => {
+    });
   },
   //获取活动列表
   getVoteList: function () {
@@ -225,9 +256,11 @@ Page({
      })
    }
   },
-  toSpecialDetail:function(){
+  toSpecialDetail:function(e){
+    console.log(e)
+    var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: 'scholarship/scholarship?id=1' ,
+      url: 'scholarship/scholarship?id=' + id ,
     })
   },
   onReady: function () {

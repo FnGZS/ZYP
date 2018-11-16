@@ -13,7 +13,6 @@
     </view>
   </view>
   <view class='detail-main'>
-
     <view class='detail-main-list'    wx-for='{{mes}}'>
       <view class='detail-main-left'>
         <view class='record-xian'>
