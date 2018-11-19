@@ -102,7 +102,7 @@ page {
   /* background: azure; */
   margin-left: 30rpx;
   font-size: 40rpx;
-    line-height: 70rpx;
+    line-height: 60rpx;
 }
 
 .user-cont-center {
@@ -133,4 +133,13 @@ page {
   justify-content: center;
   flex-wrap: wrap;
     box-shadow: 1rpx 1rpx 50rpx #E1E1E4;
+}
+.service{
+  width: 600rpx;
+  height: 60rpx;
+  background: white;
+  border-color:white;
+  margin-left: -27rpx;
+  text-align: left;
+  margin-top: -5rpx;
 }
