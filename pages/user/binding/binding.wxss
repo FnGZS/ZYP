@@ -100,7 +100,7 @@ page {
   
 }
 .code{
-  width: 20%;
+  width:30%;
   height: 100%;
    display: flex;
   justify-content: center;
