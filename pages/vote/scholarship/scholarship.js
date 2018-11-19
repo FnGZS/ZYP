@@ -38,7 +38,7 @@ Page({
     watchID: '',
     watchPassWord: '',
     time: '获取验证码', //倒计时 
-    currentTime: 10,//限制60s
+    currentTime: 61,//限制60s
     isClick: 'getCode',//获取验证码按钮，默认允许点击
     watchCode: '',
     watchPhone: '',
@@ -413,7 +413,7 @@ Page({
           clearInterval(interval)
           that.setData({
             time: '获取验证码',
-            currentTime: 10,
+            currentTime: 61,
             isClick: 'getCode'
           })
         }

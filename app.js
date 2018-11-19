@@ -42,7 +42,6 @@ App({
                     },
                     header: {
                       'content-type': 'application/json' // 默认值
-
                     },
                     success(res) {
                       // console.log(res);

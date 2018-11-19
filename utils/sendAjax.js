@@ -59,8 +59,6 @@ function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
           // getApp().uploadUserInfo(OTCB)
         } else {
           if (res.data.code == 400) {
-            scallback(res.data)
-          } else {
             wx.showModal({
               title: '提示',
               content: res.data.message || '处理失败',
