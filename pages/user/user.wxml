@@ -26,7 +26,7 @@
             </view>
           </view>
           <view class='user-cont' bindtap='joinVote'>
-            <view class='user-cont-left iconfont icon-toupiao'  >
+            <view class='user-cont-left iconfont icon-ciricaipintoupiao'  >
             </view>
             <view class='user-cont-center'>
               我参与的投票
@@ -38,7 +38,18 @@
 
         </view>
         <view class='usermotto-foot' style='border-top: 1rpx solid #E1E1E4'>
-          <view class='user-cont' bindtap='ideaBack'>
+         
+           <view class='user-cont' >
+            <view class='user-cont-left iconfont icon-kefuyouxian'>
+            </view>
+            <view class='user-cont-center'>
+             <button class='service' plain style="color: #6D6C6B; border-color:white;font-size:28rpx;"  open-type="contact">在线客服</button>
+            </view>
+            <view class='user-cont-rigth'>
+              <image src='../../images/right.png'></image>
+            </view>
+          </view>
+           <view class='user-cont' bindtap='ideaBack'>
             <view class='user-cont-left iconfont icon-yijianfankui01'>
             </view>
             <view class='user-cont-center'>

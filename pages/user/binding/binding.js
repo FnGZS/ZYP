@@ -9,7 +9,12 @@ Page({
   data: {
     watchID: '',
     watchPassWord: '',
+    watchPhone:'',
     isshow:0,
+    text: '获取验证码', //按钮文字
+    currentTime: 61, //倒计时
+    disabled: false, //按钮是否禁用
+
   },
 
   /**
@@ -37,6 +42,40 @@ Page({
     that.setData({
       watchPassWord: event.detail.value,
     })
+  },
+  watchPhone: function (event){
+    let that = this;
+    that.setData({
+      watchPhone: event.detail.value,
+    })
+  },
+  //获取验证码
+  getCode:function(){
+    var that = this;
+    console.log(that.data.watchPhone);
+  
+    let infoOpt = {
+      url: '/user/sms',
+      type: 'POST',
+      data: {
+        phone: that.data.watchPhone
+      },
+      header: {
+        'content-type': 'application/json',
+      
+      },
+
+
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+        console.log(data);
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+      // that.onLoad()
+      // wx.setStorageSync('G_needUploadIndex', true)
+    });
   },
   Submission: function() {
     var that = this;

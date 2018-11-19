@@ -6,9 +6,13 @@
 // var host = "http://192.168.0.188:8086/"
 //var host = "http://192.168.0.188:8080/"
 //开发
+
 // var host = "http://192.168.1.112:8080/crazyBird
+
+var host = "http://192.168.1.110:8080/crazyBird"
+
 //正式
-var host = "https://www.sxscott.com/crazyBird"
+//var host = "https://www.sxscott.com/crazyBird"
 
 //本地
 //var host ="http://smartdove.iask.in:17946/api"

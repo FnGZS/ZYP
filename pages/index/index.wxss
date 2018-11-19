@@ -372,7 +372,7 @@ height: 230.5rpx;
 .index-body-icon-bg-content-text1{
   height: 50rpx;
   line-height: 20rpx;
-  font-size: 21rpx;
+  font-size: 24rpx;
   color: #959595;
 }
 .icon-box{
@@ -384,7 +384,7 @@ height: 230.5rpx;
 .index-body-icon-bg-content-text{
   height: 50rpx;
   line-height: 50rpx;
-  font-size: 21rpx;
+  font-size: 24rpx;
   color: #959595;
 }
 /* 投票 */

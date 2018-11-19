@@ -32,17 +32,18 @@
         "pagePath": "pages/index/index",
         "text": "首页"
       },
-      {
-        "selectedIconPath": "images/投票2.png",
-        "iconPath": "images/投票.png",
-        "pagePath": "pages/vote/index",
-        "text": "投票 "
-      },
+     
       {
         "selectedIconPath": "images/时事2.png",
         "iconPath": "images/时事.png",
         "pagePath": "pages/currentaffairs/currentaffairs",
         "text": "时事"
+      },
+      {
+        "selectedIconPath": "images/投票2.png",
+        "iconPath": "images/投票.png",
+        "pagePath": "pages/vote/index",
+        "text": "投票 "
       },
       {
         "selectedIconPath": "images/我的2.png",

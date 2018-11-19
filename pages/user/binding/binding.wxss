@@ -16,19 +16,19 @@ page {
   width: 90%;
   height: 900rpx;
   position: absolute;
-  top: 150rpx;
+  top: 50rpx;
   left: 5%;
 }
 
 .cont-bg {
   width: 90%;
-  height: 900rpx;
+  height: 1100rpx;
   background: rgb(250, 250, 250);
   opacity: 0.9;
   z-index: -1000;
   box-shadow: 2rpx 2rpx 20rpx #999999;
   position: absolute;
-  top: 150rpx;
+  top: 50rpx;
   left: 5%;
 }
 
@@ -62,7 +62,7 @@ page {
 
 .cont-middle {
   width: 100%;
-  height: 580rpx;
+  height: 800rpx;
   margin-top: 20rpx;
 }
 
@@ -72,15 +72,44 @@ page {
   background: white;
   margin: 0 auto;
   margin-top: 40rpx;
+  box-shadow: 2rpx 2rpx 20rpx #999999;
 }
-
+.cont-middle-input-phone{
+  width: 80%;
+  height: 100rpx;
+  background: white;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b7281;
+  box-shadow: 2rpx 2rpx 20rpx #999999;
+}
+.cont-middle-input-phone input {
+  width: 80%;
+  height: 100%;
+  margin-left: 40rpx;
+  font-size: 30rpx;
+}
 .cont-middle-input input {
   width: 100%;
   height: 100%;
   margin-left: 40rpx;
   font-size: 30rpx;
+  
 }
-
+.code{
+  width: 20%;
+  height: 100%;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+    color: #6b7281;
+    border: 1rpx solid#6b7281;
+      box-shadow: 2rpx 2rpx 20rpx #999999;
+    font-size: 25rpx;
+}
 .cont-middle-help {
   width: 75%;
   height: 200rpx;
@@ -91,6 +120,7 @@ page {
   padding-top:20rpx;
   font-size: 30rpx;
   color: #6b7281;
+
 }
 
 .cont-middle-help ul {
@@ -109,8 +139,20 @@ page {
   width: 30rpx;
   height: 30rpx;
 }
-.cont-btn button{
+.cont-bottom{
   width: 80%;
+  height: 200rpx;
+margin-left: 67rpx;
+
+}
+.cont-btn{
+    width: 100%;
+  height: 200rpx;
+}
+.cont-btn button{
+ 
+  height: 100rpx;
+  width: 100%;
   background: #F56E4E;
   color: white;
 }
