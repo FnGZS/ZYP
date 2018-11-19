@@ -38,7 +38,7 @@ Page({
       that.setData({
         mes: res,
       })
-      
+            
 
     }
     sendAjax(infoOpt, infoCb, () => {

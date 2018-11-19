@@ -461,7 +461,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-      // console.log(data)
+        console.log(data)
       if (data.code == 200) {
         // wx.setStorageSync('isbound', 1);
         // wx.setStorageSync('authorization', data.asToken);
@@ -476,6 +476,7 @@ Page({
           that.setData({
             isshow: 0
           })
+          
         }
       }
     }
@@ -562,14 +563,25 @@ Page({
         let infoCb = {}
         infoCb.success = function (res) {
           if (res.message == "投票成功") {
-            wx.showToast({
-              title: wx.getStorageSync("userName") + '投票成功',
-              icon: 'none',
-              duration: 1500
+            // wx.showToast({
+            //   title: wx.getStorageSync("userName") + '投票成功',
+            //   icon: 'none',
+            //   duration: 1500
+            // })
+            wx.showModal({
+              title: '缘培',
+              content: '投票成功',
+              showCancel:false,
+              success: function (res) {
+                if (res.confirm) {
+                  var op = { id: that.data.id };
+                  // console.log(op);
+                  that.onLoad(op);
+                } else if (res.cancel) {
+                }
+              } 
             })
-            var op = { id: that.data.id };
-            // console.log(op);
-            that.onLoad(op);
+           
           } else {
             var message = res.message;
             wx.showToast({
