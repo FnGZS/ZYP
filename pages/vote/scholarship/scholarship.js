@@ -476,6 +476,7 @@ Page({
           that.setData({
             isshow: 0
           })
+          that.onLoad();
         }
       }
     }
