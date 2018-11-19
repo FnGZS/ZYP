@@ -596,10 +596,10 @@ line-height:50rpx;
 
 .cont-middle{
   width: 550rpx;
-  height:800rpx;
+  height:1000rpx;
 background: rgb(250, 250, 250);
 position: absolute;
-top:250rpx;
+top:100rpx;
 left: 100rpx;
 }
 .cont-title{
@@ -615,11 +615,11 @@ left: 100rpx;
 }
 .cont-middle-input {
   width: 80%;
-  height: 60rpx;
+  height: 80rpx;
   background: white;
   margin: 0 auto;
   margin-top: 40rpx;
-
+   box-shadow: 2rpx 2rpx 20rpx #999999;
   font-size: 26rpx;
     /* line-height:880rpx; */
 }
@@ -660,6 +660,36 @@ left: 100rpx;
   font-size: 30rpx;
   color: white;
 position: absolute;
-top:940rpx;
+top:1010rpx;
 left: 240rpx;
+}
+.cont-middle-input-phone{
+  width: 80%;
+  height: 80rpx;
+  background: white;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b7281;
+  box-shadow: 2rpx 2rpx 20rpx #999999;
+}
+.cont-middle-input-phone input {
+  width: 80%;
+  height: 100%;
+  margin-left: 40rpx;
+  font-size: 30rpx;
+}
+
+.code{
+  width: 20%;
+  height: 100%;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+    color: #6b7281;
+    border: 1rpx solid#6b7281;
+      box-shadow: 2rpx 2rpx 20rpx #999999;
+    font-size: 25rpx;
 }

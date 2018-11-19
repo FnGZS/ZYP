@@ -9,7 +9,7 @@
 
 // var host = "http://192.168.1.112:8080/crazyBird
 
-var host = "http://192.168.1.110:8080/crazyBird"
+var host = "http://212.129.135.177:8080/crazyBird"
 
 //正式
 //var host = "https://www.sxscott.com/crazyBird"
@@ -19,14 +19,8 @@ var host = "http://192.168.1.110:8080/crazyBird"
 //var host ="http://192.168.0.143:8086/api"
 //var host="https://buguanjiatest.site/api"
 //var host = "http://192.168.0.168:8080/"
-
-
-
-
 var config = {
-
     host,
-
     // 登录地址，用于建立会话
   loginUrl: `${host}/user/login`,
 
