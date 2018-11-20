@@ -473,6 +473,7 @@ Page({
         if (data.result) {
           wx.setStorageSync('isbound', 1);
           wx.setStorageSync('authorization', data.asToken);
+          wx.setStorageSync("userId", that.data.watchID)
           that.setData({
             isshow: 0
           })
@@ -493,8 +494,9 @@ Page({
   // 投票
   voteBtn: function () {
     var that = this;
-    //  console.log(wx.getStorageSync("userId"));
-    var isbound = wx.getStorageSync('isbound', 1);//判断是否绑定了学号
+    console.log(wx.getStorageSync("userId"));
+    var isbound = wx.getStorageSync('isbound');//判断是否绑定了学号
+    console.log(isbound);
     if (isbound == 2) {
       that.setData({
         isshow: 1,
@@ -546,6 +548,7 @@ Page({
         // console.log(voteString);
 
         var studentId = wx.getStorageSync("userId");
+        console.log(studentId);
         let infoOpt = {
           url: '/vote/create',
           type: 'POST',
