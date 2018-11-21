@@ -29,7 +29,7 @@
             <view class='user-cont-left iconfont icon-ciricaipintoupiao'  >
             </view>
             <view class='user-cont-center'>
-              我参与的投票
+              我参与的
             </view>
             <view class='user-cont-rigth'>
               <image src='../../images/right.png'></image>
