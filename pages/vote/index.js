@@ -2,6 +2,7 @@ const url = require('../../config.js')
 const sendAjax = require('../../utils/sendAjax.js')
 Page({
   data: {
+    hhidden:0, 
     // URL: getApp().globalData.URL,
     scrollTop:0,  //距离顶部的高度
     phoneHeight: 0, //系统手机的高度
@@ -44,10 +45,28 @@ Page({
   },
   onLoad: function (options) {
     // console.log(111);
+    this.hhidden();
     this.getslide();
     this.getPhoneInfo();
     this.getSpecial();
     this.getVoteList();
+  },
+  hhidden: function () {
+    var that = this;
+    wx.request({
+      url: 'https://www.sxscott.com/crazyBird/vote/test',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        // console.log(res.data)
+        that.setData({
+          hhidden: res.data.type
+        })
+      }
+    })
   },
   //获取系统手机高度
   getPhoneInfo: function () {

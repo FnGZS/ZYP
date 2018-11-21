@@ -56,7 +56,7 @@
             </view>
             <view class='index-body-icon-bg-content-text1'>校园跑男</view>
           </view>
-          <view class='index-body-icon-bg-content'  bindtap='noDevelop'>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
             <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
                 <view class='index-body-icon-bg-content-icon-border1'>
@@ -99,14 +99,14 @@
         </view>
       </view>
     </view>
-    <view class='index-title'>
+    <view class='index-title' wx:if="{{hhidden == 1}}">
       <view class='index-title-text'>
         <view class='index-title-img'>
           <image src='/images/xiaoyuantoupiao.png'></image>
         </view>
       </view>
     </view>
-    <view class='index-toupiao-bg'>
+    <view class='index-toupiao-bg'  wx:if="{{hhidden == 1}}">
       <view class='index-toupiao-bg-caidai-left'>
 
       </view>

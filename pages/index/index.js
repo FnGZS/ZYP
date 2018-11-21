@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hhidden:0,
     //轮播用的
     imgUrlsloca: [
     ],
@@ -47,6 +48,23 @@ Page({
   //   var that = this;
   //   app.Navigation(event, that);
   // },
+  hhidden:function(){
+    var that = this;
+    wx.request({
+      url: 'https://www.sxscott.com/crazyBird/vote/test',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+        that.setData({
+          hhidden: res.data.type
+        })
+      }
+    })
+  },
   //轮播图
   setImgBroadcast: function () {
     // console.log(222);
@@ -226,6 +244,7 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    that.hhidden();
     // that.Startpage();
     // console.log(111);
     that.setImgBroadcast();
