@@ -26,7 +26,7 @@
                 <image src='/images/icon-toupiao.png'></image>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>校园投票</view>
+            <view class='index-body-icon-bg-content-text'>奖学金</view>
           </view>
           <view class='index-body-icon-bg-content' bindtap='currentaffairs'>
             <view class='index-body-icon-bg-content-icon'>
