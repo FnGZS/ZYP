@@ -229,7 +229,7 @@ Page({
   },
   vote: function () {
     // console.log('123123');
-    wx.switchTab({
+    wx.navigateTo({
       url: '../vote/index',
     })
   },

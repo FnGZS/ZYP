@@ -20,20 +20,19 @@
     <view class='index-body'>
       <view class='index-body-icon'>
         <view class='index-body-icon-bg'>
-          <view class='index-body-icon-bg-content' bindtap='vote'>
+          <view class='index-body-icon-bg-content' bindtap='vote' wx:if="{{hhidden == 1}}">
             <view class='index-body-icon-bg-content-icon'>
               <view class='index-body-icon-bg-content-icon-border'>
                 <image src='/images/icon-toupiao.png'></image>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>奖学金</view>
+            <view class='index-body-icon-bg-content-text'>校园投票</view>
           </view>
           <view class='index-body-icon-bg-content' bindtap='currentaffairs'>
             <view class='index-body-icon-bg-content-icon'>
               <view class='index-body-icon-bg-content-icon-border'>
                 <image src='/images/icon-shishi.png'></image>
               </view>
-
             </view>
             <view class='index-body-icon-bg-content-text'>校园时事</view>
           </view>
@@ -45,7 +44,7 @@
             </view>
             <view class='index-body-icon-bg-content-text'>校园校历</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop' wx:if="{{hhidden == 1}}">
 
             <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
@@ -56,7 +55,7 @@
             </view>
             <view class='index-body-icon-bg-content-text1'>校园跑男</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop' wx:if="{{hhidden == 1}}">
             <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
                 <view class='index-body-icon-bg-content-icon-border1'>
@@ -66,7 +65,7 @@
             </view>
             <view class='index-body-icon-bg-content-text1'>校园二手</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop' wx:if="{{hhidden == 1}}">
             <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
                 <view class='index-body-icon-bg-content-icon-border1'>
@@ -76,7 +75,7 @@
             </view>
             <view class='index-body-icon-bg-content-text1'>失物招领</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop' wx:if="{{hhidden == 1}}">
             <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
                 <view class='index-body-icon-bg-content-icon-border1'>
@@ -86,7 +85,7 @@
             </view>
             <view class='index-body-icon-bg-content-text1'>社团活动</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop' wx:if="{{hhidden == 1}}">
             <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
                 <view class='index-body-icon-bg-content-icon-border1'>
