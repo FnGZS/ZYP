@@ -220,10 +220,19 @@ Page({
   },
  //绑定页面
   binding:function(){
-    // console.log('12321313');
+    var isLogin = wx.getStorageSync('isLogin');
+    if (isLogin==1)
+    {
       wx.navigateTo({
         url: 'binding/binding'
       })
+    }else {
+      wx.showModal({
+        title: '请登录',
+        content: '请获取头像昵称',
+        showCancel: false
+      })
+    }
 
   },
   joinVote: function () {

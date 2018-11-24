@@ -229,9 +229,26 @@ Page({
   },
   vote: function () {
     // console.log('123123');
-    wx.navigateTo({
-      url: '../vote/index',
-    })
+    var isLogin = wx.getStorageSync('isLogin');
+    if (isLogin == 1) {
+      wx.navigateTo({
+        url: '../vote/index',
+      })
+    } else {
+      wx.showModal({
+        title: '请登录',
+        content: '请获取头像昵称',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../user/user',
+            })
+          } else if (res.cancel) {
+          }
+        } 
+      })
+    }
   },
   currentaffairs: function () {
     // console.log('123123');
