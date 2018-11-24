@@ -44,7 +44,7 @@ App({
                       'content-type': 'application/json' // 默认值
                     },
                     success(res) {
-                      // console.log(res);
+                      console.log(res);
                       wx.setStorageSync("userId", res.data.userId)
                       wx.setStorageSync("isLogin", 1)
                       that.globalData.nickName = res.data.userName

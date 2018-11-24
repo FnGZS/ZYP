@@ -141,10 +141,28 @@ Page({
   //投票跳转
   toVote:function(e){
     // console.log(123);
-    var id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '../vote/scholarship/scholarship?id=' + id
-    });
+    var isLogin = wx.getStorageSync('isLogin');
+    if (isLogin == 1) {
+      var id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: '../vote/scholarship/scholarship?id=' + id
+      });
+    } else {
+      wx.showModal({
+        title: '请登录',
+        content: '请获取头像昵称',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../user/user',
+            })
+          } else if (res.cancel) {
+          }
+        }
+      })
+    }
+  
   },
   //投票轮播
   setvoteBroadcast: function () {

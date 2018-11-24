@@ -22,7 +22,7 @@
 
   </view>
 </view>
-      <view wx:if="{{voteRecord.length == 0}}" class='noMore'>
+      <!-- <view wx:if="{{voteRecord.length == 0}}" class='noMore'>
         <view class='iconfont icon-ku'></view>
         <view class='noMore-text'>暂无更多记录</view>
-      </view>
+      </view> -->
