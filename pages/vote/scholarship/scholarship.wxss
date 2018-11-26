@@ -207,7 +207,7 @@ box-shadow:10rpx 10rpx 15rpx #E1E1E4;
 
 .user {
   width: 48%;
-  height: 460rpx;
+  height: 590rpx;
   margin-top: 25rpx;
   background: url('http://www.zjw77.club/someimg/userbac.jpg? + Math.random() / 9999');
   position: relative;
@@ -261,7 +261,7 @@ height:45rpx;
   width: 94%;
   margin-left: 3%;
   margin-top: 10rpx;
-  height: 350rpx;
+  height:460rpx;
   border-radius: 10rpx;
 }
 
