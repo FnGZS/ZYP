@@ -138,8 +138,17 @@ page {
   width: 600rpx;
   height: 60rpx;
   background: white;
-  border-color:white;
-  margin-left: -27rpx;
   text-align: left;
   margin-top: -5rpx;
+  font-size:28rpx;
+
+  
+}
+button[plain] {
+  color:#6D6C6B;
+  
+padding-left:0;
+border:none;
+background-color:transparent;
+
 }

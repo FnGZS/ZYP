@@ -1,4 +1,6 @@
 <!--pages/user/ideaBack/ideaBack.wxml-->
+<view class='eject' style="display:{{trueDisplay}}" ><image src='https://www.sxscott.com/crazyBirdimg/test/truePic.png'></image></view>
+<view class='eject' style="display:{{falseDisplay}}" ><image src='https://www.sxscott.com/crazyBirdimg/test/false.png'></image></view>
 <view class='ideaBack'>
 <view class='ideaBack-content'>
 <view class='ideaBack-content-text'>请填写你的意见/建议  <text>*</text></view>
@@ -7,7 +9,7 @@
 </view>
 </view>
 <view class='ideaBack-content'>
-<view class='ideaBack-content-text'>请填写你的手机号码  </view>
+<view class='ideaBack-content-text'>请填写你的手机号码 <text>*</text> </view>
 <view class='ideaBack-content-btn2'>
 <input type='number'  bindinput="userPhone"  placeholder="+86"></input>
 </view>

@@ -5,6 +5,26 @@ page{
   justify-content: center;
   align-items: center;
 }
+.eject{
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 200rpx;
+  margin: auto;
+  border-radius: 25rpx;
+  display: none;
+  
+}
+.eject image{
+  border: 1px solid #fff;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  border-radius: 20rpx;
+}
 .ideaBack{
   width: 90%;
   height: 100%;
