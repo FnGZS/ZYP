@@ -116,7 +116,6 @@ page {
   background-color: white;
   margin: 0 auto;
   margin-top: 40rpx;
-  padding-left: 40rpx;
   padding-top:20rpx;
   font-size: 30rpx;
   color: #6b7281;

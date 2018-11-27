@@ -12,11 +12,15 @@ page {
 }
 
 .container {
-  margin-left: 3%;
+  /* margin-left: 3%; */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 94%;
   height: 900rpx;
   flex-wrap: wrap;
   border-radius: 20rpx;
+  position: relative;
 }
 
 .container-bg {
@@ -46,35 +50,58 @@ page {
 }
 
 .userinfo {
-  margin-left: 35%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 300rpx;
+  height: 90rpx;
+  font-size: 14rpx;
   opacity: 1;
   position: absolute;
-  top: 100rpx;
+  top: -90rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
 }
-
+.userinfo>button{
+  font-size: 24rpx;
+  line-height: 90rpx;
+}
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
-
+  position: absolute;
+  top: 94rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin:auto;
   border-radius: 50%;
   border: 5rpx solid white;
 }
 
 .userinfo-nickname {
   color: #aaa;
+  font-size: 28rpx;
+  position: absolute;
+  top:170rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
 }
 
 .usermotto {
-  margin-top: 20rpx;
-  margin-left: 2%;
+  /* margin-top: 20rpx; */
+  /* margin-left: 2%; */
   /* background: red; */
-  width: 90%;
+  width: 96%;
   height: 700rpx;
   position: absolute;
-  top: 350rpx;
+  top: 110rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
 }
 
 .usermotto-top {
