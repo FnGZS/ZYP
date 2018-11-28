@@ -99,7 +99,6 @@ Page({
         wx.setStorageSync("userKey", res.userKey)
         wx.setStorageSync("authorization", res.authorization)
         wx.setStorageSync("userId", res.userId)
-
         if (wx.getStorageSync('isbound') == 1) {
           that.setData({
             isboundUser: '已绑定学号'
@@ -237,9 +236,19 @@ Page({
   },
   joinVote: function () {
     // console.log('12321313');
-    wx.navigateTo({
-      url: 'joinVote/joinVote'
-    })
+
+    var isLogin = wx.getStorageSync('isLogin');
+    if (isLogin == 1) {
+      wx.navigateTo({
+        url: 'joinVote/joinVote'
+      })
+    } else {
+      wx.showModal({
+        title: '请登录',
+        content: '请获取头像昵称',
+        showCancel: false
+      })
+    }
 
   },
   ideaBack: function () {

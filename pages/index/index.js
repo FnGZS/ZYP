@@ -84,7 +84,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-      //  console.log(data.tags);
+      console.log(data.tags);
       that.setData({
         imgUrlsloca: data.tags
       })

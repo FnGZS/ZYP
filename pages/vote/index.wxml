@@ -1,6 +1,6 @@
-<view style='width:100%;text-align:center;font-size:23rpx;' wx:if="{{hhidden == 0}}">
+<!-- <view style='width:100%;text-align:center;font-size:23rpx;' wx:if="{{hhidden == 0}}">
   暂未开发，敬请期待ha~
-</view>
+</view> -->
 
 <view id='vote' wx:if="{{hhidden == 1}}">
       <scroll-view class="scroll-con" scroll-y="true" scroll-top="50" bindscroll="handleScroll" bindscrolltolower="scrollToLower"   style='height:{{phoneHeight}}rpx'>

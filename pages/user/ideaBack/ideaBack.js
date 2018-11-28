@@ -9,7 +9,9 @@ Page({
     userProposal:"",
     userPhone:"",
     userWxid:"",
-    btnColor:true
+    btnColor:true,
+    trueDisplay:"none",
+    falseDisplay:"none"
   },
   userProposal:function(e){
     var that = this
@@ -17,11 +19,23 @@ Page({
     that.setData({
       userProposal : e.detail.value
     })
-    if ( e.detail.value == ""){
-      that.setData({
-        btnColor:true
-      })
-    }else{
+    var userPne = that.data.userPhone
+    console.log(userPne)
+    console.log(e.detail.value)
+   
+      if (e.detail.value == ""){
+        
+        that.setData({
+          btnColor: true
+        })
+      
+      
+      } else if (userPne == "") {
+        that.setData({
+          btnColor: true
+        })
+        
+        }else {
       that.setData({
         btnColor: false
       })
@@ -32,36 +46,80 @@ Page({
     that.setData({
       userPhone : e.detail.value
     })
+    var userPro = that.data.userProposal
+    console.log(userPro)
+    console.log(e.detail.value)
+    if (e.detail.value == "") {
+
+      that.setData({
+        btnColor: true
+      })
+
+
+    } else if (userPro == "") {
+      that.setData({
+        btnColor: true
+      })
+
+    } else {
+      that.setData({
+        btnColor: false
+      })
+    }
   },
   userWxid: function (e) {
     var that = this
     that.setData({
       userWxid : e.detail.value
     })
+    
   },
   tijiao:function(){
-    var that = this;
-    console.log(that.data)
-    let infoOpt = {
-      url: '/opinion/creat',
-      type: 'POST',
-      data: {
-        proposal: that.data.userProposal,
-        phone: that.data.userPhone,
-        wxid: that.data.userWxid
-      },
-      header: {
-        'content-type': 'application/json'
-      },
+    const  that = this;
+    var phone = that.data.userPhone
+    console.log(phone.length)
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (!myreg.test(phone)){
+      that.setData({
+        falseDisplay: "block"
+      })
+      setTimeout(function () {
+        that.setData({
+          falseDisplay: "none"
+        })
+
+      }, 2000);
+      clearTimeout();
+    }else{
+      console.log(that.data)
+      let infoOpt = {
+        url: '/opinion/creat',
+        type: 'POST',
+        data: {
+          proposal: that.data.userProposal,
+          phone: that.data.userPhone,
+          wxid: that.data.userWxid
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (data) {
+        console.log(data);
+        that.setData({
+          trueDisplay: "block"
+        })
+        timer = setTimeout(function () {
+          wx.navigateBack()
+        }, 1000);
+
+      }
+      sendAjax(infoOpt, infoCb, () => {
+
+      });
     }
-    let infoCb = {}
-    infoCb.success = function (data) {
-      console.log(data);
-      
-    }
-    sendAjax(infoOpt, infoCb, () => {
-      
-    });
+    
     
   },
   /**

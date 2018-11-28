@@ -43,7 +43,7 @@
             <view class='user-cont-left iconfont icon-kefuyouxian'>
             </view>
             <view class='user-cont-center'>
-             <button class='service' plain style="color: #6D6C6B; border-color:white;font-size:28rpx;"  open-type="contact">在线客服</button>
+             <button class='service' plain   open-type="contact">在线客服</button>
             </view>
             <view class='user-cont-rigth'>
               <image src='../../images/right.png'></image>
