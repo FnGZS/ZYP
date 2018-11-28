@@ -20,6 +20,7 @@ var host = "https://www.sxscott.com/crazyBird"
 //var host="https://buguanjiatest.site/api"
 //var host = "http://192.168.0.168:8080/"
 // var host = "http://192.168.43.160:8080/crazyBird"
+// var host = "http://192.168.1.118:8080/crazyBird"
 var config = {
     host,
     // 登录地址，用于建立会话
