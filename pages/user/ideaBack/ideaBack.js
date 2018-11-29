@@ -78,7 +78,7 @@ Page({
     const  that = this;
     var phone = that.data.userPhone
     console.log(phone.length)
-    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    var myreg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
     if (!myreg.test(phone)){
       that.setData({
         falseDisplay: "block"
