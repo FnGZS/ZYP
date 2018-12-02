@@ -63,7 +63,7 @@ Page({
   },
   getUserInfo: function (e) {
     var that=this;
-    // console.log(e);
+     console.log(e);
     if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
 
