@@ -1,0 +1,38 @@
+ <view>
+<image src="../../images/icon-toupiao.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
+<image src="../../images/icon-zhaoling.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
+<image src="../../images/icon-shishi.png" class="img-style" animation="{{animInput}}" bindtap="input"></image>
+<image src="../../images/icon-kebiao.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+</view>
+
+ <view class="swiper-tab">
+    <!-- <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">最新</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">热门</view> -->
+     <view class="swiper-tab-item  "  wx:for="{{hear}}"   style="width:{{hearwidth}}%;" ><view class="{{currentTab==item.id?'active':''}} swiper-tab-text" data-current="{{item.id}}" bindtap="clickTab">{{item.name}}</view></view> 
+  </view>
+<!-- <view style='  background: #f65959;  height: 500rpx;'></view> -->
+  <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:500rpx;' circular='true'>
+
+       <swiper-item wx:for="{{message}}">
+      <view class='current' wx:for="{{item.list}}" wx:key="*this" bindtap='detailPage'  data-id="{{item.id}}" >
+        <view class=' current-image '>
+        <image src='{{item.affairsPic}}'></image>
+        </view>
+        <view class='current-text '>
+          <view class='current-text-cont '>
+             {{item.name}}
+          </view>
+          <view class='current-text-Identification'>
+            <view class='Identification'>
+              {{item.subordinate}}
+            </view>
+          
+        </view>
+          <view class='time'>
+              {{item.year}}-{{item.day}}</view>
+          </view>
+      </view>     
+      
+    </swiper-item>
+ 
+  </swiper>
