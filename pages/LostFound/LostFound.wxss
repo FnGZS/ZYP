@@ -95,18 +95,20 @@ swiper{
  font-size: 20rpx;
 }
 .img-plus-style {
-height: 150rpx;
-width: 150rpx;
-position: absolute;
-bottom: 250rpx;
-right: 100rpx;
+height:100rpx;
+width:100rpx;
+
+position: fixed;
+bottom: 100rpx;
+right: 65rpx;
 z-index: 100;
+/* opacity: .8 */
 }
 .img-style {
-height: 150rpx;
-width: 150rpx;
-position: absolute;
-bottom: 250rpx;
-right: 100rpx;
+height: 60rpx;
+width: 60rpx;
+position: fixed;
+bottom: 100rpx;
+right: 85rpx;
 opacity: 0;
 }

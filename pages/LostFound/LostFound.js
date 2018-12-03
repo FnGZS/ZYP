@@ -1,4 +1,5 @@
 // pages/LostFound/LostFound.js
+const sendAjax = require('../../utils/sendAjax.js')
 Page({
 
   /**
@@ -9,7 +10,7 @@ Page({
     //测试数据
     hearwidth: 0,
     hear: [{ id: 0, name: '寻主' }, { id: 1, name: '寻物' }],
-    message: [{ list: [{ id: 0, name: '物品', subordinate:'在食堂边丢失一张饭卡',year:'2018',day:'10-8'}, { id: 1, name: '你猜' }] }, { list: [{ id: 0, name: '物品' }, { id: 1, name: '你猜' }] }],
+    message: [{ list: [{ id: 0, name: '物品', subordinate:'手机,饭卡',year:'2018',day:'10-8'}, { id: 1, name: '你猜' }] }, { list: [{ id: 0, name: '物品' }, { id: 1, name: '你猜' }] }],
     isPopping: false,//是否已经弹出
     animPlus: {},//旋转动画
     animCollect: {},//item位移,透明度
@@ -43,6 +44,56 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  getlosttype:function(){
+  var that=this;
+    let infoOpt = {
+      url: '/lost/type',
+      type: 'GET',
+      data: { 
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data.lostTypeList);
+      that.setData({
+        hear: data.lostTypeList
+      })
+      that.getLostList(that.data.hear)
+  
+    }
+  
+    sendAjax(infoOpt, infoCb, () => {
+    
+    });
+  },
+getLostList:function(e){
+  var Elength=e.length;
+  console.log(e[0])
+  for(var i=0;i<Elength;i++){
+  let infoOpt = {
+    url: '/lost/getLostList/?typeId='+e[i].typeId,
+    type: 'GET',
+    data: {
+    },
+    header: {
+      'content-type': 'application/json',
+      //  'authorization': wx.getStorageSync("authorization"),
+    },
+  }
+  let infoCb = {}
+  infoCb.success = function (data) {
+    console.log(data);
+  }
+
+  sendAjax(infoOpt, infoCb, () => {
+
+  });
+  }
+},
   onLoad: function (options) {
     console.log(this.data.message);
     //顶部样式控制
@@ -52,6 +103,7 @@ Page({
     that.setData({
       hearwidth: length
     })
+    that.getlosttype();
   },
 
   /**
@@ -145,10 +197,10 @@ Page({
       duration: 500,
       timingFunction: 'ease-out'
     })
-    animationPlus.rotateZ(180).step();
-    animationcollect.translate(-100, -100).rotateZ(180).opacity(1).step();
-    animationTranspond.translate(-140, 0).rotateZ(180).opacity(1).step();
-    animationInput.translate(-100, 100).rotateZ(180).opacity(1).step();
+    animationPlus.rotateZ(360).step();
+    animationcollect.translate(0, -60).rotateZ(360).opacity(1).step();
+    animationTranspond.translate(-300, 0).rotateZ(360).opacity(1).step();
+    animationInput.translate(0, -110).rotateZ(360).opacity(1).step();
     this.setData({
       animPlus: animationPlus.export(),
       animCollect: animationcollect.export(),
