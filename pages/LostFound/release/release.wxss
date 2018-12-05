@@ -1,0 +1,83 @@
+/* pages/LostFound/release/release.wxss */
+.release-body{
+  margin: 0rpx;
+  padding: 0rpx;
+  width: 100%;
+  height: 100%;
+  font-size: 23rpx;
+}
+.release-body-top{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 300rpx;
+  width: 100%;
+  background-color: #f0fcff;
+  position: relative;
+}
+.release-body-top image{
+  margin-left: 10rpx;
+  /* margin-right: 10rpx; */
+  height: 100rpx;
+  width: 100rpx;
+}
+.describe{
+  height: 100%;
+  display: flex;
+   justify-content: center;
+}
+.detail{
+  width: 100%;
+  height: 100%;
+  background-color: #fffbf0;
+  display: flex;
+  margin-top: 20rpx;
+  justify-content: center;
+  /* border: solid 1rpx red; */
+}
+.detail-form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center
+}
+.detail-form-text{
+  width: 100%;
+  height: 100rpx;
+    display: flex;
+     align-items: center;
+     justify-content: space-between;
+     border-bottom: solid 3rpx #c0ebd7;
+}
+.detail-form-name{
+  display: flex;
+ align-items: center;
+}
+.detail-form-text-1 radio{
+  margin-top: 40rpx;
+  margin-left: 90rpx;
+}
+.btn{
+  margin-top: 50rpx;
+}
+.detail-form-text image{
+  height: 50rpx;
+  width: 50rpx;
+}
+.prompt{
+  position: absolute;
+  bottom: 0;
+}
+.cancel-pic{
+  position:absolute;
+  margin-left: 65rpx;
+  margin-top: -25rpx;
+}
+.cancel-pic image{
+width: 50rpx;
+height:50rpx;
+}
+.picandcancel{
+  display: flex;
+   flex-direction: column; 
+}

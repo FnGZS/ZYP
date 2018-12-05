@@ -1,0 +1,35 @@
+<view class='release-body'>
+  <view class='release-body-top'>
+      <!-- <view class='addpic'>
+        <!-- <image src='/images/addpic.png'></image> -->
+      <!-- </view> -->
+      <view wx:for="{{picurl}}" wx:key="key" class='picandcancel'>
+        <image src="{{item}}" catchtap='chingepicture' data-index="{{index}}" ></image>
+       <view  class='cancel-pic'> <image data-index="{{index}}" src='/images/cancel.png'  catchtap='removepicture'></image> </view>
+      </view>
+         <image class='addpic' src='/images/addpic.png'  catchtap='addpicture'></image>
+      <!-- <view class='prompt'>单击图标添加图片</view> -->
+  </view>
+  <view>
+      <view class='describe'>
+        <view class='detail'>
+          <form class='detail-form'>
+               <view class='detail-form-text-1'><radio-group><radio>寻主</radio><radio>寻物</radio></radio-group></view>
+            <view class='detail-form-text'> <view class='detail-form-name' >物品名称：</view><input></input> </view>
+                <view class='detail-form-text'><view  class='detail-form-name' >物品描述:</view><input></input></view>
+                <view  class='detail-form-text'><view class='detail-form-name' >丢失地点:</view><input value='{{address}}'></input><image src='/images/map.png' bindtap='getmap'></image></view>
+                <view class='detail-form-text'><view class='detail-form-name' >选择分类:</view><input></input></view>
+                <view class='detail-form-text'><view class='detail-form-name' >QQ号:</view><input></input></view>
+                <view class='detail-form-text'><view class='detail-form-name' >手机号:</view><input></input></view>
+                <button form-type="submit" class='btn'>提交</button>
+          </form>
+            
+        </view>
+      </view>
+  </view>
+  <!-- <view>
+      <view class='addmess'>
+         <button class='btn'>提交</button>
+      </view>
+  </view> -->
+</view>
