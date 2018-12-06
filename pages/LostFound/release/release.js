@@ -11,20 +11,29 @@ Page({
   },
   addpicture:function(){
     var that=this
+    var cnt=that.data.picurl.length
     var picurl = that.data.picurl
     var index = that.data.picurl.length;
     console.log(index);
-    wx.chooseImage({
-      count: 4,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success(res) {
-        var tempFilePaths = res.tempFilePaths
-        picurl.splice(index, 0, tempFilePaths)
-        console.log(tempFilePaths)
-        that.setData({ picurl: picurl})
+    if(cnt!=4)
+    {
+      wx.chooseImage({
+        count: 4,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'],
+        success(res) {
+          var tempFilePaths = res.tempFilePaths
+          console.log(tempFilePaths)
+          for (var i = 0; i < tempFilePaths.length; i++) {
+            picurl.splice(index, 0, tempFilePaths[i])
+          }
+          // console.log(picurl)
+          that.setData({ picurl: picurl })
+          console.log(picurl)
+        }
+      })
       }
-    })
+   
   },
   removepicture:function(e){
     var that=this
