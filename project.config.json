@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 14,
 			"list": [
 				{
 					"id": -1,
@@ -119,7 +119,13 @@
 				{
 					"id": -1,
 					"name": "失物招领",
-					"pathName": "pages/LostFound/LostFound"
+					"pathName": "pages/LostFound/LostFound",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "失物招领发布页面",
+					"pathName": "pages/LostFound/release/release"
 				}
 			]
 		}

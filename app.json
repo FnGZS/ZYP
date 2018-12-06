@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/LostFound/release/release",
     "pages/index/index",
     "pages/user/user",
     "pages/currentaffairs/currentaffairs",
@@ -16,6 +15,7 @@
     "pages/calendar/calendar",
     "pages/logoMode/logoMode",
     "pages/LostFound/LostFound",
+      "pages/LostFound/release/release",
     "pages/logs/logs"
   ],
   "window": {

@@ -9,8 +9,11 @@ Page({
     currentTab: 0,
     //测试数据
     hearwidth: 0,
+    //内容高度
+    contheigth:0,
+
     hear: [{ id: 0, name: '寻主' }, { id: 1, name: '寻物' }],
-    message: [{ list: [{ id: 0, name: '物品', subordinate:'手机,饭卡',year:'2018',day:'10-8'}, { id: 1, name: '你猜' }] }, { list: [{ id: 0, name: '物品' }, { id: 1, name: '你猜' }] }],
+    message: [{ list: [{ id: 0, name: '物品', affairsPic:'https://www.sxscott.com/crazyBirdimg/affairs/affairs5.png', subordinate:'手机,饭卡',year:'2018',day:'10-8'}, { id: 1, name: '你猜' }] }, { list: [{ id: 0, name: '物品' }, { id: 1, name: '你猜' }] }],
     isPopping: false,//是否已经弹出
     animPlus: {},//旋转动画
     animCollect: {},//item位移,透明度
@@ -103,7 +106,14 @@ getLostList:function(e){
     that.setData({
       hearwidth: length
     })
-    that.getlosttype();
+    console.log(that.data.message)
+    //内容高度控制
+    var length = that.data.message[that.data.currentTab].list.length
+    console.log(length);
+    that.setData({
+      contheigth: length*700
+    })
+    // that.getlosttype();
   },
 
   /**
@@ -176,7 +186,9 @@ getLostList:function(e){
     console.log("transpond")
   },
   collect: function () {
-    console.log("collect")
+    wx.navigateTo({
+      url: 'release/release'
+    });
   },
   //弹出动画
   popp: function () {

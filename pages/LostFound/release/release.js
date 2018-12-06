@@ -11,14 +11,18 @@ Page({
   },
   addpicture:function(){
     var that=this
+    var picurl = that.data.picurl
+    var index = that.data.picurl.length;
+    console.log(index);
     wx.chooseImage({
-      count: 9,
+      count: 4,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success(res) {
         var tempFilePaths = res.tempFilePaths
+        picurl.splice(index, 0, tempFilePaths)
         console.log(tempFilePaths)
-        that.setData({picurl: tempFilePaths})
+        that.setData({ picurl: picurl})
       }
     })
   },
@@ -34,6 +38,7 @@ Page({
     var that = this
     var picurl = that.data.picurl
     var index = e.currentTarget.dataset.index
+    console.log(index);
     // picurl.splice(index, 1)
     // that.setData({ picurl: picurl })
     wx.chooseImage({
@@ -43,6 +48,7 @@ Page({
       success(res) {
         var tempFilePaths = res.tempFilePaths
         picurl.splice(index, 1, tempFilePaths )
+
         that.setData({ picurl: picurl })
       }
     })

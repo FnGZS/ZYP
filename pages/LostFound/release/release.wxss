@@ -1,83 +1,121 @@
 /* pages/LostFound/release/release.wxss */
-.release-body{
+
+.release-body {
   margin: 0rpx;
   padding: 0rpx;
   width: 100%;
   height: 100%;
   font-size: 23rpx;
 }
-.release-body-top{
+
+.release-body-top {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   height: 300rpx;
   width: 100%;
-  background-color: #f0fcff;
+  background-color: #f65959;
   position: relative;
 }
-.release-body-top image{
+
+.release-body-top image {
   margin-left: 10rpx;
   /* margin-right: 10rpx; */
   height: 100rpx;
   width: 100rpx;
 }
-.describe{
-  height: 100%;
+
+.describe {
+  height: 900rpx;
   display: flex;
-   justify-content: center;
+  justify-content: center;
 }
-.detail{
+
+.detail {
   width: 100%;
   height: 100%;
-  background-color: #fffbf0;
+  background-color: white;
   display: flex;
-  margin-top: 20rpx;
+  /* margin-top: 20rpx; */
   justify-content: center;
   /* border: solid 1rpx red; */
+  font-size: 28rpx;
 }
-.detail-form{
+
+.detail-form {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
-.detail-form-text{
-  width: 100%;
+
+.detail-form-text {
+  width: 700rpx;
   height: 100rpx;
-    display: flex;
-     align-items: center;
-     justify-content: space-between;
-     border-bottom: solid 3rpx #c0ebd7;
+  border-bottom: solid 3rpx #cccccc;
 }
-.detail-form-name{
+
+.detail-form-text input {
+  float: left;
+  margin-top: 25rpx;
+  width: 500rpx;
+  /* background: red; */
+}
+
+.detail-form-name {
+  float: left;
+  width: 150rpx;
+  height: 100rpx;
   display: flex;
- align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-.detail-form-text-1 radio{
-  margin-top: 40rpx;
-  margin-left: 90rpx;
+
+.detail-form-text-1 {
+  width: 100%;
+  border-bottom: solid 3rpx #cccccc;
+
+  height: 120rpx;
+  display: flex;
+
+  align-items: center;
 }
-.btn{
+
+.detail-form-text-1 radio {
+  margin-left: 100rpx;
+}
+
+.btn {
   margin-top: 50rpx;
+  color: white;
+  background: #f65959;
+   box-shadow: 1rpx 1rpx 20rpx #f65959;
 }
-.detail-form-text image{
+
+.detail-form-text image {
   height: 50rpx;
   width: 50rpx;
+  margin-top: 25rpx;
 }
-.prompt{
+
+.prompt {
   position: absolute;
   bottom: 0;
+  color: white;
 }
-.cancel-pic{
-  position:absolute;
+
+.cancel-pic {
+  position: absolute;
   margin-left: 65rpx;
   margin-top: -25rpx;
 }
-.cancel-pic image{
-width: 50rpx;
-height:50rpx;
+
+.cancel-pic image {
+  width: 50rpx;
+  height: 50rpx;
 }
-.picandcancel{
+
+.picandcancel {
   display: flex;
-   flex-direction: column; 
+  flex-direction: column;
 }
