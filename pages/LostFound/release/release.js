@@ -6,19 +6,36 @@ Page({
    */
   data: {
     address:null,
-    picurl:[]
+    picurl:[],
+    cnt:0,
       // / images / addpic.png
+    show: false,
+  },
+  imagesshow:function(){
+    var that=this
+    var picurl = that.data.picurl
+  if(picurl.length>=4){
+     that.setData({
+       show:true
+     })
+    //  console.log(1111);
+  }else {
+    console.log(picurl.length);
+    that.setData({
+      show: false
+    })
+  }
   },
   addpicture:function(){
     var that=this
     var cnt=that.data.picurl.length
     var picurl = that.data.picurl
     var index = that.data.picurl.length;
-    console.log(index);
+
     if(cnt!=4)
     {
       wx.chooseImage({
-        count: 4,
+        count: 1,
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
         success(res) {
@@ -33,7 +50,7 @@ Page({
         }
       })
       }
-   
+   that.imagesshow();
   },
   removepicture:function(e){
     var that=this
@@ -42,6 +59,7 @@ Page({
     var index = e.currentTarget.dataset.index
     picurl.splice(index,1)
     that.setData({ picurl:picurl})
+    that.imagesshow();
   },
   chingepicture:function(e){
     var that = this
@@ -61,11 +79,12 @@ Page({
         that.setData({ picurl: picurl })
       }
     })
+    that.imagesshow();
   },
   getmap:function(){
     var that=this
 
-    console.log('111')
+    // console.log('111')
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success(res) {

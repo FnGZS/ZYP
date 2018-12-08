@@ -19,16 +19,17 @@
 }
 
 .release-body-top image {
-  margin-left: 10rpx;
+  margin-left: 20rpx;
   /* margin-right: 10rpx; */
-  height: 100rpx;
-  width: 100rpx;
+  height: 120rpx;
+  width: 120rpx;
 }
 
 .describe {
   height: 900rpx;
   display: flex;
   justify-content: center;
+  
 }
 
 .detail {
@@ -52,7 +53,8 @@
 .detail-form-text {
   width: 700rpx;
   height: 100rpx;
-  border-bottom: solid 3rpx #cccccc;
+ border-bottom: solid 3rpx #f5f5f5;
+  
 }
 
 .detail-form-text input {
@@ -62,6 +64,9 @@
   /* background: red; */
 }
 
+input{
+  text-align: right;
+}
 .detail-form-name {
   float: left;
   width: 150rpx;
@@ -70,10 +75,40 @@
   justify-content: center;
   align-items: center;
 }
-
+.detail-text{
+  width: 700rpx;
+    box-shadow: 1rpx 1rpx 20rpx #E1E1E4;
+    border: solid 3rpx #f5f5f5;
+    padding: 10rpx;
+}
+.datail-text-title{
+  width: 100%;
+  height: 80rpx;
+  /* background: lawngreen; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.text-alin{
+  width: 100%;
+  /* height: 200rpx; */
+  /* background: sandybrown; */
+  color: #ccc;
+  font-size: 25rpx;
+  
+}
+.text-alin-cont{
+  width: 300rpx;
+  height: 200rpx;
+  background: aqua;
+}
+.title-right{
+  color: #ccc;
+  font-size: 25rpx;
+}
 .detail-form-text-1 {
   width: 100%;
-  border-bottom: solid 3rpx #cccccc;
+  border-bottom: solid 3rpx #f5f5f5;
 
   height: 120rpx;
   display: flex;
@@ -96,6 +131,7 @@
   height: 50rpx;
   width: 50rpx;
   margin-top: 25rpx;
+  
 }
 
 .prompt {
@@ -106,7 +142,8 @@
 
 .cancel-pic {
   position: absolute;
-  margin-left: 65rpx;
+margin-left:90rpx;
+
   margin-top: -25rpx;
 }
 
