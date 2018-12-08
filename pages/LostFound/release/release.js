@@ -10,6 +10,8 @@ Page({
     cnt:0,
       // / images / addpic.png
     show: false,
+    text:'请填写物品说明' ,
+    explainclass:0
   },
   imagesshow:function(){
     var that=this
@@ -101,11 +103,18 @@ Page({
       }
     })
   },
+  toExplain:function(){
+    wx.navigateTo({
+      url: 'explain/explain'
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
+    var that=this
+   
   },
 
   /**
@@ -119,6 +128,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    let that = this;
+
+    let pages = getCurrentPages();
+
+    let currPage = pages[pages.length - 1];
+      
+    if (currPage.data.mydata == null || currPage.data.mydata ==undefined)
+    {
+ 
+    }
+    else {
+      that.setData({
+        text: currPage.data.mydata.text,
+        explainclass: currPage.data.mydata.isshow
+      })
+    }
+    console.log(currPage)
 
   },
 

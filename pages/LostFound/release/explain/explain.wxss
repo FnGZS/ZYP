@@ -1,0 +1,52 @@
+page {
+  background-color: #f8f8f8;
+}
+
+textarea {
+  width: 90%;
+  background-color: #fff;
+  padding: 30rpx 40rpx;
+}
+
+.textarea-wrp {
+  width: 100%;
+}
+
+.page-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.textarea-bg {
+  width: 100%;
+  height: 300rpx;
+  background: #ccc;
+  position: absolute;
+}
+
+.page-section:last-child {
+  margin-bottom: 0;
+}
+
+.page-section-title {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.btn {
+  width: 700rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  margin-top: 80rpx;
+  background: #575757;
+  box-shadow: 1rpx 1rpx 20rpx #575757;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

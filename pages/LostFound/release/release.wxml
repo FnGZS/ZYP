@@ -20,7 +20,7 @@
                       <view  class='detail-form-text'><view class='detail-form-name' >丢失地点:</view><input value='{{address}}'></input><image src='/images/map.png' bindtap='getmap'></image></view>
                 <!-- <view class='detail-form-text'><view  class='detail-form-name' >物品描述:</view><input  maxlength="100"  /></view> -->
                 <view class='detail-text'>
-                  <view class='datail-text-title'>
+                  <view class='datail-text-title' bindtap='toExplain'>
                     <view class='title-left'>
                      物品説明
                     </view>  
@@ -28,9 +28,9 @@
                      非必填
                     </view>  
                   </view>
-                   <view class='text-alin' >
+                   <view class="{{explainclass == 0? 'text-alin':'text-acin'}}" >
                   
-                              <text>填写物品说明</text>
+                              <text>{{text}}</text>
                   
                    </view>
                 </view>
