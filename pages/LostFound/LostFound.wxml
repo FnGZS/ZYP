@@ -15,16 +15,21 @@
 <!-- <view style='  background: #f65959;  height: 500rpx;'></view> -->
 <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{contheigth}}rpx;' circular='true'>
 
-  <!-- <swiper-item wx:for="{{message}}">
+  <swiper-item wx:for="{{message}}">
       <view class='current' wx:for="{{item.list}}" wx:key="*this" bindtap='detailPage'  data-id="{{item.id}}" >
-      
+       <view class='current-img'>
+         <image src="{{item.affairsPic}}">
+         </image>
+       </view>
         <view class='current-text '>
           <view class='current-text-cont '>
              {{item.name}}
           </view>
           <view class='current-text-Identification'>
-            <view class='Identification'>
+            <view class='Identification' >
               {{item.subordinate}}
+            
+       
             </view>
           
         </view>
@@ -35,8 +40,8 @@
         <view class=' current-image '>
         <image src='{{item.affairsPic}}'></image>
         </view>
-    </swiper-item> -->
-  <swiper-item wx:for="{{message}}">
+    </swiper-item>
+  <!-- <swiper-item wx:for="{{message}}">
     <view class='current' wx:for="{{item.list}}" wx:key="*this" bindtap='detailPage' data-id="{{item.id}}">
           <view class='current-hear'>
               <view class='current-img'></view>
@@ -64,5 +69,5 @@
            </view>
           </view>
    </view>
-  </swiper-item>
+  </swiper-item> -->
 </swiper>

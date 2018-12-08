@@ -1,8 +1,6 @@
 /* pages/LostFound/LostFound.wxss */
 /* 测试样式 */
-page{
-
-}
+@import '../../style/base64/LostFound.wxss';
 .active {
   /* border-radius: 40rpx 20rpx; */
   /* background: #f65959; */
@@ -38,16 +36,31 @@ position:fixed;
 }
 .current {
   width: 100%;
-  height: 700rpx;
+  height: 200rpx;
   background: #f3f3f3;
   margin: 0 auto;
   /* margin-top: 20rpx; */
 
   border-bottom:1rpx solid #ccc;
 }
-.Identification .tiem {
-  width: 30%;
-  height: 20rpx;
+.Identification{
+  width: 80rpx;
+  height: 50rpx;
+  /* background: salmon; */
+  margin-left: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20rpx;
+  color: white;
+}
+.time{
+  width: 300rpx;
+  height: 50rpx;
+  float: right;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  font-size: 25rpx;
 }
 swiper{
   height: 500rpx;
@@ -71,56 +84,35 @@ swiper{
 
 }
 .current-img{
-  width: 100rpx;
-  height: 100rpx;
-  background: antiquewhite;
-  border-radius: 100rpx;
-    float: left;
-
-}
-.user-name{
-  width: 100%;
-  height: 60rpx;
-  /* background: aqua; */
-  display: flex;
-  align-items: center;
-}
-.time{
-  width: 100%;
-  height: 40rpx;
+  width: 180rpx;
+  height: 180rpx;
   /* background: antiquewhite; */
-     display: flex;
-  align-items: center;
-  font-size: 25rpx;
- color:#ddd;
+  margin: 10rpx 0 10rpx 10rpx ;
+   float: left;
+   
 }
-.goods{
-  width: 800rpx;
-  height: 500rpx;
-  background: blue;
-}
-.goods-name{
-  width: 100%;
-  height: 60rpx;
-  background: azure;
-  padding: 10rpx;
-}
-
-.goods-img{
-  width: 50%;
-  height: 400rpx;
-  background: aquamarine;
-  margin-left: 20rpx;
-}
-.goods-img image{
+.current-img image{
   width: 100%;
   height: 100%;
 }
-.goods-etime{
-  width: 100%;
+.current-text-cont{
+  margin-left: 20rpx;
+  width: 400rpx;
   height: 100rpx;
-  /* background: salmon; */
+  font-size: 25rpx;
+  padding: 10rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+  /* background: azure; */
+  float: left;
+    text-overflow:ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+      display: -webkit-box;
+    word-break: break-all;
+  
 }
+
 /* 按钮的样式 */
 .img-plus-style {
 height:80rpx;
