@@ -27,7 +27,10 @@ var config = {
   loginUrl: `${host}/user/login`,
 
   bindingUrl: `${host}/user/binding`,
+  
+  //失误招领图片上传
 
+  uploadFile: `${host}/upload/avatar`,
   //第三方平台登录
   plantLoginUrl: `${host}/user/account/platform/login`,
 

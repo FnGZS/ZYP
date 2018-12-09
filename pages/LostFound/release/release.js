@@ -1,5 +1,7 @@
 // pages/LostFound/release/release.js
 const sendAjax = require('../../../utils/sendAjax.js')
+const url = require('../../../config.js')
+const upload= require('../../../utils/uploadfile.js')
 Page({
 
   /**
@@ -14,7 +16,7 @@ Page({
     text:'请填写物品说明' ,
     explainclass:0,
     lostTypeList:[],
-    currentTab:0,
+    currentTab:1,
     typename:'请选择分类',
   },
   imagesshow:function(){
@@ -32,12 +34,57 @@ Page({
     })
   }
   },
+ 
+  //点击上传事件
+  //头非常大 先自己封装了上传图片uploadfile.js之后用promise.js来进行异步保证在所有图片上传成功后进行接下来的操作
+  uploadimage: function () {
+    var page = this
+    var upload_picture_list = page.data.picurl
+    console.log(upload_picture_list)   
+    var arr_img=[]
+    console.log(upload_picture_list.length);
+    if (upload_picture_list.length>0){
+    wx.showToast({
+      title: '正在上传图片',
+      icon: 'loading',
+      duration: 100000
+    })
+    for (var j in upload_picture_list) {
+     
+      var that = this;
+      let infoOpt = {
+        url: url.uploadFile,
+        list: upload_picture_list[j],
+        data: {
+          'picType': 'article'
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+  //异步
+      upload. upload_picture_fun(infoOpt).then((res) => {
+        arr_img.push(res)
+        if (arr_img.length == upload_picture_list.length) {
+          wx.hideToast()
+          wx.showToast({
+            title: '上传成功',
+            icon: 'success',
+            duration: 1000
+          })
+        }
+      
+      })
+    }
+    console.log(arr_img)
+    }
+    // console.log(arr_img)
+  },
   addpicture:function(){
     var that=this
     var cnt=that.data.picurl.length
     var picurl = that.data.picurl
     var index = that.data.picurl.length;
-
     if(cnt!=4)
     {
       wx.chooseImage({
@@ -49,6 +96,7 @@ Page({
           console.log(tempFilePaths)
           for (var i = 0; i < tempFilePaths.length; i++) {
             picurl.splice(index, 0, tempFilePaths[i])
+         
           }
           // console.log(picurl)
           that.setData({ picurl: picurl })
@@ -80,10 +128,13 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success(res) {
+        console.log(res);
         var tempFilePaths = res.tempFilePaths
-        picurl.splice(index, 1, tempFilePaths )
-
+        for (var i = 0; i < tempFilePaths.length; i++) {
+          picurl.splice(index, 1, tempFilePaths[i])
+        }
         that.setData({ picurl: picurl })
+        // console.log(that.data.picurl)
       }
     })
  
@@ -178,6 +229,10 @@ Page({
         typename: e.target.dataset.typename
       })
     }
+  },
+  //发布
+  Release:function(){
+    this.uploadimage()
   },
   /**
    * 生命周期函数--监听页面显示
