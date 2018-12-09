@@ -168,19 +168,24 @@ margin-left:90rpx;
 .lostType{
   width: 100%;
   /* height: 300rpx; */
-  background: #43C8AB;
+  /* background: #43C8AB; */
   display: flex;
   flex-wrap:wrap;
 }
 
 .lostType-cont{
-  width: 25%;
-  height: 100rpx;
-  color: white;
-  background: #43C8AB;
-   box-shadow: 1rpx 1rpx 200rpx white;
-  border-left: 0rpx;
+  /* width: 25%; */
+  /* height: 100rpx; */
+  padding: 10rpx 20rpx;
+  margin-left: 20rpx;
+  font-size: 20rpx;
+  color:#E1E1E4;
+  border-radius: 10rpx;
+  /* background: #43C8AB; */
+   /* box-shadow: 1rpx 1rpx 200rpx white; */
+  /* border-left: 0rpx; */
   /* border-right: 1rpx; */
+  border: 1rpx solid #E1E1E4;
 display: flex;
 justify-content: center;
 align-items: center;
