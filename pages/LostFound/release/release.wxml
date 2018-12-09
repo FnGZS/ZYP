@@ -62,7 +62,7 @@
             <view class='detail-form-name'>手机号:</view>
             <input></input>
           </view>
-          <button form-type="submit" class='btn'>发布</button>
+          <button form-type="submit" class='btn' bindtap='Release'>发布</button>
         </form>
 
       </view>
