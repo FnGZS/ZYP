@@ -18,8 +18,60 @@ Page({
     lostTypeList:[],
     currentTab:1,
     typename:'请选择分类',
-    lostcurrentTab:0,
-    lostTab: [{ id: 0, name: '#寻物启事#' }, { id: 1, name: '#失物招领#' }]
+    lostcurrentTab:1,
+    lostTab: [{ id: 0, name: '#寻物启事#' }, { id: 1, name: '#失物招领#' }],
+    goodsname:null,
+    phone:null,
+    arr_img:[],
+  },
+  //页面其他内容上传
+  getphone:function(e){
+    var that=this;
+    that.setData({
+      phone: e.detail.value
+    }) 
+  },
+  pushlost:function(){
+    console.log(123);
+    var that = this;
+    let infoOpt = {
+      url: '/lost/lostInput',
+      type: 'POST',
+      data: {
+        title:that.data.goodsname,
+        foundPic: that.data.arr_img,
+        content:that.data.text,
+        typeId: that.data.currentTab,
+        messageId: that.data.lostcurrentTab,
+        address: that.data.address,
+        type_id: that.data.lostcurrentTab,
+        contact: that.data.phone
+      },
+      header: {
+        'content-type': 'application/json',
+         'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+ 
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  },
+  goodsname: function (e) {
+    var that=this;
+    that.setData({
+      goodsname: e.detail.value
+    }) 
+  },
+  getaddress:function(e){
+    var that = this;
+    that.setData({
+      address: e.detail.value
+    }) 
   },
   imagesshow:function(){
     var that=this
@@ -53,7 +105,6 @@ Page({
     })
     for (var j in upload_picture_list) {
      
-      var that = this;
       let infoOpt = {
         url: url.uploadFile,
         list: upload_picture_list[j],
@@ -68,17 +119,24 @@ Page({
       upload. upload_picture_fun(infoOpt).then((res) => {
         arr_img.push(res)
         if (arr_img.length == upload_picture_list.length) {
-          wx.hideToast()
+         
           wx.showToast({
             title: '上传成功',
             icon: 'success',
             duration: 1000
           })
+          page.setData({
+            arr_img: arr_img
+          })
+          page.pushlost()
         }
       
       })
     }
     console.log(arr_img)
+    }
+    else {
+      page.pushlost()
     }
     // console.log(arr_img)
   },
@@ -144,7 +202,6 @@ Page({
   },
   getmap:function(){
     var that=this
-
     // console.log('111')
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
@@ -247,9 +304,11 @@ Page({
       })
     }
   },
+
   //发布
   Release:function(){
     this.uploadimage()
+    
   },
   /**
    * 生命周期函数--监听页面显示

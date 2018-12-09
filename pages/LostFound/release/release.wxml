@@ -22,11 +22,11 @@
           </view>
 
           <view class='detail-form-text'>
-            <view class='detail-form-name'>物品名称:</view>
-            <input maxlength="20" placeholder="请输入物品名称" /> </view>
+            <view class='detail-form-name' >物品名称:</view>
+            <input maxlength="20" placeholder="请输入物品名称"   bindinput="goodsname"/> </view>
           <view class='detail-form-text'>
             <view class='detail-form-name'>丢失地点:</view>
-            <input value='{{address}}'></input>
+            <input value='{{address}}' bindinput="getaddress"></input>
             <image src='/images/map.png' bindtap='getmap'></image>
           </view>
           <!-- <view class='detail-form-text'><view  class='detail-form-name' >物品描述:</view><input  maxlength="100"  /></view> -->
@@ -57,8 +57,8 @@
           </view>
           <!-- <view class='detail-form-text'><view class='detail-form-name' >QQ号:</view><input></input></view> -->
           <view class='detail-form-text'>
-            <view class='detail-form-name'>手机号:</view>
-            <input></input>
+            <view class='detail-form-name' placeholder="请输入联系方式">联系方式:</view>
+            <input bindinput="getphone"></input>
           </view>
           <button form-type="submit" class='btn' bindtap='Release'>发布</button>
         </form>

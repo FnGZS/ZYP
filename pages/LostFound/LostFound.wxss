@@ -26,7 +26,7 @@ position:fixed;
   align-items: center;
 }
 .swiper-tab-text{
-  width: 30%;
+  width: 40%;
   height: 100rpx;
  background: #f65959;
    color: white;
