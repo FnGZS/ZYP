@@ -32,7 +32,7 @@ Page({
   //点击切换
   clickTab: function (e) {
     var _this = this;
-    console.log(e);
+    // console.log(e);
     // console.log(_this.data.newhigth);
     if (_this.data.currentTab === e.target.dataset.current) {
 

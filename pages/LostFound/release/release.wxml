@@ -47,14 +47,14 @@
           </view>
 
           <view class='detail-form-losttype'>
-            <view class='detail-form-name'>选择分类:</view>
-            <input disabled='{{true}}'></input>
-            <image src='/images/typemore.png' style='width:30rpx;height:30rpx;margin-top:40rpx;'></image>
+            <view class='detail-form-name'>物品类别:</view>
+            <input disabled='{{true}}' placeholder='{{typename}}'></input>
+            <!-- <image src='/images/typemore.png' style='width:30rpx;height:30rpx;margin-top:40rpx;'></image> -->
             <view class='lostType'>
-              <view class='lostType-cont' wx:for="{{lostTypeList}}"  data-id="{{item.typeId}}">
-                  {{item.typeName}}
+              <view class="lostType-cont {{currentTab==item.typeId?'active':''}}" bindtap="clickTab" wx:for="{{lostTypeList}}" data-id="{{item.typeId}}" data-typename="{{item.typeName}}">
+                {{item.typeName}}
               </view>
-          
+
             </view>
           </view>
           <!-- <view class='detail-form-text'><view class='detail-form-name' >QQ号:</view><input></input></view> -->

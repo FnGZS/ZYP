@@ -13,7 +13,9 @@ Page({
     show: false,
     text:'请填写物品说明' ,
     explainclass:0,
-    lostTypeList:[]
+    lostTypeList:[],
+    currentTab:0,
+    typename:'请选择分类',
   },
   imagesshow:function(){
     var that=this
@@ -160,7 +162,23 @@ Page({
   onReady: function () {
 
   },
+  //点击切换
+  clickTab: function (e) {
+    var _this = this;
+    // console.log(_this.data.currentTab);
+    // console.log(e.target.dataset.id);
+    // // console.log(_this.data.newhigth);
+    if (_this.data.currentTab === e.target.dataset.id) {
 
+      return false;
+    } else {
+  // console.log(123)
+      _this.setData({
+        currentTab: e.target.dataset.id,
+        typename: e.target.dataset.typename
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面显示
    */

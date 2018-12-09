@@ -179,8 +179,8 @@ margin-left:90rpx;
   padding: 10rpx 20rpx;
   margin-left: 20rpx;
   font-size: 20rpx;
-  color:#E1E1E4;
-  border-radius: 10rpx;
+  color:black;
+  /* border-radius: 10rpx; */
   /* background: #43C8AB; */
    /* box-shadow: 1rpx 1rpx 200rpx white; */
   /* border-left: 0rpx; */
@@ -189,4 +189,8 @@ margin-left:90rpx;
 display: flex;
 justify-content: center;
 align-items: center;
+}
+.active{
+   border: 1rpx solid #f65959;
+   color:#f65959;
 }
