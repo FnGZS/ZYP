@@ -9,7 +9,7 @@
   <!-- <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">最新</view>
     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">热门</view> -->
   <view class="swiper-tab-item  " wx:for="{{hear}}" style="width:{{hearwidth}}%;">
-    <view class="{{currentTab==item.typeId?'active':''}} swiper-tab-text" data-current="{{item.typeId}}" bindtap="clickTab">{{item.typeName}}</view>
+    <view class="{{currentTab==item.typeId?'active':''}} swiper-tab-text" data-current="{{item.typeId}}" bindtap="clickTab">{{item.message}}</view>
   </view>
 </view>
 <!-- <view style='  background: #f65959;  height: 500rpx;'></view> -->

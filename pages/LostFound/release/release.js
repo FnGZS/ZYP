@@ -1,4 +1,5 @@
 // pages/LostFound/release/release.js
+const sendAjax = require('../../../utils/sendAjax.js')
 Page({
 
   /**
@@ -11,7 +12,8 @@ Page({
       // / images / addpic.png
     show: false,
     text:'请填写物品说明' ,
-    explainclass:0
+    explainclass:0,
+    lostTypeList:[]
   },
   imagesshow:function(){
     var that=this
@@ -67,7 +69,8 @@ Page({
     var that = this
     var picurl = that.data.picurl
     var index = e.currentTarget.dataset.index
-    console.log(index);
+    console.log(that);
+    // console.log(index);
     // picurl.splice(index, 1)
     // that.setData({ picurl: picurl })
     wx.chooseImage({
@@ -81,6 +84,7 @@ Page({
         that.setData({ picurl: picurl })
       }
     })
+ 
     that.imagesshow();
   },
   getmap:function(){
@@ -121,10 +125,33 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  getlostType:function(){
+    var that = this;
+    let infoOpt = {
+      url: '/lost/lostType',
+      type: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      that.setData({
+        lostTypeList:data.lostTypeList
+      })
+      console.log(that.data.lostTypeList)
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  },
   onLoad: function (options) {
-  
     var that=this
-   
+    that.getlostType();
   },
 
   /**

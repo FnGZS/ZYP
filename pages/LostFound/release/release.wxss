@@ -56,7 +56,16 @@
  border-bottom: solid 3rpx #f5f5f5;
   
 }
-
+.detail-form-losttype {
+  width: 700rpx;
+ border-bottom: solid 3rpx #f5f5f5;
+  
+}
+.detail-form-losttype input{
+    float: left;
+  margin-top: 25rpx;
+  width: 500rpx;
+}
 .detail-form-text input {
   float: left;
   margin-top: 25rpx;
@@ -155,4 +164,24 @@ margin-left:90rpx;
 .picandcancel {
   display: flex;
   flex-direction: column;
+}
+.lostType{
+  width: 100%;
+  /* height: 300rpx; */
+  background: #43C8AB;
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.lostType-cont{
+  width: 25%;
+  height: 100rpx;
+  color: white;
+  background: #43C8AB;
+   box-shadow: 1rpx 1rpx 200rpx white;
+  border-left: 0rpx;
+  /* border-right: 1rpx; */
+display: flex;
+justify-content: center;
+align-items: center;
 }

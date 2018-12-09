@@ -48,7 +48,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   getlosttype:function(){
-    console.log(123)
   var that=this;
     let infoOpt = {
       url: '/lost/lostMessage',
