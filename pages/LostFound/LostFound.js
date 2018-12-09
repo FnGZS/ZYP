@@ -48,9 +48,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   getlosttype:function(){
+    console.log(123)
   var that=this;
     let infoOpt = {
-      url: '/lost/type',
+      url: '/lost/lostMessage',
       type: 'GET',
       data: { 
       },
@@ -98,22 +99,20 @@ getLostList:function(e){
   }
 },
   onLoad: function (options) {
-    console.log(this.data.message);
     //顶部样式控制
     var that = this;
     var length = 100 / this.data.hear.length
-    console.log(length);
     that.setData({
       hearwidth: length
     })
-    console.log(that.data.message)
     //内容高度控制
     var length = that.data.message[that.data.currentTab].list.length
     console.log(length);
     that.setData({
       contheigth: length*200
     })
-    // that.getlosttype();
+    console.log(this.data.message);
+    that.getlosttype();
   },
 
   /**

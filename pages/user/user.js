@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+   userbg:'',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -21,8 +21,34 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  getbackground:function(){
+      var that = this;
+      console.log(1);
+      let infoOpt = {
+        url: '/user/background',
+        type: 'GET',
+        data: {
+        },
+        header: {
+          'content-type': 'application/json',
+          //  'authorization': wx.getStorageSync("authorization"),
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (data) {
+        that.setData({
+          userbg:data.background
+        })
+        console.log(that.data.userbg);
+      }
 
+      sendAjax(infoOpt, infoCb, () => {
+
+      });
+   
+  },
+  onLoad: function () {
+    this.getbackground();
     if (app.globalData.userInfo) {
       // console.log(1)
       this.setData({

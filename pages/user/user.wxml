@@ -1,6 +1,6 @@
 <view class='user-conter'>
   <view class='user-img'>
-    <image src='../../images/school.png'></image>
+    <image src='{{userbg}}'></image>
   </view>
   <view class='user-btn'>
     <view class="container">

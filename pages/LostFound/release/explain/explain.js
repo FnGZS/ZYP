@@ -7,6 +7,7 @@ Page({
   data: {
     text:'',
     isshow:1,
+    _text:''
   },
   bindTextAreaBlur: function (e) {
     console.log(e.detail.value)
@@ -29,7 +30,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this;
+    if (options._text!=undefined)
+    {
+      console.log(123);
+      that.setData({
+        _text: options._text,
+        text: options._text
+      })
+    }
   },
 
   /**
