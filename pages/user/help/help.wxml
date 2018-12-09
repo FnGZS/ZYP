@@ -1,13 +1,12 @@
-<!--pages/user/help/help.wxml-->
-<view class='help'>
-  <view class='help-box'>
-  <view class='help-box-title'>投票帮助中心</view>
-  <view class='help-box-body'><p>Q : </p><text>如何投票？</text></view>
-  <view class='help-box-body'><p>Q : </p><text>最多能投几票？</text></view>
-  <view class='help-box-body'><p>Q : </p><text>什么是票数显示？</text></view>
-  <view class='help-box-body'><p>Q : </p><text>投票什么时候截止？</text></view>
-  <view class='help-box-body'><p>Q : </p><text>投票什么时候开始？</text></view>
-  <view class='help-box-body'><p>Q : </p><text>允许重复投票吗？</text></view>
-  <view class='help-box-bottom'>查看更多问题说明</view>
+<block wx:for-items="{{list}}" wx:key="{{item.title}}">
+  <view class="kind-list-item">
+    <view data-openList="{{index}}" class="kind-list-item-hd" bindtap="kindToggle">
+      <view data-openList="{{index}}">{{index+1}} . {{item.title}}</view>
+      <view data-openList="{{index}}"  class=" {{openList[index].open ? 'navigator-arrow-show' : 'navigator-arrow'}}"></view>
+      
+    </view>
+    <view data-openList="{{index}}"  class=' {{openList[index].open?"kind-list-item-bd-show":"kind-list-item-bd"}}'>
+      <view data-openList="{{index}}" class=' {{openList[index].open?"navigator-show":"kind-list-item-bd"}}'>{{item.content}}</view>
+    </view>
   </view>
-</view>
+</block>
