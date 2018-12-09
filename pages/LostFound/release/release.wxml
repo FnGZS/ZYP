@@ -17,10 +17,8 @@
       <view class='detail'>
         <form class='detail-form'>
           <view class='detail-form-text-1'>
-            <radio-group>
-              <radio>寻主</radio>
-              <radio>寻物</radio>
-            </radio-group>
+             <view  class="{{lostcurrentTab==item.id?'lostactivetab':''}}" wx:for="{{lostTab}}" data-id="{{item.id}}" bindtap="clicklostTab" >{{item.name}}</view>
+            
           </view>
 
           <view class='detail-form-text'>

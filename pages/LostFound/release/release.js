@@ -18,6 +18,8 @@ Page({
     lostTypeList:[],
     currentTab:1,
     typename:'请选择分类',
+    lostcurrentTab:0,
+    lostTab: [{ id: 0, name: '#寻物启事#' }, { id: 1, name: '#失物招领#' }]
   },
   imagesshow:function(){
     var that=this
@@ -212,6 +214,21 @@ Page({
    */
   onReady: function () {
 
+  },
+  clicklostTab:function(e){
+    var _this = this;
+    // console.log(_this.data.currentTab);
+    // console.log(e.target.dataset.id);
+    // // console.log(_this.data.newhigth);
+    if (_this.data.lostcurrentTab === e.target.dataset.id) {
+
+      return false;
+    } else {
+      // console.log(123)
+      _this.setData({
+        lostcurrentTab: e.target.dataset.id,
+      })
+    }
   },
   //点击切换
   clickTab: function (e) {
