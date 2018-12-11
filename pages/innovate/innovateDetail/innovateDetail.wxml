@@ -1,0 +1,83 @@
+<view id='innovateDetail'>
+  <view class='innovateDetail-top'>
+    <image src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3182551845,187926399&fm=11&gp=0.jpg'></image>
+  </view>
+  <view class="businessBrief">
+    <view class="businessBrief-title">业务简介</view>
+    <view class="businessBrief-title-eng">OUR SERVICE</view>
+    <view class="businessBrief-content">规划设计、景观工程、花木产销、花卉旅游</view>
+    <view class="businessBrief-img">
+      <view class="businessBrief-img-list">
+        <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035881097,2689997786&fm=26&gp=0.jpg"></image>
+        <view class="businessBrief-img-list-title">湿地公园</view>
+      </view>
+      <view class="businessBrief-img-list">
+        <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2417620485,3706459287&fm=26&gp=0.jpg"></image>
+        <view class="businessBrief-img-list-title">城市森林公园</view>
+      </view>
+      <view class="businessBrief-img-list">
+        <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=91325514,4284080598&fm=26&gp=0.jpg"></image>
+        <view class="businessBrief-img-list-title">城市道路绿化</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='product'>
+    <view class="product-title">产品中心</view>
+    <view class="product-title-eng">PRODUCTS</view>
+    <view class='product-main'>
+      <image class='productImg1' src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2849719286,3175063190&fm=26&gp=0.jpg'></image>
+      <image class='productImg2' src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=269678725,2525801442&fm=26&gp=0.jpg'></image>
+      <image class='productImg3' src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3215564286,2999253575&fm=26&gp=0.jpg'></image>
+      <image class='productImg2' src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3564352719,3026779232&fm=26&gp=0.jpg'></image>
+      <image class='productImg2' src='https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2624620458,647004731&fm=26&gp=0.jpg'></image>
+      <image class='productImg2' src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1600145297,1376860759&fm=26&gp=0.jpg'></image>
+      <image class='productImg2' src='https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=323222898,1224497379&fm=26&gp=0.jpg'></image>
+      <image class='productImg2' src='https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=876571726,1943080404&fm=26&gp=0.jpg'></image>
+    </view>
+ <!-- <view class='product-main'>
+      <view class='product-main-style1'>
+        <image  src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2849719286,3175063190&fm=26&gp=0.jpg'></image>
+      </view>
+      <view class='product-main-style2'>
+       <image src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=269678725,2525801442&fm=26&gp=0.jpg'></image>
+      </view>
+      <view class='product-main-style3'>
+       <image src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3215564286,2999253575&fm=26&gp=0.jpg'></image>
+      </view>
+      <view class='product-main-style2'>
+       <image src='https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=876571726,1943080404&fm=26&gp=0.jpg'></image>
+      </view>
+      <view class='product-main-style2'>
+       <image src='https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=323222898,1224497379&fm=26&gp=0.jpg'></image>
+      </view>
+      <view class='product-main-style2'>
+       <image src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1600145297,1376860759&fm=26&gp=0.jpg'></image>
+      </view>
+      <view class='product-main-style2'>
+       <image src='https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2624620458,647004731&fm=26&gp=0.jpg'></image>
+      </view>
+      <view class='product-main-style2'>
+       <image src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3564352719,3026779232&fm=26&gp=0.jpg'></image>
+      </view> -->
+
+  </view>
+
+   <view class='aboutUs'>
+    <view class="aboutUs-title">关于我们</view>
+    <view class="aboutUs-title-eng">ABOUT US</view>
+    <text class='aboutUs-content'>绍兴译点网络科技有限公司成立于2018年，从事应用软件开发、计算机软硬件的技术开发、技术咨询、技术服务、技术转让、互联网平台的开发与维护.\n截止2018年底，盈利已破万元。</text>
+    
+  </view>
+
+  <view class='innovateDetail-content'>
+    <import src="../../../wxParse/wxParse.wxml" />
+    <template is="wxParse" class="" data="{{wxParseData:arry.nodes}}" />
+  </view>
+  <view class='innovateBottom'>
+    <view class='innovate-name'>疯鸟网络工作室</view>
+    <view class='innovate-place'>绍兴文理学院元培学院创新创业学院125室</view>
+    <view class='innovate-phone'>联系方式：17857058385</view>
+    <image class='innovate-code' src='http://zjw77.club/someimg/zjw26324636.jpg'></image>
+  </view>
+</view>

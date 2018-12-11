@@ -17,6 +17,8 @@
     "pages/LostFound/LostFound",
     "pages/LostFound/release/release",
     "pages/LostFound/release/explain/explain",
+    "pages/innovate/innovate",
+    "pages/innovate/innovateDetail/innovateDetail",
     "pages/logs/logs"
   ],
   "window": {
