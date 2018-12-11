@@ -2,6 +2,7 @@
 const sendAjax = require('../../../utils/sendAjax.js')
 const url = require('../../../config.js')
 const upload= require('../../../utils/uploadfile.js')
+var app = getApp();
 Page({
 
   /**
@@ -18,11 +19,14 @@ Page({
     lostTypeList:[],
     currentTab:1,
     typename:'请选择分类',
-    lostcurrentTab:1,
+    lostcurrentTab:0,
     lostTab: [{ id: 0, name: '#寻物启事#' }, { id: 1, name: '#失物招领#' }],
     goodsname:null,
     phone:null,
     arr_img:[],
+    isShow:true,
+    txt:'请你滚',
+    iconClass:'icon-cry'
   },
   //页面其他内容上传
   getphone:function(e){
@@ -31,35 +35,44 @@ Page({
       phone: e.detail.value
     }) 
   },
+
   pushlost:function(){
-    console.log(123);
+
     var that = this;
-    let infoOpt = {
-      url: '/lost/lostInput',
-      type: 'POST',
-      data: {
-        title:that.data.goodsname,
-        foundPic: that.data.arr_img,
-        content:that.data.text,
-        typeId: that.data.currentTab,
-        messageId: that.data.lostcurrentTab,
-        address: that.data.address,
-        type_id: that.data.lostcurrentTab,
-        contact: that.data.phone
-      },
-      header: {
-        'content-type': 'application/json',
-         'authorization': wx.getStorageSync("authorization"),
-      },
-    }
-    let infoCb = {}
-    infoCb.success = function (data) {
- 
-    }
+    if(that.data.goodsname){
+      let infoOpt = {
+        url: '/lost/lostInput',
+        type: 'POST',
+        data: {
+          title: that.data.goodsname,
+          foundPic: JSON.stringify(that.data.arr_img),
+          content: that.data.text,
+          typeId: that.data.currentTab,
+          messageId: that.data.lostcurrentTab,
+          address: that.data.address,
+          contact: that.data.phone
+        },
+        header: {
+          'content-type': 'application/json',
+          'authorization': wx.getStorageSync("authorization"),
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (data) {
 
-    sendAjax(infoOpt, infoCb, () => {
+      }
 
-    });
+      sendAjax(infoOpt, infoCb, () => {
+
+      });
+    }else{
+      console.log(123123);
+      app.toastShow(that, "请输入物品名称", "icon-cry");  
+      console.log(that.data.isShow)
+      console.log(that.data.txt)
+      console.log(that.data.iconClass)
+    }
+  
   },
   goodsname: function (e) {
     var that=this;
@@ -252,7 +265,8 @@ Page({
     let infoCb = {}
     infoCb.success = function (data) {
       that.setData({
-        lostTypeList:data.lostTypeList
+        lostTypeList:data.lostTypeList,
+        currentTab:data.lostTypeList.length
       })
       console.log(that.data.lostTypeList)
     }

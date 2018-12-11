@@ -78,7 +78,7 @@ getLostList:function(e){
   console.log(e[0])
   for(var i=0;i<Elength;i++){
   let infoOpt = {
-    url: '/lost/getLostList/?typeId='+e[i].typeId,
+    url: '/lost/getLostList/?messageId='+e[i].typeId,
     type: 'GET',
     data: {
     },

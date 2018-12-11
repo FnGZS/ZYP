@@ -1,3 +1,4 @@
+
 <view class='release-body'>
   <view class='release-body-top'>
     <!-- <view class='addpic'>
@@ -72,3 +73,5 @@
       </view>
   </view> -->
 </view>
+  <import src="../../public/template/toast/toast.wxml"/>
+<template is="toast" data="{{txt,isShow,iconClass}}"></template>

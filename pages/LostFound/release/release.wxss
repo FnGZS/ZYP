@@ -1,5 +1,5 @@
 /* pages/LostFound/release/release.wxss */
-
+@import "../../../style/LostFoundicon/iconfont";
 .release-body {
   margin: 0rpx;
   padding: 0rpx;
