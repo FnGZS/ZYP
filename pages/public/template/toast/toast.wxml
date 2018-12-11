@@ -3,7 +3,7 @@
          <view class='toast-in'>　　　　　　
              <span  class='iconfont {{iconClass}}'></span>      
              <view class='toast-txt'>
-                 {{txt}}　　　　　　　　　　
+                 {{txt}}
              </view>
          </view>
      </view>
