@@ -163,19 +163,20 @@ height: 200rpx;
   text-align: center;
   color: white;
   border-radius: 8rpx;
-      display: flex;
-flex-wrap: wrap;
+
 }
  .toast-in span {
   width: 100%;
   height: 100rpx;
   font-size: 50rpx;
-  margin-top:-40rpx;
-
+  /* margin-top:-40rpx; */
+ float: left;
 }
 .toast-txt {
-   width: 100%;
-  height: 40rpx;
-  font-size: 14rpx;
-  
+   width: 200rpx;
+  float: left;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

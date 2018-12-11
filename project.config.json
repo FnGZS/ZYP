@@ -36,7 +36,11 @@
 			"list": []
 		},
 		"miniprogram": {
+
 			"current": 16,
+
+			"current": 17,
+
 			"list": [
 				{
 					"id": -1,
@@ -135,9 +139,21 @@
 					"query": ""
 				},
 				{
+
 					"id": 16,
 					"name": "失物招领详情页",
 					"pathName": "pages/LostFound/detail/detail",
+
+					"id": -1,
+					"name": "创新创业",
+					"pathName": "pages/innovate/innovate",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "创新创业详情页",
+					"pathName": "pages/innovate/innovateDetail/innovateDetail",
+
 					"query": ""
 				}
 			]

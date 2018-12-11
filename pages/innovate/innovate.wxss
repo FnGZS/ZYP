@@ -1,0 +1,35 @@
+#innovate {
+  width: 100%;
+  height: 100%;
+}
+
+.innovateList {
+  width: 100%;
+  height: 100rpx;
+  list-style: none;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+li {
+  width: 24%;
+  height: 180rpx;
+  -webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+  float: left;
+} 
+li:nth-child(2n-1){
+  margin: -65rpx 0rpx 0rpx 0rpx;
+}
+li:nth-child(2n) {
+  margin: 45rpx 0rpx 0rpx 0rpx;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 50% 50%;
+  object-position: 50% 50%;
+}
