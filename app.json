@@ -17,6 +17,7 @@
     "pages/LostFound/LostFound",
     "pages/LostFound/release/release",
     "pages/LostFound/release/explain/explain",
+    "pages/LostFound/detail/detail",
     "pages/logs/logs"
   ],
   "window": {
