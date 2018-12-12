@@ -11,14 +11,34 @@ Page({
     hearwidth: 0,
     //内容高度
     contheigth:0,
-
+    winHeight:0,
+   //初始的頁面:
+    initialpageNo:0,
+    initialpageSize:5,
     hear: [{ id: 0, name: '寻主' }, { id: 1, name: '寻物' }],
-    message: [{ list: [{ id: 0, name: '物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品', affairsPic: 'https://www.sxscott.com/crazyBirdimg/affairs/affairs5.png', subordinate: '手机', year: '2018', day: '10-8' }, { id: 1, name: '物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品物品', affairsPic: 'https://www.sxscott.com/crazyBirdimg/affairs/affairs5.png' }] }, { list: [{ id: 0, name: '物品' }, { id: 1, name: '你猜' }] }],
+    message: [],
+    message_s:[],
     isPopping: false,//是否已经弹出
     animPlus: {},//旋转动画
     animCollect: {},//item位移,透明度
     animTranspond: {},//item位移,透明度
     animInput: {},//item位移,透明度
+  },
+  setheight:function(){
+    var that=this;
+    wx.getSystemInfo({
+      success: function (res) {
+        var clientHeight = res.windowHeight,
+          clientWidth = res.windowWidth,
+          rpxR = 750 / clientWidth;
+        var calc = clientHeight * rpxR - 180;
+        calc = calc * (that.data.initialpageNo + 1)
+        that.setData({
+          winHeight: calc 
+        });
+      }
+    });
+
   },
   //滑动切换
   swiperTab: function (e) {
@@ -53,6 +73,8 @@ Page({
       url: '/lost/lostMessage',
       type: 'GET',
       data: { 
+        pageNo:that.data.initialpageNo,
+        pageSize:that.data.initialpageSize
       },
       header: {
         'content-type': 'application/json',
@@ -75,12 +97,16 @@ Page({
   },
 getLostList:function(e){
   var Elength=e.length;
+  var that=this;
+  var message_s=that.data.message
   console.log(e[0])
   for(var i=0;i<Elength;i++){
   let infoOpt = {
     url: '/lost/getLostList/?messageId='+e[i].typeId,
     type: 'GET',
     data: {
+      pageNo: that.data.initialpageNo,
+      pageSize: that.data.initialpageSize
     },
     header: {
       'content-type': 'application/json',
@@ -89,7 +115,11 @@ getLostList:function(e){
   }
   let infoCb = {}
   infoCb.success = function (data) {
-    console.log(data);
+      message_s .push(data) 
+        that.setData({
+          message: message_s
+        })
+        console.log(that.data.message);
   }
 
   sendAjax(infoOpt, infoCb, () => {
@@ -100,18 +130,23 @@ getLostList:function(e){
   onLoad: function (options) {
     //顶部样式控制
     var that = this;
+    that.getlosttype();
     var length = 100 / this.data.hear.length
     that.setData({
       hearwidth: length
     })
+    that.setheight();
     //内容高度控制
-    var length = that.data.message[that.data.currentTab].list.length
-    console.log(length);
-    that.setData({
-      contheigth: length*200
-    })
-    console.log(this.data.message);
-    that.getlosttype();
+    // var arr = that.data.message
+
+    // console.log(arr)
+    //  var length = that.data.message[that.data.currentTab].items.length
+    // console.log(length);
+    // that.setData({
+    //   contheigth: length*200
+    // })
+    // console.log(this.data.message);
+
   },
 
   /**

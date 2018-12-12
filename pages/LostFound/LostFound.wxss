@@ -67,6 +67,7 @@ box-shadow:1rpx 10rpx 20rpx #E1E1E4;
 swiper{
   height: 500rpx;
   margin-top:120rpx;
+  box-shadow:1rpx 20rpx 20rpx rgb(244, 244, 247);
 }
 
 .current-hear{
@@ -134,4 +135,6 @@ position: fixed;
 bottom: 100rpx;
 right:45rpx;
 opacity: 0;
+z-index: 100;
+
 }

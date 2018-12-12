@@ -1,4 +1,5 @@
 {
     "navigationBarTitleText": "时事",
+    "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true
 }
