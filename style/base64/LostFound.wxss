@@ -1,5 +1,5 @@
 .current-text-Identification{
-  width: 120rpx;
+  width: 100rpx;
   height: 100rpx;
     /* background: salmon; */
  

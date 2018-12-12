@@ -148,7 +148,11 @@
 				},
 				{
 					"id": -1,
+
 					"name": "失物招领详情",
+
+					"name": "物品詳情",
+
 					"pathName": "pages/LostFound/detail/detail"
 				}
 			]

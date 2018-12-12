@@ -22,7 +22,7 @@ Page({
     lostcurrentTab: 0,
     lostTab: [{ id: 0, name: '#寻物启事#' }, { id: 1, name: '#失物招领#' }],
     goodsname: null,
-    phone: null,
+    phone: null, 
     arr_img: [],
     isShow: false,
     txt: '',
