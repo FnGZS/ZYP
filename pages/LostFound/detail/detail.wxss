@@ -168,8 +168,6 @@ height: 400rpx;
 }
 .reply-detail-talk{
   width: 95%;
-  display: flex;
-  flex-direction: column;
   margin-top: 15rpx;
   margin-bottom: 20rpx;
   font-size: 22rpx;

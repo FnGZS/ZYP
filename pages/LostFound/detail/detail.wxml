@@ -63,11 +63,7 @@
           <image src='/images/reply.png'></image>
         </view>
         <view class='reply-detail-talk'>
-          <view class='aaaaaaa'>
-             <view class='replyer'>大黄蜂</view>回复
-            <view class='replyer'>擎天柱</view>
-           <view>：加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信信加我微信</view>
-          </view>
+           <text class='replyer'>擎天柱</text>回复<text class='replyer'>大黄蜂</text>：<text>加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信信加我微信</text>
         </view>
       </view>
     </view>
