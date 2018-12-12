@@ -63,7 +63,7 @@
           <image src='/images/reply.png'></image>
         </view>
         <view class='reply-detail-talk'>
-          加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信信加我微信
+           <text class='replyer'>擎天柱</text>回复<text class='replyer'>大黄蜂</text>：<text>加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信信加我微信</text>
         </view>
       </view>
     </view>
@@ -75,21 +75,21 @@
 
   <view class='tabs'>
     <view class='tabbottom'>
-      <view class='tab-share'>
-      <image src='/images/share.png'></image>
-        分享
-      </view>
-      <view class=' tab-share tab-reply'>
-      <image  src='/images/reply.png'></image>
-        回复
-      </view>
-      <view class=' tab-share tab-toupiao'>
-      <image  src='/images/dianzan.png'></image>
-        点赞
-      </view>
-      <view class='connect'>
-        联系TA
-      </view>
+        <view class='bottom-share'>
+          <image src='/images/share.png' class='share'></image>
+          <view class='bottom-text'>分享</view>
+        </view>
+           <view class='bottom-share'>
+          <image src='/images/reply.png' class='replypic'></image>
+          <view class='bottom-text'>评论</view>
+        </view>
+           <view class='bottom-share'>
+          <image src='/images/dianzan.png' class='dianzan'></image>
+          <view class='bottom-text'>点赞</view>
+        </view>
+                   <view class='bottom-connect'>
+          <view class='connect'>联系Ta</view>
+        </view>
     </view>
   </view>
 </view>

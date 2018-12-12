@@ -21,6 +21,7 @@
     "pages/LostFound/detail/detail",
     "pages/innovate/innovate",
     "pages/innovate/innovateDetail/innovateDetail",
+
     "pages/logs/logs"
   ],
   "window": {

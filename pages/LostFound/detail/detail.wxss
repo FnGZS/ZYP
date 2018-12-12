@@ -1,5 +1,5 @@
 page{
-  background-color:#ececec33;
+  background-color:#eff0f5;
 
 }
 .main{
@@ -171,56 +171,65 @@ height: 400rpx;
   margin-top: 15rpx;
   margin-bottom: 20rpx;
   font-size: 22rpx;
-  background-color: #ececec6e;
+  background-color: #eff0f5;
+}
+.replyer{
+  color: #5b73ea;
 }
 .tabs{
   width: 100%;
   height: 80rpx;
+  display: flex;
+  align-items: center;
   position:relative;
   bottom:0rpx;
    /* background-color: purple; */
 }
 .tabbottom{
-
-  font-size: 21rpx;
-  display: flex;
+  background-color: #ffffff;
   height: 100%;
   width: 100%;
-  flex-direction:row;
-  justify-content:space-around;
-  align-items: center;
-}
-.tab-share{
-margin-left:10%; 
   display: flex;
-    width: 25%;
+  justify-content: space-around;
+}
+.bottom-share{
+  display: flex;
   flex-direction: column;
-  height: 100%;
 
+  width: 25%;
 }
-.tab-share image{
-  margin-top: 10rpx;
-  margin-left: 10rpx;
-width: 21rpx;
-height: 30rpx;
+.share{
+  margin: auto;
+  height: 39rpx;
+  width: 25rpx;
 }
-.tab-reply image{
-  margin-left: 9rpx;
-  width: 35rpx;
-  height: 30rpx;
+.bottom-text{
+  display: flex;
+  justify-content: center;
+  font-size: 18rpx;
 }
-.tab-toupiao image{
-  margin-left: 9rpx;
-
-  width: 35rpx;
-  height: 30rpx;
+.replypic{
+    margin: auto;
+  width: 36rpx;
+  height: 32rpx;
+}
+.dianzan{
+    margin: auto;
+  height: 35rpx;
+  width: 39rpx;
+}
+.bottom-connect{
+  background: linear-gradient(to right ,#f76163, #f06195);
+    height: 100%;
+  width: 25%;
+  display: flex;
+  align-items: center;
 }
 .connect{
-  height: 100%;
-  width: 40%;
+  color: #ffffff;
+  font-size: 26rpx;
   display: flex;
-  align-items: center;
-justify-content: center;
-  background-color: #ffa1db80;
-  font-size: 30rpx;
+ margin: auto;
+ justify-content: center;
+ align-items: center;
 }
