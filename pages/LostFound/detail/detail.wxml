@@ -1,66 +1,95 @@
-<view class='detail'>
-  <view class='detail-owner'>
-    <view class='detail-owner-lost'>
-      #失物招领#
-    </view>
-    <image src='/images/down.png'></image>
-  </view>
-  <view class='detail-owner-message'>
-    <view class='detail-owner-message-touxiang'>
-      <image src='/images/school.png'></image>
-    </view>
-    <view class='detail-owner-message-mess'>
-      <view class='detail-owner-message-read'>
+<view class='main'>
+  <view class='bg'>
+    <view class='detail'>
+      <view class='detail-owner'>
+        <view class='detail-owner-lost'>
+          #失物招领#
+        </view>
+        <image src='/images/down.png'></image>
+      </view>
+      <view class='detail-owner-message'>
+        <view class='detail-owner-message-touxiang'>
+          <image src='/images/school.png'></image>
+        </view>
+        <view class='detail-owner-message-mess'>
+          <view class='detail-owner-message-read'>
 
-        <view class='detail-owner-message-name'>
-          男神么么哒
-          <view class='detail-owner-message-time'>
-            前天12:00
-            <view class='detail-owner-message-readnum'>
-              浏览量：300
+            <view class='detail-owner-message-name'>
+              男神么么哒
+              <view class='detail-owner-message-time'>
+                前天12:00
+                <view class='detail-owner-message-readnum'>
+                  浏览量：300
+                </view>
+              </view>
             </view>
+          </view>
+          <view class='detail-owner-message-locate'>
+            <image src='/images/map.png'></image>
+            绍兴市群贤中路2799号
           </view>
         </view>
       </view>
-      <view class='detail-owner-message-locate'>
-        <image src='/images/map.png'></image>
-        绍兴市群贤中路2799号
+      <view class='detail-title'>
+        重金求饭卡
+      </view>
+      <view class='detail-discribe'>啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚
+      </view>
+    </view>
+    <view class='detail-pic'>
+      <image src='/images/school.png'></image>
+    </view>
+  </view>
+  <view class='reply'>
+    <view class='replycnt'>
+      全部评论(1)
+    </view>
+  </view>
+
+  <view class='bg'>
+    <view class='reply-detail'>
+      <view class='reply-detail-touxiang'>
+        <image src='/images/school.png'></image>
+      </view>
+      <view class='reply-detail-all'>
+        <view class='reply-detail-name'>
+          勇敢的胆小鬼
+        </view>
+        <view class='reply-detail-neirong'>
+          加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信信加我微信
+        </view>
+        <view class='reply-detail-time'>
+          2018年12月12日 0：50
+          <image src='/images/reply.png'></image>
+        </view>
+        <view class='reply-detail-talk'>
+          加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信信加我微信
+        </view>
       </view>
     </view>
   </view>
-  <view class='detail-title'>
-    重金求饭卡
-  </view>
-  <view class='detail-discribe'>啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚
-  </view>
-</view>
-<view class='detail-pic'>
-  <image src='/images/school.png'></image>
-</view>
 
-<view class='reply'>
-  <view class='replycnt'>
-    全部评论(1)
-  </view>
-</view>
-<view class='reply-detail'>
-  <view class='reply-detail-touxiang'>
-    <image src='/images/school.png'></image>
-  </view>
-   <view class='reply-detail-all'>
-      <view class='reply-detail-name'>
-          勇敢的胆小鬼
-      </view>
-      <view class='reply-detail-neirong'>
-          加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信信加我微信
-      </view>
-      <view class='reply-detail-time'>
-         2018年12月12日 0：50
-         <image src='/images/reply.png'></image>
-      </view>
-      <view class='reply-detail-talk'>
-          加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信加我微信信加我微信
-      </view>
-  </view>
   
+
+
+
+  <view class='tabs'>
+    <view class='tabbottom'>
+      <view class='tab-share'>
+      <image src='/images/share.png'></image>
+        分享
+      </view>
+      <view class=' tab-share tab-reply'>
+      <image  src='/images/reply.png'></image>
+        回复
+      </view>
+      <view class=' tab-share tab-toupiao'>
+      <image  src='/images/dianzan.png'></image>
+        点赞
+      </view>
+      <view class='connect'>
+        联系TA
+      </view>
+    </view>
+  </view>
 </view>

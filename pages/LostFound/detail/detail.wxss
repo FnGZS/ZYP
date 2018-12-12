@@ -1,9 +1,19 @@
 page{
-  background-color:#bcb3c2;
+  background-color:#ececec33;
+
 }
+.main{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.bg{
+  margin-top: 6rpx;
+  background-color: #ffffff;
+}
+
 .detail{
   margin: auto;
-  margin-top: 6rpx;
   position:relative;
   width: 85%;
   height: 100%;
@@ -37,15 +47,15 @@ page{
   
 }
 .detail-owner-message-touxiang {
-  height: 90rpx;
-  width: 90rpx;
+  height: 100rpx;
+  width: 100rpx;
   padding-right: 22rpx;
-  border-radius: 50rpx;
+  border-radius: 50%;
 }
 .detail-owner-message-touxiang image{
-  height: 100%;
-  width: 100%;
-  border-radius: 50rpx;
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 100rpx;
 }
 .detail-owner-message-mess{
   height: 100%;
@@ -109,21 +119,22 @@ height: 400rpx;
 }
 .reply-detail{
   margin-top: 2rpx;
+  /* margin-bottom: 100rpx; */
   width:90%;
-  background-color: pink;
+  /* background-color: pink; */
   display: flex;
   margin: auto;
   flex-direction: row;
 }
 .reply-detail-touxiang{
-  width:90rpx;
-  height:90rpx;
+  width:150rpx;
+  height:150rpx;
   margin-right: 20rpx;
 }
 .reply-detail-touxiang image{
-  width: 100%;
-  height: 100%;
-  border-radius: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
   margin-top: 12rpx;
 }
 .reply-detail-all{
@@ -158,7 +169,58 @@ height: 400rpx;
 .reply-detail-talk{
   width: 95%;
   margin-top: 15rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 20rpx;
   font-size: 22rpx;
-  background-color: #aee9f3
+  background-color: #ececec6e;
+}
+.tabs{
+  width: 100%;
+  height: 80rpx;
+  position:relative;
+  bottom:0rpx;
+   /* background-color: purple; */
+}
+.tabbottom{
+
+  font-size: 21rpx;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction:row;
+  justify-content:space-around;
+  align-items: center;
+}
+.tab-share{
+margin-left:10%; 
+  display: flex;
+    width: 25%;
+  flex-direction: column;
+  height: 100%;
+
+}
+.tab-share image{
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+width: 21rpx;
+height: 30rpx;
+}
+.tab-reply image{
+  margin-left: 9rpx;
+  width: 35rpx;
+  height: 30rpx;
+}
+.tab-toupiao image{
+  margin-left: 9rpx;
+
+  width: 35rpx;
+  height: 30rpx;
+}
+.connect{
+  height: 100%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+justify-content: center;
+  background-color: #ffa1db80;
+  font-size: 30rpx;
 }
