@@ -65,7 +65,7 @@
             </view>
             <view class='index-body-icon-bg-content-text1'>校园二手</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='noDevelop' wx:if="{{hhidden == 1}}">
+          <view class='index-body-icon-bg-content' bindtap='LostFound' wx:if="{{hhidden == 1}}">
             <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
                 <view class='index-body-icon-bg-content-icon-border1'>

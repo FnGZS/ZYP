@@ -14,11 +14,20 @@
     "pages/vote/voteDetail/voteDetail",
     "pages/calendar/calendar",
     "pages/logoMode/logoMode",
+    "pages/LostFound/LostFound",
+    "pages/LostFound/release/release",
+    "pages/LostFound/release/explain/explain",
+
+    "pages/LostFound/detail/detail",
+
+    "pages/innovate/innovate",
+    "pages/innovate/innovateDetail/innovateDetail",
+// >>>>>>> 3369b001986382f732c1fda8dcd3607746f6a033
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#F8F8F8",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
@@ -32,14 +41,12 @@
         "pagePath": "pages/index/index",
         "text": "首页"
       },
-     
       {
         "selectedIconPath": "images/时事2.png",
         "iconPath": "images/时事.png",
         "pagePath": "pages/currentaffairs/currentaffairs",
         "text": "时事"
       },
-
       {
         "selectedIconPath": "images/我的2.png",
         "iconPath": "images/我的.png",

@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+   userbg:'',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -21,15 +21,41 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  getbackground:function(){
+      var that = this;
+      console.log(1);
+      let infoOpt = {
+        url: '/user/background',
+        type: 'GET',
+        data: {
+        },
+        header: {
+          'content-type': 'application/json',
+          //  'authorization': wx.getStorageSync("authorization"),
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (data) {
+        that.setData({
+          userbg:data.background
+        })
+        console.log(that.data.userbg);
+      }
 
+      sendAjax(infoOpt, infoCb, () => {
+
+      });
+   
+  },
+  onLoad: function () {
+    this.getbackground();
     if (app.globalData.userInfo) {
       // console.log(1)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse) {
+    }else if (this.data.canIUse) {
       // console.log(2)
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
@@ -159,7 +185,7 @@ Page({
             }
             let infoCb = {}
             infoCb.success = function (res) {
-              // console.log(11111);
+              console.log(11111);
               // console.log(res)
               wx.setStorageSync("userId", res.userId)
               wx.setStorageSync("isLogin", 1)

@@ -661,6 +661,11 @@ Page({
       duration:1000
     })
   },
+  LostFound: function () {
+    wx.navigateTo({
+      url: '../LostFound/LostFound'
+    });
+  },
   toCalendar:function(){
     wx.navigateTo({
       url: '../calendar/calendar',

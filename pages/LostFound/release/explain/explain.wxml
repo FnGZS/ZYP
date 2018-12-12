@@ -1,0 +1,8 @@
+<view class="page-section">
+  <form bindsubmit="formSubmit">
+    <view class="textarea-wrp">
+      <textarea id="textareawrap" value="{{_text}}" bindinput="bindTextAreaBlur" auto-height placeholder='请输入文本' auto-focus />
+    </view>
+    <view class='btn' formType="submit" bindtap="comp">提交</view>
+  </form>
+</view>

@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
-	"appid": "wx1b75aff38e9dad18",
-	"projectname": "%E5%9C%A8%E5%85%83%E5%9F%B9best",
+	"appid": "wx070db500b5e5740f",
+	"projectname": "%E5%9C%A8%E5%85%83%E5%9F%B9%E6%AD%A3%E5%BC%8F%E7%89%88",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -36,7 +36,11 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+
+			"current": 16,
+
+			"current": 17,
+
 			"list": [
 				{
 					"id": -1,
@@ -113,7 +117,44 @@
 				{
 					"id": -1,
 					"name": "我参与的投票",
-					"pathName": "pages/user/joinVote/joinVote"
+					"pathName": "pages/user/joinVote/joinVote",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "失物招领",
+					"pathName": "pages/LostFound/LostFound",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "失物招领发布页面",
+					"pathName": "pages/LostFound/release/release",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "物品说明",
+					"pathName": "pages/LostFound/release/explain/explain",
+					"query": ""
+				},
+				{
+
+					"id": 16,
+					"name": "失物招领详情页",
+					"pathName": "pages/LostFound/detail/detail",
+
+					"id": -1,
+					"name": "创新创业",
+					"pathName": "pages/innovate/innovate",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "创新创业详情页",
+					"pathName": "pages/innovate/innovateDetail/innovateDetail",
+
+					"query": ""
 				}
 			]
 		}

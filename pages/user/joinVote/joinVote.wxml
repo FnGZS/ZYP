@@ -7,7 +7,7 @@
     <view class='list-status-ing' wx:if="{{item.status == 1}}">
       <image src='https://www.sxscott.com/crazyBirdimg/test/ing.png'></image>
     </view>
-    <view class='list-status-end' wx:elif="{{item.status ==0}}">
+    <view class='list-status-end' wx:elif="{{item.status ==2}}">
       <view class='list-status-end-box'>
         <image src='https://www.sxscott.com/crazyBirdimg/test/end.png'></image>
       </view>

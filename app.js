@@ -75,6 +75,19 @@ App({
     })
 
   },
+  //自定义的消息弹窗
+  toastShow: function (that, str, icon) {
+    that.setData({
+      isShow: true,
+      txt: str,
+      iconClass: icon
+    });
+    setTimeout(function () {
+      that.setData({
+        isShow: false
+      });
+    }, 1500);
+  }, 
 
 
   globalData: {

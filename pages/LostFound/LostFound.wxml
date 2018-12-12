@@ -1,0 +1,73 @@
+<view>
+  <image src="../../images/Release.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
+  <!-- <image src="../../images/icon-zhaoling.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image> -->
+  <image src="../../images/search.png" class="img-style" animation="{{animInput}}" bindtap="input"></image>
+  <image src="../../images/rotating.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+</view>
+
+<view class="swiper-tab">
+  <!-- <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">最新</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">热门</view> -->
+  <view class="swiper-tab-item  " wx:for="{{hear}}" style="width:{{hearwidth}}%;">
+    <view class="{{currentTab==item.typeId?'active':''}} swiper-tab-text" data-current="{{item.typeId}}" bindtap="clickTab">{{item.message}}</view>
+  </view>
+</view>
+<!-- <view style='  background: #f65959;  height: 500rpx;'></view> -->
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{contheigth}}rpx;' circular='true'>
+
+  <swiper-item wx:for="{{message}}">
+      <view class='current' wx:for="{{item.list}}" wx:key="*this" bindtap='detailPage'  data-id="{{item.id}}" >
+       <view class='current-img'>
+         <image src="{{item.affairsPic}}">
+         </image>
+       </view>
+        <view class='current-text '>
+          <view class='current-text-cont '>
+             {{item.name}}
+          </view>
+          <view class='current-text-Identification'>
+            <view class='Identification' >
+              {{item.subordinate}}
+            
+       
+            </view>
+          
+        </view>
+          <view class='time'>
+              {{item.year}}-{{item.day}}</view>
+          </view>
+      </view>     
+        <view class=' current-image '>
+        <image src='{{item.affairsPic}}'></image>
+        </view>
+    </swiper-item>
+  <!-- <swiper-item wx:for="{{message}}">
+    <view class='current' wx:for="{{item.list}}" wx:key="*this" bindtap='detailPage' data-id="{{item.id}}">
+          <view class='current-hear'>
+              <view class='current-img'></view>
+              <view class='current-title'>
+               <view class='user-name'>
+                    海豚
+               </view>
+               <view class='time'>
+                 2018-10-9
+               </view>
+              </view>
+          </view>
+          <view class='goods'>
+            <view class='goods-name'>
+              丢失一本书
+            </view>
+            <view class='goods-img' >
+               <image src='{{item.affairsPic}}'></image>
+            </view>
+          </view>
+          <view class='goods-etime'>
+           <view class='place'> </view>
+           <view class='btn'>
+              
+           </view>
+          </view>
+   </view>
+  </swiper-item> -->
+</swiper>
