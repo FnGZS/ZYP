@@ -12,36 +12,44 @@
     <view class="{{currentTab==item.typeId?'active':''}} swiper-tab-text" data-current="{{item.typeId}}" bindtap="clickTab">{{item.message}}</view>
   </view>
 </view>
-<view >123123</view>
+<view>123123</view>
 <!-- <view style='  background: #f65959;  height: 500rpx;'></view> -->
 <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{winHeight}}rpx;' circular='true'>
 
-  <swiper-item wx:for="{{message}}">
-      <view class='current' wx:for="{{item.items}}" wx:key="*this" bindtap='detailPage'  data-id="{{item.id}}" >
-       <view class='current-img'>
-         <image src="{{item.foundPic}}">
-         </image>
-       </view>
-        <view class='current-text '>
-          <view class='current-text-cont '>
-             {{item.title}}
-          </view>
-          <view class='current-text-Identification'>
-            <view class='Identification' >
-              {{item.subordinate}}
-            
-       
-            </view>
-          
+  <swiper-item wx:for="{{message}}" >
+    <view class='current' wx:for="{{item.items}}" wx:key="*this" bindtap='detailPage' data-id="{{item.id}}" data-conter="{{item}}">
+      <view class='current-img'>
+        <image src="{{item.foundPic}}">
+        </image>
+      </view>
+      <view class='current-text '>
+        <view class='current-text-cont '>
+          {{item.title}}
         </view>
-          <view class='time'>
-              {{item.gmtCreated}}</view>
+        <view class='current-text-Identification'>
+          <view class='Identification'>
+            {{item.subordinate}}
+
+
           </view>
-      </view>     
-        <view class=' current-image '>
-        <image src='{{item.affairsPic}}'></image>
+
         </view>
-    </swiper-item>
+        <view class='time'>
+          {{item.gmtCreated}}</view>
+      </view>
+    </view>
+    <view class=' current-lin ' hidden='{{item.bottonshow}}' >
+         <view class='current-left'>
+              
+         </view>
+         <view class='current-center'>
+         我是有底线的
+         </view>
+         <view class='current-right'>
+        
+         </view>
+    </view>
+  </swiper-item>
   <!-- <swiper-item wx:for="{{message}}">
     <view class='current' wx:for="{{item.list}}" wx:key="*this" bindtap='detailPage' data-id="{{item.id}}">
           <view class='current-hear'>
@@ -72,3 +80,5 @@
    </view>
   </swiper-item> -->
 </swiper>
+<import src="../public/template/toast/toast.wxml"/>
+<template is="toast" data="{{txt,isShow,iconClass}}"></template>

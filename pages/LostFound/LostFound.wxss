@@ -1,51 +1,56 @@
 /* pages/LostFound/LostFound.wxss */
+
 /* 测试样式 */
 @import '../../style/base64/LostFound.wxss';
+@import "../../style/LostFoundicon/iconfont";
 .active {
-  /* border-radius: 40rpx 20rpx; */
-  /* background: #f65959; */
+  /* border-radius: 40rpx 20rpx; *//* background: #f65959; */
   color: white;
   border-bottom: 5rpx solid white;
 }
-.swiper-tab{
+
+.swiper-tab {
   width: 100%;
   height: 100rpx;
   background: #f65959;
   display: flex;
   justify-content: center;
   align-items: center;
-position:fixed;
- top: 0rpx;
- left: 0rpx;
-box-shadow:1rpx 10rpx 20rpx #E1E1E4;
-
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  box-shadow: 1rpx 10rpx 20rpx #e1e1e4;
+  z-index: 100;
 }
-.swiper-tab-item{
- height: 100rpx;
- float: left;
-   display: flex;
+
+.swiper-tab-item {
+  height: 100rpx;
+  float: left;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-.swiper-tab-text{
+
+.swiper-tab-text {
   width: 40%;
   height: 100rpx;
- background: #f65959;
-   color: white;
-     display: flex;
+  background: #f65959;
+  color: white;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .current {
   width: 100%;
   height: 200rpx;
   background: white;
   margin: 0 auto;
   /* margin-top: 20rpx; */
-
-  border-bottom:1rpx solid #ccc;
+  border-bottom: 1rpx solid #ccc;
 }
-.Identification{
+
+.Identification {
   width: 80rpx;
   height: 50rpx;
   /* background: salmon; */
@@ -56,7 +61,8 @@ box-shadow:1rpx 10rpx 20rpx #E1E1E4;
   font-size: 20rpx;
   color: white;
 }
-.time{
+
+.time {
   width: 300rpx;
   height: 50rpx;
   float: right;
@@ -64,41 +70,42 @@ box-shadow:1rpx 10rpx 20rpx #E1E1E4;
   margin-top: 10rpx;
   font-size: 25rpx;
 }
-swiper{
+
+swiper {
   height: 500rpx;
-  margin-top:120rpx;
-  box-shadow:1rpx 20rpx 20rpx rgb(244, 244, 247);
+  margin-top: 80rpx;
+  box-shadow: 1rpx 20rpx 20rpx rgb(244, 244, 247);
 }
 
-.current-hear{
+.current-hear {
   width: 100%;
   height: 100rpx;
   padding: 10rpx;
   background: red;
-
 }
-.current-title{
+
+.current-title {
   width: 300rpx;
   height: 100rpx;
-    float: left;
+  float: left;
   /* background: rebeccapurple; */
   margin-left: 20rpx;
-
-
 }
-.current-img{
+
+.current-img {
   width: 180rpx;
   height: 180rpx;
   /* background: antiquewhite; */
-  margin: 10rpx 0 10rpx 10rpx ;
-   float: left;
-   
+  margin: 10rpx 0 10rpx 10rpx;
+  float: left;
 }
-.current-img image{
+
+.current-img image {
   width: 100%;
   height: 100%;
 }
-.current-text-cont{
+
+.current-text-cont {
   margin-left: 20rpx;
   width: 400rpx;
   height: 100rpx;
@@ -108,33 +115,64 @@ swiper{
   overflow: hidden;
   /* background: azure; */
   float: left;
-    text-overflow:ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp:3;
-      display: -webkit-box;
-    word-break: break-all;
-  
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  word-break: break-all;
 }
 
 /* 按钮的样式 */
+
 .img-plus-style {
-height:80rpx;
-width:80rpx;
-border-radius: 120rpx;
-/* box-shadow: 1rpx 1rpx 20rpx #f65959; */
-position: fixed;
-bottom: 100rpx;
-right:30rpx;
-z-index: 100;
-/* opacity: .8 */
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 120rpx;
+  /* box-shadow: 1rpx 1rpx 20rpx #f65959; */
+  position: fixed;
+  bottom: 100rpx;
+  right: 30rpx;
+  z-index: 100;
+  /* opacity: .8 */
 }
+
 .img-style {
-height: 50rpx;
-width: 50rpx;
-position: fixed;
-bottom: 100rpx;
-right:45rpx;
-opacity: 0;
-z-index: 100;
+  height: 50rpx;
+  width: 50rpx;
+  position: fixed;
+  bottom: 100rpx;
+  right: 45rpx;
+  opacity: 0;
+  z-index: 100;
+}
+.current-lin{
+  width: 100%;
+  height: 100rpx;
+  /* background: red */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.current-left {
+  width: 100rpx;
+  height: 2rpx;
+  background: #e1e1e4;
+  float: left;
+}
+.current-right{
+    width: 100rpx;
+  height: 2rpx;
+  background: #e1e1e4;
+  float: left;
+}
+.current-center{
+  width: 150rpx;
+  height: 50rpx;
+  color: #ccc;
+  float: left;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20rpx;
 
 }

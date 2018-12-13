@@ -1,5 +1,6 @@
 // pages/LostFound/LostFound.js
 const sendAjax = require('../../utils/sendAjax.js')
+var app = getApp();
 Page({
 
   /**
@@ -10,34 +11,29 @@ Page({
     //测试数据
     hearwidth: 0,
     //内容高度
-    contheigth:0,
-    winHeight:0,
-   //初始的頁面:
-    initialpageNo:0,
-    initialpageSize:5,
+    contheigth: 0,
+    winHeight: 0,
+    //初始的頁面:
+    initialpageNo: [],
+    initialpageSize: 10,
     hear: [{ id: 0, name: '寻主' }, { id: 1, name: '寻物' }],
     message: [],
-    message_s:[],
+    message_s: [],
     isPopping: false,//是否已经弹出
     animPlus: {},//旋转动画
     animCollect: {},//item位移,透明度
     animTranspond: {},//item位移,透明度
     animInput: {},//item位移,透明度
+    isShow: false,
+    txt: '',
+    iconClass: 'icon-cry',
+
   },
-  setheight:function(){
-    var that=this;
-    wx.getSystemInfo({
-      success: function (res) {
-        var clientHeight = res.windowHeight,
-          clientWidth = res.windowWidth,
-          rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR - 180;
-        calc = calc * (that.data.initialpageNo + 1)
-        that.setData({
-          winHeight: calc 
-        });
-      }
-    });
+  setheight: function () {
+    var that = this;
+    that.setData({
+      winHeight: that.data.message[that.data.currentTab].items.length * 200 + 100
+    })
 
   },
   //滑动切换
@@ -47,12 +43,12 @@ Page({
     _this.setData({
       currentTab: e.detail.current
     });
+    _this.setheight()
 
   },
   //点击切换
   clickTab: function (e) {
     var _this = this;
-    // console.log(e);
     // console.log(_this.data.newhigth);
     if (_this.data.currentTab === e.target.dataset.current) {
 
@@ -61,20 +57,23 @@ Page({
 
       _this.setData({
         currentTab: e.target.dataset.current,
+
       })
+      _this.setheight()
+
     }
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  getlosttype:function(){
-  var that=this;
+  //初始数据 
+  getlosttype: function () {
+    var that = this;
     let infoOpt = {
       url: '/lost/lostMessage',
       type: 'GET',
-      data: { 
-        pageNo:that.data.initialpageNo,
-        pageSize:that.data.initialpageSize
+      data: {
+     
       },
       header: {
         'content-type': 'application/json',
@@ -88,54 +87,116 @@ Page({
         hear: data.lostTypeList
       })
       that.getLostList(that.data.hear)
-  
+      var length = 100 / that.data.hear.length
+      that.setData({
+        hearwidth: length
+      })
     }
-  
+
     sendAjax(infoOpt, infoCb, () => {
-    
+
     });
   },
-getLostList:function(e){
-  var Elength=e.length;
-  var that=this;
-  var message_s=that.data.message
-  console.log(e[0])
-  for(var i=0;i<Elength;i++){
-  let infoOpt = {
-    url: '/lost/getLostList/?messageId='+e[i].typeId,
-    type: 'GET',
-    data: {
-      pageNo: that.data.initialpageNo,
-      pageSize: that.data.initialpageSize
-    },
-    header: {
-      'content-type': 'application/json',
-      //  'authorization': wx.getStorageSync("authorization"),
-    },
-  }
-  let infoCb = {}
-  infoCb.success = function (data) {
-      message_s .push(data) 
+  getLostList: function (e) {
+    var Elength = e.length;
+    var that = this;
+    var message_s = that.data.message
+    var pageNo = that.data.initialpageNo;
+    for (var i = 0; i < Elength; i++) {
+      pageNo[i]=0
+      let infoOpt = {
+        url: '/lost/getLostList/?messageId=' + e[i].typeId,
+        type: 'GET',
+        data: {
+          pageNo: pageNo[i],
+          pageSize: that.data.initialpageSize
+        },
+        header: {
+          'content-type': 'application/json',
+          //  'authorization': wx.getStorageSync("authorization"),
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (data) {
+        console.log(data);
+        data['bottonshow'] = 1
+        message_s.push(data)
         that.setData({
-          message: message_s
+          message: message_s,
+          initialpageNo: pageNo
         })
-        console.log(that.data.message);
-  }
+        //初始默认高度默认为0items 的高度
+        that.setData({
+          winHeight: that.data.message[0].items.length * 200 + 100
+        })
+      }
 
-  sendAjax(infoOpt, infoCb, () => {
+      sendAjax(infoOpt, infoCb, () => {
 
-  });
-  }
-},
+      });
+    }
+  },
+  getLostListReachBottom: function (currentTab) {
+    var that = this;
+    //分页需用数组处理 每个分类的分页都要单独出来
+    var pageNo = that.data.initialpageNo
+    pageNo[currentTab] = pageNo[currentTab] + 1
+    var pageSize = that.data.initialpageSize
+    var message = that.data.message;
+    let infoOpt = {
+      url: '/lost/getLostList/?messageId=' + currentTab,
+      type: 'GET',
+      data: {
+        pageNo: pageNo[currentTab],
+        pageSize: pageSize
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      // message[currentTab].items.concat (data.items);
+      var messagelength = message[currentTab].items.length;
+      var datalength = data.items.length;
+      var cnt = 0;
+      for (var i = messagelength; i < datalength + messagelength; i++) {
+        message[currentTab].items[i] = data.items[cnt];
+        cnt++;
+      }
+      console.log(message);
+      if (data.items == '') {
+        app.toastShow(that, "暂无更多", "icon-cry");
+        message[currentTab].bottonshow = 0
+      } else {
+        message[currentTab].bottonshow = 1
+        that.setData({
+          message: message,
+          initialpageNo: pageNo
+        })
+      }
+      that.setData({
+        message: message,
+      })
+
+      console.log(data)
+      //初始默认高度默认为0items 的高度
+      that.setData({
+        winHeight: that.data.message[currentTab].items.length * 200 + 100
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  },
   onLoad: function (options) {
     //顶部样式控制
     var that = this;
     that.getlosttype();
-    var length = 100 / this.data.hear.length
-    that.setData({
-      hearwidth: length
-    })
-    that.setheight();
+
+    // that.setheight();
     //内容高度控制
     // var arr = that.data.message
 
@@ -181,6 +242,18 @@ getLostList:function(e){
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.setData({
+      winHeight: 0,
+      //初始的頁面:
+      initialpageNo: [],
+      initialpageSize: 10,
+      isShow: false,
+      txt: '',
+      iconClass: 'icon-cry',
+      message: [],
+    })
+    this.getlosttype();
+   
     wx.stopPullDownRefresh();
   },
 
@@ -188,7 +261,8 @@ getLostList:function(e){
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getLostListReachBottom(this.data.currentTab)
+    console.log(this.data.message);
   },
 
   /**
