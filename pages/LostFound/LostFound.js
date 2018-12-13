@@ -100,10 +100,12 @@ Page({
   getLostList: function (e) {
     var Elength = e.length;
     var that = this;
+    console.log(that.data.message);
     var message_s = that.data.message
     var pageNo = that.data.initialpageNo;
     for (var i = 0; i < Elength; i++) {
-      pageNo[i]=0
+      pageNo[i]=1
+      console.log(e[i].typeId)
       let infoOpt = {
         url: '/lost/getLostList/?messageId=' + e[i].typeId,
         type: 'GET',

@@ -26,14 +26,14 @@
           </view>
           <view class='detail-owner-message-locate'>
             <image src='/images/map.png'></image>
-            绍兴市群贤中路2799号
+            {{message.address}}
           </view>
         </view>
       </view>
       <view class='detail-title'>
-        重金求饭卡
+         {{message.title}}
       </view>
-      <view class='detail-discribe'>啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚啦啦啦啦啦啦德玛西亚
+      <view class='detail-discribe'><text> {{message.content}}</text>
       </view>
     </view>
     <view class='detail-pic'>

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    message:[]
   },
 
   /**
@@ -13,8 +13,9 @@ Page({
    */
   getdetail: function (detail){
     console.log(detail)
+    var that=this
     let infoOpt = {
-      url: '/lost/getLostList/?id=' + detail,
+      url: '/lost/lostDetails/' + detail,
       type: 'GET',
       data: {
       },
@@ -25,9 +26,10 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-      console.log(data);
-
-    
+       that.setData({
+         message: data.details
+       })
+       console.log(that.data.message)
     }
 
     sendAjax(infoOpt, infoCb, () => {
