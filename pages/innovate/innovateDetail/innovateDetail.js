@@ -15,9 +15,10 @@ Page({
   },
   getInnovateDetail:function(){
     var that = this;
+    console.log(that.data.id)
     var id = that.data.id;
     let infoOpt = {
-      url: '/innovate/list/' + id,
+        url: '/innovate/list/' + id,
       type: 'GET',
       data: {
       },

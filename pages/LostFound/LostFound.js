@@ -1,5 +1,6 @@
 // pages/LostFound/LostFound.js
 const sendAjax = require('../../utils/sendAjax.js')
+const sendAjax_API = require('../../utils/sendAjaxAPI.js')
 var app = getApp();
 Page({
 
@@ -16,20 +17,25 @@ Page({
     //初始的頁面:
     initialpageNo: [],
     initialpageSize: 10,
-    hear: [{ id: 0, name: '寻主' }, { id: 1, name: '寻物' }],
+    hear: [{
+      id: 0,
+      name: '寻主'
+    }, {
+      id: 1,
+      name: '寻物'
+    }],
     message: [],
     message_s: [],
-    isPopping: false,//是否已经弹出
-    animPlus: {},//旋转动画
-    animCollect: {},//item位移,透明度
-    animTranspond: {},//item位移,透明度
-    animInput: {},//item位移,透明度
+    isPopping: false, //是否已经弹出
+    animPlus: {}, //旋转动画
+    animCollect: {}, //item位移,透明度
+    animTranspond: {}, //item位移,透明度
+    animInput: {}, //item位移,透明度
     isShow: false,
     txt: '',
     iconClass: 'icon-cry',
-
   },
-  setheight: function () {
+  setheight: function() {
     var that = this;
     that.setData({
       winHeight: that.data.message[that.data.currentTab].items.length * 200 + 100
@@ -37,7 +43,7 @@ Page({
 
   },
   //滑动切换
-  swiperTab: function (e) {
+  swiperTab: function(e) {
     var _this = this;
     console.log(e);
     _this.setData({
@@ -47,7 +53,7 @@ Page({
 
   },
   //点击切换
-  clickTab: function (e) {
+  clickTab: function(e) {
     var _this = this;
     // console.log(_this.data.newhigth);
     if (_this.data.currentTab === e.target.dataset.current) {
@@ -67,13 +73,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   //初始数据 
-  getlosttype: function () {
+  getlosttype: function() {
     var that = this;
     let infoOpt = {
       url: '/lost/lostMessage',
       type: 'GET',
       data: {
-     
+
       },
       header: {
         'content-type': 'application/json',
@@ -81,65 +87,83 @@ Page({
       },
     }
     let infoCb = {}
-    infoCb.success = function (data) {
+    infoCb.success = function(data) {
       console.log(data.lostTypeList);
       that.setData({
         hear: data.lostTypeList
       })
-      that.getLostList(that.data.hear)
+      that.setData({
+        message: []
+      })
+      var num = 0
+      console.log(that.data.fnum, that.data.hear.length - 1)
+      that.getLostList(that.data.hear, num, that.data.hear.length - 1)
       var length = 100 / that.data.hear.length
       that.setData({
         hearwidth: length
       })
     }
 
-    sendAjax(infoOpt, infoCb, () => {
+    sendAjax_API.sendAjax_API(infoOpt, infoCb).then((res) => {
 
-    });
+    })
   },
-  getLostList: function (e) {
-    var Elength = e.length;
+
+
+  getLostList: function(e, num, typelength) {
+    var Elength = e;
     var that = this;
+
+    console.log(num)
     console.log(that.data.message);
     var message_s = that.data.message
+    console.log(message_s)
     var pageNo = that.data.initialpageNo;
-    for (var i = 0; i < Elength; i++) {
-      pageNo[i]=1
-      console.log(e[i].typeId)
-      let infoOpt = {
-        url: '/lost/getLostList/?messageId=' + e[i].typeId,
-        type: 'GET',
-        data: {
-          pageNo: pageNo[i],
-          pageSize: that.data.initialpageSize
-        },
-        header: {
-          'content-type': 'application/json',
-          //  'authorization': wx.getStorageSync("authorization"),
-        },
-      }
-      let infoCb = {}
-      infoCb.success = function (data) {
-        console.log(data);
-        
-        data['bottonshow'] = 1
-        message_s.push(data)
-        that.setData({
-          message: message_s,
-          initialpageNo: pageNo
-        })
-        //初始默认高度默认为0items 的高度
+
+    // console.log(e[num].typeId)
+    pageNo[num] = 1
+    let infoOpt = {
+      url: '/lost/getLostList/?messageId=' + num,
+      type: 'GET',
+      data: {
+        pageNo: pageNo[num],
+        pageSize: that.data.initialpageSize
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function(data) {
+      console.log(data);
+      data['bottonshow'] = 1
+      message_s = data;
+
+      console.log(message_s)
+      var message_num = 'message[' + num + ']'
+      that.setData({
+        [message_num]: message_s,
+        initialpageNo: pageNo
+      })
+      console.log(that.data.message[0])
+      // 初始默认高度默认为0items 的高度
+      if (that.data.message[0] != undefined)
         that.setData({
           winHeight: that.data.message[0].items.length * 200 + 100
         })
-      }
 
-      sendAjax(infoOpt, infoCb, () => {
-
-      });
+    }
+    sendAjax_API.sendAjax_API(infoOpt, infoCb).then((res) => {
+      console.log(res);
+    })
+    if (num < typelength) {
+      that.getLostList(e, num + 1, typelength)
+    } else {
+      return;
     }
   },
-  getLostListReachBottom: function (currentTab) {
+  getLostListReachBottom: function(currentTab) {
     var that = this;
     //分页需用数组处理 每个分类的分页都要单独出来
     var pageNo = that.data.initialpageNo
@@ -159,7 +183,7 @@ Page({
       },
     }
     let infoCb = {}
-    infoCb.success = function (data) {
+    infoCb.success = function(data) {
       // message[currentTab].items.concat (data.items);
       var messagelength = message[currentTab].items.length;
       var datalength = data.items.length;
@@ -194,7 +218,7 @@ Page({
 
     });
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     //顶部样式控制
     var that = this;
     that.getlosttype();
@@ -212,25 +236,39 @@ Page({
     // console.log(this.data.message);
 
   },
+  goTop: function(e) { // 一键回到顶部
+    if (wx.pageScrollTo) {
+      var arr = [0, 100]
+      wx.pageScrollTo({
+        scrollTop: arr[1]
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  detailPage:function(e){
+  detailPage: function(e) {
     console.log(e.currentTarget.dataset.conter)
     wx.navigateTo({
       url: 'detail/detail?detail=' + e.currentTarget.dataset.conter
     });
   },
-  onShow: function () {
-    this.setData({
+  onShow: function() {
+    var that = this
+    that.setData({
       winHeight: 0,
       //初始的頁面:
       initialpageNo: [],
@@ -240,28 +278,30 @@ Page({
       iconClass: 'icon-cry',
       message: [],
     })
-    this.getlosttype();
+    that.getlosttype();
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    this.setData({
+  onPullDownRefresh: function() {
+    var that = this;
+    that.setData({
       winHeight: 0,
       //初始的頁面:
       initialpageNo: [],
@@ -271,15 +311,17 @@ Page({
       iconClass: 'icon-cry',
       message: [],
     })
-    this.getlosttype();
-   
+    that.getlosttype();
     wx.stopPullDownRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onPageScroll: function(e) {
+    console.log(e); //{scrollTop:99}
+  },
+  onReachBottom: function() {
     this.getLostListReachBottom(this.data.currentTab)
     console.log(this.data.message);
   },
@@ -287,10 +329,10 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
-  plus: function () {
+  plus: function() {
     if (this.data.isPopping) {
       //缩回动画
       this.popp();
@@ -305,19 +347,19 @@ Page({
       })
     }
   },
-  input: function () {
+  input: function() {
     console.log("input")
   },
-  transpond: function () {
+  transpond: function() {
     console.log("transpond")
   },
-  collect: function () {
+  collect: function() {
     wx.navigateTo({
       url: 'release/release'
     });
   },
   //弹出动画
-  popp: function () {
+  popp: function() {
     //plus顺时针旋转
     var animationPlus = wx.createAnimation({
       duration: 500,
@@ -347,7 +389,7 @@ Page({
     })
   },
   //收回动画
-  takeback: function () {
+  takeback: function() {
     //plus逆时针旋转
     var animationPlus = wx.createAnimation({
       duration: 500,

@@ -6,7 +6,7 @@
         <image src='/images/head-bg.png'></image>
       </view>
       <view class='index-head-swiper'>
-        <swiper  autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
+        <swiper  autoplay="{{autoplay}}" circular="{{circular}}" circular="true" interval="{{interval}}" duration="{{duration}}">
           <block wx:for="{{imgUrlsloca}}" wx:key="key">
             <swiper-item>
               <image src="{{item.picture}}" class="index-head-swiper-image" />
