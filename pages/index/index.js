@@ -653,6 +653,7 @@ Page({
     }
     return this.data.clubs.length - 1;
   },
+  //跳转创新创业
   toInnovate:function(){
     wx.navigateTo({
       url: '../innovate/innovate',
