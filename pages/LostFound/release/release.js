@@ -42,11 +42,17 @@ Page({
     if (that.data.goodsname) {
       if (that.data.address) {
         if (that.data.phone) {
+          console.log(that.data.arr_img);
+          if(that.data.arr_img)
+            var frist_img = that.data.arr_img[0]
+          console.log(that.data.arr_img[0]);
+          console.log(JSON.stringify(that.data.arr_img))
           let infoOpt = {
             url: '/lost/lostInput',
             type: 'POST',
             data: {
               title: that.data.goodsname,
+              titlePic: frist_img,
               foundPic: JSON.stringify(that.data.arr_img),
               content: that.data.text,
               typeId: that.data.currentTab,
@@ -326,7 +332,9 @@ Page({
   //发布
   Release: function () {
     this.uploadimage()
-
+    wx.navigateBack({
+      
+    })
   },
   /**
    * 生命周期函数--监听页面显示
