@@ -119,6 +119,7 @@ Page({
       let infoCb = {}
       infoCb.success = function (data) {
         console.log(data);
+        
         data['bottonshow'] = 1
         message_s.push(data)
         that.setData({
@@ -220,8 +221,24 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
+  detailPage:function(e){
+    console.log(e.currentTarget.dataset.conter)
+    wx.navigateTo({
+      url: 'detail/detail?detail=' + e.currentTarget.dataset.conter
+    });
+  },
   onShow: function () {
-
+    this.setData({
+      winHeight: 0,
+      //初始的頁面:
+      initialpageNo: [],
+      initialpageSize: 10,
+      isShow: false,
+      txt: '',
+      iconClass: 'icon-cry',
+      message: [],
+    })
+    this.getlosttype();
   },
 
   /**

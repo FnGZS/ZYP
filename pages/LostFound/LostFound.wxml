@@ -17,10 +17,9 @@
 <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{winHeight}}rpx;' circular='true'>
 
   <swiper-item wx:for="{{message}}" >
-    <view class='current' wx:for="{{item.items}}" wx:key="*this" bindtap='detailPage' data-id="{{item.id}}" data-conter="{{item}}">
+    <view class='current' wx:for="{{item.items}}" wx:key="*this" bindtap='detailPage' data-conter="{{item.id}}" >
       <view class='current-img'>
-        <image src="{{item.foundPic}}">
-        </image>
+        <image src='https://{{item.titlePic}}'></image>
       </view>
       <view class='current-text '>
         <view class='current-text-cont '>
@@ -29,10 +28,7 @@
         <view class='current-text-Identification'>
           <view class='Identification'>
             {{item.subordinate}}
-
-
           </view>
-
         </view>
         <view class='time'>
           {{item.gmtCreated}}</view>

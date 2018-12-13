@@ -1,3 +1,4 @@
+const sendAjax = require('../../../utils/sendAjax.js')
 Page({
 
   /**
@@ -10,8 +11,32 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  getdetail: function (detail){
+    console.log(detail)
+    let infoOpt = {
+      url: '/lost/getLostList/?id=' + detail,
+      type: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data);
+
     
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  },
+  onLoad: function (options) {
+    console.log(options)
+    this.getdetail(options.detail)
   },
 
   /**

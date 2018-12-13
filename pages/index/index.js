@@ -653,6 +653,11 @@ Page({
     }
     return this.data.clubs.length - 1;
   },
+  toInnovate:function(){
+    wx.navigateTo({
+      url: '../innovate/innovate',
+    })
+  },
   //暂未开发
   noDevelop:function(){
     wx.showToast({

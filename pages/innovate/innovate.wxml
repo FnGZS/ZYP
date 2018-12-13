@@ -1,5 +1,5 @@
 <view id='innovate' style='height:{{phoneHeight}}rpx;padding-top:50%;'>
   <view class='innovateList' >
-    <li wx:for='{{innovatPics}}' wx:key="key"><image src="{{item.logo}}"></image></li>
+    <li wx:for='{{innovatPics}}' data-id="{{item.id}}" bindtap="toDetail" wx:key="key"><image src="{{item.logo}}"></image></li>
   </view>
 </view>
