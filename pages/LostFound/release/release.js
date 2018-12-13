@@ -20,7 +20,7 @@ Page({
     currentTab: 1,
     typename: '请选择分类',
     lostcurrentTab: 0,
-    lostTab: [{ id: 0, name: '#寻物启事#' }, { id: 1, name: '#失物招领#' }],
+    lostTab: [{ id: 0, name: '#失物招领#' }, { id: 1, name: '#寻物启事#' }],
     goodsname: null,
     phone: null, 
     arr_img: [],
