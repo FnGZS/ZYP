@@ -6,7 +6,10 @@
         <image src='/images/head-bg.png'></image>
       </view>
       <view class='index-head-swiper'>
+
         <swiper  autoplay="{{autoplay}}" circular="{{circular}}" circular="true" interval="{{interval}}" duration="{{duration}}">
+
+
           <block wx:for="{{imgUrlsloca}}" wx:key="key">
             <swiper-item>
               <image src="{{item.picture}}" class="index-head-swiper-image" />
@@ -65,34 +68,31 @@
             </view>
             <view class='index-body-icon-bg-content-text1'>校园二手</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='LostFound' wx:if="{{hhidden == 1}}">
-            <view class='iconfont icon-box'>
-              <view class='index-body-icon-bg-content-icon1'>
-                <view class='index-body-icon-bg-content-icon-border1'>
-                  <image src='/images/icon-zhaoling.png'></image>
-                </view>
+          <view class='index-body-icon-bg-content' bindtap='LostFound'>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-zhaoling.png'></image>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text1'>失物招领</view>
+            <view class='index-body-icon-bg-content-text'>失物招领</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='toInnovate' wx:if="{{hhidden == 1}}">
-            <view class='iconfont icon-box'>
-              <view class='index-body-icon-bg-content-icon1'>
-                <view class='index-body-icon-bg-content-icon-border1'>
-                  <image src='/images/icon-shetuan.png'></image>
-                </view>
+          <view class='index-body-icon-bg-content' bindtap='toInnovate'>
+
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-shetuan.png'></image>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text1'>创新创业</view>
+            <view class='index-body-icon-bg-content-text'>创新创业</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='noDevelop' wx:if="{{hhidden == 1}}">
-            <view class='iconfont icon-box'>
+          <view class='index-body-icon-bg-content' bindtap='noDevelop'>
+          <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
                 <view class='index-body-icon-bg-content-icon-border1'>
                   <image src='/images/icon-kebiao.png'></image>
                 </view>
               </view>
-            </view>
+              </view>
             <view class='index-body-icon-bg-content-text1'>课表查询</view>
           </view>
         </view>
@@ -105,7 +105,7 @@
         </view>
       </view>
     </view>
-    <view class='index-toupiao-bg'  wx:if="{{hhidden == 1}}">
+    <view class='index-toupiao-bg' wx:if="{{hhidden == 1}}">
       <view class='index-toupiao-bg-caidai-left'>
 
       </view>
