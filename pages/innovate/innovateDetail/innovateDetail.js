@@ -3,7 +3,8 @@ var WxParse = require('../../../wxParse/wxParse.js');
 Page({
   data: {
     id:null,
-    name:''
+    name:'',
+    detail:null
   },
   onLoad: function (options) {
     var id = options.id;
@@ -28,11 +29,11 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      console.log(1111);
-      var name = res.name;
-      console.log(name)
       wx.setNavigationBarTitle({
-        title: name
+        title: res.name
+      })
+      that.setData({
+        detail:res
       })
     }
     sendAjax(infoOpt, infoCb, () => { });

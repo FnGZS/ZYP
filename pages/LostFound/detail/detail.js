@@ -28,11 +28,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-
       console.log(data);
-
-    
-
        that.setData({
          message: data.details
        })

@@ -7,6 +7,7 @@
       </view>
       <view class='index-head-swiper'>
 
+
         <swiper  autoplay="{{autoplay}}" circular="{{circular}}" circular="true" interval="{{interval}}" duration="{{duration}}">
 
 

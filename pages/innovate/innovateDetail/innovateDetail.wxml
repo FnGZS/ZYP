@@ -35,32 +35,6 @@
       <image class='productImg2' src='https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=323222898,1224497379&fm=26&gp=0.jpg'></image>
       <image class='productImg2' src='https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=876571726,1943080404&fm=26&gp=0.jpg'></image>
     </view>
- <!-- <view class='product-main'>
-      <view class='product-main-style1'>
-        <image  src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2849719286,3175063190&fm=26&gp=0.jpg'></image>
-      </view>
-      <view class='product-main-style2'>
-       <image src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=269678725,2525801442&fm=26&gp=0.jpg'></image>
-      </view>
-      <view class='product-main-style3'>
-       <image src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3215564286,2999253575&fm=26&gp=0.jpg'></image>
-      </view>
-      <view class='product-main-style2'>
-       <image src='https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=876571726,1943080404&fm=26&gp=0.jpg'></image>
-      </view>
-      <view class='product-main-style2'>
-       <image src='https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=323222898,1224497379&fm=26&gp=0.jpg'></image>
-      </view>
-      <view class='product-main-style2'>
-       <image src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1600145297,1376860759&fm=26&gp=0.jpg'></image>
-      </view>
-      <view class='product-main-style2'>
-       <image src='https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2624620458,647004731&fm=26&gp=0.jpg'></image>
-      </view>
-      <view class='product-main-style2'>
-       <image src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3564352719,3026779232&fm=26&gp=0.jpg'></image>
-      </view> -->
-
   </view>
 
    <view class='aboutUs'>
@@ -75,9 +49,9 @@
     <template is="wxParse" class="" data="{{wxParseData:arry.nodes}}" />
   </view>
   <view class='innovateBottom'>
-    <view class='innovate-name'>疯鸟网络工作室</view>
+    <view class='innovate-name'>{{detail.name}}</view>
     <view class='innovate-place'>绍兴文理学院元培学院创新创业学院125室</view>
     <view class='innovate-phone'>联系方式：17857058385</view>
-    <image class='innovate-code' src='http://zjw77.club/someimg/zjw26324636.jpg'></image>
+    <image class='innovate-code'  src='http://zjw77.club/someimg/zjw26324636.jpg'></image>
   </view>
 </view>
