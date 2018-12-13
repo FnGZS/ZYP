@@ -67,7 +67,7 @@ Page({
           }
           let infoCb = {}
           infoCb.success = function (data) {
-
+        
           }
 
           sendAjax(infoOpt, infoCb, () => {

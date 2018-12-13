@@ -19,8 +19,7 @@
   <swiper-item wx:for="{{message}}" >
     <view class='current' wx:for="{{item.items}}" wx:key="*this" bindtap='detailPage' data-conter="{{item.id}}" >
       <view class='current-img'>
-        <image src="{{item.foundPic}}">
-        </image>
+        <image src='https://{{item.titlePic}}'></image>
       </view>
       <view class='current-text '>
         <view class='current-text-cont '>
