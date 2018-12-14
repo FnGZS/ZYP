@@ -181,7 +181,7 @@ height: 400rpx;
   height: 80rpx;
   display: flex;
   align-items: center;
-  position:absolute;
+  position:relative;
   bottom:0rpx;
    /* background-color: purple; */
 }
@@ -191,7 +191,7 @@ height: 400rpx;
   width: 100%;
   display: flex;
   justify-content: space-around;
-  
+
 }
 .bottom-share{
   display: flex;
