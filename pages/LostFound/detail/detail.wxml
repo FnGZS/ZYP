@@ -17,7 +17,7 @@
             <view class='detail-owner-message-name'>
               男神么么哒
               <view class='detail-owner-message-time'>
-                {{message.gmtCreated}}
+                {{message.day}} {{message.minute}}
                 <view class='detail-owner-message-readnum'>
                  浏览量:{{message.brow}}
                 </view>

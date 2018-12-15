@@ -68,7 +68,8 @@
   float: left;
   margin-left: 20rpx;
   margin-top: 10rpx;
-  font-size: 25rpx;
+  font-size: 22rpx;
+  color: #e1e1e4;
 }
 
 swiper {
@@ -109,7 +110,7 @@ swiper {
   margin-left: 20rpx;
   width: 250rpx;
   height: 150rpx;
-  font-size: 25rpx;
+  font-size: 27rpx;
   padding: 10rpx;
   margin-top: 20rpx;
   overflow: hidden;

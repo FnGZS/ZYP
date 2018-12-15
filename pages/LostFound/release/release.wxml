@@ -5,7 +5,7 @@
         <!-- <image src='/images/addpic.png'></image> -->
     <!-- </view> -->
     <view wx:for="{{picurl}}" wx:key="key" class='picandcancel'>
-      <image src="{{item}}" catchtap='chingepicture' data-index="{{index}}"></image>
+      <image src="{{item}}" mode='aspectFill' catchtap='chingepicture' data-index="{{index}}"></image>
       <view class='cancel-pic'>
         <image data-index="{{index}}" src='/images/cancel.png' catchtap='removepicture'></image>
       </view>
