@@ -33,6 +33,7 @@ App({
                   platUserInfoMap["iv"] = userResult.iv;
                   // console.log(platUserInfoMap);
                   // console.log(JSON.stringify(data));
+                  console.log(platUserInfoMap)
                   wx.request({
                     url: url.loginUrl,
                     method: 'POST',
