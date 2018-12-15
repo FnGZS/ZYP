@@ -67,7 +67,8 @@ Page({
           }
           let infoCb = {}
           infoCb.success = function (data) {
-        
+            wx.navigateBack({
+            })
           }
 
           sendAjax(infoOpt, infoCb, () => {
@@ -332,9 +333,7 @@ Page({
   //发布
   Release: function () {
     this.uploadimage()
-    wx.navigateBack({
-      
-    })
+  
   },
   /**
    * 生命周期函数--监听页面显示

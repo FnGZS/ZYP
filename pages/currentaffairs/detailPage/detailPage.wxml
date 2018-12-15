@@ -1,5 +1,5 @@
 <view class='detailPage-head'>
-  <image src='{{message.affairsPic}}'></image>
+  <image src='{{message.affairsPic}}' mode='aspectFill' ></image>
 </view>
 <view class='detailPage-body'>
   <view class='detailPage-body-box'>
@@ -16,7 +16,7 @@
    <view class='detailPage-body-box-down'>
     <view class='detailPage-body-box-down-title'>
     
-    <image src='/images/detailPage-tiaowen.png'></image>
+    <image src='/images/detailPage-tiaowen.png' ></image>
     <view class='detailPage-body-box-down-title-number'>
     <view class='detailPage-body-box-down-title-number-time'>发布时间：{{message.minute}} </view>
     <view class='detailPage-body-box-down-title-number-lll'>浏览量：{{message.brows}} </view> 

@@ -34,6 +34,7 @@ Page({
     isShow: false,
     txt: '',
     iconClass: 'icon-cry',
+    // scrollTop:[]
   },
   setheight: function() {
     var that = this;
@@ -50,7 +51,9 @@ Page({
       currentTab: e.detail.current
     });
     _this.setheight()
-
+    // wx.pageScrollTo({
+    //   scrollTop: _this.data.scrollTop[e.detail.current]
+    // })
   },
   //点击切换
   clickTab: function(e) {
@@ -150,7 +153,7 @@ Page({
       // 初始默认高度默认为0items 的高度
       if (that.data.message[0] != undefined)
         that.setData({
-          winHeight: that.data.message[0].items.length * 200 + 100
+          winHeight: that.data.message[0].items.length * 250 + 100
         })
 
     }
@@ -210,7 +213,7 @@ Page({
       console.log(data)
       //初始默认高度默认为0items 的高度
       that.setData({
-        winHeight: that.data.message[currentTab].items.length * 200 + 100
+        winHeight: that.data.message[currentTab].items.length * 250 + 100
       })
     }
 
@@ -299,7 +302,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  reload:function(){
     var that = this;
     that.setData({
       winHeight: 0,
@@ -312,6 +315,11 @@ Page({
       message: [],
     })
     that.getlosttype();
+  },
+  onPullDownRefresh: function() {
+    var that = this;
+ 
+    that.reload();
     wx.stopPullDownRefresh();
   },
 
@@ -319,7 +327,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onPageScroll: function(e) {
-    console.log(e); //{scrollTop:99}
+    // var that=this;
+    // var arr=that.data.scrollTop
+     
+    //  arr[that.data.currentTab]=e.scrollTop;
+    // that.setData({
+    //   scrollTop:arr
+    // })
+    // console.log(arr); //{scrollTop:99}
   },
   onReachBottom: function() {
     this.getLostListReachBottom(this.data.currentTab)

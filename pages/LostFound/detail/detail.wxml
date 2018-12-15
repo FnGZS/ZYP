@@ -17,9 +17,9 @@
             <view class='detail-owner-message-name'>
               男神么么哒
               <view class='detail-owner-message-time'>
-                前天12:00
+                {{message.gmtCreated}}
                 <view class='detail-owner-message-readnum'>
-                  浏览量：300
+                 浏览量:{{message.brow}}
                 </view>
               </view>
             </view>
@@ -36,11 +36,11 @@
       <view class='detail-discribe'><text> {{message.content}}</text>
       </view>
     </view>
-    <view class='detail-pic'>
-      <image src='/images/school.png'></image>
+    <view class='detail-pic' wx:for="{{message.foundPic}}">
+            <image src="{{item}}" mode='aspectFill' > {{item}}</image>
     </view>
   </view>
-  <view class='reply'>
+  <!-- <view class='reply'>
     <view class='replycnt'>
       全部评论(1)
     </view>
@@ -67,7 +67,7 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
 
   
 

@@ -3,7 +3,7 @@
   <view class='conter-no'>
     <view class='index-head'>
       <view class='index-head-bg'>
-        <image src='/images/head-bg.png'></image>
+        <image src='/images/head-bg.png' mode='aspectFill' ></image>
       </view>
       <view class='index-head-swiper'>
 
@@ -13,7 +13,7 @@
 
           <block wx:for="{{imgUrlsloca}}" wx:key="key">
             <swiper-item>
-              <image src="{{item.picture}}" class="index-head-swiper-image" />
+              <image src="{{item.picture}}"mode='aspectFill'  class="index-head-swiper-image" />
               <!-- <image src="/images/ceshi.png" class="index-head-swiper-image" /> -->
             </swiper-item>
           </block>
@@ -122,23 +122,23 @@
 
           <block>
             <view class="club" animation="{{animation1}}" style='z-index:{{zindex[0]}};opacity:{{opacities[0]}};' data-id='{{container[0].id}}' bindtap='toVote'>
-              <image src="{{container[0].actionImage}}" />
+              <image src="{{container[0].actionImage}}" mode='aspectFill'  />
               <text>{{container[0].actionName}}</text>
             </view>
             <view class="club" animation="{{animation2}}" style='z-index:{{zindex[1]}};opacity:{{opacities[1]}};' data-id='{{container[1].id}}' bindtap='toVote'>
-              <image src="{{container[1].actionImage}}" />
+              <image src="{{container[1].actionImage}}" mode='aspectFill' />
               <text>{{container[1].actionName}}</text>
             </view>
             <view class="club" animation="{{animation3}}" style='z-index:{{zindex[2]}};opacity:{{opacities[2]}};' data-id='{{container[2].id}}' bindtap='toVote'>
-              <image src="{{container[2].actionImage}}" />
+              <image src="{{container[2].actionImage}}" mode='aspectFill' />
               <text>{{container[2].actionName}}</text>
             </view>
             <view class="club" animation="{{animation4}}" style='z-index:{{zindex[3]}};opacity:{{opacities[3]}};' data-id='{{container[3].id}}' bindtap='toVote'>
-              <image src="{{container[3].actionImage}}" />
+              <image src="{{container[3].actionImage}}" mode='aspectFill' />
               <text>{{container[3].actionName}}</text>
             </view>
             <view class="club" animation="{{animation5}}" style='z-index:{{zindex[4]}};opacity:{{opacities[4]}};' data-id='{{container[3].id}}' bindtap='toVote'>
-              <image src="{{container[4].actionImage}}" />
+              <image src="{{container[4].actionImage}}" mode='aspectFill' />
               <text>{{container[4].actionName}}</text>
             </view>
           </block>
@@ -161,7 +161,7 @@
           {{item.title}}
         </view>
         <view class='index-current-img'>
-          <image src='{{item.affairsPic}}'></image>
+          <image src='{{item.affairsPic}}' mode='aspectFill' ></image>
         </view>
         <view class='index-current-cont'>
           {{item.year}}-{{item.day}}

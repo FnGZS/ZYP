@@ -29,6 +29,7 @@ Page({
     let infoCb = {}
     infoCb.success = function (data) {
       console.log(data);
+      data.details.foundPic = JSON.parse(data.details.foundPic)
        that.setData({
          message: data.details
        })
