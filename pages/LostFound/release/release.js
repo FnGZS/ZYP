@@ -47,6 +47,11 @@ Page({
             var frist_img = that.data.arr_img[0]
           console.log(that.data.arr_img[0]);
           console.log(JSON.stringify(that.data.arr_img))
+          var userinfo=[]
+          userinfo['nickName']=wx.getStorageSync("nickName")
+          userinfo['avatar'] = wx.getStorageSync("avatar")
+          userinfo['watchPhone'] = wx.getStorageSync("watchPhone")
+          console.log(userinfo)
           let infoOpt = {
             url: '/lost/lostInput',
             type: 'POST',
@@ -58,7 +63,8 @@ Page({
               typeId: that.data.currentTab,
               messageId: that.data.lostcurrentTab,
               address: that.data.address,
-              contact: that.data.phone
+              contact: that.data.phone,
+              personal:JSON.stringify(userinfo)
             },
             header: {
               'content-type': 'application/json',

@@ -73,23 +73,26 @@
 
 
 
-  <view class='tabs'>
+  
+</view>
+<view class='tabs'>
     <view class='tabbottom'>
-        <view class='bottom-share'>
-          <image src='/images/share.png' class='share'></image>
-          <view class='bottom-text'>分享</view>
-        </view>
-           <view class='bottom-share'>
+   
+           <view class='bottom-share' >
           <image src='/images/reply.png' class='replypic'></image>
-          <view class='bottom-text'>评论</view>
+          <view class='bottom-text' >评论</view>
         </view>
            <view class='bottom-share'>
           <image src='/images/dianzan.png' class='dianzan'></image>
           <view class='bottom-text'>点赞</view>
+        </view>
+             <view class='bottom-share'>
+          <!-- <image src='/images/share.png' class='share'></image>
+          <view class='bottom-text'>分享</view> -->
+          <button open-type='share'>热心分享</button>
         </view>
                    <view class='bottom-connect'>
           <view class='connect'>联系Ta</view>
         </view>
     </view>
   </view>
-</view>

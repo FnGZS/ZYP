@@ -153,7 +153,7 @@ return;
       console.log(data);
       if (data.code == 200) {
         // wx.setStorageSync('isbound', 1);
-        // wx.setStorageSync('authorization', data.asToken);
+    
         wx.showModal({
           title: '提示',
           content: data.message || '处理失败',
@@ -163,6 +163,7 @@ return;
         // console.log(data.result);
         if (data.result) {
           wx.setStorageSync('isbound', 1);
+          wx.setStorageSync('watchPhone', that.data.watchPhone);
           wx.setStorageSync('authorization', data.asToken);
           that.setData({
             isshow: 0
