@@ -1,7 +1,7 @@
 <view>
   <image src="../../images/Release.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
   <!-- <image src="../../images/icon-zhaoling.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image> -->
-  <image src="../../images/search.png" class="img-style" animation="{{animInput}}" bindtap="input"></image>
+  <image src="../../images/search.png" class="img-style" animation="{{animInput}}" bindtap="goTop"></image>
   <image src="../../images/rotating.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
 </view>
 
@@ -14,13 +14,13 @@
 </view>
 <view>123123</view>
 <!-- <view style='  background: #f65959;  height: 500rpx;'></view> -->
-<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{winHeight}}rpx;' circular='true'>
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab"  style='height:{{winHeight}}rpx;'>
 
   <swiper-item wx:for="{{message}}" >
     <view class='current' wx:for="{{item.items}}" wx:key="*this" bindtap='detailPage' data-conter="{{item.id}}" >
-      <view class='current-img'>
+      <view class='current-img' >
 
-        <image src='{{item.titlePic}}'></image>
+        <image mode='aspectFill'  src='{{item.titlePic}}'></image>
 
       </view>
       <view class='current-text '>
@@ -35,7 +35,7 @@
           </view>
         </view>
         <view class='time'>
-          {{item.gmtCreated}}</view>
+          {{item.day}} {{item.minute}}</view>
       </view>
     </view>
     <view class=' current-lin ' hidden='{{item.bottonshow}}' >

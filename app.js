@@ -7,6 +7,16 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     wx.setStorageSync("isLogin",0)
+    var isFir = wx.getStorageSync("isFirst")
+    if(!isFir){
+      wx.navigateTo({
+        url:"pages/start/start"
+      })
+    }else{
+      wx.switchTab({
+        url: 'pages/index/index'
+      })
+    }
     // 登录
     wx.login({
       success: resp => {
@@ -26,6 +36,8 @@ App({
                 success: userResult => {
                   // console.log(userResult);
                   // 可以将 res 发送给后台解码出 unionId
+                  wx.setStorageSync("isFirst", userResult.userInfo)
+
                   that.globalData.userInfo = userResult.userInfo
                   // console.log(userResult);
                   var platUserInfoMap = that.globalData.platUserInfoMap;
@@ -33,6 +45,7 @@ App({
                   platUserInfoMap["iv"] = userResult.iv;
                   // console.log(platUserInfoMap);
                   // console.log(JSON.stringify(data));
+                  console.log(platUserInfoMap)
                   wx.request({
                     url: url.loginUrl,
                     method: 'POST',

@@ -43,7 +43,7 @@
 
 .current {
   width: 100%;
-  height: 200rpx;
+  height: 250rpx;
   background: white;
   margin: 0 auto;
   /* margin-top: 20rpx; */
@@ -54,7 +54,7 @@
   width: 80rpx;
   height: 50rpx;
   /* background: salmon; */
-  margin-left: 20rpx;
+  margin-left: 40rpx;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,10 +65,11 @@
 .time {
   width: 300rpx;
   height: 50rpx;
-  float: right;
+  float: left;
   margin-left: 20rpx;
   margin-top: 10rpx;
-  font-size: 25rpx;
+  font-size: 22rpx;
+  color: #e1e1e4;
 }
 
 swiper {
@@ -93,8 +94,8 @@ swiper {
 }
 
 .current-img {
-  width: 180rpx;
-  height: 180rpx;
+  width: 300rpx;
+  height: 230rpx;
   /* background: antiquewhite; */
   margin: 10rpx 0 10rpx 10rpx;
   float: left;
@@ -107,9 +108,9 @@ swiper {
 
 .current-text-cont {
   margin-left: 20rpx;
-  width: 400rpx;
-  height: 100rpx;
-  font-size: 25rpx;
+  width: 250rpx;
+  height: 150rpx;
+  font-size: 27rpx;
   padding: 10rpx;
   margin-top: 20rpx;
   overflow: hidden;

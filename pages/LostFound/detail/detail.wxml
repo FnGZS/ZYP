@@ -17,9 +17,9 @@
             <view class='detail-owner-message-name'>
               男神么么哒
               <view class='detail-owner-message-time'>
-                前天12:00
+                {{message.day}} {{message.minute}}
                 <view class='detail-owner-message-readnum'>
-                  浏览量：300
+                 浏览量:{{message.brow}}
                 </view>
               </view>
             </view>
@@ -36,11 +36,11 @@
       <view class='detail-discribe'><text> {{message.content}}</text>
       </view>
     </view>
-    <view class='detail-pic'>
-      <image src='/images/school.png'></image>
+    <view class='detail-pic' wx:for="{{message.foundPic}}">
+            <image src="{{item}}" mode='aspectFill' > {{item}}</image>
     </view>
   </view>
-  <view class='reply'>
+  <!-- <view class='reply'>
     <view class='replycnt'>
       全部评论(1)
     </view>
@@ -67,29 +67,32 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
 
   
 
 
 
-  <view class='tabs'>
+  
+</view>
+<view class='tabs'>
     <view class='tabbottom'>
-        <view class='bottom-share'>
-          <image src='/images/share.png' class='share'></image>
-          <view class='bottom-text'>分享</view>
-        </view>
-           <view class='bottom-share'>
+   
+           <view class='bottom-share' >
           <image src='/images/reply.png' class='replypic'></image>
-          <view class='bottom-text'>评论</view>
+          <view class='bottom-text' >评论</view>
         </view>
            <view class='bottom-share'>
           <image src='/images/dianzan.png' class='dianzan'></image>
           <view class='bottom-text'>点赞</view>
+        </view>
+             <view class='bottom-share'>
+          <!-- <image src='/images/share.png' class='share'></image>
+          <view class='bottom-text'>分享</view> -->
+          <button open-type='share'>热心分享</button>
         </view>
                    <view class='bottom-connect'>
           <view class='connect'>联系Ta</view>
         </view>
     </view>
   </view>
-</view>

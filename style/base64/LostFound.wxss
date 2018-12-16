@@ -1,8 +1,8 @@
 .current-text-Identification{
-  width: 100rpx;
+  width: 120rpx;
   height: 100rpx;
     /* background: salmon; */
- 
+ margin-left: 20rpx;
   float: left;
 
 display: flex;
