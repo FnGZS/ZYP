@@ -17,12 +17,10 @@
     "pages/LostFound/LostFound",
     "pages/LostFound/release/release",
     "pages/LostFound/release/explain/explain",
-
     "pages/LostFound/detail/detail",
     "pages/innovate/innovate",
     "pages/innovate/innovateDetail/innovateDetail",
     "pages/start/start",
-    
     "pages/logs/logs"
   ],
   "window": {
