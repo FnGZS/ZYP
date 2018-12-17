@@ -45,14 +45,15 @@
 	margin-bottom: 5rpx;
 }
 .businessBrief-img{
-	width: 100%;
+  /* box-sizing: border-box;  */
+	/* width: 100%; */
 	display: flex;
 	flex-wrap:wrap;
-  padding-left: 3.5%;
+  margin-left: 5%;
 }
 .businessBrief-img-list{
 	width: 29%;
-  padding-left: 1.5%;
+  margin-left: 1.5%;
 }
 .businessBrief-img-list image{
 	height: 150rpx !important;
@@ -62,6 +63,7 @@
 	font-size: 20rpx;
 	text-align: center;
   margin-top: -10rpx;
+   margin-bottom: 10rpx;
 }
 
 
@@ -120,30 +122,28 @@
 	margin-top: 5rpx;
 }
 .product-main{
-  width: 100%;
-  padding-left: 5%;
-  padding-right: 3.75%;
+  margin-left: 5%;
   margin-top: 10rpx;
   overflow:hidden;
 }
 .productImg1{
-  width: 17%;
-  height: 210rpx;
+  width: 17% !important;
+  height: 210rpx !important;
   float: left;
-  margin-right: 1.25%;
+  margin-left: 1.25%;
 }
 .productImg2{
-  width: 17%;
-  height: 100rpx;
+  width: 17% !important;
+  height: 100rpx !important;
   float: left;
-   margin-right: 1.25%;
+   margin-left: 1.25%;
    margin-bottom: 10rpx;
 }
 .productImg3{
-  width: 35.25%;
-  height: 100rpx;
+  width: 35.25% !important;
+  height: 100rpx !important;
   float: left;
-  margin-right: 1.25%;
+  margin-left: 1.25%;
    margin-bottom: 10rpx;
 }
 .aboutUs{
@@ -165,18 +165,19 @@
 	font-size: 20rpx;
 	text-align: center;
 	margin-top: 5rpx;
+  margin-bottom: 10rpx;
 }
 .aboutUs-content{
   display: block;
   font-size: 23rpx;
   /* width: 100%; */
-  margin-top: 10rpx;
+
   margin-left: 5%;
   margin-right: 5%;
 }
 /*******分割线***********/
 .innovateBottom{
-  width: 100%;
+  width: 95%;
   background:#3A3A3A;
   font-size: 23rpx;
   padding-left: 5%;
@@ -186,12 +187,15 @@
 }
 .innovate-name{
   color: #fff;
+  width: 70%;
 }
 .innovate-place{
   color: #A0A0A0;
+  width: 70%;
 }
 .innovate-phone{
   color: #A0A0A0;
+  width: 70%;
 }
 .innovate-code{
   width: 100rpx;
