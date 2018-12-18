@@ -1,6 +1,6 @@
 {
   "pages": [
-    91330602MA2BGBHQ9C
+    "pages/start/start",
     "pages/index/index",
     "pages/user/user",
     "pages/currentaffairs/currentaffairs",
