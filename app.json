@@ -1,5 +1,6 @@
 {
   "pages": [
+    91330602MA2BGBHQ9C
     "pages/index/index",
     "pages/user/user",
     "pages/currentaffairs/currentaffairs",
@@ -20,7 +21,7 @@
     "pages/LostFound/detail/detail",
     "pages/innovate/innovate",
     "pages/innovate/innovateDetail/innovateDetail",
-    "pages/start/start",
+    
     "pages/logs/logs"
   ],
   "window": {
