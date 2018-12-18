@@ -224,7 +224,9 @@ Page({
   onPullDownRefresh: function() {
     this.setData({
       pageNo: 1,
-      lodingHidden: false
+      goodsList: [],
+      lodingHidden: false,
+      isBottom: false
     })
     this.getLunbo();
     this.getGoodsType();
