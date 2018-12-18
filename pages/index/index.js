@@ -659,6 +659,12 @@ Page({
       url: '../innovate/innovate',
     })
   },
+  //跳转校园二手
+  toSecondHand:function(){
+    wx.navigateTo({
+      url: '../secondHand/secondHand',
+    })
+  },
   //暂未开发
   noDevelop:function(){
     wx.showToast({
