@@ -4,11 +4,12 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
@@ -36,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 19,
 			"list": [
 				{
 					"id": -1,
@@ -149,7 +150,14 @@
 				{
 					"id": -1,
 					"name": "物品詳情",
-					"pathName": "pages/LostFound/detail/detail"
+					"pathName": "pages/LostFound/detail/detail",
+					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "校园二手",
+					"pathName": "pages/secondHand/secondHand",
+					"query": ""
 				}
 			]
 		}

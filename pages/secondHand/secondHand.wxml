@@ -1,0 +1,43 @@
+<view id='secondHand'>
+  <view class='search'>
+    <view class='search-main'>
+      <text class='iconfont icon-sousuo'></text>
+      <text class='search-main-text'>搜索</text>
+    </view>
+  </view>
+  <swiper class='secondHand-swiper' autoplay="true" circular="true" interval="3000" duration="1000" indicator-dots="true">
+    <block wx:for="{{lunboImg}}" wx:key="key">
+      <swiper-item>
+        <image src="{{item.slideImg}}" mode='aspectFill' class="secondHand-head-swiper-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <scroll-view class="tab stickyClass" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
+    <block wx:for="{{menuList}}" wx:key="index">
+      <view class="tab-item {{currentTab == index ? 'active' : ''}}" data-current="{{index}}" bindtap='clickMenu' data-typeid='{{item.id}}'>{{item.field}}</view>
+    </block>
+  </scroll-view>
+  <view class='goods-list' bindtouchstart="touchStart" bindtouchend="touchEnd">
+      <view class='goods-list-main' wx:for="{{goodsList}}" wx:key="key"> 
+          <image src='{{item.goodsImg[0]}}' mode='aspectFill' class='goods-list-main-img'></image>
+          <view class='goods-list-mes'>
+            <view class='goods-list-mes-title'>{{item.goodsTitle}}</view>
+            <view class='goods-list-mes-price'>
+              <view class='goods-list-mes-price-flag'>￥</view>
+              <view class='goods-list-mes-price-num'>{{item.price}}</view>
+            </view>
+            <view class='goods-list-mes-pos'>
+              <text class='iconfont icon-pos'></text>
+              <text>{{item.postion}}</text>
+            </view>
+            <view class='goods-list-mes-browse'>{{item.views}}人浏览过</view>
+          </view>
+      </view>
+      <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
+  </view>
+</view>
+<view>
+    <loading hidden="{{lodingHidden}}">
+        加载中..
+    </loading>
+</view>

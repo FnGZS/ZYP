@@ -21,6 +21,7 @@
     "pages/innovate/innovate",
     "pages/innovate/innovateDetail/innovateDetail",
     "pages/start/start",
+    "pages/secondHand/secondHand",
     "pages/logs/logs"
   ],
   "window": {
