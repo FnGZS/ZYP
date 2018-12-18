@@ -8,9 +8,49 @@ Page({
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     platUserInfoMap: {},
-    code:""
+    code:"",
+    sessionKey:''
   },
   onLoad: function () {
+  },
+  getPhoneNumber:function(e){
+    console.log(e);
+var that=this;
+    console.log(wx.getStorageSync("sessionKey"))
+    // console.log(platUserInfoMap);
+    // console.log(JSON.stringify(data));
+    // console.log(platUserInfoMap);
+    //request请求
+    wx.request({
+      url: "http://192.168.1.102:8080/crazyBird/user/deciphering",
+      method: 'get',
+      data: {
+        encrypdata: e.detail.encryptedData,
+        ivdata: e.detail.iv,
+        sessionkey: wx.getStorageSync("sessionKey")
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res);
+      }
+    })
+    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '未授权',
+        success: function (res) { }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '同意授权',
+        success: function (res) { }
+      })
+    } 
   },
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {
@@ -59,6 +99,7 @@ Page({
                         wx.setStorageSync("userKey", res.data.userKey)
                         wx.setStorageSync("authorization", res.data.authorization)
                         wx.setStorageSync("userId", res.data.userId)
+                        wx.setStorageSync("sessionKey", res.data.sessionKey)
                         console.log(res.data.authorization)
                       }
                     })
@@ -78,9 +119,9 @@ Page({
       })
       
       //授权成功后，跳转进入小程序首页
-      wx.switchTab({
-        url: '../index/index'
-      })
+      // wx.switchTab({
+      //   url: '../index/index'
+      // })
     } else {
       //用户按了拒绝按钮
       wx.showModal({
