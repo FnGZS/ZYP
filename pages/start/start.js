@@ -124,9 +124,9 @@ var that=this;
       })
       
       //授权成功后，跳转进入小程序首页
-      // wx.switchTab({
-      //   url: '../index/index'
-      // })
+      wx.switchTab({
+        url: '../index/index'
+      })
     } else {
       //用户按了拒绝按钮
       wx.showModal({

@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -158,6 +158,11 @@
 					"name": "校园二手",
 					"pathName": "pages/secondHand/secondHand",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "失物招领搜索",
+					"pathName": "pages/LostFound/search/search"
 				}
 			]
 		}

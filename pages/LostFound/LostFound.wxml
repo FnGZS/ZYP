@@ -12,7 +12,7 @@
     <view class="{{currentTab==item.typeId?'active':''}} swiper-tab-text" data-current="{{item.typeId}}" bindtap="clickTab">{{item.message}}</view>
   </view>
 </view>
-<view class='search'>
+<view class='search' bindtap='tosearch'>
  <view class='search-icon'>
              <image  src="../../images/search.png"  ></image>
       </view> 

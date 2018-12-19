@@ -19,6 +19,8 @@
     "pages/LostFound/release/release",
     "pages/LostFound/release/explain/explain",
     "pages/LostFound/detail/detail",
+    "pages/LostFound/search/search",
+    
     "pages/innovate/innovate",
     "pages/innovate/innovateDetail/innovateDetail",
     "pages/secondHand/secondHand",

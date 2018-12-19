@@ -1,0 +1,9 @@
+<view class='search' bindtap='tosearch'>
+ <view class='search-icon'>
+             <image  src="../../../images/search.png"  ></image>
+      </view> 
+  <view class='search-text'>
+     
+     请输入关键词搜索
+   </view>
+</view>
