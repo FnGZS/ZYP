@@ -22,7 +22,7 @@ var that=this;
     // console.log(platUserInfoMap);
     //request请求
     wx.request({
-      url: "http://192.168.1.102:8080/crazyBird/user/deciphering",
+      url: url.getphoneUrl,
       method: 'get',
       data: {
         encrypdata: e.detail.encryptedData,
