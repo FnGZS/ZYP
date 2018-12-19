@@ -12,51 +12,71 @@ Page({
     sessionKey:''
   },
   onLoad: function () {
-  },
-  getPhoneNumber:function(e){
-    console.log(e);
-var that=this;
-    console.log(wx.getStorageSync("sessionKey"))
-    // console.log(platUserInfoMap);
-    // console.log(JSON.stringify(data));
-    // console.log(platUserInfoMap);
-
-    var that = this;
-    let infoOpt = {
-      url: '/user/deciphering',
-      type: 'GET',
-
-      data: {
-        encrypdata: e.detail.encryptedData,
-        ivdata: e.detail.iv,
-        sessionkey: wx.getStorageSync("sessionKey")
-      },
-      header: {
-        'content-type': 'application/json',
-      },
-    }
-    let infoCb = {}
-    infoCb.success = function (res) {
-      console.log(res);
-    }
-    infoCb.beforeSend = () => { }
-    sendAjax(infoOpt, infoCb, () => { });
-    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
-      wx.showModal({
-        title: '提示',
-        showCancel: false,
-        content: '未授权',
-        success: function (res) { }
+    if(wx.getStorageSync('isFir')){
+      wx.switchTab({
+        url: '/pages/index/index',
       })
-    } else {
-      wx.showModal({
-        title: '提示',
-        showCancel: false,
-        content: '同意授权',
-        success: function (res) { }
-      })
-    } 
+    }
   },
+//   getPhoneNumber:function(e){
+//     console.log(e);
+// var that=this;
+//     console.log(wx.getStorageSync("sessionKey"))
+//     // console.log(platUserInfoMap);
+//     // console.log(JSON.stringify(data));
+//     // console.log(platUserInfoMap);
+//     //request请求
+//     // wx.request({
+//     //   url: "http://192.168.1.102:8080/crazyBird/user/deciphering",
+//     //   method: 'get',
+//     //   data: {
+//     //     encrypdata: e.detail.encryptedData,
+//     //     ivdata: e.detail.iv,
+//     //     sessionkey: wx.getStorageSync("sessionKey")
+//     //   },
+//     //   header: {
+//     //     'content-type': 'application/json' // 默认值
+//     //   },
+//     //   success(res) {
+//     //     console.log(res);
+//     //   }
+//     // })
+//     var that = this;
+
+//     let infoOpt = {
+//       url: '/user/deciphering',
+//       type: 'GET',
+//       data: {
+//         encrypdata: e.detail.encryptedData,
+//         ivdata: e.detail.iv,
+//         sessionkey: wx.getStorageSync("sessionKey")
+//       },
+//       header: {
+//         'content-type': 'application/json',
+//       },
+//     }
+//     let infoCb = {}
+//     infoCb.success = function (res) {
+//       console.log(res);
+//     }
+//     infoCb.beforeSend = () => { }
+//     sendAjax(infoOpt, infoCb, () => { });
+//     if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+//       wx.showModal({
+//         title: '提示',
+//         showCancel: false,
+//         content: '未授权',
+//         success: function (res) { }
+//       })
+//     } else {
+//       wx.showModal({
+//         title: '提示',
+//         showCancel: false,
+//         content: '同意授权',
+//         success: function (res) { }
+//       })
+//     } 
+//   },
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
@@ -72,7 +92,7 @@ var that=this;
           })
           wx.getUserInfo({
                   success: userResult => {
-                    wx.setStorageSync("isFirst", userResult.userInfo)
+                    
                     that.setData({
                       userInfo: userResult.userInfo
                     })
@@ -122,11 +142,11 @@ var that=this;
             
         }
       })
-      
+      wx.setStorageSync("isFir", true)
       //授权成功后，跳转进入小程序首页
-      // wx.switchTab({
-      //   url: '../index/index'
-      // })
+      wx.switchTab({
+        url: '../index/index'
+      })
     } else {
       //用户按了拒绝按钮
       wx.showModal({

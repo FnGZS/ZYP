@@ -18,6 +18,7 @@ Page({
     interval: 5000,
     duration: 1000,
     circular: true,
+    // cloudsShow: true,
     //投票用的
     clubs: [], //原始数据
     animations: [],
@@ -43,6 +44,79 @@ Page({
     newpageSize:2,
     isBottomnew:0,
     newmeslist:[],
+  },
+  clouds(){
+    console.log("1")
+    this.setData({
+      cloudsShow:false
+    })
+  },
+  getPhoneNumber: function (e) {
+    console.log(e);
+    var that = this;
+    console.log(wx.getStorageSync("sessionKey"))
+    // console.log(platUserInfoMap);
+    // console.log(JSON.stringify(data));
+    // console.log(platUserInfoMap);
+    //request请求
+    // wx.request({
+    //   url: "http://192.168.1.102:8080/crazyBird/user/deciphering",
+    //   method: 'get',
+    //   data: {
+    //     encrypdata: e.detail.encryptedData,
+    //     ivdata: e.detail.iv,
+    //     sessionkey: wx.getStorageSync("sessionKey")
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success(res) {
+    //     console.log(res);
+    //   }
+    // })
+    var that = this;
+
+    let infoOpt = {
+      url: '/user/deciphering',
+      type: 'GET',
+      data: {
+        encrypdata: e.detail.encryptedData,
+        ivdata: e.detail.iv,
+        sessionkey: wx.getStorageSync("sessionKey")
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+    }
+    infoCb.beforeSend = () => { }
+    sendAjax(infoOpt, infoCb, () => { });
+    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '未授权',
+        success: function (res) { 
+          that.setData({
+            cloudsShow:false
+          })
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '同意授权',
+        success: function (res) {
+          that.setData({
+            cloudsShow: false
+          })
+         }
+      })
+    }
   },
   // Navigation: function (event) {
   //   var that = this;
@@ -279,6 +353,16 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    console.log(wx.getStorageSync("isbound"))
+    if (wx.getStorageSync("isbound") == "2") {
+      that.setData({
+        cloudsShow:true
+      })
+    }else{
+      that.setData({
+        cloudsShow: false
+      })
+    }
     that.hhidden();
     // that.Startpage();
     // console.log(111);
