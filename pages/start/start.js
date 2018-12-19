@@ -20,32 +20,12 @@ var that=this;
     // console.log(platUserInfoMap);
     // console.log(JSON.stringify(data));
     // console.log(platUserInfoMap);
-    //request请求
-<<<<<<< HEAD
-    wx.request({
-      url: url.getphoneUrl,
-      method: 'get',
-=======
-    // wx.request({
-    //   url: "http://192.168.1.102:8080/crazyBird/user/deciphering",
-    //   method: 'get',
-    //   data: {
-    //     encrypdata: e.detail.encryptedData,
-    //     ivdata: e.detail.iv,
-    //     sessionkey: wx.getStorageSync("sessionKey")
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success(res) {
-    //     console.log(res);
-    //   }
-    // })
+
     var that = this;
     let infoOpt = {
       url: '/user/deciphering',
       type: 'GET',
->>>>>>> c3ff4d53dbe0b6c73cbf5c6759aeed080a459a58
+
       data: {
         encrypdata: e.detail.encryptedData,
         ivdata: e.detail.iv,
