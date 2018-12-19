@@ -4,6 +4,7 @@
       </view> 
   <view class='search-text'>
      
-     请输入关键词搜索
+     <input placeholder='请输入你所寻找的物品'></input>
+     <view class='cancel'>取消</view>
    </view>
 </view>

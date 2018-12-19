@@ -375,7 +375,7 @@ Page({
   transpond: function() {
     console.log("transpond")
   },
-  collect: function() {
+  torelease: function() {
     wx.navigateTo({
       url: 'release/release'
     });

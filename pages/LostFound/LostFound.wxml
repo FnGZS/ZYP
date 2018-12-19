@@ -1,8 +1,6 @@
 <view>
-  <image src="../../images/Release.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
-  <!-- <image src="../../images/icon-zhaoling.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image> -->
-  <image src="../../images/search.png" class="img-style" animation="{{animInput}}" bindtap="goTop"></image>
-  <image src="../../images/rotating.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+
+  <image src="../../images/rotating.png" class="img-plus-style" animation="{{animPlus}}" bindtap="torelease"></image>
 </view>
 
 <view class="swiper-tab">
