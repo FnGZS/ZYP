@@ -7,16 +7,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     wx.setStorageSync("isLogin",0)
-    var isFir = wx.getStorageSync("isFirst")
-    if(!isFir){
-      wx.navigateTo({
-        url:"pages/start/start"
-      })
-    }else{
-      wx.switchTab({
-        url: 'pages/index/index'
-      })
-    }
+    this.getStart()
     // 登录
     wx.login({
       success: resp => {
@@ -36,7 +27,7 @@ App({
                 success: userResult => {
                   // console.log(userResult);
                   // 可以将 res 发送给后台解码出 unionId
-                  wx.setStorageSync("isFirst", userResult.userInfo)
+                  // wx.setStorageSync("isFirst", userResult.userInfo)
 
                   that.globalData.userInfo = userResult.userInfo
                   // console.log(userResult);
@@ -88,6 +79,17 @@ App({
     })
 
   },
+  getStart(){
+    var isFir = wx.getStorageSync("isFir")
+    console.log(isFir)
+    if (isFir == true) {
+      wx.navigateTo({
+        url: "/pages/index/index"
+      })
+    }
+  
+  },
+  
   //自定义的消息弹窗
   toastShow: function (that, str, icon) {
     that.setData({
@@ -101,7 +103,9 @@ App({
       });
     }, 1500);
   }, 
-
+  data:{
+    
+  },
 
   globalData: {
     userInfo: null,

@@ -31,6 +31,9 @@ var config = {
   //失误招领图片上传
 
   uploadFile: `${host}/upload/avatar`,
+
+  //获取手机号
+  getphoneUrl: `${host}/user/deciphering`,
   //第三方平台登录
   plantLoginUrl: `${host}/user/account/platform/login`,
 
