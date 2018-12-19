@@ -1,5 +1,6 @@
 {
       "navigationBarTitleText": "校园二手",
       "enablePullDownRefresh": true,
-      "onReachBottomDistance": 50
+      "onReachBottomDistance": 50,
+      "backgroundTextStyle":"dark"
 }

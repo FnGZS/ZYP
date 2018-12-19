@@ -203,10 +203,11 @@ Page({
     infoCb.beforeSend = () => {}
     sendAjax(infoOpt, infoCb, () => {});
   },
-  toDetail: function() {
-    wx.showToast({
-      title: '跳转详情',
-      icon: 'none'
+  toDetail: function(e) {
+    console.log(e)
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'secondHandDetail/secondHandDetail?id=' + id,
     })
   },
   onReady: function() {

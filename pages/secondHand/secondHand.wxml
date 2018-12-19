@@ -18,7 +18,7 @@
     </block>
   </scroll-view>
   <view class='goods-list' bindtouchstart="touchStart" bindtouchend="touchEnd">
-      <view class='goods-list-main' wx:for="{{goodsList}}" wx:key="key" bindtap='toDetail'> 
+      <view class='goods-list-main' wx:for="{{goodsList}}" wx:key="key" data-id='{{item.id}}' bindtap='toDetail'> 
           <image src='{{item.goodsImg[0]}}' mode='aspectFill' class='goods-list-main-img'></image>
           <view class='goods-list-mes'>
             <view class='goods-list-mes-title'>{{item.goodsTitle}}</view>
