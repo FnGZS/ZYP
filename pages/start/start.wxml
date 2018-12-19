@@ -9,7 +9,7 @@
         <view class='content_info'>获得你的公开信息(昵称，头像等)</view>
     </view>
     <button class='bottom' type='primary' open-type="getPhoneNumber"lang="zh_CN" bindgetphonenumber="getPhoneNumber">授权手机号</button>
-    <button class='bottom' type='primary' open-type="getPhoneNumber" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">微信授权登录</button>
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">微信授权登录</button>
 </view>
 <view wx:else>请升级微信版本</view>
 </view>
