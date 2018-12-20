@@ -20,16 +20,17 @@
     "pages/LostFound/release/explain/explain",
     "pages/LostFound/detail/detail",
     "pages/LostFound/search/search",
-    
     "pages/innovate/innovate",
     "pages/innovate/innovateDetail/innovateDetail",
     "pages/secondHand/secondHand",
     "pages/secondHand/secondHandDetail/secondHandDetail",
+    "pages/secondHand/secondHandSearch/secondHandSearch",
+    "pages/secondHand/secondHandSearchResult/secondHandSearchResult",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarBackgroundColor": "#f8f8f8",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },

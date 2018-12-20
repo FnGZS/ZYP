@@ -144,7 +144,7 @@ color: transparent;
   bottom: 40rpx;
   left: 0;
   margin-left: 3%;
-  color: #CF5E50;
+  color: #ef696c;
   display: flex;
 }
 .goods-list-mes-price-flag{
@@ -173,6 +173,13 @@ color: transparent;
   font-size: 23rpx;
   line-height: 30rpx;
   padding-top: 20rpx;
+}
+.goods-list-mes-goodsWay{
+  position: absolute;
+  font-size: 23rpx;
+  right: 0;
+  bottom: 40rpx;
+  color: #FF3434;
 }
 .goods-list-mes-browse{
   position: absolute;

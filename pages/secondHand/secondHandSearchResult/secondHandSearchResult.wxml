@@ -1,0 +1,39 @@
+<view id='searchResult'>
+  <view class='search-heard'>
+    <view class='left'>
+      <icon type="search" size="11" class='icon-search' />
+      <input class='searchInput' placeholder='搜索喜欢的商品' bindinput='serach_content' value='{{content}}'></input>
+    </view>
+    <view class='right' bindtap='search'>
+      <label>搜索</label>
+    </view>
+  </view>
+  <view class='goods-list' bindtouchstart="touchStart" bindtouchend="touchEnd">
+    <view class='goods-list-main' wx:for="{{goodsList}}" wx:key="key" data-id='{{item.id}}' bindtap='toDetail'>
+      <image src='{{item.goodsImg[0]}}' mode='aspectFill' class='goods-list-main-img'></image>
+      <view class='goods-list-mes'>
+        <view class='goods-list-mes-title'>{{item.goodsTitle}}</view>
+        <view class='goods-list-mes-price'>
+          <view class='goods-list-mes-price-flag'>￥</view>
+          <view class='goods-list-mes-price-num'>{{item.price}}</view>
+        </view>
+        <view class='goods-list-mes-pos'>
+          <text class='iconfont icon-pos'></text>
+          <text>{{item.postion}}</text>
+        </view>
+        <view class='goods-list-mes-goodsWay'>{{item.goodsWay}}</view>
+        <view class='goods-list-mes-browse'>{{item.views}}人浏览过</view>
+      </view>
+    </view>
+    <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
+  </view>
+  <view class='noThing' hidden="{{noThingHidden}}">
+    <view class='iconfont icon-ku'></view>
+    <view class='noThing-text'>暂无相关商品，试试其他吧~</view>
+  </view>
+</view>
+<view>
+  <loading hidden="{{lodingHidden}}">
+    加载中..
+  </loading>
+</view>

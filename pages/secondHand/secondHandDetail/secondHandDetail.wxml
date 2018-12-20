@@ -20,7 +20,7 @@
     <view class='goods-tradingWay'>{{goodsDetail.tradingWay}}</view>
   </view>
   <view class='goodsImg'>
-    <image wx:for="{{goodsDetail.goodsImg}}"  class='goodsImg-img' src='{{item}}' mode='aspectFill' wx:key="key"></image>
+    <image wx:for="{{goodsDetail.goodsImg}}"  class='goodsImg-img' src='{{item}}' data-img='{{item}}' catchtap='imgYu' mode='aspectFill' wx:key="key"></image>
   </view>
   <view class='goodsContent'>
     <text>{{goodsDetail.goodsContent}}</text>
@@ -28,8 +28,8 @@
   <view class='line'></view>
   <view class='leaveMes'>
     <view class='leaveMes-title'>
-      <view class='leaveMes-title-left'>留言({{comment.length}})</view>
-      <view class='leaveMes-title-right'>58人想要</view>
+      <view class='leaveMes-title-left'>留言({{commentsNum}})</view>
+      <view class='leaveMes-title-right'>{{collectionNum}}人想要</view>
     </view>
     <view class='comment'>
       <image class='comment-img' mode='aspectFill' src='{{avatar}}'></image>
@@ -71,19 +71,28 @@
   </view>
 
   <view class='bottomBar'>
-    <view class='bottomBar-want'>
-      <view class='iconfont icon-shoucang'></view>
+    <view class='bottomBar-want' bindtap='barCollection'>
+      <view class='iconfont {{isCollection == 0?"icon-shoucang" : "icon-shoucang1"}} '></view>
       <view class='bottomBar-want-text'>想要</view>
     </view>
     <view class='bottomBar-leaveMes' bindtap='barComment'>
       <view class='iconfont icon-liuyan'></view>
       <view class='bottomBar-want-text'>留言</view>
     </view>
-    <view class='bottomBar-share'>
+    <button class='bottomBar-share' open-type="share" style='background-color: #fff;'>
       <view class='iconfont icon-fenxiang'></view>
       <view class='bottomBar-share-text'>分享</view>
-    </view>
+    </button>
+    <!-- <view class='bottomBar-share'>
+     
+      <view class='bottomBar-share-text'>分享</view>
+    </view> -->
     <view class='bottomBar-buy'>立即买</view>
   </view>
 
+</view>
+<view>
+    <loading hidden="{{lodingHidden}}">
+        加载中..
+    </loading>
 </view>

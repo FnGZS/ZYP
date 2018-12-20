@@ -1,5 +1,5 @@
 <view id='secondHand'>
-  <view class='search'>
+  <view class='search' bindtap='toSearch'>
     <view class='search-main'>
       <text class='iconfont icon-sousuo'></text>
       <text class='search-main-text'>搜索</text>
@@ -30,6 +30,7 @@
               <text class='iconfont icon-pos'></text>
               <text>{{item.postion}}</text>
             </view>
+            <view class='goods-list-mes-goodsWay'>{{item.goodsWay}}</view>
             <view class='goods-list-mes-browse'>{{item.views}}人浏览过</view>
           </view>
       </view>

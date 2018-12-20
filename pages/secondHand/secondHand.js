@@ -11,23 +11,23 @@ Page({
   data: {
     windowHeight: '',
     windowWidth: '',
-    lunboImg: [],
-    menuList: [],
-    tabScroll: 0,
-    currentTab: 0,
-    currentTypeid: 0,
-    goodsList: [],
-    pageNo: 1,
+    lunboImg: [], //轮播图
+    menuList: [], //菜单列表
+    tabScroll: 0, 
+    currentTab: 0,  //当前的分类tab
+    currentTypeid: 0, //当前的分类的id
+    goodsList: [],  //商品列表
+    pageNo: 1, 
     pageSize: 10,
     lodingHidden: true,
-    isBottom: false
+    isBottom: false //是否到底
   },
 
   onLoad: function(options) {
-    this.getPhoneInfo();
-    this.getLunbo();
-    this.getGoodsType();
-    this.getGoodsList();
+    this.getPhoneInfo(); //获取手机系统参数
+    this.getLunbo(); //获取轮播 
+    this.getGoodsType(); //获取商品的分类
+    this.getGoodsList(); //获取商品列表
   },
   //获取手机系统参数
   getPhoneInfo: function() {
@@ -203,6 +203,13 @@ Page({
     infoCb.beforeSend = () => {}
     sendAjax(infoOpt, infoCb, () => {});
   },
+  //跳转搜索
+  toSearch:function(){
+    wx.navigateTo({
+      url: 'secondHandSearch/secondHandSearch',
+    })
+  },
+  //跳转详情
   toDetail: function(e) {
     console.log(e)
     var id = e.currentTarget.dataset.id;
