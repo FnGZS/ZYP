@@ -18,7 +18,7 @@
   background: #f6f6f6;
 
   font-size: 24rpx;
-  /* color: #f1f1f1 */
+  /* color: #f1f1f1    */
 }
 .search-text input{
   width: 550rpx;
