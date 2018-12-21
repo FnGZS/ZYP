@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id:null, //商品的id
+    id:null, //商品的id，
     userId:null, //用户的id
     avatar:null,  //用户的头像
     commentId:null, //评论的id
@@ -151,11 +151,13 @@ Page({
   getComment:function(){
     var that = this;
     var pageSize = this.data.pageSize;
+    var userId = this.data.userId;
     let infoOpt = {
       url: '/secondary/comments',
       type: 'GET',
       data: {
         id: this.data.id,
+        userId: userId,
         pageNo: 1,
         pageSize: pageSize
       },
@@ -241,6 +243,7 @@ Page({
     var content = this.data.comment_content;
     var commentId = this.data.commentId;
     var schoolNum = this.data.schoolNum;
+    var replyedId = this.data.goodsDetail.userId; //商品商家的ID
     if (content != '' && content != null) {
       if (isReply == 1){
         let infoOpt = {
@@ -261,12 +264,14 @@ Page({
         infoCb.success = function (res) {
           console.log(res);
           if(res.code == 200){
-            wx.showToast({
-              title: '回复成功',
-              icon:'none',
-              duration:1500
-            })
-            that.getComment();
+            that.getComment();             
+            setTimeout(function () {
+              wx.showToast({
+                title: '回复成功',
+                icon: 'none',
+                duration: 1500
+              })
+            }, 500) 
           }
         }
         infoCb.beforeSend = () => { }
@@ -278,7 +283,8 @@ Page({
           data: {
             goodsId: goodsId,
             userId: userId,
-            content: content
+            content: content,
+            replyedId: replyedId
           },
           header: {
             'content-type': 'application/json',
@@ -288,12 +294,15 @@ Page({
         infoCb.success = function (res) {
           console.log(res);
           if (res.code == 200) {
-            wx.showToast({
-              title: '留言成功',
-              icon:'none',
-              duration:1500
-            })
             that.getComment();
+            setTimeout(function () {
+              wx.showToast({
+                title: '留言成功',
+                icon: 'none',
+                duration: 1500
+              })
+            }, 500)  
+
           }
         }
         infoCb.beforeSend = () => { }

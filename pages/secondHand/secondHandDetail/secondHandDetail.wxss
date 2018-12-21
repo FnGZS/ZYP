@@ -393,3 +393,29 @@ button::after{ border: none; }
   top: 15rpx;
   border-radius: 10rpx;
 }
+.bottomBar-buy-shixiao{
+    width: 30%;
+  height: 70rpx;
+  background: #ddd;
+  color: #fff;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 25rpx;
+  position: absolute;
+  right: 5%;
+  top: 15rpx;
+  border-radius: 10rpx;
+}
+.shixiao{
+  position: fixed;
+  width: 100%;
+  bottom: 100rpx;
+  height: 50rpx;
+  border-top: 1px solid #ddd;
+  background: #ddd;
+  z-index: 999;
+  text-align: center;
+  color: #fff;
+  font-size: 25rpx;
+  line-height: 50rpx;
+}

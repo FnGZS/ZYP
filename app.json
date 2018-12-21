@@ -26,6 +26,8 @@
     "pages/secondHand/secondHandDetail/secondHandDetail",
     "pages/secondHand/secondHandSearch/secondHandSearch",
     "pages/secondHand/secondHandSearchResult/secondHandSearchResult",
+    "pages/secondHand/secondHandMyWant/secondHandMyWant",
+    "pages/secondHand/secondHandMyPublish/secondHandMyPublish",
     "pages/logs/logs"
   ],
   "window": {

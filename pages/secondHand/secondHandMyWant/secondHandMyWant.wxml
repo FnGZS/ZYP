@@ -1,0 +1,35 @@
+<view id='secondHandWant'>
+  <view class='tabBar'>
+    <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap='clickMenu' data-current="0" data-status='1'>在卖宝贝</view>
+    <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap='clickMenu' data-current="1" data-status='3'>被抢宝贝</view>
+    <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap='clickMenu' data-current="2" data-status='4'>下架宝贝</view>
+  </view>
+  <view class='wantList' wx:for="{{goodsList}}" data-id='{{item.id}}' bindtap='toDetail' wx:key="key">
+    <view class='detail-head'>
+      <image class='detail-head-img' mode='aspectFill' src='{{item.headImgUrl}}'></image>
+      <view class='detail-head-mes'>
+        <view class='detail-head-nickname'>{{item.userName}}</view>
+        <view class='detail-head-pos'>{{item.postion}}</view>
+      </view>
+      <view class='detail-head-goodsWay'>{{item.goodsWay}}</view>
+    </view>
+    <view class='goodsPrice'>
+      <text class='goodsPrice-flag'>￥</text>
+      <text class='goodsPrice-sellprice'>{{item.price}}</text>
+      <text class='goodsPrice-primetext'>原价:</text>
+      <text class='goodsPrice-primeprice'>￥{{item.oldPrice}}</text>
+    </view>
+    <view class='goodsImg'>
+      <image wx:for="{{item.goodsImg}}" class='goodsImg-img' src='{{item}}' data-img='{{item}}' mode='aspectFill' wx:key="key"></image>
+    </view>
+    <view class='goodsTitle'>{{item.goodsTitle}}</view>
+    <!-- <view wx:if="{{status == 3}}" class='robbed'>被抢</view>
+    <view wx:if="{{status == 4}}" class='underShelf'>下架</view> -->
+  </view>
+  <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
+</view>
+<view>
+  <loading hidden="{{lodingHidden}}">
+    加载中..
+  </loading>
+</view>

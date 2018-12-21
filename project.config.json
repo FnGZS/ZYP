@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 22,
+			"current": 24,
 			"list": [
 				{
 					"id": -1,
@@ -174,7 +174,20 @@
 				{
 					"id": -1,
 					"name": "二手搜索结果",
-					"pathName": "pages/secondHand/secondHandSearchResult/secondHandSearchResult"
+					"pathName": "pages/secondHand/secondHandSearchResult/secondHandSearchResult",
+					"query": ""
+				},
+				{
+					"id": 23,
+					"name": "二手我想要的",
+					"pathName": "pages/secondHand/secondHandMyWant/secondHandMyWant",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二手我发布的",
+					"pathName": "pages/secondHand/secondHandMyPublish/secondHandMyPublish",
+					"query": ""
 				}
 			]
 		}

@@ -178,15 +178,14 @@ Page({
       if (goodsNewList.length == 0 && goodsList.length != 0) {
         that.setData({
           lodingHidden: true,
-          isBottom: true
         })
-        // setTimeout(function () {
-        //   wx.showToast({
-        //     title: '没有更多的活动了',
-        //     icon: 'none',
-        //     duration: 1000
-        //   })
-        // }, 100)
+        setTimeout(function () {
+          wx.showToast({
+            title: '没有更多的商品了',
+            icon: 'none',
+            duration: 1000
+          })
+        }, 100)
       } else {
         for (var i = 0; i < goodsNewList.length; i++) {
           var arr = goodsNewList[i].goodsImg;
