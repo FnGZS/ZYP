@@ -1,0 +1,8 @@
+<view>
+    <view class="top color_808080 font-30">
+    {{product[0]}} 位参与者
+  </view>
+    <view class="padding-left">
+        <image class="header-img" src="{{item.img}}" wx:for="{{product}}"></image>
+    </view>
+</view>

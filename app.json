@@ -28,7 +28,25 @@
     "pages/secondHand/secondHandSearchResult/secondHandSearchResult",
     "pages/secondHand/secondHandMyWant/secondHandMyWant",
     "pages/secondHand/secondHandMyPublish/secondHandMyPublish",
-    "pages/logs/logs"
+    "pages/logs/logs",
+
+
+    "pages/ticket/ticketmian/ticketmian",
+    "pages/ticket/ticketadd/ticketadd",
+    "pages/ticket/ticketmy/ticketmy",
+    "pages/ticket/sponsor/sponsor",
+    "pages/ticket/recordall/recordall",
+    "pages/ticket/recordlaunch/recordlaunch",
+    "pages/ticket/recordlucky/recordlucky",
+    "pages/ticket/ticketdetail/ticketdetail",
+    "pages/ticket/upload/upload",
+    "pages/ticket/ticketmiandetail/ticketmiandetail",
+    "pages/ticket/ticketnum/ticketnum"
+    
+
+
+
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

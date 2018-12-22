@@ -1,0 +1,62 @@
+<view class="container">
+    <view bindtap="goAddress" class="user bg_fff">
+        <image class="user-header flex-0-0" mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
+        <view class="font-30 flex-1-1">{{userInfo.nickName}}</view>
+        <view class="flex-0-0 font-30 color_808080">
+        收货地址 <text class="iconfont icon-you color_808080"></text>
+        </view>
+    </view>
+    <view class="bg_fff num">
+        <view bindtap="goRecordall" class="num-list">
+            <view class="font-w font-34">{{allnum}}</view>
+            <view class="color_808080 font-28">参与抽奖</view>
+        </view>
+        <view bindtap="goRecordlaunch" class="num-list">
+            <view class="font-w font-34">{{launchnum}}</view>
+            <view class="color_808080 font-28">发起抽奖</view>
+        </view>
+        <view bindtap="goRecordlucky" class="num-list">
+            <view class="font-w font-34">{{luckynum}}</view>
+            <view class="color_808080 font-28">中奖记录</view>
+        </view>
+    </view>
+    
+    <view class="list-box bg_fff">
+        <view bindtap="goHelpcenter" class="list font-30">
+            <text class="iconfont icon-changjianwenti color_b3b3b3 margin-right-20"></text>
+            <view class="flex-1-1">常见问题</view>
+            <text class="iconfont icon-you font-26"></text>
+        </view>
+        <view class="list font-30">
+            <contact-button class="contact-button" sessionFrom="weapp" size="100" type="default-dark"></contact-button>
+            <contact-button class="contact-button" sessionFrom="weapp" size="100" style="left:50px" type="default-dark"></contact-button>
+            <contact-button class="contact-button" sessionFrom="weapp" size="100" style="left:100px" type="default-dark"></contact-button>
+            <contact-button class="contact-button" sessionFrom="weapp" size="100" style="left:150px" type="default-dark"></contact-button>
+            <contact-button class="contact-button" sessionFrom="weapp" size="100" style="left:200px" type="default-dark"></contact-button>
+            <contact-button class="contact-button" sessionFrom="weapp" size="100" style="left:250px" type="default-dark"></contact-button>
+            <contact-button class="contact-button" sessionFrom="weapp" size="100" style="left:300px" type="default-dark"></contact-button>
+            <contact-button class="contact-button" sessionFrom="weapp" size="100" style="left:350px" type="default-dark"></contact-button>
+            <contact-button class="contact-button" sessionFrom="weapp" size="100" style="left:400px" type="default-dark"></contact-button>
+            <text class="iconfont icon-xiaoxi color_b3b3b3 margin-right-20"></text>
+            <button class='flex-1-1 color_b3b3b3 service' plain   open-type="contact">在线客服</button>
+            <text class="iconfont icon-you font-26"></text>
+        </view>
+    </view>
+</view>
+<view class="nav-bar">
+    <view bindtap="goTicketmain">
+        <text class="iconfont icon-fenlei "></text>
+        <view wx:if="{{!res.support_font}}">广场</view>
+        <view wx:if="{{res.support_font}}">{{res.support_font}}</view>
+    </view>
+    <view bindtap="goTicketadd">
+        <text class="iconfont icon-fabu1 "></text>
+        <view wx:if="{{!res.support_logo}}">发起</view>
+        <view wx:if="{{res.support_logo}}">{{res.support_logo}}</view>
+    </view>
+    <view class="color_red">
+        <text class="iconfont icon-weibiaoti2fuzhi12 "></text>
+        <view wx:if="{{!res.support_tel}}">我的</view>
+        <view wx:if="{{res.support_tel}}">{{res.support_tel}}</view>
+    </view>
+</view>

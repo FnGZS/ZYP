@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx070db500b5e5740f",
-	"projectname": "%E5%9C%A8%E5%85%83%E5%9F%B9%E6%AD%A3%E5%BC%8F%E7%89%88",
+	"projectname": "%E5%9C%A8%E5%85%83%E5%9F%B9%E6%AD%A3%E5%BC%8F",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": 26,
 			"list": [
 				{
 					"id": -1,
@@ -187,6 +187,18 @@
 					"id": -1,
 					"name": "二手我发布的",
 					"pathName": "pages/secondHand/secondHandMyPublish/secondHandMyPublish",
+					"query": ""
+				},
+				{
+					"id": 25,
+					"name": "t",
+					"pathName": "pages/ticket/ticketmian/ticketmian",
+					"query": ""
+				},
+				{
+					"id": 26,
+					"name": "tt",
+					"pathName": "pages/ticket/ticketmiandetail/ticketmiandetail",
 					"query": ""
 				}
 			]
