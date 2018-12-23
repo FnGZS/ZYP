@@ -11,13 +11,16 @@ for (var dateTemp, time1, dateArrays = [], time = [], c = [], flag = 1, i = 0; i
 
 Page({
     data: {
-        current: 0,
+      gaoji:false, //隐藏高级
+      albumSrc: [], //上传介绍图片包
+              current: 0,
+
         awardtype: 1,
         showtime: !1,
         showpaly: !1,
         index: 0,
       addticketArr:[1], //添加奖项数组
-        palylist: [ "按时间自动开奖", "按人数自动开奖", "手动开奖" ],
+        palylist: [ "按时间自动开奖", "手动开奖" ],
         dateArrays: dateArrays,
         time: time,
         time1: time[0],
@@ -46,6 +49,51 @@ Page({
     onLoad: function(a) {
         
     },
+    //上传图片
+  picture: function () {
+    var n = this, o = n.data.albumSrc;
+    wx.chooseImage({
+      count: 9,
+      sizeType: ["compressed"],
+      sourceType: ["album"],
+      success: function (a) {
+        var t = a.tempFilePaths;
+        if (1 == t) o.length < 9 ? o = o.concat(a.tempFilePaths[0]) : wx.showToast({
+          title: "最多上传9张图片",
+          icon: "none",
+          duration: 2e3
+        }); else for (var e = 0; e < t.length; e++) o.length < 9 ? o = o.concat(a.tempFilePaths[e]) : wx.showToast({
+          title: "最多上传9张图片",
+          icon: "none",
+          duration: 2e3
+        });
+        n.setData({
+          albumSrc: o
+        }), console.log(o);
+      }
+    });
+  },
+  //显示要上传的图片
+  previewImage: function (a) {
+    var t = a.currentTarget.dataset.index, e = this.data.albumSrc;
+    wx.previewImage({
+      current: e[t],
+      urls: e
+    });
+  },
+  //移除图片
+  closeitem: function (a) {
+    var t = this, e = a.currentTarget.dataset.index, n = t.data.albumSrc;
+    wx.showModal({
+      title: "提示",
+      content: "确定删除吗？",
+      success: function (a) {
+        a.confirm && (n.splice(e, 1), t.setData({
+          albumSrc: n
+        }));
+      }
+    });
+  },
     //添加奖项
   addTicket(){
     var that = this
@@ -98,6 +146,12 @@ Page({
             inputValue6show: i
         });
     },
+    //回到首页
+  gohome: function () {
+    wx.reLaunch({
+      url: "../ticketmian/ticketmian"
+    });
+  },
     //皮一下
     // goPi: function() {
     //     把这个复制到wxml第二行 <image bindtap="goPi" class="piImg" src="../../../resource/images/pi.png"></image>
@@ -242,5 +296,10 @@ Page({
             inputValue5show: t,
             accurate: a.detail.value
         });
-    }
+    },
+  changeSwitch1(e){
+    this.setData({
+      gaoji:e.detail.value
+    })
+  }
 });

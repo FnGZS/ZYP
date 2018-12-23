@@ -1,29 +1,21 @@
 <view class="container">
-    <view></view>
-    <view class="list" wx:for="{{1}}">
+    <view class="list" >
         <view class="list-img">
-            <!-- <image src="{{url}}{{item.pic}}" wx:if="{{item.img}}"></image> -->
-            <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg" wx:if="{{!item.img&&!cjzt}}"></image>
-            <image src="{{url}}{{cjzt}}" wx:if="{{!item.img&&cjzt}}"></image>
-            <view bindtap="shareCanvas" class="shareBtn">生成海报</view>
+            <image src="{{getDetailList.luckPic}}" wx:if="{{getDetailList.luckPic}}"></image>
+                    <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg" wx:if="{{!getDetailList.luckPic&&!getDetailList}}"></image>
         </view>
         <view class="list-body">
             <view class="list-txt">
-                <view class="list-tile flex-1-1 font-32" wx:if="{{1}}">奖品：{{item.gname}} X{{item.count}}</view>
-                <view class="list-tile flex-1-1 font-32" wx:if="{{item.cid==2}}">红包：{{item.gname}} 元 X{{item.count}}</view>
-                <view class="list-tile flex-1-1 font-32" wx:if="{{item.cid==3}}">礼物：{{item.gname}} X{{item.count}}</view>
-                <view class="list-tile flex-1-1 font-32" wx:if="{{item.cid==4}}">皮一下：{{item.gname}} X{{item.count}}</view>
-                <view class="flex-0-0  sponsor color_8d8d8d font-26" wx:if="{{item.sname}}">
-                    <view class="w_120 ">{{item.sname}}</view>
-          赞助
-        </view>
-                <view class="flex-0-0  sponsor color_8d8d8d font-26" wx:if="{{!item.sname}}">
-                    <view class="w_120 ">1{{item.name}}</view>
-          发起
-        </view>
-            </view>
-            <view class="color_999999 font-26 list-time" wx:if="{{1}}"> 
-          11{{item.accurate}} 自动开奖
+                <view class="list-tile flex-1-1 font-32" wx:if="{{getDetailList.status == 1}}">
+
+                <view wx:for="{{getDetailList.items}}">奖品：{{item.luckPrize}} X{{item.num}}</view>
+
+                </view>
+                <view class="flex-0-0  sponsor color_8d8d8d font-24">
+                    <view class="w_120 ">{{getDetailList.userName}}</view>发起</view>
+                </view>
+            <view class="color_999999 font-26 list-time" wx:if="{{mode == 2}}"> 
+          {{getDetailList.lotteryTime}} 自动开奖
         </view>
             <view class="color_999999 font-26 list-time" wx:if="{{item.condition==1}}"> 
           {{item.accurate}} 人自动开奖
@@ -37,9 +29,9 @@
         </view>
         <view class="sponsormsg font-30" wx:if="{{1}}">
             <text class="iconfont icon-zhuangshiyongyinhao"></text>
-            <text class=" ">2131{{item.sname}},{{item.synopsis}}</text>
+            <text class=" ">{{getDetailList.explain}}</text>
         </view>
-        <block wx:if="{{1}}">
+        <block wx:if="{{getDetailList.prizeExplain}}">
             <import src="../../../wxParse/wxParse.wxml"></import>
             <import src="../../../wxParse/wxParse.wxml"></import>
             <view class="txt-box">

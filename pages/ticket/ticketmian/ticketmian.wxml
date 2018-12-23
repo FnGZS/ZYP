@@ -3,7 +3,7 @@
         <view class="top">
             <view class="color_e13e35 font-36 font-w top_box">
                 <image class="icon-jiang" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/jiang.png"></image>每日精选</view>
-            <button bindtap="onShareAppMessage" class="color_4488d3 font-26 font-w" openType="share">
+            <button bindtap="onShareAppMessage" class="shareBtn color_4488d3 font-26 font-w" openType="share">
     Share <text class="iconfont icon-share font-w"></text>
             </button>
         </view>
@@ -15,9 +15,12 @@
                 </view>
                 <view class="list-body">
                     <view class="list-txt">
-                        <view class="list-tile flex-1-1 font-30" wx:if="{{item.status==1}}">奖品：{{item.luckName}} X1{{item.count}}</view>
+                        <view class="list-tile flex-1-1 font-30" wx:if="{{item.status==1}}">
+                        <view wx:for="{{item.items}}">奖品：{{item.luckPrize}} X{{item.num}}</view>
+                        
+                        </view>
                         <view class="flex-0-0  sponsor color_8d8d8d font-24">
-                            <view class="w_120 ">{{item.explain}}</view>
+                            <view class="w_120 ">{{item.userName}}</view>
           发起
         </view>
                     </view>

@@ -69,6 +69,7 @@ page{
   width: 710rpx;
   border: 2rpx solid #e1e1e1;
     margin-bottom: 20rpx;
+    z-index: 100;
 }
 
 .list-img {
@@ -387,4 +388,8 @@ page{
     margin-bottom: 6rpx;
     margin-right: 30rpx;
     /* vertical-align: -5rpx; */
+}
+button.shareBtn{
+  height: 80rpx;
+  line-height: 80rpx;
 }
