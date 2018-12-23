@@ -63,8 +63,8 @@ App({
                       
                       wx.setStorageSync("userId", res.data.userId)
                       wx.setStorageSync("sessionKey", res.data.sessionKey)
-                      console.log(res.data.authorization)
-                      wx.setStorageSync("sessionKey", res.data.sessionKey)
+                      // console.log(res.data.authorization)
+                      // wx.setStorageSync("sessionKey", res.data.sessionKey)
                     }
                   })
                   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回

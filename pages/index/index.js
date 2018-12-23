@@ -93,32 +93,41 @@ Page({
     let infoOpt = {
       url: '/user/deciphering',
       type: 'GET',
-      data: JSON.stringify( {
+      data:{
         encrypdata: e.detail.encryptedData,
         ivdata: e.detail.iv,
         sessionkey: sessionkey
-      }),
+      },
       header: {
         'content-type': 'application/json',
       },
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      console.log(123123323);
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '66666',
+        success: function (res) {
+          that.setData({
+            cloudsShow: false
+          })
+        }
+      })
     }
     infoCb.beforeSend = () => { }
     sendAjax(infoOpt, infoCb, () => { });
     // if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
-    //   wx.showModal({
-    //     title: '提示',
-    //     showCancel: false,
-    //     content: '未授权',
-    //     success: function (res) { 
-    //       that.setData({
-    //         cloudsShow:false
-    //       })
-    //     }
-    //   })
+      // wx.showModal({
+      //   title: '提示',
+      //   showCancel: false,
+      //   content: '未授权',
+      //   success: function (res) { 
+      //     that.setData({
+      //       cloudsShow:false
+      //     })
+      //   }
+      // })
     // } else {
     //   wx.showModal({
     //     title: '提示',

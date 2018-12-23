@@ -133,6 +133,7 @@ Page({
                         wx.setStorageSync("authorization", res.data.authorization)
                         wx.setStorageSync("userId", res.data.userId)
                         wx.setStorageSync("sessionKey", res.data.sessionKey)
+                        
                         console.log(res.data.authorization)
                       }
                     })
