@@ -2,8 +2,7 @@
     
     <view class="banner">
         <button bindtap="upload" class="color_808080 font-28">更换奖品图片</button>
-        <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg"></image>
-        <image src="{{imgSrc==''?'../../../resource/images/banner.jpg':imgSrc}}" wx:if="{{cjzt}}"></image>
+        <image src="{{pic ==''?'https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg':pic}}"></image>
         
     </view>
     <view>
@@ -94,7 +93,7 @@
               <image  src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/picture.png"></image></view>
                 <view class='picAdd' wx:if="{{index<9}}" wx:for="{{albumSrc}}">
                   <image bindtap="previewImage" class="imgs" data-index="{{index}}" src="{{item}}"></image>
-                  <image bindtap="closeitem" class="delete-icon" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/delete.png"></image>
+                  <image bindtap="closeitem" class="delete-icon" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/del.png"></image>
               </view>
               
             

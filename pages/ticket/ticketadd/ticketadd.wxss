@@ -15,7 +15,7 @@ page {
   left: 0;
     height: 100rpx;
     width: 100rpx;
-  background:#f5f5f5;
+  background:#e5e5e5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -358,10 +358,11 @@ position:relative;
 
 .delete-icon {
     width: 30rpx;
-    height: 38rpx;
+    height: 30rpx;
     position: absolute;
-    top: -15rpx;
-    right: -7rpx;
+    top: 3rpx;
+    right: 3rpx;
+    opacity: .6;
 }
 .imgs {
     width: 100rpx;

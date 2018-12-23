@@ -7,7 +7,8 @@ for (var dateTemp, time1, dateArrays = [], time = [], c = [], flag = 1, i = 0; i
     dateTemp = (m = myDate.getMonth() + 1 < 10 ? "0" + (myDate.getMonth() + 1) : myDate.getMonth() + 1) + "月" + (d = myDate.getDate() < 10 ? "0" + myDate.getDate() : myDate.getDate()) + "日 " + weekday[myDate.getDay()], 
     dateArrays.push(dateTemp), time1 = m + "-" + d, time.push(time1), myDate.setDate(myDate.getDate() + flag);
 }
-
+const url = require('../../../config.js')
+const sendAjax = require('../../../utils/sendAjax.js')
 
 Page({
     data: {
@@ -47,7 +48,35 @@ Page({
         prizeList: []
     },
     onLoad: function(a) {
-        
+      console.log(a)
+      var t = this, e = a.avatar;
+      if (e) {
+        var u = url.uploadFile;
+        wx.uploadFile({
+          url: u,
+          filePath: e,
+          name: "file", 
+          formData: {
+            picType: 'luckPic'
+          },
+          header: {
+            'content-type': 'application/json',
+            'authorization': 'ciRW3cOmi1JYY8niXxG7xxx3+b5no4/N5k3gZFChkEzIR+Cbv2rpqh2M8q7RuwTx'
+          },
+          success: function (a) {
+            var a = JSON.parse(a.data);
+            console.log(a), t.setData({
+              pic: a.urlList[0]
+            });
+          }
+        }), this.setData({
+          imgSrc: e
+        });
+      }
+      console.log(wx.getStorageSync('userId'))
+      this.setData({
+        userInfo: wx.getStorageSync('userId')
+      })
     },
     //上传图片
   picture: function () {
@@ -57,6 +86,7 @@ Page({
       sizeType: ["compressed"],
       sourceType: ["album"],
       success: function (a) {
+        console.log(a)
         var t = a.tempFilePaths;
         if (1 == t) o.length < 9 ? o = o.concat(a.tempFilePaths[0]) : wx.showToast({
           title: "最多上传9张图片",
@@ -228,7 +258,7 @@ Page({
         });
     },
     chooseImage: function(a) {
-        var u = this, i = app.util.url("entry/wxapp/Toupload") + "&m=yzcj_sun";
+      var u = this, i = uploadFile;
         wx.chooseImage({
             count: 1,
             sizeType: [ "compressed" ],
