@@ -180,6 +180,13 @@ Page({
       }
     });
   },
+  //跳转详情
+  toDetail: function (e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../secondHandDetail/secondHandDetail?id=' + id,
+    })
+  },
   onReady: function() {},
   onShow: function() {},
   onHide: function() {},

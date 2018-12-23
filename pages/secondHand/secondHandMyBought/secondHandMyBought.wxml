@@ -1,0 +1,20 @@
+<view id='secondHandMySold'>
+  <view class="goods-list" data-index="{{index}}" wx:for="{{goodsList}}" wx:key="key">
+    <view class='goods-list-main' data-id='{{item.id}}' bindtap='toDetail'>
+      <image src='{{item.goodsImg[0]}}' mode='aspectFill' class='goods-list-main-img'></image>
+      <view class='goods-list-mes'>
+        <view class='goods-list-mes-title'>{{item.goodsTitle}}</view>
+        <view class='goods-list-mes-price'>
+          <view class='goods-list-mes-price-flag'>￥</view>
+          <view class='goods-list-mes-price-num'>{{item.price}}</view>
+        </view>
+        <view class='goods-list-mes-pos'>
+          <text class='iconfont icon-pos'></text>
+          <text>{{item.postion}}</text>
+        </view>
+        <view class='goods-list-mes-browse'>{{item.views}}人浏览过</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
+</view>

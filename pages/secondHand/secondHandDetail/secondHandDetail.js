@@ -184,12 +184,13 @@ Page({
     var that = this;
     var pageNo = this.data.pageNo;
     var pageSize = this.data.pageSize;
-
+    var userId = this.data.userId;
     let infoOpt = {
       url: '/secondary/comments',
       type: 'GET',
       data: {
         id:this.data.id,
+        userId: userId,
         pageNo: pageNo,
         pageSize: pageSize
       },
