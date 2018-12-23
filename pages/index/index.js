@@ -1,5 +1,6 @@
 // pages/index/index.js
 var app = getApp()
+var url = require('../../config.js')
 var URL = getApp().globalData.PHPURL;
 var IMGURL = getApp().globalData.IMGURL;
 const sendAjax = require('../../utils/sendAjax.js')
@@ -59,31 +60,44 @@ Page({
     // console.log(JSON.stringify(data));
     // console.log(platUserInfoMap);
     //request请求
+    // wx.checkSession({
+    //   success() {
+    //     console.log('succ')
+    //     // session_key 未过期，并且在本生命周期一直有效
+    //   },
+    //   fail() {
+    //     console.log('fail')
+    //     // session_key 已经失效，需要重新执行登录流程
+    //     // wx.login() // 重新登录
+    //   }
+    // })
+    // console.log()
+    var sessionkey = wx.getStorageSync("sessionKey");
     // wx.request({
-    //   url: "http://192.168.1.102:8080/crazyBird/user/deciphering",
+    //   url: url.getphoneUrl,
     //   method: 'get',
     //   data: {
     //     encrypdata: e.detail.encryptedData,
     //     ivdata: e.detail.iv,
-    //     sessionkey: wx.getStorageSync("sessionKey")
+    //     sessionkey: sessionkey
     //   },
     //   header: {
-    //     'content-type': 'application/json' // 默认值
+    //     'Content-type': 'application/json' // 默认值
     //   },
     //   success(res) {
     //     console.log(res);
     //   }
     // })
-    var that = this;
+    // var that = this;
 
     let infoOpt = {
       url: '/user/deciphering',
       type: 'GET',
-      data: {
+      data: JSON.stringify( {
         encrypdata: e.detail.encryptedData,
         ivdata: e.detail.iv,
-        sessionkey: wx.getStorageSync("sessionKey")
-      },
+        sessionkey: sessionkey
+      }),
       header: {
         'content-type': 'application/json',
       },

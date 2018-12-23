@@ -7,7 +7,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     wx.setStorageSync("isLogin",0)
-    this.getStart()
+    // this.getStart()
     // 登录
     wx.login({
       success: resp => {
@@ -58,8 +58,10 @@ App({
                       wx.setStorageSync("avatar", res.data.avatar)
                       wx.setStorageSync("userKey", res.data.userKey)
                       wx.setStorageSync("authorization", res.data.authorization)
+                      
                       wx.setStorageSync("userId", res.data.userId)
                       console.log(res.data.authorization)
+                      wx.setStorageSync("sessionKey", res.data.sessionKey)
                     }
                   })
                   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -79,16 +81,16 @@ App({
     })
 
   },
-  getStart(){
-    var isFir = wx.getStorageSync("isFir")
-    console.log(isFir)
-    if (isFir == true) {
-      wx.navigateTo({
-        url: "/pages/index/index"
-      })
-    }
+  // getStart(){
+  //   var isFir = wx.getStorageSync("isFir")
+  //   console.log(isFir)
+  //   if (isFir == true) {
+  //     wx.navigateTo({
+  //       url: "/pages/index/index"
+  //     })
+  //   }
   
-  },
+  // },
   
   //自定义的消息弹窗
   toastShow: function (that, str, icon) {
