@@ -1,0 +1,27 @@
+<view class="padding-bottom-118">
+    <view class="box1" wx:for="{{msg}}">
+        <view class="box1-list">
+            <view>{{item.name}}  <text class="color_red">x{{item.num}}</text>
+            </view>
+            <image src="{{item.imgSrc}}"></image>
+        </view>
+        <view class="box1-list1">
+            <button bindtap="goKaijiang" class="btn">现在开奖</button>
+        </view>
+    </view>
+    <view class="box2">
+        <view class="box2-con">随时开奖</view>
+    </view>
+    <view class="danmu">
+        <view class="danmu-con">
+            <image class="headerimg  {{'headerimg'+index%30+1}} " src="{{item}}" wx:for="{{headerImg}}"></image>
+            <view class="danmu-txt moving {{'row'+awardIndex}} " wx:if="{{danmuTxt.length>0}}">
+                <image class="danmu-txt-img" src="{{userInfo.avatarUrl}}"></image>
+                <text>{{danmuTxt}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="fix-bottom">
+    <input bindconfirm="bindKeyInput" confirmType="send" placeholder="说点什么.." type="text" value="{{kong}}"></input>
+</view>

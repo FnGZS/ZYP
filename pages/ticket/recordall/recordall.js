@@ -1,0 +1,10 @@
+
+
+Page({
+    data: {
+       
+    },
+    onShow: function() {
+        
+    }
+});

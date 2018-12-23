@@ -90,33 +90,33 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      console.log(res);
+      console.log(123123323);
     }
     infoCb.beforeSend = () => { }
     sendAjax(infoOpt, infoCb, () => { });
-    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
-      wx.showModal({
-        title: '提示',
-        showCancel: false,
-        content: '未授权',
-        success: function (res) { 
-          that.setData({
-            cloudsShow:false
-          })
-        }
-      })
-    } else {
-      wx.showModal({
-        title: '提示',
-        showCancel: false,
-        content: '同意授权',
-        success: function (res) {
-          that.setData({
-            cloudsShow: false
-          })
-         }
-      })
-    }
+    // if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+    //   wx.showModal({
+    //     title: '提示',
+    //     showCancel: false,
+    //     content: '未授权',
+    //     success: function (res) { 
+    //       that.setData({
+    //         cloudsShow:false
+    //       })
+    //     }
+    //   })
+    // } else {
+    //   wx.showModal({
+    //     title: '提示',
+    //     showCancel: false,
+    //     content: '同意授权',
+    //     success: function (res) {
+    //       that.setData({
+    //         cloudsShow: false
+    //       })
+    //      }
+    //   })
+    // }
   },
   // Navigation: function (event) {
   //   var that = this;

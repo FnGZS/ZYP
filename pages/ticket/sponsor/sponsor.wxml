@@ -1,0 +1,12 @@
+<view class="container">
+    <view class="txt" wx:if="{{!pro}}">针对企业合作伙伴开放，进行品牌宣传和产品推荐，按照每天展示在首页的【每日精选】模块里。如果有意向，请联系我们</view>
+    <view class="txt" wx:if="{{pro}}">{{pro.content}}</view>
+    <view class="txt color_red">请填写：[你的联系电话，微信号和公司名称]</view>
+    <form bindsubmit="formSubmit">
+        <input bindinput="bindKeyInput1" placeholder="输入联系电话"></input>
+        <input bindinput="bindKeyInput2" placeholder="输入微信号"></input>
+        <input bindinput="bindKeyInput3" placeholder="输入公司名称"></input>
+        <button class="btn" formType="submit">提交</button>
+    </form>
+    <view class="txt-center color_999999 font-26">感谢支持和信赖，我们将在2个工作日内与你联络</view>
+</view>

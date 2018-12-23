@@ -1,0 +1,89 @@
+<view class="container">
+    <view></view>
+    <view class="list" wx:for="{{1}}">
+        <view class="list-img">
+            <!-- <image src="{{url}}{{item.pic}}" wx:if="{{item.img}}"></image> -->
+            <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg" wx:if="{{!item.img&&!cjzt}}"></image>
+            <image src="{{url}}{{cjzt}}" wx:if="{{!item.img&&cjzt}}"></image>
+            <view bindtap="shareCanvas" class="shareBtn">生成海报</view>
+        </view>
+        <view class="list-body">
+            <view class="list-txt">
+                <view class="list-tile flex-1-1 font-32" wx:if="{{1}}">奖品：{{item.gname}} X{{item.count}}</view>
+                <view class="list-tile flex-1-1 font-32" wx:if="{{item.cid==2}}">红包：{{item.gname}} 元 X{{item.count}}</view>
+                <view class="list-tile flex-1-1 font-32" wx:if="{{item.cid==3}}">礼物：{{item.gname}} X{{item.count}}</view>
+                <view class="list-tile flex-1-1 font-32" wx:if="{{item.cid==4}}">皮一下：{{item.gname}} X{{item.count}}</view>
+                <view class="flex-0-0  sponsor color_8d8d8d font-26" wx:if="{{item.sname}}">
+                    <view class="w_120 ">{{item.sname}}</view>
+          赞助
+        </view>
+                <view class="flex-0-0  sponsor color_8d8d8d font-26" wx:if="{{!item.sname}}">
+                    <view class="w_120 ">1{{item.name}}</view>
+          发起
+        </view>
+            </view>
+            <view class="color_999999 font-26 list-time" wx:if="{{1}}"> 
+          11{{item.accurate}} 自动开奖
+        </view>
+            <view class="color_999999 font-26 list-time" wx:if="{{item.condition==1}}"> 
+          {{item.accurate}} 人自动开奖
+        </view>
+            <view class="color_999999 font-26 list-time" wx:if="{{item.condition==2}}"> 
+          手动开奖
+        </view>
+            <view class="color_999999 font-26 list-time" wx:if="{{item.condition==3}}"> 
+          现场开奖
+        </view>
+        </view>
+        <view class="sponsormsg font-30" wx:if="{{1}}">
+            <text class="iconfont icon-zhuangshiyongyinhao"></text>
+            <text class=" ">2131{{item.sname}},{{item.synopsis}}</text>
+        </view>
+        <block wx:if="{{1}}">
+            <import src="../../../wxParse/wxParse.wxml"></import>
+            <import src="../../../wxParse/wxParse.wxml"></import>
+            <view class="txt-box">
+                <view class="txt-title font-32 color_808080">了解更多</view>
+                <template is="wxParse" data="{{wxParseData:lottery.nodes}}">12312</template>
+                <template is="wxParse" data="{{wxParseData:content.nodes}}">21312</template>
+            </view>
+        </block>
+        <view class="jion-box">
+            <form bindsubmit="rotateAndScale" reportSubmit="true" wx:if="{{status==true}}">
+                <button class="ticket-btn" formType="submit">
+                    <view class="ticket-btn-txt font-32 font-w color_fff">参与抽奖</view>
+                    <view animation="{{animationData}}" class="font-30 font-w ticket-btn-border" style="background:#fff;height:0rpx;width:0rpx;border-radius: 50%; color:#000">
+                        <view class="ticket-btn-border-con"></view>
+                    </view>
+                </button>
+            </form>
+            <view class="daikaijiang" wx:if="{{status==false}}">
+                <view class="ticket-btn-txt font-32 font-w color_e49791 z-4">待开奖</view>
+                <view animation="{{animationData}}" class=" font-30 font-w ticket-btn-border" style="background:#fff;height:0rpx;width:0rpx;border-radius: 50%; color:#000">
+                    <view class="ticket-btn-border-con"></view>
+                </view>
+            </view>
+            <view bindtap="goTicketnum" class="font-26 jion-num" >
+                <text class="color_808080">已有{{item.total}}人参与，</text>
+                <text class="color_2574b9">查看全部<text class="font-w">></text>
+                </text>
+            </view>
+            <view class="header-img-box">
+                <image class="header-img" mode="widthFix" src="{{items.img}}" wx:for="{{item.img}}" wx:for-item="items"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="fix-bottom z-5">
+    <button bindtap="onShareAppMessage" class="btn1 font-32" data-cid="{{item.cid}}" openType="share" wx:for="{{product}}">邀请朋友参加</button>
+    <button bindtap="goTicketadd" class="btn2 font-32">我也要发起抽奖</button>
+</view>
+<view>
+
+</view>
+<canvas canvasId="shareImg" class="canvas" style="width:580px;height:680px"></canvas>
+<view bindtap="hidden" class="mask" hidden="{{hidden}}">
+    <image class="posterBanner" mode="aspectFill" src="{{prurl}}"></image>
+    <view catchtap="save" class="shareBtnbot">保存分享图</view>
+</view>
+<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/home.png"></image>
