@@ -7,6 +7,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     wx.setStorageSync("isLogin",0)
+    wx.setStorageSync("sessionKey",'')
     this.getStart()
     // 登录
     wx.login({
@@ -59,6 +60,7 @@ App({
                       wx.setStorageSync("userKey", res.data.userKey)
                       wx.setStorageSync("authorization", res.data.authorization)
                       wx.setStorageSync("userId", res.data.userId)
+                      wx.setStorageSync("sessionKey", res.data.sessionKey)
                       console.log(res.data.authorization)
                     }
                   })
