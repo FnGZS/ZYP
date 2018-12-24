@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 28,
+			"current": 29,
 			"list": [
 				{
 					"id": -1,
@@ -210,7 +210,13 @@
 				{
 					"id": -1,
 					"name": "m",
-					"pathName": "pages/ticket/ticketmian/ticketmian"
+					"pathName": "pages/ticket/ticketmian/ticketmian",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "失误搜索",
+					"pathName": "pages/LostFound/search/search"
 				}
 			]
 		}

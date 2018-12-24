@@ -1,3 +1,4 @@
+@import '../../../style/base64/LostFound.wxss';
 .search{
   width: 100%;
   height:80rpx;
@@ -48,4 +49,81 @@
 .search-icon image{
   width: 100%;
   height: 100%;
+}
+.current {
+  width: 100%;
+  height: 250rpx;
+  background: white;
+  margin: 0 auto;
+  /* margin-top: 20rpx; */
+  border-bottom: 1rpx solid #ccc;
+  /* margin-top: 100rpx; */
+}
+.currentstyle{
+   margin-top: 100rpx;
+}
+.Identification {
+  width: 80rpx;
+  height: 50rpx;
+  /* background: salmon; */
+  margin-left: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20rpx;
+  color: white;
+}
+
+.time {
+  width: 300rpx;
+  height: 50rpx;
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #e1e1e4;
+}
+.current-hear {
+  width: 100%;
+  height: 100rpx;
+  padding: 10rpx;
+  background: red;
+}
+
+.current-title {
+  width: 300rpx;
+  height: 100rpx;
+  float: left;
+  /* background: rebeccapurple; */
+  margin-left: 20rpx;
+}
+
+.current-img {
+  width: 300rpx;
+  height: 230rpx;
+  /* background: antiquewhite; */
+  margin: 10rpx 0 10rpx 10rpx;
+  float: left;
+}
+
+.current-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.current-text-cont {
+  margin-left: 20rpx;
+  width: 250rpx;
+  height: 150rpx;
+  font-size: 27rpx;
+  padding: 10rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+  /* background: azure; */
+  float: left;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  word-break: break-all;
 }

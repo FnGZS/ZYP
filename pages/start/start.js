@@ -12,19 +12,6 @@ Page({
     sessionKey:''
   },
   onLoad: function () {
-    wx.getSetting({
-      success: res => {
-
-        // console.log(res.authSetting['scope.userInfo'])
-        if (res.authSetting['scope.userInfo']){
-          // console.log(res.authSetting['scope.userInfo'])
-          wx.switchTab({
-            url: '/pages/index/index',
-          })
-        }
-      }
-    })
-
   },
 //   getPhoneNumber:function(e){
 //     console.log(e);
@@ -133,7 +120,6 @@ Page({
                         wx.setStorageSync("authorization", res.data.authorization)
                         wx.setStorageSync("userId", res.data.userId)
                         wx.setStorageSync("sessionKey", res.data.sessionKey)
-                        
                         console.log(res.data.authorization)
                       }
                     })
