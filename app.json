@@ -46,6 +46,7 @@
     "pages/ticket/ticketdetail/ticketdetail",
     "pages/ticket/upload/upload",
     "pages/ticket/ticketmiandetail/ticketmiandetail",
+    "pages/ticket/ticketmydetail/ticketmydetail",
     "pages/ticket/ticketnum/ticketnum",
     "pages/Livebroadcast/Livebroadcast",
     "pages/Livebroadcast/Live/Live"

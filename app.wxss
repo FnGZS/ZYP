@@ -397,7 +397,9 @@ button::after {
 .color_999999 {
     color: #999999;
 }
-
+.color_d15243{
+  color: #d15243;
+}
 .color_b3b3b3 {
     color: #b3b3b3;
 }
@@ -540,7 +542,6 @@ button::after {
     display: block;
     width: 100%!important;
 }
-
 
 .menu-item{  
   width: 32%;  

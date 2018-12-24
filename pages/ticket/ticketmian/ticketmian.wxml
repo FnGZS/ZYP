@@ -56,10 +56,10 @@
                 <text style="margin:0 20rpx"> |</text>
                 <text bindtap="goRecordall">我参与的抽奖</text>
             </view>
-            <view bindtap="goXcx" class="ad-img-box1" data-appid="{{item.appid}}" data-url="{{item.url}}" wx:key="*"  wx:for="{{ad}}">
+            <view bindtap="goXcx" class="ad-img-box1" data-appid="{{item.appid}}" data-url="{{item.url}}" wx:key="*"  wx:for="{{adList}}">
                 <swiper autoplay="true" circular="true">
                     <swiper-item>
-                        <image class="slide-image" src="{{url}}{{item.logo}}"></image>
+                        <image class="slide-image" src="{{item.pic}}"></image>
                     </swiper-item>
                 </swiper>
                 <view class="ad-icon font-24">广告 {{item.xcx_name}}</view>

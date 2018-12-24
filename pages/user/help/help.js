@@ -10,8 +10,8 @@ Page({
   onReady:function(){
     var that = this
     let infoOpt = {
-      url: '/help',
-      type: 'POST',
+      url: '/help/gethelp',
+      type: 'GET',
       data: {
       },
       header: {
@@ -23,10 +23,10 @@ Page({
     infoCb.success = function (res) {
       
       that.setData({
-        list: res.helpList
+        list: res.items
       })
       var arr = that.data.openList
-      for (let i = 0, len = res.helpList.length; i < len; i++) {
+      for (let i = 0, len = res.items.length; i < len; i++) {
         arr.push({"open":false})
       }
       that.setData({

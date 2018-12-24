@@ -287,30 +287,7 @@ Page({
             index: t
         });
     },
-    chooseImage: function(a) {
-      var u = this, i = uploadFile;
-        wx.chooseImage({
-            count: 1,
-            sizeType: [ "compressed" ],
-            sourceType: [ "album" ],
-            success: function(a) {
-                var t = a.tempFilePaths, e = u.data.imgSrc;
-                e = t, console.log(e), u.setData({
-                    imgSrc: e
-                }), wx.uploadFile({
-                    url: i,
-                    filePath: u.data.imgSrc[0],
-                    name: "file",
-                    formData: {},
-                    success: function(a) {
-                        console.log(a), u.setData({
-                            pic: a.data
-                        });
-                    }
-                });
-            }
-        });
-    },
+ 
     //请输入奖品名称
     bindKeyInput1: function(a) {
       // console.log(a)
