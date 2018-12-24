@@ -1,9 +1,10 @@
 .index-body{
   width: 750rpx;
 height: 287.5rpx;
-   border: 1rpx solid #f5f5f5;
-  box-shadow: 1rpx 1rpx 20rpx #f5f5f5;
- 
+   /* border: 1rpx solid #dddcdc; */
+  box-shadow: 1rpx 1rpx 20rpx #dddcdc;
+   /* border-left: none;
+  border-right:none; */
   background-repeat:no-repeat;
    background-size:100% 100%;
    -moz-background-size:100% 100%;
@@ -13,8 +14,10 @@ height: 287.5rpx;
   width: 750rpx;
 height: 291.66rpx;
 margin-top:10rpx;
-  border: 1rpx solid #f5f5f5;
-  box-shadow: 1rpx 1rpx 20rpx #f5f5f5;
+  /* border: 1rpx solid #dddcdc; */
+  /* border-left: none;
+  border-right:none; */
+  box-shadow: 1rpx 1rpx 20rpx #dddcdc;
  
  
   background-repeat:no-repeat;
