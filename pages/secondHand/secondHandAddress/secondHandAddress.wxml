@@ -1,0 +1,17 @@
+<view id='address'>
+  <view class='addressList' wx:for="{{addressList}}"  wx:key="key">
+    <view class='address-pos'>
+      <view class='address-pos-isDefault' wx:if="{{item.isDefault == 1}}">默认</view>
+      <view class='address-pos-address'> {{item.address}}</view>
+    </view>
+    <view class='address-bottom'>
+      <view class='address-name'>{{item.name}}</view>
+      <view class='address-phone'>{{item.telephone}}</view>
+    </view>
+    <view class='iconfont icon-edit' data-detail='{{item}}' bindtap='toAddressEdit'></view>
+  </view>
+  <view class='add-btn' bindtap='toAddAddress'>
+    <view class='iconfont icon-xinzeng'></view>
+    <view class='add-btn-text'>新增收货地址</view>
+  </view>
+</view>

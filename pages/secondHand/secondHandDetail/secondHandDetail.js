@@ -359,6 +359,13 @@ Page({
       comment_placeholder: '问问更多细节吧~'
     })
   },
+  //跳转立即结算
+  toPayOrder:function(){
+    var detail = JSON.stringify(this.data.goodsDetail);
+    wx.navigateTo({
+      url: '../secondHandPayOrder/secondHandPayOrder?detail=' + detail,
+    })
+  },
   onReady: function () {
     
   },

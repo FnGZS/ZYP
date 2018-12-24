@@ -216,6 +216,15 @@ Page({
       url: 'secondHandDetail/secondHandDetail?id=' + id,
     })
   },
+  TabFabu:function(){
+  },
+  TabXiaoxi:function(){
+  },
+  TabWode:function(){
+    wx.redirectTo({
+      url: 'secondHandMySold/secondHandMySold',
+    })
+  },
   onReady: function() {
 
   },

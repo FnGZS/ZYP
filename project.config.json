@@ -200,35 +200,6 @@
 					"name": "二手我买入的",
 					"pathName": "pages/secondHand/secondHandMyBought/secondHandMyBought",
 					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "tt",
-					"pathName": "pages/ticket/ticketadd/ticketadd",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "m",
-					"pathName": "pages/ticket/ticketmian/ticketmian",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "失误搜索",
-					"pathName": "pages/LostFound/search/search",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "直播",
-					"pathName": "pages/Livebroadcast/Livebroadcast",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "直播间",
-					"pathName": "pages/Livebroadcast/Live/Live"
 				}
 			]
 		}

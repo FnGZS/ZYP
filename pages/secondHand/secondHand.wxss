@@ -21,6 +21,33 @@
 
 
 
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1545633539930'); /* IE9*/
+  src: url('iconfont.eot?t=1545633539930#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAW4AAsAAAAACIAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFY8kEhhY21hcAAAAYAAAABrAAABssuGngRnbHlmAAAB7AAAAasAAAIIQy0oVWhlYWQAAAOYAAAALwAAADYTrIQDaGhlYQAAA8gAAAAcAAAAJAfeA4ZobXR4AAAD5AAAAA4AAAAUFAAAAGxvY2EAAAP0AAAADAAAAAwA5gGAbWF4cAAABAAAAAAfAAAAIAETAENuYW1lAAAEIAAAAUUAAAJtPlT+fXBvc3QAAAVoAAAATQAAAF8HLxfDeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkYWCcwMDKwMHUyXSGgYGhH0IzvmYwYuRgYGBiYGVmwAoC0lxTGByeST3LZ27438AQw9zA0AAUZgTJAQDnhAxseJztkcENgCAMRV8BjTFO4IEJHIIJnMTExKG7BhbKwSH85BH60/bwASYgGoeRQB6Epstc6X5k7X6iWL2yEAi6a9ZT71rh+x4S6/PTtiebsF0y82vrdxlVauk57Rc0O90/HcsOvR3kBUGwGOcAeJxVUEFPE0EUft8Mu5uWZgnbdgdsqbTLzvZg1qbQLQmKCYfGo1GKxFMPJuIJKT0Tb5pIAmcvJHLhRDwYL/4BjIknThxof4SHXlx9HeFgMvPeN+/N+758jwTRn1/yUOZomiIiuHAqUOtox8gHxYJd0w8R1PRKsobWStL0F7Dc9Au2oLOhZQ3PTJw5cQvuSdZ1s7dA5m57HNPefz0DiHWJ5CcxohItsW7DduwZ1GzlJ+0MKmgn+j5aQTFqaAdFq6X4Cso5d0+/STevNPAEWwh8z5Mv33/IZdNz5A/giSGsuXcfKwtznkQ9vZTTqrSIp8eL+87b9GqMH/iO8UT6n/6euGbfyviu6YjNV2OExn1kNiG+BNs7L/Tz1xAjvErH3V0hdruT2MezoF4PGkf9/mFdDLqbAyEGm9t7TDtluL9KonkK6B4lzF9lulne7LLy+TQfiSqrzMZAjHU0feVCxZgsuGDfAC5JN73T6QnR63jA1Ea2aD2woU3l96hURbgawoouyiGD8KdJsLQkHkg/8zcpH2cyGzY/sdXppW8mA2G5HMKA1ZvMBfoLLp9hpQB4nGNgZGBgAOLy9THP4/ltvjJwszCAwA23BcwI+v8XFgZmHiCXg4EJJAoAJbgJrAB4nGNgZGBgbvjfwBDDwgACQJKRARWwAgBHCwJueJxjYWBgYEHDAAEEABUAAAAAAAAAPAB8AKoBBHicY2BkYGBgZTBnYGEAASYg5gJCBob/YD4DAA6MAVcAeJxlj01OwzAQhV/6B6QSqqhgh+QFYgEo/RGrblhUavdddN+mTpsqiSPHrdQDcB6OwAk4AtyAO/BIJ5s2lsffvHljTwDc4Acejt8t95E9XDI7cg0XuBeuU38QbpBfhJto41W4Rf1N2MczpsJtdGF5g9e4YvaEd2EPHXwI13CNT+E69S/hBvlbuIk7/Aq30PHqwj7mXle4jUcv9sdWL5xeqeVBxaHJIpM5v4KZXu+Sha3S6pxrW8QmU4OgX0lTnWlb3VPs10PnIhVZk6oJqzpJjMqt2erQBRvn8lGvF4kehCblWGP+tsYCjnEFhSUOjDFCGGSIyujoO1Vm9K+xQ8Jee1Y9zed0WxTU/3OFAQL0z1xTurLSeTpPgT1fG1J1dCtuy56UNJFezUkSskJe1rZUQuoBNmVXjhF6XNGJPyhnSP8ACVpuyAAAAHicY2BigAAuBuyAlZGJkZmRhZGVkY2BJS0xqZSnOCO/tDLVUDc5v6BSrDw1MykzMb8kUzc+ozQxKTEvrTQpNY+tAihWkcnAAADVtBIFAAAA') format('woff'),
+  url('iconfont.ttf?t=1545633539930') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1545633539930#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fabu:before { content: "\e66f"; }
+
+.icon-shouye:before { content: "\e64e"; }
+
+.icon-wode:before { content: "\e61a"; }
+
+.icon-xiaoxi:before { content: "\e61e"; }
+
+
+
+
 
 #secondHand{
   width: 100%;
@@ -92,12 +119,12 @@
 }
 
 .active {
-  border-bottom: 5rpx solid #27c57f;
-  color: #27c57f;
+  border-bottom: 5rpx solid #ef696c;
+  color: #ef696c;
 }
 
 .active1 {
-  background: #27c57f;
+  background: #ef696c;
 }
 .stickyClass{
     position: sticky;
@@ -197,4 +224,66 @@ color: transparent;
  margin-top: 10rpx;
   border-top:1rpx solid #f5f5f5;
   color: #E1E1E4
+}
+
+.bottomBar{
+  position: fixed;
+  width: 100%;
+  display: flex;
+  bottom: 0;
+  height: 100rpx;
+  border-top: 2rpx solid #ddd;
+}
+
+.bottomBar-shouye{
+  flex: 1;
+  text-align: center;
+  color: #8C8C8C;
+}
+.icon-shouye{
+  font-size: 50rpx;
+  height: 55%;
+}
+.bottomBar-shouye-text{
+  font-size: 25rpx;
+}
+.bottomBar-fabu{
+  flex: 1;
+  text-align: center;
+  color: #8C8C8C;
+}
+.icon-fabu{
+  font-size: 50rpx;
+  height: 55%;
+  /* margin-bottom: 5rpx; */
+}
+.bottomBar-fabu-text{
+  font-size: 25rpx;
+}
+.bottomBar-xiaoxi{
+  flex: 1;
+  text-align: center;
+  color: #8C8C8C;
+}
+.icon-xiaoxi{
+  font-size: 50rpx;
+  height: 55%;
+}
+.bottomBar-xiaoxi-text{
+  font-size: 25rpx;
+}
+.bottomBar-wode{
+  flex: 1;
+  text-align: center;
+  color: #8C8C8C;
+}
+.icon-wode{
+  font-size: 50rpx;
+  height: 55%;
+}
+.bottomBar-wode-text{
+  font-size: 25rpx;
+}
+.bottom-active{
+  color:#ef696c;
 }

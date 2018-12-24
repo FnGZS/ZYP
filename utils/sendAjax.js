@@ -47,8 +47,8 @@ function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
       'content-type': 'application/json',
       'authorization': outTimeAuthCbOrNeedAuth !== false ? wx.getStorageSync('authorization') : ''
     },
-    success(res){
-       console.log(res);
+    success(res) {
+      //  console.log(res);
       if (res.data.code == 200) {
      
         scallback(res.data)
