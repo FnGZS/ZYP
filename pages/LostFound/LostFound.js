@@ -166,6 +166,13 @@ Page({
       return;
     }
   },
+  tosearch:function(){
+    var that=this;
+    // console.log(123)
+    wx.navigateTo({
+      url: 'search/search'
+    })
+  },
   getLostListReachBottom: function(currentTab) {
     var that = this;
     //分页需用数组处理 每个分类的分页都要单独出来
@@ -368,7 +375,7 @@ Page({
   transpond: function() {
     console.log("transpond")
   },
-  collect: function() {
+  torelease: function() {
     wx.navigateTo({
       url: 'release/release'
     });

@@ -9,10 +9,10 @@
 
 // var host = "http://192.168.1.112:8080/crazyBird
 
-// var host = "http://192.168.1.118:8080/crazyBird"
+var host = "http://192.168.1.103:8080/crazyBird"
 
 //正式
-var host = "https://www.sxscott.com/crazyBird" 
+// var host = "https://www.sxscott.com/crazyBird" 
 
 //本地
 //var host ="http://smartdove.iask.in:17946/api"
@@ -20,130 +20,133 @@ var host = "https://www.sxscott.com/crazyBird"
 //var host="https://buguanjiatest.site/api"
 //var host = "http://192.168.0.168:8080/"
 // var host = "http://192.168.43.160:8080/crazyBird"
-// var host = "http://192.168.1.118:8080/crazyBird"
+// var host = "http://192.168.1.102:8080/crazyBird"
 var config = {
-    host,
-    // 登录地址，用于建立会话
+  host,
+  // 登录地址，用于建立会话
   loginUrl: `${host}/user/login`,
 
   bindingUrl: `${host}/user/binding`,
-  
+
   //失误招领图片上传
 
   uploadFile: `${host}/upload/avatar`,
+
+  //获取手机号
+  getphoneUrl: `${host}/user/deciphering`,
   //第三方平台登录
   plantLoginUrl: `${host}/user/account/platform/login`,
 
-    //头像上传
-    avatarurl: host + "/upload/avatar",
+  //头像上传
+  avatarurl: host + "/upload/avatar",
 
-    // 通用上传
-    picurl: host + "/upload/pic",
+  // 通用上传
+  picurl: host + "/upload/pic",
 
-    // 绑定账号
-    bindurl: host + "/user/account/weixinapp/bind",
+  // 绑定账号
+  bindurl: host + "/user/account/weixinapp/bind",
 
-    // 我的样品间
-    companysUrl: `${host}/companys`,
+  // 我的样品间
+  companysUrl: `${host}/companys`,
 
-     // 个人设置详情
-    settingsUrl: `${host}/user/account/settings`,
+  // 个人设置详情
+  settingsUrl: `${host}/user/account/settings`,
 
-    //查看公开的样品详情
-    samplePublicUrl: `${host}/samples/public/detail`,
+  //查看公开的样品详情
+  samplePublicUrl: `${host}/samples/public/detail`,
 
-    // 样品列表
-    samplesUrl: `${host}/samples`,
+  // 样品列表
+  samplesUrl: `${host}/samples`,
 
-    // 样品详情
-    tunnelUrl: `${host}/samples/{sampleId}`,
+  // 样品详情
+  tunnelUrl: `${host}/samples/{sampleId}`,
 
-    // 获取样品备注
-    remarksUrl: `${host}/samples/{sampleId}/remarks`,
-
-
-    // 获取标记云
-    cloudUrl: `${host}/tags/cloud`,
-
-     // 获取标记
-    tagUrl: `${host}/tags`,
+  // 获取样品备注
+  remarksUrl: `${host}/samples/{sampleId}/remarks`,
 
 
+  // 获取标记云
+  cloudUrl: `${host}/tags/cloud`,
 
-//获取公司
-    companysUrl: `${host}/companys`,
+  // 获取标记
+  tagUrl: `${host}/tags`,
 
-     //添加样品标记
-    tagsUrl: `${host}/samples/tags`,
 
-    //样品图片上传
-    samplepicUrl: `${host}/upload/samplepic`,
 
-    //生成手机验证码
-    checkCodeUrl: `${host}/user/account/checkCode`,
+  //获取公司
+  companysUrl: `${host}/companys`,
 
-    //绑定小程序账户
-    bindUrl: `${host}/user/account/weixinapp/bind`,
-    
-    //获取小程序码
-    codeUrl: host + "/weixinApp/codeUrl",
-    
-    //创建展会
-    exposUrl: `${host}/expos`,
+  //添加样品标记
+  tagsUrl: `${host}/samples/tags`,
 
-     //添加小程序账户
-    weixinappUrl: `${host}/user/account/weixinapp`,
+  //样品图片上传
+  samplepicUrl: `${host}/upload/samplepic`,
 
-    //获取个人名片
-    mycardUrl: `${host}/user/account/my/card`,
+  //生成手机验证码
+  checkCodeUrl: `${host}/user/account/checkCode`,
 
-    //名片图片上传
-    mycardUploadUrl: `${host}/upload/mycard`,
+  //绑定小程序账户
+  bindUrl: `${host}/user/account/weixinapp/bind`,
 
-    //展会名片图片上传
-    expoUploadUrl: `${host}/upload/expo/contactPic`,
+  //获取小程序码
+  codeUrl: host + "/weixinApp/codeUrl",
 
-    //展会样品图片上传
-    expoSampleUploadUrl: `${host}/upload/expo/samplePic`,
+  //创建展会
+  exposUrl: `${host}/expos`,
 
-    //获取小程序页面二维码
-    qrUrl: `${host}/weixinApp/qrUrl`,
+  //添加小程序账户
+  weixinappUrl: `${host}/user/account/weixinapp`,
 
-    //获取分享名片和样品
-    shareUrl: `${host}/expos/contacts/share`,
+  //获取个人名片
+  mycardUrl: `${host}/user/account/my/card`,
 
-     //获取用户个人资料
-    userInfoUrl: `${host}/user/account`,
+  //名片图片上传
+  mycardUploadUrl: `${host}/upload/mycard`,
 
-    //样品篮子
+  //展会名片图片上传
+  expoUploadUrl: `${host}/upload/expo/contactPic`,
 
-    sampleSelectUrl: `${host}/samples/selects`,
-    //分享链接
-    singalShareUrl:`${host}/sample/share_singal.html`,
+  //展会样品图片上传
+  expoSampleUploadUrl: `${host}/upload/expo/samplePic`,
 
-    //分享链接
-    shareListUrl:`${host}/samples/share/list`,
+  //获取小程序页面二维码
+  qrUrl: `${host}/weixinApp/qrUrl`,
 
-    //分享链接
-    shareDetailUrl:`${host}/samples/share/detail`,
+  //获取分享名片和样品
+  shareUrl: `${host}/expos/contacts/share`,
 
-     //分享链接
-    usersUrl:`${host}/companys/users`,
+  //获取用户个人资料
+  userInfoUrl: `${host}/user/account`,
 
-     //分享多个样品链接
-    samplesShareUrl:`${host}/samples/share`,
+  //样品篮子
 
-     //获取客户样品间样品列表
-    customerUrl:`${host}/samples/share/customer`,
+  sampleSelectUrl: `${host}/samples/selects`,
+  //分享链接
+  singalShareUrl: `${host}/sample/share_singal.html`,
 
-    //获取供应商样品间样品列表
-    supplierUrl:`${host}/samples/share/supplier`,
+  //分享链接
+  shareListUrl: `${host}/samples/share/list`,
 
-     //获取我分享出去的查看者列表
-    viewersUrl:`${host}/samples/share/customer/viewers`,
-    
-    //获取用户个人公开资料
-    userpubUrl: `${host}/user/account/public`
+  //分享链接
+  shareDetailUrl: `${host}/samples/share/detail`,
+
+  //分享链接
+  usersUrl: `${host}/companys/users`,
+
+  //分享多个样品链接
+  samplesShareUrl: `${host}/samples/share`,
+
+  //获取客户样品间样品列表
+  customerUrl: `${host}/samples/share/customer`,
+
+  //获取供应商样品间样品列表
+  supplierUrl: `${host}/samples/share/supplier`,
+
+  //获取我分享出去的查看者列表
+  viewersUrl: `${host}/samples/share/customer/viewers`,
+
+  //获取用户个人公开资料
+  userpubUrl: `${host}/user/account/public`
 };
 
 module.exports = config

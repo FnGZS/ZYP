@@ -1,0 +1,25 @@
+<!--pages/search/search.wxml-->
+<view class='search-conten'>
+  <view class='search-heard'>
+    <view class='left'>
+      <icon type="search" size="11" class='icon-search' />
+      <input class='searchInput' placeholder='搜索喜欢的商品' bindinput='content_input' value='{{content}}'></input>
+    </view>
+    <view class='right' bindtap='search_btn'>
+      <label>搜索</label>
+    </view>
+  </view>
+  <view class='search-bottom'>
+    <view class='search-bottom-heard'>
+      <view class='bottom-left'>
+        热门搜索
+      </view>
+      <!-- <view class='bottom-right'>
+        换一批
+      </view> -->
+    </view>
+    <view class='search-bottom-bottom'>
+      <view class='search-bottom-text' bindtap='toHotSearch'  wx:for="{{hotSearch}}" wx:key="key" data-content='{{item}}'>{{item}}</view>
+    </view>
+  </view>
+</view>

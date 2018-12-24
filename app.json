@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/start/start",
     "pages/index/index",
     "pages/user/user",
     "pages/currentaffairs/currentaffairs",
@@ -18,14 +19,33 @@
     "pages/LostFound/release/release",
     "pages/LostFound/release/explain/explain",
     "pages/LostFound/detail/detail",
+    "pages/LostFound/search/search",
     "pages/innovate/innovate",
     "pages/innovate/innovateDetail/innovateDetail",
-    "pages/start/start",
-    "pages/logs/logs"
+    "pages/secondHand/secondHand",
+    "pages/secondHand/secondHandDetail/secondHandDetail",
+    "pages/secondHand/secondHandSearch/secondHandSearch",
+    "pages/secondHand/secondHandSearchResult/secondHandSearchResult",
+    "pages/secondHand/secondHandMyWant/secondHandMyWant",
+    "pages/secondHand/secondHandMyPublish/secondHandMyPublish",
+    "pages/secondHand/secondHandMySold/secondHandMySold",
+    "pages/secondHand/secondHandMyBought/secondHandMyBought",
+    "pages/logs/logs",
+    "pages/ticket/ticketmian/ticketmian",
+    "pages/ticket/ticketadd/ticketadd",
+    "pages/ticket/ticketmy/ticketmy",
+    "pages/ticket/sponsor/sponsor",
+    "pages/ticket/recordall/recordall",
+    "pages/ticket/recordlaunch/recordlaunch",
+    "pages/ticket/recordlucky/recordlucky",
+    "pages/ticket/ticketdetail/ticketdetail",
+    "pages/ticket/upload/upload",
+    "pages/ticket/ticketmiandetail/ticketmiandetail",
+    "pages/ticket/ticketnum/ticketnum"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarBackgroundColor": "#f8f8f8",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },

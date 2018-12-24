@@ -1,0 +1,10 @@
+<view class="container" wx:for="{{address}}">
+    <view class="address1">请在  <text class="color_red">开奖后两天内</text> 提供收货信息给发送人</view>
+    <view class="address2">收货地址</view>
+    <view bindinput="bindKeyInput1" bindtap="address" class="address3" wx:if="{{!name}}">{{item.name}},{{item.telNumber}},{{item.provinceName}}{{item.cityName}}{{item.countyName}}{{item.detailInfo}}<text class="iconfont icon-you"></text>
+    </view>
+    <view bindblur="bindKeyInput1" bindtap="address" class="address3" wx:if="{{name}}">{{name+','+telNumber+','+provinceName+cityName+countyName+detailInfo}}  <text class="iconfont icon-you"></text>
+    </view>
+    <textarea bindinput="bindKeyInput2" placeholder="详细地址补充" value="{{item.detailAddr}}"></textarea>
+    <button bindtap="saveAddress" class="btn">保存</button>
+</view>

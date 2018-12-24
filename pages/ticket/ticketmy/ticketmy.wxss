@@ -1,0 +1,126 @@
+page {
+    background: #f0f0f0;
+}
+
+.container {
+    overflow-x: hidden;
+    padding-bottom: 98rpx;
+}
+
+.user {
+    margin-top: 20rpx;
+    display: flex;
+    padding: 40rpx 30rpx;
+    border-bottom: 1rpx solid #e6e6e6;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.user-header {
+    width: 68rpx;
+    height: 68rpx;
+    border-radius: 50%;
+    margin-right: 15rpx;
+}
+
+.user .icon-you {
+    font-size: 24rpx;
+}
+
+.num {
+    display: flex;
+    margin-bottom: 20rpx;
+    padding: 30rpx 0;
+    box-sizing: border-box;
+}
+
+.num-list {
+    width: 33.33%;
+    text-align: center;
+    height: 100rpx;
+    position: relative;
+    line-height: 50rpx;
+}
+
+.num-list::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #e6e6e6;
+    left: 0;
+}
+
+.num-list:first-child::before {
+    background: #fff;
+}
+
+.list-box {
+    margin-bottom: 20rpx;
+}
+
+.list {
+    height: 100rpx;
+    display: flex;
+    padding: 0 20rpx;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.list::after {
+    content: "";
+    bottom: 0;
+    left: 20rpx;
+    right: 0;
+    height: 1px;
+    background: #e6e6e6;
+    position: absolute;
+}
+
+.list:last-child::after {
+    background: #fff;
+}
+
+.contact-button {
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    position: absolute;
+    z-index: 3;
+}
+
+.list-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list1::after {
+    left: 0;
+    height: 10rpx;
+    background: #f5f5f5;
+}
+button.service{
+  border: none;
+  
+}
+
+button {
+  border: none;
+position:relative;
+display:block;
+margin-left:auto;
+margin-right:auto;
+box-sizing:border-box;
+font-size:30rpx;
+text-align:left;
+text-decoration:none;
+line-height:2.55555556;
+border-radius:5px;
+-webkit-tap-highlight-color:transparent;
+overflow:hidden;
+color:#000000;
+background-color:#F8F8F8;
+}

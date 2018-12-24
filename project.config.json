@@ -4,16 +4,17 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx070db500b5e5740f",
-	"projectname": "%E5%9C%A8%E5%85%83%E5%9F%B9%E6%AD%A3%E5%BC%8F%E7%89%88",
+	"projectname": "%E5%9C%A8%E5%85%83%E5%9F%B9%E6%AD%A3%E5%BC%8F",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -36,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 28,
 			"list": [
 				{
 					"id": -1,
@@ -149,7 +150,67 @@
 				{
 					"id": -1,
 					"name": "物品詳情",
-					"pathName": "pages/LostFound/detail/detail"
+					"pathName": "pages/LostFound/detail/detail",
+					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "校园二手",
+					"pathName": "pages/secondHand/secondHand",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二手商品详情",
+					"pathName": "pages/secondHand/secondHandDetail/secondHandDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二手搜索",
+					"pathName": "pages/secondHand/secondHandSearch/secondHandSearch",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二手搜索结果",
+					"pathName": "pages/secondHand/secondHandSearchResult/secondHandSearchResult",
+					"query": ""
+				},
+				{
+					"id": 23,
+					"name": "二手我想要的",
+					"pathName": "pages/secondHand/secondHandMyWant/secondHandMyWant",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二手我发布的",
+					"pathName": "pages/secondHand/secondHandMyPublish/secondHandMyPublish",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二手我卖出的",
+					"pathName": "pages/secondHand/secondHandMySold/secondHandMySold",
+					"query": ""
+				},
+				{
+					"id": 26,
+					"name": "二手我买入的",
+					"pathName": "pages/secondHand/secondHandMyBought/secondHandMyBought",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "tt",
+					"pathName": "pages/ticket/ticketadd/ticketadd",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "m",
+					"pathName": "pages/ticket/ticketmian/ticketmian"
 				}
 			]
 		}

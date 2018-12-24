@@ -54,4 +54,6 @@ page{
   width: 400rpx;
     border-radius: 80rpx;
     font-size: 34rpx;
+    color: white;
+    background: #E9524A;
 }

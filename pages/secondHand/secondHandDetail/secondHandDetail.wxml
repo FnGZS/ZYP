@@ -1,0 +1,95 @@
+<view id='secondHandDetail'>
+  <view class='detail-head'>
+    <image class='detail-head-img' mode='aspectFill' src='{{goodsDetail.headImgUrl}}'></image>
+    <view class='detail-head-mes'>
+      <view class='detail-head-nickname'>{{goodsDetail.userName}}</view>
+      <view class='detail-head-pos'>{{goodsDetail.postion}}</view>
+    </view>
+    <view class='detail-head-goodsWay'>{{goodsDetail.goodsWay}}</view>
+    <view class='detail-head-browse'>
+      <view class='iconfont icon-liulan'></view>
+      <view class='detail-head-browse-num'>{{goodsDetail.views}}</view>
+    </view>
+  </view>
+  <view class='goodsTitle'>{{goodsDetail.goodsTitle}}</view>
+  <view class='goodsPrice'>
+    <text class='goodsPrice-flag'>￥</text>
+    <text class='goodsPrice-sellprice'>{{goodsDetail.price}}</text>
+    <text class='goodsPrice-primetext'>原价:</text>
+    <text class='goodsPrice-primeprice'>￥{{goodsDetail.oldPrice}}</text>
+    <view class='goods-tradingWay'>{{goodsDetail.tradingWay}}</view>
+  </view>
+  <view class='goodsImg'>
+    <image wx:for="{{goodsDetail.goodsImg}}"  class='goodsImg-img' src='{{item}}' data-img='{{item}}' catchtap='imgYu' mode='aspectFill' wx:key="key"></image>
+  </view>
+  <view class='goodsContent'>
+    <text>{{goodsDetail.goodsContent}}</text>
+  </view>
+  <view class='line'></view>
+  <view class='leaveMes'>
+    <view class='leaveMes-title'>
+      <view class='leaveMes-title-left'>留言({{commentsNum}})</view>
+      <view class='leaveMes-title-right'>{{collectionNum}}人想要</view>
+    </view>
+    <view class='comment'>
+      <image class='comment-img' mode='aspectFill' src='{{avatar}}'></image>
+      <view class='comment-small'></view>
+      <input class='comment-input' placeholder="{{comment_placeholder}}" bindinput='comment_input' focus="{{focus}}" value='{{comment_content}}' ></input>
+      <view class='comment-send' bindtap='comment_send'>发送</view>
+    </view>
+    <view class='leaveMes-main'>
+      <view class='leaveMesList' wx:for="{{comment}}" wx:key="key">
+        <view bindtap='reply' data-id='{{item.id}}' data-schoolNum='{{item.schoolNum}}' data-name='{{item.commentName}}'>
+          <view class='leaveMesList-reply'>
+            <image class='leaveMesList-replyImg' src='{{item.headImgUrl}}' mode='aspectFill'></image>
+            <view class='leaveMesList-replyName'>{{item.commentName}}</view>
+            <view class='leaveMesList-replyTime'>{{item.gmtCreated}}</view>
+          </view>
+        </view>
+        <view class='leaveMesList-replyInfo'>{{item.content}}</view>
+        <view class='leaveMesList-rereply' wx:for-item="itemy" wx:for="{{item.items}}" wx:key="key"  data-id='{{item.id}}' data-schoolNum='{{itemy.schoolNum}}' data-name='{{itemy.replyName}}' bindtap='reply'>
+          <view class='leaveMesList-rereply-top'>
+            <image class='rereplyImg' src='{{itemy.headImgUrl}}' mode='aspectFill'></image>
+            <view class='rereplyName'>{{itemy.replyName}}</view>
+            <view class='rereplyTime'>{{itemy.gmtCreated}}</view>
+          </view>
+          <view class='rereplyInfo'>回复@{{itemy.replyedName}}：{{itemy.content}}</view>
+        </view>
+      </view>
+      
+      <!-- <view class='leaveMesList'>
+        <view class='leaveMesList-reply'>
+          <image class='leaveMesList-replyImg' src='http://img5.imgtn.bdimg.com/it/u=1941385501,1767152788&fm=26&gp=0.jpg' mode='aspectFill'></image>
+          <view class='leaveMesList-replyName'>伯贤</view>
+          <view class='leaveMesList-replyTime'>2018.12.19 13:55</view>
+        </view>
+        <view class='leaveMesList-replyInfo'>请问你卖吗？价格多少？</view>
+        
+      </view> -->
+
+    </view>
+  </view>
+
+  <view class='bottomBar'>
+    <view class='bottomBar-want' bindtap='barCollection'>
+      <view class='iconfont {{isCollection == 0?"icon-shoucang" : "icon-shoucang1"}} '></view>
+      <view class='bottomBar-want-text'>想要</view>
+    </view>
+    <view class='bottomBar-leaveMes' bindtap='{{goodsDetail.status == 1?"barComment":""}}'>
+      <view class='iconfont icon-liuyan'></view>
+      <view class='bottomBar-want-text'>留言</view>
+    </view>
+    <button class='bottomBar-share' open-type="share" style='background-color: #fff;'>
+      <view class='iconfont icon-fenxiang'></view>
+      <view class='bottomBar-share-text'>分享</view>
+    </button>
+    <view class='{{goodsDetail.status == 1?"bottomBar-buy":"bottomBar-buy-shixiao"}}'>立即买</view>
+  </view>
+  <view wx:if="{{goodsDetail.status == 3}}" class='shixiao'>该宝贝已售出</view>
+  <view wx:if="{{goodsDetail.status == 4}}" class='shixiao'>该宝贝已下架</view>
+</view>
+<view>
+    <loading hidden="{{lodingHidden}}">
+        加载中..
+    </loading>
+</view>

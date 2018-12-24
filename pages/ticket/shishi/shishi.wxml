@@ -1,0 +1,5 @@
+<canvas canvasId="myCanvas" class="text"></canvas>
+<image bindload="headerload" src="{{userInfo.avatarUrl}}"></image>
+<image bindload="erweimaload" src="http://bmvqgd.img48.wal8.com/img48/17288183_20180408105809/s/152404306032_medium.jpg"></image>
+<image bindload="bannerload" src="../../../resource/images/banner.jpg"></image>
+<button bindtap="saveImgToPhotosAlbumTap" class="color_fff font-32 btn">保存图片</button>

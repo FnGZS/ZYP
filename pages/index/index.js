@@ -1,5 +1,6 @@
 // pages/index/index.js
 var app = getApp()
+var url = require('../../config.js')
 var URL = getApp().globalData.PHPURL;
 var IMGURL = getApp().globalData.IMGURL;
 const sendAjax = require('../../utils/sendAjax.js')
@@ -18,6 +19,7 @@ Page({
     interval: 5000,
     duration: 1000,
     circular: true,
+    // cloudsShow: true,
     //投票用的
     clubs: [], //原始数据
     animations: [],
@@ -43,6 +45,101 @@ Page({
     newpageSize:2,
     isBottomnew:0,
     newmeslist:[],
+  },
+  clouds(){
+    console.log("1")
+    this.setData({
+      cloudsShow:false
+    })
+  },
+  getPhoneNumber: function (e) {
+    console.log(e);
+    var that = this;
+    console.log(wx.getStorageSync("sessionKey"))
+    // console.log(platUserInfoMap);
+    // console.log(JSON.stringify(data));
+    // console.log(platUserInfoMap);
+    //request请求
+    // wx.checkSession({
+    //   success() {
+    //     console.log('succ')
+    //     // session_key 未过期，并且在本生命周期一直有效
+    //   },
+    //   fail() {
+    //     console.log('fail')
+    //     // session_key 已经失效，需要重新执行登录流程
+    //     // wx.login() // 重新登录
+    //   }
+    // })
+    // console.log()
+    var sessionkey = wx.getStorageSync("sessionKey");
+    // wx.request({
+    //   url: url.getphoneUrl,
+    //   method: 'get',
+    //   data: {
+    //     encrypdata: e.detail.encryptedData,
+    //     ivdata: e.detail.iv,
+    //     sessionkey: sessionkey
+    //   },
+    //   header: {
+    //     'Content-type': 'application/json' // 默认值
+    //   },
+    //   success(res) {
+    //     console.log(res);
+    //   }
+    // })
+    // var that = this;
+
+    let infoOpt = {
+      url: '/user/deciphering',
+      type: 'GET',
+      data:{
+        encrypdata: e.detail.encryptedData,
+        ivdata: e.detail.iv,
+        sessionkey: sessionkey
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '66666',
+        success: function (res) {
+          that.setData({
+            cloudsShow: false
+          })
+        }
+      })
+    }
+    infoCb.beforeSend = () => { }
+    sendAjax(infoOpt, infoCb, () => { });
+    // if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+      // wx.showModal({
+      //   title: '提示',
+      //   showCancel: false,
+      //   content: '未授权',
+      //   success: function (res) { 
+      //     that.setData({
+      //       cloudsShow:false
+      //     })
+      //   }
+      // })
+    // } else {
+    //   wx.showModal({
+    //     title: '提示',
+    //     showCancel: false,
+    //     content: '同意授权',
+    //     success: function (res) {
+    //       that.setData({
+    //         cloudsShow: false
+    //       })
+    //      }
+    //   })
+    // }
   },
   // Navigation: function (event) {
   //   var that = this;
@@ -279,6 +376,16 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    console.log(wx.getStorageSync("isbound"))
+    if (wx.getStorageSync("isbound") == "2") {
+      that.setData({
+        cloudsShow:true
+      })
+    }else{
+      that.setData({
+        cloudsShow: false
+      })
+    }
     that.hhidden();
     // that.Startpage();
     // console.log(111);
@@ -657,6 +764,12 @@ Page({
   toInnovate:function(){
     wx.navigateTo({
       url: '../innovate/innovate',
+    })
+  },
+  //跳转校园二手
+  toSecondHand:function(){
+    wx.navigateTo({
+      url: '../secondHand/secondHand',
     })
   },
   //暂未开发

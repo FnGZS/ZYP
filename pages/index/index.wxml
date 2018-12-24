@@ -59,15 +59,13 @@
             </view>
             <view class='index-body-icon-bg-content-text1'>校园跑男</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='noDevelop' wx:if="{{hhidden == 1}}">
-            <view class='iconfont icon-box'>
-              <view class='index-body-icon-bg-content-icon1'>
-                <view class='index-body-icon-bg-content-icon-border1'>
+          <view class='index-body-icon-bg-content' bindtap='toSecondHand' wx:if="{{hhidden == 1}}">
+              <view class='index-body-icon-bg-content-icon'>
+                <view class='index-body-icon-bg-content-icon-border'>
                   <image src='/images/icon-ershou.png'></image>
                 </view>
               </view>
-            </view>
-            <view class='index-body-icon-bg-content-text1'>校园二手</view>
+            <view class='index-body-icon-bg-content-text'>校园二手</view>
           </view>
           <view class='index-body-icon-bg-content' bindtap='LostFound'>
             <view class='index-body-icon-bg-content-icon'>
@@ -198,3 +196,13 @@
   </view>
 </view> -->
 </view>
+<block wx:if="{{cloudsShow}}">
+<view >
+<view class='getphone_buttom'>
+  <view bindtap='clouds' class='clous'></view>
+  <button class='bottom' type='primary' open-type="getPhoneNumber"lang="zh_CN" bindgetphonenumber="getPhoneNumber">授权手机号</button>
+</view>
+ <image class='getPhone_img' src='https://www.sxscott.com/crazyBirdimg/test/bindPhone.png'></image>
+<view class='getPhone_box'></view>
+</view>
+</block>

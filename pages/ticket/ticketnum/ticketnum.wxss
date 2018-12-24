@@ -1,0 +1,22 @@
+page {
+    background: #f0f0f0;
+}
+
+.top {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+}
+
+.header-img {
+    width: 60rpx;
+    margin: 6rpx 0;
+    height: 60rpx;
+}
+
+.padding-left {
+    padding-left: 30rpx;
+    padding-right: 10rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
