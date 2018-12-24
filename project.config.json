@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 29,
+			"current": 31,
 			"list": [
 				{
 					"id": -1,
@@ -216,7 +216,19 @@
 				{
 					"id": -1,
 					"name": "失误搜索",
-					"pathName": "pages/LostFound/search/search"
+					"pathName": "pages/LostFound/search/search",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直播",
+					"pathName": "pages/Livebroadcast/Livebroadcast",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直播间",
+					"pathName": "pages/Livebroadcast/Live/Live"
 				}
 			]
 		}

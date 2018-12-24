@@ -1,0 +1,24 @@
+<view class='search' bindtap='toSearch'>
+  <view class='search-main'>
+    <text class='iconfont icon-sousuo'></text>
+    <text class='search-main-text'>搜索</text>
+  </view>
+</view>
+<view class='Live'>
+  <view class='Live-title'>
+    当前直播
+  </view>
+  <view class='Live-list' bindtap='toLive'>
+    <view class='list-images'>
+      <image src='../../images/school.png' mode='aspectFill'></image>
+    </view>
+    <view class='single-title'>
+      <view class='title'>
+        最骚而知！听声辩位第一人！
+      </view>
+      <view class='online'>
+        3214人在看
+      </view>
+    </view>
+  </view>
+</view>

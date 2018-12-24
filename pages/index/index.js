@@ -19,7 +19,7 @@ Page({
     interval: 5000,
     duration: 1000,
     circular: true,
-    cloudsShow: true,
+    cloudsShow: false,
     //投票用的
     clubs: [], //原始数据
     animations: [],
@@ -210,6 +210,12 @@ Page({
     }
     sendAjax(infoOpt, infoCb, () => {
 
+    });
+  },
+  //直播跳转
+  Livebroadcast:function(e){
+    wx.navigateTo({
+      url: '../Livebroadcast/Livebroadcast'
     });
   },
   //投票跳转

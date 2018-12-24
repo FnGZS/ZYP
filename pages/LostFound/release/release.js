@@ -48,6 +48,8 @@ Page({
           console.log(that.data.arr_img[0]);
           console.log(JSON.stringify(that.data.arr_img))
           var userinfo=[]
+          var foundPic = JSON.stringify(that.data.arr_img)
+           console.log(foundPic);
           userinfo['nickName']=wx.getStorageSync("nickName")
           userinfo['avatar'] = wx.getStorageSync("avatar")
           userinfo['watchPhone'] = wx.getStorageSync("watchPhone")
@@ -58,7 +60,7 @@ Page({
             data: {
               title: that.data.goodsname,
               titlePic: frist_img,
-              foundPic: JSON.stringify(that.data.arr_img),
+              foundPic: foundPic,
               content: that.data.text,
               typeId: that.data.currentTab,
               messageId: that.data.lostcurrentTab,
@@ -73,6 +75,7 @@ Page({
           }
           let infoCb = {}
           infoCb.success = function (data) {
+            console.log(data)
             wx.navigateBack({
             })
           }
@@ -136,10 +139,10 @@ Page({
         duration: 100000
       })
       for (var j in upload_picture_list) {
-
+         console.log(upload_picture_list[j])
         let infoOpt = {
           url: url.uploadFile,
-          list: upload_picture_list[j],
+          list: upload_picture_list[j].toLowerCase(),
           data: {
             'picType': 'article'
           },
@@ -150,6 +153,7 @@ Page({
         //异步
         upload.upload_picture_fun(infoOpt).then((res) => {
           arr_img.push(res)
+          console.log(res)
           if (arr_img.length == upload_picture_list.length) {
 
             wx.showToast({
