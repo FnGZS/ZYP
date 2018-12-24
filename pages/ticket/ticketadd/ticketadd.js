@@ -81,6 +81,7 @@ Page({
     //上传图片
   picture: function () {
     var n = this, o = n.data.albumSrc;
+   
     wx.chooseImage({
       count: 9,
       sizeType: ["compressed"],
@@ -97,11 +98,40 @@ Page({
           icon: "none",
           duration: 2e3
         });
-        n.setData({
-          albumSrc: o
-        }), console.log(o);
+        for(let i in o){
+          var u = url.uploadFile;
+          if(o[i]){
+            wx.uploadFile({
+              url: u,
+              filePath: o[i],
+              name: "file",
+              formData: {
+                picType: 'luckPic'
+              },
+              header: {
+                'content-type': 'application/json',
+                'authorization': 'ciRW3cOmi1JYY8niXxG7xxx3+b5no4/N5k3gZFChkEzIR+Cbv2rpqh2M8q7RuwTx'
+              },
+              success: function (a) {
+                var a = JSON.parse(a.data);
+                console.log(a)
+                o[i] = a.urlList[0]
+                n.setData({
+                  albumSrc: o
+                }), console.log(o);
+              }
+            })
+          }
+          
+        }
+          
+            
+
+        
+      
+  
       }
-    });
+    })
   },
   //显示要上传的图片
   previewImage: function (a) {
