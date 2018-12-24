@@ -48,7 +48,7 @@ App({
                       'content-type': 'application/json' // 默认值
                     },
                     success(res) {
-                      console.log(res);
+                      // console.log(res);
                       wx.setStorageSync("userId", res.data.userId)
                       wx.setStorageSync("isLogin", 1)
                       that.globalData.nickName = res.data.userName
@@ -81,7 +81,7 @@ App({
   },
   getStart(){
     var isFir = wx.getStorageSync("isFir")
-    console.log(isFir)
+    // console.log(isFir)
     if (isFir == true) {
       wx.navigateTo({
         url: "/pages/index/index"
@@ -119,5 +119,5 @@ App({
     authorization: '',
     isbound: '',
 
-  }
+  },
 })

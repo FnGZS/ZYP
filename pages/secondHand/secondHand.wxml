@@ -1,3 +1,4 @@
+
 <view id='secondHand'>
   <view class='search' bindtap='toSearch'>
     <view class='search-main'>
@@ -35,6 +36,24 @@
           </view>
       </view>
       <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
+  </view>
+  <view class='bottomBar'>
+    <view class='bottomBar-shouye bottom-active' >
+      <view class='iconfont icon-shouye'></view>
+      <view class='bottomBar-shouye-text'>首页</view>
+    </view>
+    <view class='bottomBar-fabu ' bindtap='TabFabu'>
+      <view class='iconfont icon-fabu'></view>
+      <view class='bottomBar-fabu-text'>发布</view>
+    </view>
+    <view class='bottomBar-xiaoxi ' bindtap='TabXiaoxi'>
+      <view class='iconfont icon-xiaoxi'></view>
+      <view class='bottomBar-xiaoxi-text'>消息</view>
+    </view>
+    <view class='bottomBar-wode ' bindtap='TabWode'>
+      <view class='iconfont icon-wode'></view>
+      <view class='bottomBar-wode-text'>我的</view>
+    </view>
   </view>
 </view>
 <view>
