@@ -1,5 +1,6 @@
 // pages/index/index.js
 var app = getApp()
+var url = require('../../config.js')
 var URL = getApp().globalData.PHPURL;
 var IMGURL = getApp().globalData.IMGURL;
 const sendAjax = require('../../utils/sendAjax.js')
@@ -9,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hhidden:0,
+    hhidden: 0,
     //轮播用的
     imgUrlsloca: [
     ],
@@ -18,7 +19,7 @@ Page({
     interval: 5000,
     duration: 1000,
     circular: true,
-    // cloudsShow: true,
+    cloudsShow: false,
     //投票用的
     clubs: [], //原始数据
     animations: [],
@@ -40,49 +41,38 @@ Page({
     // footSrc3: '../../images/投票.png',
     // footSrc4: '../../images/时事.png',
     // footSrc5: '../../images/我的.png'
-    newpageNo:1,
-    newpageSize:2,
-    isBottomnew:0,
-    newmeslist:[],
+    newpageNo: 1,
+    newpageSize: 2,
+    isBottomnew: 0,
+    newmeslist: [],
   },
-  clouds(){
-    console.log("1")
-    this.setData({
-      cloudsShow:false
+  //是否授权
+  getauthSetting: function () {
+    wx.getSetting({
+      success: res => {
+        // console.log(res.authSetting['scope.userInfo'])
+        if (res.authSetting['scope.userInfo']) {
+        }else {
+          console.log(res)
+          wx.navigateTo({
+            url: '/pages/start/start',
+          })
+        }
+      }
     })
   },
   getPhoneNumber: function (e) {
     console.log(e);
     var that = this;
     console.log(wx.getStorageSync("sessionKey"))
-    // console.log(platUserInfoMap);
-    // console.log(JSON.stringify(data));
-    // console.log(platUserInfoMap);
-    //request请求
-    // wx.request({
-    //   url: "http://192.168.1.102:8080/crazyBird/user/deciphering",
-    //   method: 'get',
-    //   data: {
-    //     encrypdata: e.detail.encryptedData,
-    //     ivdata: e.detail.iv,
-    //     sessionkey: wx.getStorageSync("sessionKey")
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success(res) {
-    //     console.log(res);
-    //   }
-    // })
-    var that = this;
-
+    var sessionkey = wx.getStorageSync("sessionKey");
     let infoOpt = {
       url: '/user/deciphering',
       type: 'GET',
       data: {
         encrypdata: e.detail.encryptedData,
         ivdata: e.detail.iv,
-        sessionkey: wx.getStorageSync("sessionKey")
+        sessionkey: sessionkey
       },
       header: {
         'content-type': 'application/json',
@@ -90,21 +80,31 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      console.log(123123323);
+      console.log(res)
+      // wx.showModal({
+      //   title: '提示',
+      //   showCancel: false,
+      //   content: '66666',
+      //   success: function (res) {
+      //     that.setData({
+      //       cloudsShow: false
+      //     })
+      //   }
+      // })
     }
     infoCb.beforeSend = () => { }
     sendAjax(infoOpt, infoCb, () => { });
     // if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
-    //   wx.showModal({
-    //     title: '提示',
-    //     showCancel: false,
-    //     content: '未授权',
-    //     success: function (res) { 
-    //       that.setData({
-    //         cloudsShow:false
-    //       })
-    //     }
-    //   })
+    // wx.showModal({
+    //   title: '提示',
+    //   showCancel: false,
+    //   content: '未授权',
+    //   success: function (res) { 
+    //     that.setData({
+    //       cloudsShow:false
+    //     })
+    //   }
+    // })
     // } else {
     //   wx.showModal({
     //     title: '提示',
@@ -122,7 +122,7 @@ Page({
   //   var that = this;
   //   app.Navigation(event, that);
   // },
-  hhidden:function(){
+  hhidden: function () {
     var that = this;
     wx.request({
       url: 'https://www.sxscott.com/crazyBird/vote/test',
@@ -170,7 +170,7 @@ Page({
     });
 
   },
-//获取时事
+  //获取时事
   getnewmes: function () {
     var that = this;
     let infoOpt = {
@@ -212,8 +212,14 @@ Page({
 
     });
   },
+  //直播跳转
+  Livebroadcast:function(e){
+    wx.navigateTo({
+      url: '../Livebroadcast/Livebroadcast'
+    });
+  },
   //投票跳转
-  toVote:function(e){
+  toVote: function (e) {
     // console.log(123);
     var isLogin = wx.getStorageSync('isLogin');
     if (isLogin == 1) {
@@ -236,12 +242,12 @@ Page({
         }
       })
     }
-  
+
   },
   //投票轮播
   setvoteBroadcast: function () {
-    var that=this;
-    var arr=[];
+    var that = this;
+    var arr = [];
     let infoOpt = {
       url: '/vote/getAction/hot',
       type: 'GET',
@@ -253,7 +259,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-  // console.log(data);
+      // console.log(data);
       that.setData({
         clubs: data.voteList
       })
@@ -316,7 +322,7 @@ Page({
       // wx.setStorageSync('G_needUploadIndex', true)
     });
 
-  
+
 
   },
   vote: function () {
@@ -338,7 +344,7 @@ Page({
             })
           } else if (res.cancel) {
           }
-        } 
+        }
       })
     }
   },
@@ -353,19 +359,20 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    console.log(wx.getStorageSync("isbound"))
-    if (wx.getStorageSync("isbound") == "2") {
-      that.setData({
-        cloudsShow:true
-      })
-    }else{
-      that.setData({
-        cloudsShow: false
-      })
-    }
+    // console.log(wx.getStorageSync("isbound"))
+    // if (wx.getStorageSync("isbound") == "2") {
+    //   that.setData({
+    //     cloudsShow:true
+    //   })
+    // }else{
+    //   that.setData({
+    //     cloudsShow: false
+    //   })
+    // }
     that.hhidden();
     // that.Startpage();
     // console.log(111);
+    that.getauthSetting();
     that.setImgBroadcast();
     that.setvoteBroadcast();
     that.getnewmes();
@@ -412,7 +419,7 @@ Page({
     let that = this;
     // that.Startpage();
     that.setData({
-      imgUrlsloca: [ ],
+      imgUrlsloca: [],
       indicatorDots: true,
       autoplay: true,
       interval: 5000,
@@ -738,23 +745,23 @@ Page({
     return this.data.clubs.length - 1;
   },
   //跳转创新创业
-  toInnovate:function(){
+  toInnovate: function () {
     wx.navigateTo({
       url: '../innovate/innovate',
     })
   },
   //跳转校园二手
-  toSecondHand:function(){
+  toSecondHand: function () {
     wx.navigateTo({
       url: '../secondHand/secondHand',
     })
   },
   //暂未开发
-  noDevelop:function(){
+  noDevelop: function () {
     wx.showToast({
       title: '暂未开放，敬请期待ha~',
-      icon:'none',
-      duration:1000
+      icon: 'none',
+      duration: 1000
     })
   },
   LostFound: function () {
@@ -762,7 +769,7 @@ Page({
       url: '../LostFound/LostFound'
     });
   },
-  toCalendar:function(){
+  toCalendar: function () {
     wx.navigateTo({
       url: '../calendar/calendar',
     })

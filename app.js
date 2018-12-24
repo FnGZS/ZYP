@@ -7,7 +7,9 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     wx.setStorageSync("isLogin",0)
-    this.getStart()
+    wx.setStorageSync("sessionKey",'')
+    // this.getStart()
+
     // 登录
     wx.login({
       success: resp => {
@@ -58,8 +60,11 @@ App({
                       wx.setStorageSync("avatar", res.data.avatar)
                       wx.setStorageSync("userKey", res.data.userKey)
                       wx.setStorageSync("authorization", res.data.authorization)
+                      
                       wx.setStorageSync("userId", res.data.userId)
-                      console.log(res.data.authorization)
+                      wx.setStorageSync("sessionKey", res.data.sessionKey)
+                      // console.log(res.data.authorization)
+                      // wx.setStorageSync("sessionKey", res.data.sessionKey)
                     }
                   })
                   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回

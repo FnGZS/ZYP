@@ -48,7 +48,7 @@
             </view>
             <view class='index-body-icon-bg-content-text'>校园校历</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='noDevelop' wx:if="{{hhidden == 1}}">
+          <view class='index-body-icon-bg-content' bindtap='Livebroadcast' wx:if="{{hhidden == 1}}">
 
             <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
@@ -57,7 +57,7 @@
                 </view>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text1'>校园跑男</view>
+            <view class='index-body-icon-bg-content-text1'>校园直播</view>
           </view>
           <view class='index-body-icon-bg-content' bindtap='toSecondHand' wx:if="{{hhidden == 1}}">
               <view class='index-body-icon-bg-content-icon'>

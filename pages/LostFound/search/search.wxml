@@ -1,10 +1,33 @@
-<view class='search' bindtap='tosearch'>
+<view class='search' >
  <view class='search-icon'>
              <image  src="../../../images/search.png"  ></image>
       </view> 
   <view class='search-text'>
      
-     <input placeholder='请输入你所寻找的物品'></input>
-     <view class='cancel'>取消</view>
+     <input placeholder='请输入你所寻找的物品' bindinput='tosearch'></input>
+     <view class='cancel' bindtap='cancel'>取消</view>
    </view>
 </view>
+<view class='currentstyle'>
+ <view class='current' wx:for="{{items}}" wx:key="*this" bindtap='detailPage' data-conter="{{item.id}}" >
+      <view class='current-img' >
+
+        <image mode='aspectFill'  src='{{item.titlePic}}'></image>
+
+      </view>
+      <view class='current-text '>
+        <view class='current-text-cont '>
+          {{item.title}}
+        </view>
+        <view class='current-text-Identification'>
+          <view class='Identification'>
+
+            {{item.typeName}}
+
+          </view>
+        </view>
+        <view class='time'>
+          {{item.day}} {{item.minute}}</view>
+      </view>
+    </view>
+    </view>

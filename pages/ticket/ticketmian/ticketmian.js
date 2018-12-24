@@ -90,9 +90,9 @@ Page({
         });
     },
     goTicketmiandetail: function(t) {
-        var a = t.currentTarget.dataset.item;
+        var id = t.currentTarget.dataset.item;
         wx.navigateTo({
-            url: "../ticketmiandetail/ticketmiandetail?gid=" + a
+            url: "../ticketmiandetail/ticketmiandetail?id=" + id
         });
     },
     goTicketadd: function(t) {

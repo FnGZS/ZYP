@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/start/start",
     "pages/index/index",
+      "pages/start/start",
     "pages/user/user",
     "pages/currentaffairs/currentaffairs",
     "pages/currentaffairs/detailPage/detailPage",
@@ -46,7 +46,9 @@
     "pages/ticket/ticketdetail/ticketdetail",
     "pages/ticket/upload/upload",
     "pages/ticket/ticketmiandetail/ticketmiandetail",
-    "pages/ticket/ticketnum/ticketnum"
+    "pages/ticket/ticketnum/ticketnum",
+    "pages/Livebroadcast/Livebroadcast",
+    "pages/Livebroadcast/Live/Live"
   ],
   "window": {
     "backgroundTextStyle": "light",

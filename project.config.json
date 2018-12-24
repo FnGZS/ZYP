@@ -200,36 +200,6 @@
 					"name": "二手我买入的",
 					"pathName": "pages/secondHand/secondHandMyBought/secondHandMyBought",
 					"query": ""
-				},
-				{
-					"id": 27,
-					"name": "二手立即支付",
-					"pathName": "pages/secondHand/secondHandPayOrder/secondHandPayOrder",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "二手地址",
-					"pathName": "pages/secondHand/secondHandAddress/secondHandAddress",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "二手地址新增",
-					"pathName": "pages/secondHand/secondHandAddressAdd/secondHandAddressAdd",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "二手底部",
-					"pathName": "pages/secondHand/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "投票",
-					"pathName": "pages/ticket/ticketmian/ticketmian",
-					"query": ""
 				}
 			]
 		}

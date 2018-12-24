@@ -8,38 +8,67 @@ function _defineProperty(t, e, a) {
 }
 
 var app = getApp(), WxParse = require("../../../wxParse/wxParse.js");
-
+const url = require('../../../config.js')
+const sendAjax = require('../../../utils/sendAjax.js')
 Page({
     data: {
         hidden: !0,
         animationData: {},
         product: [1],
         status: "",
-        gid:0
+        gid:0,
+        luckId:0
     },
     onLoad: function(t) {
-        var e = this;
-        this.data.isLogin;
-        wx.getStorageSync("openid") ? wx.getSetting({
-            success: function(t) {
-                t.authSetting["scope.userInfo"] && wx.getUserInfo({
-                    success: function(t) {
-                        e.setData({
-                            isLogin: !1,
-                            userInfo: t.userInfo
-                        });
-                    }
-                });
-            }
-        }) : e.setData({
-            isLogin: !0
-        });
-        e = this, wx.getStorageSync("users").openid;
-        var a = t.gid;
-        e.setData({
-            gid: a
-        });
+      this.setData({
+        luckId:t.id
+      })
+      this.getDetailList()
+        // var e = this;
+        // this.data.isLogin;
+        // wx.getStorageSync("openid") ? wx.getSetting({
+        //     success: function(t) {
+        //         t.authSetting["scope.userInfo"] && wx.getUserInfo({
+        //             success: function(t) {
+        //                 e.setData({
+        //                     isLogin: !1,
+        //                     userInfo: t.userInfo
+        //                 });
+        //             }
+        //         });
+        //     }
+        // }) : e.setData({
+        //     isLogin: !0
+        // });
+        // e = this, wx.getStorageSync("users").openid;
+        // var a = t.gid;
+        // e.setData({
+        //     gid: a
+        // });
     },
+  getDetailList(){
+    var that = this
+    let infoOpt = {
+      url: '/luck/luckDetails',
+      type: 'GET',
+      data: {
+        luckId:that.data.luckId
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      that.setData({
+        getDetailList: res
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+    });
+  },
     shareCanvas: function() {
         var t = this, e = "/yzcj_sun/pages/ticket/ticketmiandetail/ticketmiandetail?gid=" + t.data.gid;
         console.log(e);

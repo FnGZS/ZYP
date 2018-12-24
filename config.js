@@ -9,7 +9,7 @@
 
 // var host = "http://192.168.1.112:8080/crazyBird
 
-// var host = "http://192.168.1.118:8080/crazyBird"
+// var host = "http://192.168.1.103:8080/crazyBird"
 
 //正式
 var host = "https://www.sxscott.com/crazyBird" 
