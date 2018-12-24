@@ -19,7 +19,7 @@ Page({
     interval: 5000,
     duration: 1000,
     circular: true,
-    // cloudsShow: true,
+    cloudsShow: true,
     //投票用的
     clubs: [], //原始数据
     animations: [],
@@ -80,16 +80,17 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      wx.showModal({
-        title: '提示',
-        showCancel: false,
-        content: '66666',
-        success: function (res) {
-          that.setData({
-            cloudsShow: false
-          })
-        }
-      })
+      console.log(res)
+      // wx.showModal({
+      //   title: '提示',
+      //   showCancel: false,
+      //   content: '66666',
+      //   success: function (res) {
+      //     that.setData({
+      //       cloudsShow: false
+      //     })
+      //   }
+      // })
     }
     infoCb.beforeSend = () => { }
     sendAjax(infoOpt, infoCb, () => { });
