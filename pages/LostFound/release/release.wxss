@@ -14,7 +14,7 @@
   flex-wrap: wrap;
   height: 300rpx;
   width: 100%;
-  background-color: #f65959;
+  background-color: #ef696c;
   position: relative;
 }
 

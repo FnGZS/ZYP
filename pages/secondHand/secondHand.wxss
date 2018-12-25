@@ -47,7 +47,9 @@
 
 
 
-
+/* page{
+  background: #ef696c;
+} */
 
 #secondHand{
   width: 100%;
@@ -55,7 +57,7 @@
 .search{
   width: 100%;
   height: 50rpx;
-  background: #ECEBEB;
+  background: #ef696c;
   padding-top: 15rpx;
   padding-bottom:15rpx;
   position: fixed; 
