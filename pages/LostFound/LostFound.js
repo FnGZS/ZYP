@@ -277,18 +277,18 @@ Page({
     });
   },
   onShow: function() {
-    var that = this
-    that.setData({
-      winHeight: 0,
-      //初始的頁面:
-      initialpageNo: [],
-      initialpageSize: 10,
-      isShow: false,
-      txt: '',
-      iconClass: 'icon-cry',
-      message: [],
-    })
-    that.getlosttype();
+    // var that = this
+    // that.setData({
+    //   winHeight: 0,
+    //   //初始的頁面:
+    //   initialpageNo: [],
+    //   initialpageSize: 10,
+    //   isShow: false,
+    //   txt: '',
+    //   iconClass: 'icon-cry',
+    //   message: [],
+    // })
+    // that.getlosttype();
 
   },
 

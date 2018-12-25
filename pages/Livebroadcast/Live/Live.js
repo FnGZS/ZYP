@@ -7,28 +7,74 @@ Page({
   data: {
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+ 
   onLoad: function (options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
+ 
   onShow: function () {
 
   },
-
+  onReady(res) {
+    this.ctx = wx.createLivePlayerContext('player')
+  },
+  statechange(e) {
+    console.log('live-player code:', e.detail.code)
+  },
+  error(e) {
+    console.error('live-player error:', e.detail.errMsg)
+  },
+  bindPlay() {
+    this.ctx.play({
+      success: res => {
+        console.log('play success')
+      },
+      fail: res => {
+        console.log('play fail')
+      }
+    })
+  },
+  bindPause() {
+    this.ctx.pause({
+      success: res => {
+        console.log('pause success')
+      },
+      fail: res => {
+        console.log('pause fail')
+      }
+    })
+  },
+  bindStop() {
+    this.ctx.stop({
+      success: res => {
+        console.log('stop success')
+      },
+      fail: res => {
+        console.log('stop fail')
+      }
+    })
+  },
+  bindResume() {
+    this.ctx.resume({
+      success: res => {
+        console.log('resume success')
+      },
+      fail: res => {
+        console.log('resume fail')
+      }
+    })
+  },
+  bindMute() {
+    this.ctx.mute({
+      success: res => {
+        console.log('mute success')
+      },
+      fail: res => {
+        console.log('mute fail')
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

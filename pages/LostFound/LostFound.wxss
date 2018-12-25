@@ -12,7 +12,7 @@
 .swiper-tab {
   width: 100%;
   height: 100rpx;
-  background: #f65959;
+  background: #ef696c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +34,7 @@
 .swiper-tab-text {
   width: 40%;
   height: 100rpx;
-  background: #f65959;
+  background: #ef696c;
   color: white;
   display: flex;
   justify-content: center;
@@ -164,6 +164,7 @@ swiper {
   /* box-shadow: 1rpx 1rpx 20rpx #f65959; */
   position: fixed;
   bottom: 100rpx;
+  background: white;
   right: 30rpx;
   z-index: 100;
   /* opacity: .8 */
