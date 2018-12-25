@@ -1,28 +1,51 @@
+page{
+  background: url('http://zjw77.club/someimg/innovateBac3.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+ 
+.bg_box{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+ 
+}
+.bg_box video{
+    width: 100%;
+   height: 100%;
+}
+
 #innovate {
   width: 100%;
   height: 100%;
 }
 
 .innovateList {
-  width: 100%;
-  height: 100rpx;
+  width: 80%;
   list-style: none;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 4%;
+  padding-right: 5%;
 }
 
 li {
-  width: 24%;
-  height: 180rpx;
+  width: 30%;
+  height: 150rpx;
   -webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   float: left;
+
 } 
-li:nth-child(2n-1){
-  margin: -65rpx 0rpx 0rpx 0rpx;
+li:nth-child(3n-2){
+  margin: 37.5rpx 0rpx 0rpx 0rpx;
+    box-shadow: 10rpx 10rpx 10rpx red;
 }
-li:nth-child(2n) {
-  margin: 45rpx 0rpx 0rpx 0rpx;
+li:nth-child(3n){
+  margin: 37.5rpx 0rpx 0rpx 0rpx;
+}
+li:nth-child(3n-1) {
+  margin: -55.5rpx 0rpx 0rpx 0rpx;
 }
 
 image {

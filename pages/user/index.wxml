@@ -1,12 +1,18 @@
 <view id='my'>
-  <view class='userInfo'>
-    <image class='userinfo-avatar' mode='aspectFill' src='http://img3.imgtn.bdimg.com/it/u=3201621160,2437860141&fm=26&gp=0.jpg'></image>
-    <view class='userinfo-name'>Effort</view>
+ 
+  <view class='userInfo' >
+   <button class='getShouQuan' wx:if="{{!hasUserInfo && canIUse && getUserInfoFail}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+   <view wx:if="{{hasUserInfo}}">
+    <image class='userinfo-avatar' mode='aspectFill' src='{{userInfo.avatarUrl}}'></image>
+    <view class='userinfo-name'>{{userInfo.nickName}}</view>
     <view class='userinfo-balance'>余额：0.00
       <!-- <view class='userinfo-balance-text'>余额：</view>
       <view class='userinfo-balance-num'>0.00</view> -->
     </view>
+   </view>
+   
   </view>
+  <!-- 我的订单 -->
   <view class='order'>
     <view class='order-title'>
       <view class='order-title-text'>我的订单</view>
@@ -16,7 +22,7 @@
       <view class='order-daifukuan'>
         <view class='iconfont icon-daifukuan'></view>
         <view class='order-daifukuan-text'>待付款</view>
-        <!-- <view class='order-daifukuan-num'>1</view> -->
+        <!-- <view class='order-daifukuan-num'>99</view> -->
       </view>
       <view class='order-daifahuo'>
         <view class='iconfont icon-daifahuo'></view>
@@ -26,15 +32,76 @@
       <view class='order-daishouhuo'>
         <view class='iconfont icon-daishouhuo'></view>
         <view class='order-daishouhuo-text'>待收货</view>
-        <!-- <view class='order-daishouhuo-num'>1</view> -->
+        <!-- <view class='order-daishouhuo-num'>2</view> -->
       </view>
       <view class='order-shouhou'>
         <view class='iconfont icon-shouhou'></view>
         <view class='order-shouhou-text'>售后</view>
-        <!-- <view class='order-shouhou-num'>1</view> -->
+        <!-- <view class='order-shouhou-num'>3</view> -->
       </view>
     </view>
   </view>
 
-  
+  <!-- 我的二手 -->
+  <view class='secHand'>
+    <view class='secHand-title'>
+      <view class='secHand-title-text'>我的二手</view>
+    </view>
+    <view class='secHand-main'>
+      <view class='secHand-fabu' bindtap='toSecHandMyPublish'>
+        <view class='iconfont icon-fabu'></view>
+        <view class='secHand-fabu-text'>我发布的</view>
+      </view>
+      <view class='secHand-maichu' bindtap='toSecHandMySold'>
+        <view class='iconfont icon-maichu'></view>
+        <view class='secHand-maichu-text'>我卖出的</view>
+      </view>
+      <view class='secHand-mairu' bindtap='toSecHandMyBought'>
+        <view class='iconfont icon-mairu'></view>
+        <view class='secHand-mairu-text'>我买入的</view>
+      </view>
+      <view class='secHand-xiangyao' bindtap='toSecHandMyWant'>
+        <view class='iconfont icon-xiangyao'></view>
+        <view class='secHand-xiangyao-text'>我想要的</view>
+      </view>
+      <view class='secHand-xiaoxi' bindtap='toSecMes'>
+        <view class='iconfont icon-xiaoxi'></view>
+        <view class='secHand-xiaoxi-text'>消息中心</view>
+      </view>
+      <view class='secHand-dizhi' bindtap='toSecHandAddress'>
+        <view class='iconfont icon-dizhi'></view>
+        <view class='secHand-dizhi-text'>地址管理</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 系统服务 -->
+  <view class='service'>
+    <view class='service-title'>
+      <view class='service-title-text'>系统服务</view>
+    </view>
+    <view class='service-main'>
+      <view class='service-bangding' bindtap='binding'>
+        <view class='iconfont icon-bangding'></view>
+        <view class='service-bangding-text'>{{isboundUser}}</view>
+      </view>
+      <view class='service-kefu'>
+        <view class='iconfont icon-kefu'></view>
+        <view class='service-kefu-text'>在线客服</view>
+        <button class='service-kefu-btn'  plain open-type="contact"></button>
+      </view>
+      <view class='service-yijianfankui' bindtap='toIdeaBack'>
+        <view class='iconfont icon-yijianfankui'></view>
+        <view class='service-yijianfankui-text'>意见反馈</view>
+      </view>
+      <view class='service-bangzhu' bindtap='toHelp'>
+        <view class='iconfont icon-bangzhu'></view>
+        <view class='service-bangzhu-text'>帮助文档</view>
+      </view>
+      <view class='service-guanyuwomen' bindtap='toAboutUs'>
+        <view class='iconfont icon-guanyuwomen'></view>
+        <view class='service-guanyuwomen-text'>关于我们</view>
+      </view>
+    </view>
+  </view>
 </view>

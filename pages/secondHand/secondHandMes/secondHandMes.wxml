@@ -1,0 +1,38 @@
+<view id='secondHandMes'>
+  <view class='systemMes'>
+    <view class="systemMesList touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-id='{{item.id}}' data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{systemMes}}" wx:key="key">
+      <view class='content'>
+        <view class='iconfont icon-xitongxiaoxi'></view>
+        <view class='systemMes-main'>
+          <view class='systemMes-text'>系统消息</view>
+          <view class='systemMes-title'>[{{item.title}}]{{item.goodsTitle}}</view>
+          <view class='systemMes-time'>{{item.gmtCreated}}</view>
+        </view>
+        <view class='systemMes-isRead'></view>
+      </view>
+      <view class="del" bindtap="del" data-index='{{index}}' data-goodsid='{{item.id}}'>删除</view>
+    </view>
+  </view>
+
+  <view class='userMes'>
+    <view class="userMesList touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart1" bindtouchmove="touchmove1" wx:for="{{userMes}}" wx:key="key">
+      <view class='content'>
+        <image class='userMesList-img' src='http://img5.imgtn.bdimg.com/it/u=2232059939,1101343464&fm=26&gp=0.jpg' mode='aspectFill'></image>
+        <view class='userMes-main'>
+          <view class='userMes-text'>Effort</view>
+          <view class='userMes-title'>您发布的二手商品未通过审核您发布的二手商品未通过审核您发布的二手商品未通过审核您发布的二手商品未通过审核您发布的二手商品未通过审核</view>
+          <view class='userMes-time'>{{item.gmtCreated}}</view>
+        </view>
+        <view class='userMes-isRead'></view>
+      </view>
+      <view class="del" bindtap="del1" data-index='{{index}}' data-goodsid='{{item.id}}'>删除</view>
+    </view>
+   
+  </view>
+
+</view>
+<view>
+  <loading hidden="{{lodingHidden}}">
+    加载中..
+  </loading>
+</view>
