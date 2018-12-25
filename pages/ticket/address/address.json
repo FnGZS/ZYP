@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "中奖详情"
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#f8f8f8",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "填写地址"
 }

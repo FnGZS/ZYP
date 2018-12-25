@@ -18,7 +18,9 @@ Page({
     },
     onLoad: function(t) {
         this.getmian()
+          this.getAD()
     },
+    //获取列表详情
     getmian(){
       var that=this
       let infoOpt = {
@@ -38,6 +40,31 @@ Page({
         console.log(res);
         that.setData({
           cullingList:res.items
+        })
+      }
+
+      sendAjax(infoOpt, infoCb, () => {
+        // that.onLoad()
+        // wx.setStorageSync('G_needUploadIndex', true)
+      });
+    },
+    //
+    getAD(){
+      var that = this
+      let infoOpt = {
+        url: '/luck/advertisement',
+        type: 'GET',
+        data: {
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+        console.log(res);
+        that.setData({
+          adList: res.items
         })
       }
 

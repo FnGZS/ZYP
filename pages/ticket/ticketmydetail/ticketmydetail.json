@@ -1,5 +1,6 @@
-{"backgroundTextStyle": "light",
+{
+  "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#f8f8f8",
   "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "参与用户"
+  "navigationBarTitleText": "详情"
 }

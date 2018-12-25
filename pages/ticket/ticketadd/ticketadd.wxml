@@ -31,7 +31,7 @@
                 </view>
             </view >
             </block>
-            <view class='list_add_box' bindtap='addTicket'><view class='list_add font-26 color_2574b9' >+ 增加奖项</view></view>
+            <view class='list_add_box' bindtap='addTicket'><view class='list_add font-26 color_d15243' >+ 增加奖项</view></view>
             
         </view>
         <view bindtap="chooselotterytime" class="list list-2 font-26">

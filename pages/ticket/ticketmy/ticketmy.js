@@ -1,11 +1,12 @@
 var app = getApp();
-
+const url = require('../../../config.js')
+const sendAjax = require('../../../utils/sendAjax.js')
 Page({
     data: {
-        allnum: 0,
+        dallNum: 0,
         launchnum: 0,
         luckynum: 0,
-        money: 0,
+
         userInfo:{}
     },
     onLoad: function(n) {
@@ -13,7 +14,9 @@ Page({
       this.setData({
        userInfo:app.globalData.userInfo
       })
-      
+      this.godlucky()
+      this.godlaunch()
+      this.godall()
         // var o = wx.getStorageSync("user_info"), e = wx.getStorageSync("is_tel"), a = wx.getStorageSync("is_openzx");
         // this.setData({
         //     userInfo: o,
@@ -41,53 +44,195 @@ Page({
             }
         });
     },
-    goTicketadd: function(n) {
-        wx.navigateTo({
-            url: "../ticketadd/ticketadd"
-        });
-    },
-    goSponsor: function(n) {
-        wx.navigateTo({
-            url: "../sponsortwo/sponsortwo"
-        });
-    },
-    goTicketmain: function(n) {
-        wx.reLaunch({
-            url: "../ticketmian/ticketmian"
-        });
-    },
+    //点击我参与的
     goRecordall: function(n) {
+      var that = this;
+      let infoOpt = {
+        url: '/luck/joinList',
+        type: 'GET',
+        data: {
+          userId: wx.getStorageSync('userId'),
+          pageNo: 1,
+          pageSize: 20
+        },
+        header: {
+          'content-type': 'application/json',
+          //  'authorization': wx.getStorageSync("authorization"),
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (data) {
+        console.log(data.items)
         wx.navigateTo({
-            url: "../recordall/recordall"
+          url: "../recordall/recordall?joinList=" + JSON.stringify(data.items)
         });
+      }
+
+      sendAjax(infoOpt, infoCb, () => {
+
+      });
+
+
+        
+    
     },
+    //点击我发布的
     goRecordlaunch: function(n) {
+      var that = this;
+      let infoOpt = {
+        url: '/luck/delease',
+        type: 'GET',
+        data: {
+          userId: wx.getStorageSync('userId'),
+          pageNo: 1,
+          pageSize: 20
+        },
+        header: {
+          'content-type': 'application/json',
+          //  'authorization': wx.getStorageSync("authorization"),
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (data) {
         wx.navigateTo({
-            url: "../recordlaunch/recordlaunch"
+          url: "../recordlaunch/recordlaunch?launchList=" + JSON.stringify(data.items)
         });
+      }
+      sendAjax(infoOpt, infoCb, () => {
+
+      });
+
+        
     },
+    //中奖纪录
     goRecordlucky: function(n) {
-        wx.navigateTo({
-            url: "../recordlucky/recordlucky"
-        });
+      var that = this;
+      let infoOpt = {
+        url: '/luck/award',
+        type: 'GET',
+        data: {
+          userId: wx.getStorageSync('userId'),
+          pageNo: 1,
+          pageSize: 20
+        },
+        header: {
+          'content-type': 'application/json',
+          //  'authorization': wx.getStorageSync("authorization"),
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (data) {
+          wx.navigateTo({
+            url: "../recordlucky/recordlucky?luckyList=" + JSON.stringify(data.items)
+          });
+      }
+
+      sendAjax(infoOpt, infoCb, () => {
+
+      });
+      
+        
     },
-    goBalance: function(n) {
-        wx.navigateTo({
-            url: "../balance/balance"
-        });
-    },
+    //跳转抽奖
+  goTicketadd: function (n) {
+    wx.navigateTo({
+      url: "../ticketadd/ticketadd"
+    });
+  },
+    //跳转首页
+  goTicketmain: function (n) {
+    wx.reLaunch({
+      url: "../ticketmian/ticketmian"
+    });
+  },
+    //问题
     goHelpcenter: function(n) {
         wx.navigateTo({
             url: "/pages/user/help/help"
         });
     },
-    goGiftorder: function(n) {
-        wx.navigateTo({
-            url: "../../gift/giftorder/giftorder"
-        });
-    },
-    goAdmin: function() {
-        var n = wx.getStorageSync("users").openid;
-        
+    //我参与的
+    godall: function() {
+      var that = this;
+      let infoOpt = {
+        url: '/luck/joinList',
+        type: 'GET',
+        data: {
+          userId: wx.getStorageSync('userId'),
+          pageNo: 1,
+          pageSize: 20
+        },
+        header: {
+          'content-type': 'application/json',
+          //  'authorization': wx.getStorageSync("authorization"),
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (data) {
+        console.log(data.items.length)
+        that.setData({
+          dallNum: data.items.length
+        })
+      }
+
+      sendAjax(infoOpt, infoCb, () => {
+
+      });
+  }, 
+  //我发起的
+  godlaunch: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/luck/delease',
+      type: 'GET',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        pageNo: 1,
+        pageSize: 20
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
     }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data.items.length)
+      that.setData({
+        launchnum: data.items.length
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  },
+  //中奖纪录
+  godlucky: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/luck/award',
+      type: 'GET',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        pageNo: 1,
+        pageSize: 20
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data.items.length)
+      that.setData({
+        luckynum: data.items.length
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  }
 });
