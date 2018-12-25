@@ -8,7 +8,7 @@
     </view>
     <view class="bg_fff num">
         <view bindtap="goRecordall" class="num-list">
-            <view class="font-w font-34">{{allnum}}</view>
+            <view class="font-w font-34">{{dallNum}}</view>
             <view class="color_808080 font-28">参与抽奖</view>
         </view>
         <view bindtap="goRecordlaunch" class="num-list">

@@ -497,11 +497,12 @@ background: white;
 .index-current{
   width: 700rpx;
   height: 500rpx;
-  margin-top:10rpx;
+  margin-top:30rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap:wrap;
+    box-shadow: 1rpx 1rpx 20rpx #dddcdc;
 }
 
 .index-current-head{

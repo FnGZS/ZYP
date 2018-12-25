@@ -28,6 +28,6 @@
             </view>
         </view>
     </view>
-    <button type="warn" class="save-btn" formType="submit" bindtap='save'>保存</button>
+    <button  class="save-btn" formType="submit" bindtap='save'>保存</button>
     </form>
 </view>

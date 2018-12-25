@@ -58,10 +58,15 @@ Page({
       var arr = goodsDetail.goodsImg;
       goodsDetail['goodsImg'] = JSON.parse(arr);
       that.setData({
-        goodsDetail: goodsDetail
+        goodsDetail: goodsDetail,
+
       })
     }
-    infoCb.beforeSend = () => { }
+    infoCb.beforeSend = () => { 
+      that.setData({
+        lodingHidden:false
+      })
+    }
     sendAjax(infoOpt, infoCb, () => { });
   },
   //获取是否收藏该商品
@@ -159,7 +164,8 @@ Page({
         id: this.data.id,
         userId: userId,
         pageNo: 1,
-        pageSize: pageSize
+        pageSize: pageSize,
+        lodingHidden: true
       },
       header: {
         'content-type': 'application/json',

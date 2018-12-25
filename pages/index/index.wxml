@@ -3,17 +3,17 @@
   <view class='conter-no'>
     <view class='index-head'>
       <view class='index-head-bg'>
-        <image src='/images/head-bg.png' mode='aspectFill' ></image>
+        <image src='/images/head-bg.png' mode='aspectFill'></image>
       </view>
       <view class='index-head-swiper'>
 
 
-        <swiper  autoplay="{{autoplay}}" circular="{{circular}}" circular="true" interval="{{interval}}" duration="{{duration}}">
+        <swiper autoplay="{{autoplay}}" circular="{{circular}}" circular="true" interval="{{interval}}" duration="{{duration}}">
 
 
           <block wx:for="{{imgUrlsloca}}" wx:key="key">
             <swiper-item>
-              <image src="{{item.picture}}"mode='aspectFill'  class="index-head-swiper-image" />
+              <image src="{{item.picture}}" mode='aspectFill' class="index-head-swiper-image" />
               <!-- <image src="/images/ceshi.png" class="index-head-swiper-image" /> -->
             </swiper-item>
           </block>
@@ -49,22 +49,19 @@
             <view class='index-body-icon-bg-content-text'>校园校历</view>
           </view>
           <view class='index-body-icon-bg-content' bindtap='Livebroadcast' wx:if="{{hhidden == 1}}">
-
-            <view class='iconfont icon-box'>
-              <view class='index-body-icon-bg-content-icon1'>
-                <view class='index-body-icon-bg-content-icon-border1'>
-                  <image src='/images/icon-gaobai.png'></image>
-                </view>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-gaobai.png'></image>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text1'>校园直播</view>
+            <view class='index-body-icon-bg-content-text'>校园直播</view>
           </view>
           <view class='index-body-icon-bg-content' bindtap='toSecondHand' wx:if="{{hhidden == 1}}">
-              <view class='index-body-icon-bg-content-icon'>
-                <view class='index-body-icon-bg-content-icon-border'>
-                  <image src='/images/icon-ershou.png'></image>
-                </view>
+            <view class='index-body-icon-bg-content-icon'>
+              <view class='index-body-icon-bg-content-icon-border'>
+                <image src='/images/icon-ershou.png'></image>
               </view>
+            </view>
             <view class='index-body-icon-bg-content-text'>校园二手</view>
           </view>
           <view class='index-body-icon-bg-content' bindtap='LostFound'>
@@ -85,13 +82,13 @@
             <view class='index-body-icon-bg-content-text'>创新创业</view>
           </view>
           <view class='index-body-icon-bg-content' bindtap='noDevelop'>
-          <view class='iconfont icon-box'>
+            <view class='iconfont icon-box'>
               <view class='index-body-icon-bg-content-icon1'>
                 <view class='index-body-icon-bg-content-icon-border1'>
                   <image src='/images/icon-kebiao.png'></image>
                 </view>
               </view>
-              </view>
+            </view>
             <view class='index-body-icon-bg-content-text1'>课表查询</view>
           </view>
         </view>
@@ -120,7 +117,7 @@
 
           <block>
             <view class="club" animation="{{animation1}}" style='z-index:{{zindex[0]}};opacity:{{opacities[0]}};' data-id='{{container[0].id}}' bindtap='toVote'>
-              <image src="{{container[0].actionImage}}" mode='aspectFill'  />
+              <image src="{{container[0].actionImage}}" mode='aspectFill' />
               <text>{{container[0].actionName}}</text>
             </view>
             <view class="club" animation="{{animation2}}" style='z-index:{{zindex[1]}};opacity:{{opacities[1]}};' data-id='{{container[1].id}}' bindtap='toVote'>
@@ -159,7 +156,7 @@
           {{item.title}}
         </view>
         <view class='index-current-img'>
-          <image src='{{item.affairsPic}}' mode='aspectFill' ></image>
+          <image src='{{item.affairsPic}}' mode='aspectFill'></image>
         </view>
         <view class='index-current-cont'>
           {{item.year}}-{{item.day}}
@@ -197,12 +194,12 @@
 </view> -->
 </view>
 <block wx:if="{{cloudsShow}}">
-<view >
-<view class='getphone_buttom'>
-  <view bindtap='clouds' class='clous'></view>
-  <button class='bottom' type='primary' open-type="getPhoneNumber"lang="zh_CN" bindgetphonenumber="getPhoneNumber">授权手机号</button>
-</view>
- <image class='getPhone_img' src='https://www.sxscott.com/crazyBirdimg/test/bindPhone.png'></image>
-<view class='getPhone_box'></view>
-</view>
+  <view>
+    <view class='getphone_buttom'>
+      <view bindtap='clouds' class='clous'></view>
+      <button class='bottom' type='primary' open-type="getPhoneNumber" lang="zh_CN" bindgetphonenumber="getPhoneNumber">授权手机号</button>
+    </view>
+    <image class='getPhone_img' src='https://www.sxscott.com/crazyBirdimg/test/bindPhone.png'></image>
+    <view class='getPhone_box'></view>
+  </view>
 </block>
