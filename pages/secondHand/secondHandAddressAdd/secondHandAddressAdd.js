@@ -74,7 +74,7 @@ Page({
         if (res.code == 200) {
           wx.showModal({
             title: '提示',
-            content: '新增成功',
+            content: '添加成功',
             showCancel: false,
             success(res) {
               if (res.confirm) {
