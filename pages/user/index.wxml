@@ -1,0 +1,40 @@
+<view id='my'>
+  <view class='userInfo'>
+    <image class='userinfo-avatar' mode='aspectFill' src='http://img3.imgtn.bdimg.com/it/u=3201621160,2437860141&fm=26&gp=0.jpg'></image>
+    <view class='userinfo-name'>Effort</view>
+    <view class='userinfo-balance'>余额：0.00
+      <!-- <view class='userinfo-balance-text'>余额：</view>
+      <view class='userinfo-balance-num'>0.00</view> -->
+    </view>
+  </view>
+  <view class='order'>
+    <view class='order-title'>
+      <view class='order-title-text'>我的订单</view>
+      <view class='order-title-btn'>查看全部订单 ></view>
+    </view>
+    <view class='order-main'>
+      <view class='order-daifukuan'>
+        <view class='iconfont icon-daifukuan'></view>
+        <view class='order-daifukuan-text'>待付款</view>
+        <!-- <view class='order-daifukuan-num'>1</view> -->
+      </view>
+      <view class='order-daifahuo'>
+        <view class='iconfont icon-daifahuo'></view>
+        <view class='order-daifahuo-text'>待发货</view>
+        <!-- <view class='order-daifahuo-num'>1</view> -->
+      </view>
+      <view class='order-daishouhuo'>
+        <view class='iconfont icon-daishouhuo'></view>
+        <view class='order-daishouhuo-text'>待收货</view>
+        <!-- <view class='order-daishouhuo-num'>1</view> -->
+      </view>
+      <view class='order-shouhou'>
+        <view class='iconfont icon-shouhou'></view>
+        <view class='order-shouhou-text'>售后</view>
+        <!-- <view class='order-shouhou-num'>1</view> -->
+      </view>
+    </view>
+  </view>
+
+  
+</view>

@@ -5,6 +5,7 @@
     "pages/user/user",
     "pages/currentaffairs/currentaffairs",
     "pages/currentaffairs/detailPage/detailPage",
+    "pages/user/index",
     "pages/user/joinVote/joinVote",
     "pages/user/ideaBack/ideaBack",
     "pages/user/help/help",
@@ -76,7 +77,7 @@
       {
         "selectedIconPath": "images/我的2.png",
         "iconPath": "images/我的.png",
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/user/index",
         "text": "我的"
       }
     ]
