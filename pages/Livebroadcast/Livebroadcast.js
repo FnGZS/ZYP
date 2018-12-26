@@ -1,22 +1,45 @@
 // pages/Livebroadcast/Livebroadcast.js
+const sendAjax = require('../../utils/sendAjax.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   
+    roomlist:[]
   },
   toLive: function () {
     wx.navigateTo({
       url: 'Live/Live',
     })
   },
+  getroomlist: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/live/getPlayUrl',
+      type: 'GET',
+      data: {
+
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+         console.log(data);
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getroomlist();
   },
 
   /**

@@ -205,12 +205,6 @@
 					"name": "m",
 					"pathName": "pages/ticket/ticketmian/ticketmian",
 					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的",
-					"pathName": "pages/user/index",
-					"query": ""
 				}
 			]
 		}

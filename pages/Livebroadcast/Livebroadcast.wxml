@@ -12,6 +12,11 @@
     <view class='list-images'>
       <image src='https://www.sxscott.com/xuexiao.png' mode='aspectFill'></image>
     </view>
+    <view class='play'>
+    <view class='play-icon'>
+    <image src='../../images/play.png'> </image>
+    </view>
+    </view>
     <view class='single-title'>
       <view class='title'>
         绍兴文理元培学院感恩晚会直播！

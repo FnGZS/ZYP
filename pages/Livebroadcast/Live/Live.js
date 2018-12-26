@@ -19,9 +19,11 @@ Page({
 
   },
   onReady(res) {
-    // this.ctx = wx.createLivePlayerContext('player')
+    this.ctx = wx.createLivePlayerContext('player')
+   
   },
   statechange(e) {
+    
     console.log('live-player code:', e.detail.code)
   },
   error(e) {
