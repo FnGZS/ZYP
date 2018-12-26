@@ -19,7 +19,7 @@ Page({
     interval: 5000,
     duration: 1000,
     circular: true,
-    cloudsShow: false,
+    cloudsShow: true,
     //投票用的
     clubs: [], //原始数据
     animations: [],
