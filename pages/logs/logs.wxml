@@ -1,6 +1,11 @@
 <!--logs.wxml-->
 <view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
+  <!-- <block wx:for="{{logs}}" wx:for-item="log">
     <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+  </block> -->
+  
+<form bindsubmit="submit" report-submit='true' >
+  <button form-type="submit" type="default" size="mini">提交</button>
+</form>
+
 </view>
