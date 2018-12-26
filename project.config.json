@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 28,
+			"current": 29,
 			"list": [
 				{
 					"id": -1,
@@ -210,7 +210,13 @@
 				{
 					"id": -1,
 					"name": "我的",
-					"pathName": "pages/user/index"
+					"pathName": "pages/user/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直播間",
+					"pathName": "pages/Livebroadcast/Live/Live"
 				}
 			]
 		}

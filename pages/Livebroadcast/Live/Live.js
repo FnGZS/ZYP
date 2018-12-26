@@ -35,6 +35,13 @@ Page({
       }
     })
   },
+  quanping:function(){
+    console.log(123);
+   var ctx = wx.createLivePlayerContext('player')
+    ctx.requestFullScreen({
+      direction: 0,
+    })
+  },
   bindPause() {
     this.ctx.pause({
       success: res => {

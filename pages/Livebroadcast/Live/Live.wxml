@@ -1,14 +1,35 @@
-
 <view class="page-body">
   <view class="page-section tc">
-    <live-player id="player" src="rtmp://abc.sxscott.com/live/741977480" mode="live" min-cache='1' max-cache='3'  autoplay bindstatechange="statechange" binderror="error" />
+    <live-player id="player" src="rtmp://abc.sxscott.com/live/741977480" mode="live" orientation='horizontal ' min-cache='1' max-cache='3' autoplay bindstatechange="statechange" binderror="error" />
+    <cover-view class='btn'>
+      <cover-view class='btn-left'>
+        <cover-view class='Onlinenumber'>
+          9876
+        </cover-view>
+        <cover-view class='Onlinetitle'>
+        寒冰:帶妹上榮耀如喝水！
+        </cover-view>
+      </cover-view>
+      <cover-view class='btn-rigth'>
+        <cover-view class='report'>
+         
+        </cover-view>
+        <cover-view class='fullscreen'>
 
-    <view class="btn-area">
+        </cover-view>
+      </cover-view>
+
+
+      <!-- <button class="body-button" type="">播放</button> -->
+    </cover-view>
+    <!-- <view class="btn-area">
       <button bindtap="bindPlay" class="page-body-button" type="primary">播放</button>
       <button bindtap="bindPause" class="page-body-button" type="primary">暂停</button>
       <button bindtap="bindStop" class="page-body-button" type="primary">停止</button>
       <button bindtap="bindResume" class="page-body-button" type="primary">恢复</button>
       <button bindtap="bindMute" class="page-body-button" type="primary">静音</button>
-    </view>
+   
+    </view> -->
+       <button bindtap="quanping" class="page-body-button" type="primary">全屏</button>
   </view>
 </view>

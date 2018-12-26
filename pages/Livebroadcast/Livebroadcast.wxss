@@ -6,7 +6,7 @@
   padding-top: 15rpx;
   padding-bottom:15rpx;
   position: fixed; 
-  z-index: 999;
+  /* z-index: 999; */
   /* position: absolute; */
   top:0rpx;
 }

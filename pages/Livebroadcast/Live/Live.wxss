@@ -1,8 +1,68 @@
-.page-body-button {
+/* .page-body-button {
   margin-bottom: 30rpx;
+} */
+.btn{
+  width: 100%;
+  height: 100rpx;
+  /* background: red; */
+  /* opacity: .4; */
+  position: relative;
+  bottom: 110rpx;
+  z-index: 999;
 }
-
 live-player {
   width: 100%;
   height: 225px;
 }
+.btn-left{
+  width: 550rpx;
+  height: 100rpx;
+  background: antiquewhite;
+  float: left;
+}
+.Onlinenumber{
+  width: 400rpx;
+  padding-left: 20rpx;
+  height: 50rpx;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  font-size: 28rpx;
+}
+.Onlinetitle{
+  width: 400rpx;
+  padding-left: 20rpx;
+  height: 50rpx;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  font-size: 28rpx;
+}
+.btn-rigth{
+  width: 200rpx;
+  height: 100rpx;
+  background: aquamarine;
+  float: left;
+}
+.report{
+  width: 50%;
+  height: 100rpx;
+  background: white;
+  float: left;
+}
+.fullscreen{
+  width: 50%;
+  height: 100rpx;
+  background: sienna;
+    float: left;
+}
+/* .report{
+  width: 100rpx;
+  height: 100rpx;
+  background: antiquewhite;
+} */
+/* .fullscreen{
+    width: 100rpx;
+  height: 100rpx;
+  background: salmon;
+} */
