@@ -53,7 +53,7 @@ Page({
       url: '/secondary/commentMessage',
       type: 'GET',
       data: {
-        id:userId,
+        userId:userId,
         pageNo:1,
         pageSize:20
       },

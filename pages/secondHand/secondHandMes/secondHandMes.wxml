@@ -17,13 +17,13 @@
   <view class='userMes'>
     <view class="userMesList touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart1" bindtouchmove="touchmove1" wx:for="{{userMes}}" wx:key="key">
       <view class='content'>
-        <image class='userMesList-img' src='http://img5.imgtn.bdimg.com/it/u=2232059939,1101343464&fm=26&gp=0.jpg' mode='aspectFill'></image>
+        <image class='userMesList-img' src='{{item.headImgUrl}}' mode='aspectFill'></image>
         <view class='userMes-main'>
-          <view class='userMes-text'>Effort</view>
-          <view class='userMes-title'>您发布的二手商品未通过审核您发布的二手商品未通过审核您发布的二手商品未通过审核您发布的二手商品未通过审核您发布的二手商品未通过审核</view>
+          <view class='userMes-text'>{{item.replyName}}</view>
+          <view class='userMes-title'>{{item.content}}</view>
           <view class='userMes-time'>{{item.gmtCreated}}</view>
         </view>
-        <view class='userMes-isRead'></view>
+        <view wx:if="{{item.isView == 0}}" class='userMes-isRead'></view>
       </view>
       <view class="del" bindtap="del1" data-index='{{index}}' data-goodsid='{{item.id}}'>删除</view>
     </view>

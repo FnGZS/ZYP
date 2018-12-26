@@ -38,11 +38,12 @@
 	margin-top: 5rpx;
 }
 .businessBrief-content{
-	width: 100%;
+	width: 80%;
 	font-size: 23rpx;
 	text-align: center;
 	margin-top: 5rpx;
 	margin-bottom: 5rpx;
+  margin-left: 10%;
 }
 .businessBrief-img{
   /* box-sizing: border-box;  */

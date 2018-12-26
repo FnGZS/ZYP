@@ -59,8 +59,8 @@
     <image class='innovate-code' data-img='{{detail.codeImg}}' src='{{detail.codeImg}}' bindtap='codeImgYu'></image>
   </view>
 </view>
- <view>
+ <!-- <view>
   <loading hidden="{{lodingHidden}}">
     加载中..
   </loading>
-</view>
+</view> -->

@@ -1,5 +1,6 @@
 //app.js
 var url = require('config.js')
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -113,6 +114,8 @@ App({
   },
 
   globalData: {
+    appid: 'wx070db500b5e5740f',
+    secret: 'd22b361c01e467afd5a55418a04ecb78',
     userInfo: null,
     PHPURL: "https://www.sxscott.com/gujie/index.php",
     IMGURL: "https://www.sxscott.com/gujie/public",
@@ -123,6 +126,6 @@ App({
     headimgurl: '',
     authorization: '',
     isbound: '',
-
+    token: '17_s3V-KBt1usCawSGL-JF_Tuw43TJ1WbJLOBcyzh4jw79ZiGGJki8-HbeYcufbLrPaO2kFLHwx8IpYxsOB_tS9Pckv8tyRK7XJ6RqRiVANFQhglzRO_ZH-UVyr7wGtmHKauTOJhCc2hB6nTKNfGDAeAJAKHE'
   },
 })
