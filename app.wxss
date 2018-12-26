@@ -1,0 +1,182 @@
+@import 'style/weui.wxss';
+
+page{
+    /* background-color: #F8F8F8; */
+    font-size: 16px;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+.page__hd {
+    padding: 40px;
+}
+.page__bd {
+    padding-bottom: 40px;
+}
+.page__bd_spacing {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.page__ft{
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.page__title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.page__desc {
+    margin-top: 5px;
+    color: #888888;
+    text-align: left;
+    font-size: 14px;
+}
+.foot{
+
+height:100rpx;
+
+width:100%;
+
+position: fixed;
+
+bottom:0;
+
+left:0;
+
+border-top:1px solid #ddd;
+ animation: footanimation 12s forwards;
+ 
+}
+
+.foot-no {
+height:90rpx;
+
+width:100%;
+
+position: fixed;
+
+bottom:0;
+
+left:0;
+
+border-top:1px solid #ddd;
+}
+
+@keyframes footanimation {
+  0% {
+    opacity: 0.0;
+  }
+
+  60% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.foot .tab{
+
+width:25%;
+
+float: left;
+
+height:100%;
+
+font-size:25rpx;
+
+text-align:center;
+
+padding-top:5rpx;
+
+}
+.tab view{
+  margin-top:-10rpx;
+}
+
+.foot .tab image{
+
+width:50rpx;
+
+height:50rpx;
+
+}
+
+.foot .tab .tab-sele{
+
+color: #BBDEF8;
+
+}
+
+
+/*无动画效果复写样式 */
+.foot-no  .tab{
+
+width:25%;
+
+float: left;
+
+height:100%;
+
+font-size:25rpx;
+
+text-align:center;
+
+padding-top:5rpx;
+
+}
+.tab view{
+  margin-top:-10rpx;
+}
+
+.foot-no  .tab image{
+
+width:50rpx;
+
+height:50rpx;
+
+}
+
+.foot-no  .tab .tab-sele{
+
+color: #BBDEF8;
+
+}
+.toast-out {
+  position: fixed;
+  top: 400rpx;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.toast-in {
+width: 200rpx;
+height: 200rpx;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 6rpx;
+  text-align: center;
+  color: white;
+  border-radius: 8rpx;
+ margin: 0 auto
+}
+ .toast-in span {
+  width: 100%;
+  height: 100rpx;
+  font-size: 50rpx;
+  /* margin-top:-40rpx; */
+ float: left;
+}
+.toast-txt {
+   width: 200rpx;
+  float: left;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

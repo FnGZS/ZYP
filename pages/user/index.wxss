@@ -141,7 +141,6 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 .order-main {
   display: flex;
   padding-bottom: 20rpx;
-  margin-top:20rpx;
 
 }
 
@@ -190,22 +189,22 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .order-daifukuan-text {
-  /* margin-top: -10rpx; */
+  margin-top: -10rpx;
   font-size: 25rpx;
 }
 
 .order-daifahuo-text {
-  /* margin-top: -10rpx; */
+  margin-top: -10rpx;
   font-size: 25rpx;
 }
 
 .order-daishouhuo-text {
-  /* margin-top: -10rpx; */
+  margin-top: -10rpx;
   font-size: 25rpx;
 }
 
 .order-shouhou-text {
-  /* margin-top: -10rpx; */
+  margin-top: -10rpx;
   font-size: 25rpx;
 }
 
@@ -309,7 +308,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-fabu-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 
@@ -327,7 +326,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-maichu-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 
@@ -345,7 +344,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-mairu-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 
@@ -363,7 +362,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-xiangyao-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 
@@ -381,7 +380,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-xiaoxi-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 .secHand-dizhi {
@@ -398,7 +397,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-dizhi-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 
@@ -453,7 +452,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .service-bangding-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 
@@ -488,7 +487,7 @@ background-color:transparent;
 }
 
 .service-kefu-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 .service-yijianfankui {
@@ -505,7 +504,7 @@ background-color:transparent;
 }
 
 .service-yijianfankui-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 .service-bangzhu {
@@ -522,7 +521,7 @@ background-color:transparent;
 }
 
 .service-bangzhu-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
 .service-guanyuwomen{
@@ -539,6 +538,6 @@ background-color:transparent;
 }
 
 .service-guanyuwomen-text {
-  margin-top: 10rpx;
+  margin-top: -10rpx;
   font-size: 23rpx;
 }
