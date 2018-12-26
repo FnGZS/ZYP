@@ -111,7 +111,8 @@ page {
   border-radius: 20rpx;
   margin-left: 3%;
   margin-top: -105rpx;
-  box-shadow: 5rpx 5rpx 5rpx #a9a9a9;
+box-shadow:1rpx 1rpx 20rpx #dddcdc;
+
 }
 
 .order-title {
@@ -264,7 +265,8 @@ page {
   background: #fff;
   border-radius: 20rpx;
   margin-left: 3%;
-  box-shadow: 5rpx 5rpx 5rpx #a9a9a9;
+ box-shadow:1rpx 1rpx 20rpx #dddcdc;
+
   margin-top: 30rpx;
 }
 
@@ -403,7 +405,8 @@ page {
   background: #fff;
   border-radius: 20rpx;
   margin-left: 3%;
-  box-shadow: 5rpx 5rpx 5rpx #a9a9a9;
+box-shadow:1rpx 1rpx 20rpx #dddcdc;
+
   margin-top: 30rpx;
   margin-bottom: 50rpx;
 }

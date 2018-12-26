@@ -14,11 +14,11 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx070db500b5e5740f",
-	"projectname": "%E5%9C%A8%E5%85%83%E5%9F%B9%E6%AD%A3%E5%BC%8F",
+	"projectname": "%E5%9C%A8%E5%85%83%E5%9F%B9%E6%AD%A3%E5%BC%8F%E7%89%88",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
+	"scripts": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -33,7 +33,6 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -212,17 +211,6 @@
 					"name": "我的",
 					"pathName": "pages/user/index",
 					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的消息",
-					"pathName": "pages/secondHand/secondHandMes/secondHandMes",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "模板测试文件",
-					"pathName": "pages/logs/logs"
 				}
 			]
 		}
