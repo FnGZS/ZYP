@@ -758,7 +758,7 @@ Page({
   },
   toTicket:function(){
     wx.navigateTo({
-      url: '../ticket/ticketmian/ticket',
+      url: '../ticket/ticketmian/ticketmian',
     })
   },
   //暂未开发
