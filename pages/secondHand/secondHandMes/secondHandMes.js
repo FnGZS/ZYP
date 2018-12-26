@@ -9,7 +9,10 @@ Page({
     startYUser: 0,
     systemMes:[],
     userMes: [],
-    lodingHidden:true
+    pageNo: 1,
+    pageSize: 10,
+    lodingHidden: true,
+    isBottom: false //是否到底
   },
   onLoad: function (options) {
     var userId = wx.getStorageSync('userId');
@@ -49,13 +52,15 @@ Page({
   getUserMes:function(){
     var that = this;
     var userId = this.data.userId;
+    var pageNo = this.data.pageNo;
+    var pageSize = this.data.pageSize;
     let infoOpt = {
       url: '/secondary/commentMessage',
       type: 'GET',
       data: {
         userId:userId,
-        pageNo:1,
-        pageSize:20
+        pageNo: pageNo,
+        pageSize: pageSize
       },
       header: {
         'content-type': 'application/json',
@@ -64,12 +69,31 @@ Page({
     let infoCb = {}
     infoCb.success = function (res) {
       console.log(res);
+      var userNewMes = res.list;
+      var userMes = that.data.userMes;
+
+      if (userNewMes.length == 0 && userMes.length != 0) {
+        that.setData({
+          lodingHidden: true,
+          isBottom: true
+        })
+      } else {
+        for (var i = 0; i < userNewMes.length; i++) {
+          userNewMes[i]['isTouchMove'] = false;
+          userMes.push(userNewMes[i]);
+        }
+        // console.log(goodsList)
+        that.setData({
+          userMes: userMes,
+          lodingHidden: true
+        })
+      }
+    }
+    infoCb.beforeSend = () => { 
       that.setData({
-        userMes: res.list,
-        lodingHidden: true
+        lodingHidden:false
       })
     }
-    infoCb.beforeSend = () => { }
     sendAjax(infoOpt, infoCb, () => { });
   },
   //手指触摸动作开始 记录起点X坐标
@@ -203,10 +227,10 @@ Page({
       confirmColor: "#56a4ff",
       success(res) {
         if (res.confirm) {
-          var systemMes = that.data.systemMes;
-          systemMes.splice(index, 1); //删除
+          var userMes = that.data.userMes;
+          userMes.splice(index, 1); //删除
           that.setData({
-            systemMes: systemMes
+            userMes: userMes
           })
           // console.log(goodsId)
         }
@@ -224,6 +248,13 @@ Page({
   onPullDownRefresh: function () {
   },
   onReachBottom: function () {
+    var pageNo = this.data.pageNo;
+    if (this.data.isBottom == false) {
+      this.setData({
+        pageNo: pageNo + 1
+      })
+      this.getUserMes();
+    }
   },
   onShareAppMessage: function () {
   }

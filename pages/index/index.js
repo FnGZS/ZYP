@@ -756,6 +756,11 @@ Page({
       url: '../secondHand/secondHand',
     })
   },
+  toTicket:function(){
+    wx.navigateTo({
+      url: '../ticket/ticketmian/ticketmian',
+    })
+  },
   //暂未开发
   noDevelop: function () {
     wx.showToast({

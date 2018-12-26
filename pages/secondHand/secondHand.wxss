@@ -69,6 +69,8 @@
 .icon-sousuo{
   font-size: 30rpx;
   color: #CACACA;
+  margin-top:10rpx;
+
 }
 .search-main-text{
   font-size: 25rpx;

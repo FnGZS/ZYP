@@ -214,8 +214,13 @@
 				},
 				{
 					"id": -1,
+<<<<<<< HEAD
 					"name": "直播",
 					"pathName": "pages/Livebroadcast/Livebroadcast"
+=======
+					"name": "我的消息",
+					"pathName": "pages/secondHand/secondHandMes/secondHandMes"
+>>>>>>> fbb56413de589d67c139630c858a5af2d7888314
 				}
 			]
 		}

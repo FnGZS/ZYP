@@ -83,6 +83,7 @@
 
 .icon-liulan {
   font-size: 30rpx;
+      margin-top: 5rpx;
 }
 
 .detail-head-browse-num {
@@ -333,15 +334,18 @@
 .icon-shoucang {
   font-size: 45rpx;
   height: 55rpx;
+  margin-top: 10rpx;
 }
 .icon-shoucang1{
   font-size: 45rpx;
   height: 55rpx;
   color: #FF3434;
+    margin-top: 10rpx;
 }
 .bottomBar-want-text {
   font-size: 23rpx;
   line-height: 40rpx;
+    margin-top: -10rpx;
 }
 
 .bottomBar-leaveMes {
@@ -354,12 +358,9 @@
 .icon-liuyan {
   font-size: 45rpx;
   height: 55rpx;
+      margin-top: 10rpx;
 }
 
-.bottomBar-want-text {
-  font-size: 23rpx;
-  line-height: 40rpx;
-}
 
 .bottomBar-share {
   width: 20%;

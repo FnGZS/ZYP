@@ -27,7 +27,7 @@
       </view>
       <view class="del" bindtap="del1" data-index='{{index}}' data-goodsid='{{item.id}}'>删除</view>
     </view>
-   
+     <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
   </view>
 
 </view>
