@@ -105,6 +105,7 @@ page {
 .swiper-tab-item {
   width: 50%;
   color: #f65959;
+  font-size: 28rpx;
 }
 
 .active {

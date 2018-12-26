@@ -36,7 +36,7 @@
 .Live-list{
   height: 500rpx;
   width: 100%;
-  background: rebeccapurple;
+  /* background: rebeccapurple; */
   position: absolute;
 }
 .list-images{
@@ -73,8 +73,10 @@
   display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 28rpx;
 }
 .online{
+      font-size: 28rpx;
   width: 200rpx;
   height: 100rpx;
   /* background: wheat; */

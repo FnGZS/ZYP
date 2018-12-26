@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isverticalhidden: true,
+    ishorizontalhidden:false,
+    // orientation:'vertical',
   },
  
   onLoad: function (options) {
@@ -17,7 +19,7 @@ Page({
 
   },
   onReady(res) {
-    this.ctx = wx.createLivePlayerContext('player')
+    // this.ctx = wx.createLivePlayerContext('player')
   },
   statechange(e) {
     console.log('live-player code:', e.detail.code)
@@ -36,11 +38,31 @@ Page({
     })
   },
   quanping:function(){
-    console.log(123);
+ 
    var ctx = wx.createLivePlayerContext('player')
-    ctx.requestFullScreen({
-      direction: 0,
-    })
+   var that=this;
+   console.log(123)
+    if (that.data.isverticalhidden)
+    {
+      console.log(1)
+      that.setData({
+        ishorizontalhidden:true,
+        isverticalhidden: false,
+      })
+      ctx.requestFullScreen({
+        direction: 90,
+      })
+    }
+    else {
+      console.log(2);
+      that.setData({
+        ishorizontalhidden: false,
+        isverticalhidden: true,
+      })
+      ctx.exitFullScreen({
+
+      })
+    }
   },
   bindPause() {
     this.ctx.pause({
