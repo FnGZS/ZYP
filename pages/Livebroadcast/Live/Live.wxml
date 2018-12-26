@@ -1,7 +1,7 @@
 <view class="page-body">
   <view class="page-section tc">
     <!-- <live-player  src="rtmp://abc.sxscott.com/live/741977480" mode="live" orientation='vertical ' min-cache='1' max-cache='3' autoplay bindstatechange="statechange" binderror="error" /> -->
-       <live-player id='player'  autoplay src="rtmp://abc.sxscott.com/live/741977480"  min-cache='1' max-cache='3'  mode="live"/>
+       <live-player id='player'  autoplay src="rtmp://abc.sxscott.com/live/741977480"  min-cache='1' max-cache='3'  mode="live" bindstatechange="statechange"/>
     <cover-view class='btn' wx:if='{{isverticalhidden}}'>
       <cover-view class='btn-left'>
         <cover-view class='Onlinenumber'>

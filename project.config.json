@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 30,
+			"current": 29,
 			"list": [
 				{
 					"id": -1,
@@ -211,6 +211,11 @@
 					"name": "我的",
 					"pathName": "pages/user/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直播",
+					"pathName": "pages/Livebroadcast/Livebroadcast"
 				}
 			]
 		}
