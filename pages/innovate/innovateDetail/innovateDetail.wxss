@@ -62,7 +62,7 @@
 .businessBrief-img-list-title{
 	font-size: 20rpx;
 	text-align: center;
-  margin-top: -10rpx;
+  margin-top: 10rpx;
    margin-bottom: 10rpx;
 }
 

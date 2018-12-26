@@ -95,7 +95,6 @@ Page({
     })
   },
   selectAddress: function () {
-    console('跳转选择')
     wx.navigateTo({
       url: '../secondHandAddressSelect/secondHandAddressSelect',
     })

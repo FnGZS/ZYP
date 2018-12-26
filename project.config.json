@@ -213,11 +213,7 @@
 					"pathName": "pages/user/index",
 					"query": ""
 				},
-				{
-					"id": -1,
-					"name": "直播間",
-					"pathName": "pages/Livebroadcast/Live/Live"
-				}
+			
 			]
 		}
 	}

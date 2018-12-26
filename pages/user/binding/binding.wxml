@@ -10,46 +10,46 @@
           <input maxlength="10" bindinput='watchID' placeholder="请输入学号" />
         </view>
         <view class='cont-middle-input'>
-          <input maxlength="10"  bindinput='watchPassWord' placeholder="请输入身份证后六位" />
+          <input maxlength="10" bindinput='watchPassWord' placeholder="请输入身份证后六位" />
         </view>
-         <view class='cont-middle-input-phone'>
-          <input maxlength="11"  bindinput='watchPhone' placeholder="请输入手机号" />
-                  <view class='code' bindtap='{{isClick}}'>{{time}}</view>
+        <view class='cont-middle-input-phone'>
+          <input maxlength="11" bindinput='watchPhone' placeholder="请输入手机号" />
+          <view class='code' bindtap='{{isClick}}'>{{time}}</view>
         </view>
-           <view class='cont-middle-input'>
-          <input maxlength="10"  bindinput='watchCode' placeholder="请输入验证码" />
+        <view class='cont-middle-input'>
+          <input maxlength="10" bindinput='watchCode' placeholder="请输入验证码" />
         </view>
         <view class='cont-middle-help'>
-         注意事项:
+          注意事项:
           <ul>
-           <li>1.此学号仅可用自己的学号绑定</li>
-           <li>2.密码请输入身份证后六位</li>
-           <li>3.绑定后无法更改</li>
+            <li>1.此学号仅可用自己的学号绑定</li>
+            <li>2.密码请输入身份证后六位</li>
+            <li>3.绑定后无法更改</li>
           </ul>
         </view>
       </view>
       <view class='cont-bottom'>
         <view class='cont-btn'>
-         <button  bindtap="Submission"> 提交</button>
+          <button bindtap="Submission"> 提交</button>
         </view>
       </view>
     </view>
   </view>
-  <view wx:elif="{{isshow==1}}" >
-   
+  <view wx:elif="{{isshow==1}}">
+
     <view class='cont-ipm'>
       <view class='cont-head' style='padding-top:200rpx;'>
-        <view class='Firsttitle' >您的学号已绑定</view>
+        <view class='Firsttitle'>您的学号已绑定</view>
         <view class='Secondtitle'>Your student number has been bound.</view>
       </view>
-    
-        <view class='cont-middle-help' style='text-align:center; background:none;'>
-         注意:需修改绑定信息请与客服联系
-      
-        </view>
-   
+
+      <view class='cont-middle-help' style='text-align:center; background:none;'>
+        注意:需修改绑定信息请与客服联系
+
       </view>
-</view>
+
+    </view>
+  </view>
 
   <view class='cont-bg'></view>
 </view>
