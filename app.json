@@ -32,6 +32,7 @@
     "pages/secondHand/secondHandMySold/secondHandMySold",
     "pages/secondHand/secondHandMyBought/secondHandMyBought",
     "pages/secondHand/secondHandPayOrder/secondHandPayOrder",
+    "pages/secondHand/secondHandPaySuccess/secondHandPaySuccess",
     "pages/secondHand/secondHandAddress/secondHandAddress",
     "pages/secondHand/secondHandAddressAdd/secondHandAddressAdd",
     "pages/secondHand/secondHandAddressEdit/secondHandAddressEdit",

@@ -56,7 +56,7 @@
       <view class="left-price">
         <view class="total">合计：¥ {{goodsDetail.price}}</view>
       </view>
-      <button class="to-pay-btn" formType="submit">支付</button>
+      <button class="to-pay-btn" formType="submit" bindtap='payBtn'>支付</button>
     </view>
   </form>
 </view>

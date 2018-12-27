@@ -99,6 +99,11 @@ Page({
       url: '../secondHandAddressSelect/secondHandAddressSelect',
     })
   },
+  payBtn:function(){
+    wx.navigateTo({
+      url: '../secondHandPaySuccess/secondHandPaySuccess',
+    })
+  },
   onReady: function () { },
   onShow: function () {
     

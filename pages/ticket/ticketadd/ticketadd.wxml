@@ -49,7 +49,7 @@
                 <text class="flex-0-0">开奖时间</text>
                 <view class="list-warn-box  color_fff font-24" style="right:360rpx;" wx:if="{{inputValue6show==true}}">时间不能早于当前</view>
                 <view class="list-right color_808080 font-28">
-                    <text>{{dateArray}} {{nowhour<hour||nowhour==hour?hour:nowhour}}:{{minute}}</text>
+                    <text>{{dateArray}} {{(nowhour<hour||nowhour==hour)&&dayy==0?nowhour:hour}}:{{minute}}</text>
                     <text class="iconfont icon-you color_808080 time-next"></text>
                 </view>
             </view>

@@ -9,6 +9,7 @@ for (var dateTemp, time1, dateArrays = [], time = [], c = [], flag = 1, i = 0; i
 }
 const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
+  const util = require('../../../utils/util.js')
 
 Page({
     data: {
@@ -28,6 +29,7 @@ Page({
         dateArray: dateArrays[0],
         hours: hours,
         hour: hours[0],
+        dayy:0,
         nowhour: hh,
         minutes: minutes,
         minute: minutes[0],
@@ -203,7 +205,8 @@ Page({
             choosehour: u,
             hour: this.data.hours[e[1]],
             minute: this.data.minutes[e[2]],
-            inputValue6show: i
+            inputValue6show: i,
+            dayy:e[0]
         });
     },
     //回到首页
@@ -212,44 +215,14 @@ Page({
       url: "../ticketmian/ticketmian"
     });
   },
-    //皮一下
-    // goPi: function() {
-    //     把这个复制到wxml第二行 <image bindtap="goPi" class="piImg" src="../../../resource/images/pi.png"></image>
-    //     wx.navigateTo({
-    //         url: "../ticketPi/ticketPi"
-    //     });
-    // },
-
-    // onShow: function() {
-    //     var t = this;
-    //     app.util.request({
-    //         url: "entry/wxapp/url",
-    //         cachetime: "0",
-    //         success: function(a) {
-    //             wx.setStorageSync("url", a.data), t.setData({
-    //                 url: a.data
-    //             });
-    //         }
-    //     }), app.util.request({
-    //         url: "entry/wxapp/GetRed",
-    //         data: {},
-    //         success: function(a) {
-    //             console.log(a), t.setData({
-    //                 tz_audit: a.data.tz_audit,
-    //                 is_car: a.data.is_car,
-    //                 status: a.data.is_sjrz,
-    //                 cjzt: a.data.cjzt,
-    //                 cjzt1: t.data.url + "/" + a.data.cjzt,
-    //                 day: a.data.is_open_pop
-    //             }), console.log(t.data.cjzt);
-    //         }
-    //     });
-    // },
     //发起抽奖
     goTicketdetail: function(a) {
-      wx.navigateTo({
-        url: "../ticketdetail/ticketdetail"
-      });
+      var time = util.formatTime(new Date());
+      var year = time.substring(0, 4)
+      console.log(year+"-"+this.data.time1,this.data.choosehour+":"+this.data.minute)
+      // wx.navigateTo({
+      //   url: "../ticketdetail/ticketdetail"
+      // });
     },
     goTicketmy: function(a) {
         wx.navigateTo({
