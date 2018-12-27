@@ -66,7 +66,9 @@ Page({
     var that = this;
     console.log(wx.getStorageSync("phone"))
     if (wx.getStorageSync("phone")) {
-
+      that.setData({
+        cloudsShow: false
+      })
     } else {
       that.setData({
         cloudsShow: true
@@ -393,6 +395,7 @@ Page({
   onShow: function () {
 
     var that = this;
+    that.isshowgetPhoneNumber();
   },
   /**
    * 生命周期函数--监听页面隐藏
