@@ -1,0 +1,48 @@
+#secondHandPaySuccess {
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  width: 100%;
+  text-align: center;
+  height: 150rpx;
+  margin-top: 50rpx;
+}
+
+.main-img {
+  width: 60%;
+  height: 100%;
+  margin-left: 2%;
+}
+
+.main-text {
+  font-size: 28rpx;
+}
+.main-btn{
+  display: flex;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 50rpx;
+}
+.backSec{
+  flex: 1;
+  height: 60rpx;
+  background: #ef696c;
+  color: #fff;
+  font-size: 25rpx;
+  line-height: 60rpx;
+  font-weight: bold;
+  border-radius: 10rpx;
+  margin-right: 50rpx;
+}
+.toOrderDetail{
+  flex: 1;
+  height: 60rpx;
+  background: #ef696c;
+  color: #fff;
+  font-size: 25rpx;
+  line-height: 60rpx;
+  font-weight: bold;
+  border-radius: 10rpx;
+}
