@@ -61,7 +61,7 @@ App({
                       wx.setStorageSync("avatar", res.data.avatar)
                       wx.setStorageSync("userKey", res.data.userKey)
                       wx.setStorageSync("authorization", res.data.authorization)
-                      
+                      wx.setStorageSync("phone", res.data.phone)
                       wx.setStorageSync("userId", res.data.userId)
                       wx.setStorageSync("sessionKey", res.data.sessionKey)
                       // console.log(res.data.authorization)

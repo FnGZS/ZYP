@@ -19,7 +19,7 @@ Page({
     interval: 5000,
     duration: 1000,
     circular: true,
-    cloudsShow: true,
+    cloudsShow: false,
     //投票用的
     clubs: [], //原始数据
     animations: [],
@@ -52,7 +52,7 @@ Page({
       success: res => {
         // console.log(res.authSetting['scope.userInfo'])
         if (res.authSetting['scope.userInfo']) {
-        }else {
+        } else {
           console.log(res)
           wx.navigateTo({
             url: '/pages/start/start',
@@ -60,6 +60,18 @@ Page({
         }
       }
     })
+  },
+  //绑定手机号
+  isshowgetPhoneNumber: function () {
+    var that = this;
+    console.log(wx.getStorageSync("phone"))
+    if (wx.getStorageSync("phone")) {
+
+    } else {
+      that.setData({
+        cloudsShow: true
+      })
+    }
   },
   getPhoneNumber: function (e) {
     console.log(e);
@@ -80,48 +92,37 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      console.log(res)
-      // wx.showModal({
-      //   title: '提示',
-      //   showCancel: false,
-      //   content: '66666',
-      //   success: function (res) {
-      //     that.setData({
-      //       cloudsShow: false
-      //     })
-      //   }
-      // })
+      // console.log(res)
+      if (res.message == "成功")
+        wx.setStorageSync("phone", res.phone)
     }
     infoCb.beforeSend = () => { }
     sendAjax(infoOpt, infoCb, () => { });
-    // if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
-    // wx.showModal({
-    //   title: '提示',
-    //   showCancel: false,
-    //   content: '未授权',
-    //   success: function (res) { 
-    //     that.setData({
-    //       cloudsShow:false
-    //     })
-    //   }
-    // })
-    // } else {
-    //   wx.showModal({
-    //     title: '提示',
-    //     showCancel: false,
-    //     content: '同意授权',
-    //     success: function (res) {
-    //       that.setData({
-    //         cloudsShow: false
-    //       })
-    //      }
-    //   })
-    // }
+    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '如未授权手机号将无法使用功能',
+        success: function (res) {
+          that.setData({
+            cloudsShow: true
+          })
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '欢迎进入在元培',
+        success: function (res) {
+          that.setData({
+            cloudsShow: false
+          })
+        }
+      })
+    }
   },
-  // Navigation: function (event) {
-  //   var that = this;
-  //   app.Navigation(event, that);
-  // },
+ 
   hhidden: function () {
     var that = this;
     wx.request({
@@ -213,7 +214,7 @@ Page({
     });
   },
   //直播跳转
-  Livebroadcast:function(e){
+  Livebroadcast: function (e) {
     wx.navigateTo({
       url: '../Livebroadcast/Livebroadcast'
     });
@@ -369,6 +370,7 @@ Page({
     //     cloudsShow: false
     //   })
     // }
+    that.isshowgetPhoneNumber();
     that.hhidden();
     // that.Startpage();
     // console.log(111);
@@ -756,7 +758,7 @@ Page({
       url: '../secondHand/secondHand',
     })
   },
-  toTicket:function(){
+  toTicket: function () {
     wx.navigateTo({
       url: '../ticket/ticketmian/ticketmian',
     })
