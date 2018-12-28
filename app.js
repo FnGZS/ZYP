@@ -9,6 +9,7 @@ App({
     wx.setStorageSync('logs', logs)
     wx.setStorageSync("isLogin",0)
     wx.setStorageSync("sessionKey",'')
+    wx.setStorageSync("phone","")
     // this.getStart()
 
     // 登录

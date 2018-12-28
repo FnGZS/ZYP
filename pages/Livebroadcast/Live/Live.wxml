@@ -1,112 +1,34 @@
-<view class="page-body">
-  <view class="page-section tc">
-    <!-- <live-player  src="rtmp://abc.sxscott.com/live/741977480" mode="live" orientation='vertical ' min-cache='1' max-cache='3' autoplay bindstatechange="statechange" binderror="error" /> -->
-    <live-player bindtap='click' id='player' autoplay src="rtmp://abc.sxscott.com/live/741977480" min-cache='1' max-cache='3' mode="live" bindstatechange="statechange" bindfullscreenchange='quan' />
-    <cover-view class='bg'></cover-view>
-    <cover-view class='btn' wx:if='{{isverticalhidden}}'>
-      <cover-view class='btn-left'>
-        <cover-view class='Onlinenumber'>
-          376
+<!--pages/play/play.wxml-->
+<view style="width:100%;height: 100%; background-color: black; ">
+  <view style="width:100%;height:100%;">
+    <live-player class='{{livestyle}}'  id="video-livePlayer" mode="live" orientation="{{orientation}}" muted="{{muted}}" background-mute="{{backgroundMute}}" object-fit="{{objectFit}}" min-cache="1" max-cache="3" src="{{playUrl}}"
+      debug="{{debug}}" bindstatechange="onPlayEvent" bindfullscreenchange="onFullScreenChange">
+      <cover-image hidden="{{playing}}" style="width:100%; height: 100%; position:absolute;" src="https://mc.qcloudimg.com/static/img/7da57e0050d308e2e1b1e31afbc42929/bg.png"></cover-image>
+
+      <cover-view style="width:100%; height: 50px; position:absolute;bottom:0px;">
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/{{playing?'suspend':'start'}}.png" bindtap='onPlayClick'></cover-image>
+
         </cover-view>
-        <cover-view class='Onlinetitle'>
-          绍兴文理元培学院辞旧迎新晚会直播！
+        <!-- <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/qr.png" bindtap='onScanQR'></cover-image>
+          <cover-view class='bottom_text'>扫码</cover-view>
+        </cover-view> -->
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/rotate.png" bindtap='onOrientationClick'></cover-image>
+          <!-- <cover-view class='bottom_text'>{{orientation == 'vertical'?'竖屏':'横屏'}}</cover-view> -->
+        </cover-view>
+  
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/{{muted?'sound-dis':'sound'}}.png" bindtap='onMuteClick'></cover-image>
+          <!-- <cover-view class='bottom_text'>声音</cover-view> -->
+        </cover-view>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/{{objectFit == 'contain'?'adjust':'fill'}}.png" bindtap='onObjectfitClick'></cover-image>
+          <!-- <cover-view class='bottom_text'>{{objectFit == 'contain'?'适应':'填充'}}</cover-view> -->
         </cover-view>
       </cover-view>
-      
-      <cover-view class='btn-rigth'>
-        <cover-view class='report'>
-          <cover-image src='../../../images/jinggao.png'></cover-image>
-        </cover-view>
-        <cover-view class='fullscreen' bindtap="quanping">
-          <cover-image src='../../../images/quanping.png'></cover-image>
-        </cover-view>
-      </cover-view>
-
-
-      <!-- <button class="body-button" type="">播放</button> -->
-    </cover-view>
-
-    <!-- <view class="btn-area">
-      <button bindtap="bindPlay" class="page-body-button" type="primary">播放</button>
-      <button bindtap="bindPause" class="page-body-button" type="primary">暂停</button>
-      <button bindtap="bindStop" class="page-body-button" type="primary">停止</button>
-      <button bindtap="bindResume" class="page-body-button" type="primary">恢复</button>
-      <button bindtap="bindMute" class="page-body-button" type="primary">静音</button>
-   
-    </view> -->
-    <!-- <button bindtap="quanping" class="page-body-button" type="primary">全屏</button> -->
-    <scroll-view class="history" hidden='true' scroll-y="true" scroll-with-animation scroll-top="{{scrollTop}}">
-
-      <block wx:key="{{index}}" wx:for="{{allContentList}}">
-        <!-- <view>
-      <text class='time'>{{time}}</text>
-    </view> -->
-        <view class='my_right' wx:if="{{item.is_ai}}">
-          <view class='p_r' wx:if='{{item.is_ai}}'>
-            <text class='new_txt'><text class='new_txt_my'>{{item.onMessage_data}}</text></text>
-            <!-- <view class='sanjiao my'></view>
-        <image class='new_img' src='/images/test.jpg'></image> -->
-          </view>
-          <!-- <view class='p_r' wx:if='{{item.is_my.img}}' bindtap='my_audio_click' data-id='{{index}}'>
-        <text class='new_txt'> </text>
-        <view class='my_img_bg'>
-        <image class='my_audio' src='{{img}}'></image></view>
-        <view class='sanjiao my'></view>
-        <image class='new_img' src='/images/test.jpg'></image>
-      </view> -->
-        </view>
-        <!-- <view class='you_left' id='id_{{allContentList.length}}'> -->
-        <view class='you_left' id='id_{{allContentList.length}}' wx:key="{{index}}" wx:if="{{item.is_ai}}">
-          <view class='p_r'>
-            <!-- <image class='new_img' src='/images/chac.jpg'></image> -->
-            <view class='sanjiao you'></view>
-            <view class='new_txt'>
-              <view class='new_txt_ai'>
-                <!-- {{item.text}} -->
-                <block wx:for='{{item.is_two}}' wx:key='index'>
-                  <text wx:if='{{item.text}}'>{{item.text}}</text>
-                  <text wx:if='{{item.a.title}}' style='color:#0000EE' bindtap='link' id='{{item.a.link}}'>{{item.a.title}}</text>
-                </block>
-              </view>
-            </view>
-          </view>
-        </view>
-      </block>
-    </scroll-view>
-    <view class="sendmessage" hidden='true'>
-      <!-- <image class='voice_icon' bindtap='addImg' src='/images/jia_img.png'></image> -->
-      <block wx:if='{{!addImg}}'>
-        <input type="text" placeholder="说两句" bindinput="bindKeyInput" value='{{inputValue}}' focus='{{focus}}' bindfocus="focus" confirm-type="done" />
-        <button bindtap="submitTo" class='user_input_text'>发送</button>
-      </block>
-    </view>
-    <cover-view class='Horizontal-tlitle' wx:if='{{ishorizontalhidden}}'>
-    
-      <cover-view class='title-back' bindtap="quanping">
-        <cover-image src='../../../images/left.png'></cover-image>
-      </cover-view>
-      <cover-view class='Horizontal-text'>绍兴文理元培学院辞旧迎新晚会直播！</cover-view>
-
-    </cover-view>
-    <cover-view class='btn-Horizontal' wx:if='{{ishorizontalhidden}}'>
-            <cover-view class='Horizontal-btn' bindtap="bindPlay">
-          <cover-image src='../../../images/play2.png'></cover-image>
-        </cover-view>
-                <cover-view class='Horizontal-btn' bindtap="bindPause">
-          <cover-image src='../../../images/stop.png'></cover-image>
-        </cover-view>
-                <cover-view class='Horizontal-btn' bindtap="bindResume">
-          <cover-image src='../../../images/resu.png'></cover-image>
-        </cover-view>
-      <cover-view class='Horizontal-rigth'>
-        <cover-view class='Horizontal-btn'>
-          <cover-image src='../../../images/jinggao.png'></cover-image>
-        </cover-view>
-        <cover-view class='Horizontal-btn' bindtap="quanping">
-          <cover-image src='../../../images/quanping.png'></cover-image>
-        </cover-view>
-
-      </cover-view>
-    </cover-view>
+      <!-- <cover-image class='close' style="top:{{(headerHeight + statusBarHeight) - 26}}rpx" src="../../../images/back.png" bindtap="onBack"></cover-image> -->
+    </live-player>
   </view>
 </view>

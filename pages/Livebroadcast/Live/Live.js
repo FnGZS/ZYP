@@ -1,279 +1,228 @@
-// pages/Livebroadcast/Live/Live.js
-var socketOpen = false;
-var frameBuffer_Data, session, SocketTask;
-var url = 'ws://www.sxscott.com/crazyBird/echo';
+// pages/play/play.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isverticalhidden: true,
-    ishorizontalhidden:false,
-    // orientation:'vertical',
-    scrollTop:0,
-    window:0,
-
-
-    // user_input_text: '',//用户输入文字
-    // inputValue: '',
-    // returnValue: '',
-    // addImg: false,
-    // //格式示例数据，可为空
-    // allContentList: [],
-    // num: 0
-  },
- 
-  onLoad: function (options) {
-    // this.bottom();
+    playing: false,
+    videoContext: {},
+    livestyle:'liveplayerstyle',
+    fullScreen: false,
+    playUrl: "http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4_550.flv",
+    orientation: "vertical",
+    objectFit: "contain",
+    muted: false,
+    backgroundMuted: false,
+    debug: false,
+    headerHeight: app.globalData.headerHeight,
+    statusBarHeight: app.globalData.statusBarHeight,
   },
 
- 
-  onShow: function () {
-    // if (!socketOpen) {
-    //   this.webSocket()
-    // }
-  },
-  webSocket: function () {
-    // // 创建Socket
-    // SocketTask = wx.connectSocket({
-    //   url: url,
-    //   data: 'data',
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   method: 'post',
-    //   success: function (res) {
-    //     console.log('WebSocket连接创建', res)
-    //   },
-    //   fail: function (err) {
-    //     wx.showToast({
-    //       title: '网络异常！',
-    //     })
-    //     console.log(err)
-    //   },
-    // })
-    // SocketTask.onError(onError => {
-    //   console.log('监听 WebSocket 错误。错误信息', onError)
-    //   socketOpen = false
-    // })
-  },
-  // 提交文字
-  // submitTo: function (e) {
-  //   let that = this;
-  //   var data = {
-  //     body: that.data.inputValue,
-  //   }
-
-  //   if (socketOpen) {
-  //     // 如果打开了socket就发送数据给服务器
-  //     sendSocketMessage(data)
-  //     this.data.allContentList.push({ is_my: { text: this.data.inputValue } });
-  //     this.setData({
-  //       allContentList: this.data.allContentList,
-  //       inputValue: ''
-  //     })
-
-  //     that.bottom()
-  //   }
-  // },
-  
-  // bindKeyInput: function (e) {
-  //   this.setData({
-  //     inputValue: e.detail.value
-  //   })
-  // },
-  //定时函数
-  timeout:function(){
-    console.log('123');
-    var that=this;
-    if(window)
-    {
-      that.setData({
-        ishorizontalhidden: true
-      })
- 
-    }
-    else {
-      that.setData({
-        isverticalhidden: true
-      })
-
-    }
-    setTimeout(function () {
-      console.log('asd');
-      if (window)
-      {
-        that.setData({
-          ishorizontalhidden: false
+  onScanQR: function () {
+    this.stop();
+    this.createContext();
+    var self = this;
+    wx.scanCode({
+      onlyFromCamera: true,
+      success: (res) => {
+        console.log(res);
+        self.setData({
+          playUrl: res.result
         })
-      }else {
-        that.setData({
-          isverticalhidden: false
-        })
-
       }
-    }, 5000)
+    })
+  },
 
+  onPlayClick: function () {
+    var url = this.data.playUrl;
+    if (url.indexOf("rtmp:") == 0) {
+    } else if (url.indexOf("https:") == 0 || url.indexOf("http:") == 0) {
+      if (url.indexOf(".flv") != -1) {
+      }
+    } else {
+      wx.showToast({
+        title: '播放地址不合法，目前仅支持rtmp,flv方式!',
+        icon: 'loading',
+      })
+    }
+
+    this.setData({
+      playing: !this.data.playing,
+    })
+
+    if (this.data.playing) {
+      this.data.videoContext.play();
+      console.log("video play()");
+      wx.showLoading({
+        title: '',
+      })
+    } else {
+      this.data.videoContext.stop();
+      console.log("video stop()");
+      wx.hideLoading();
+    }
   },
-  click:function(){
-    this.timeout()
+
+  onOrientationClick: function () {
+  var that=this;
+    if (this.data.orientation == "vertical") {
+      this.data.orientation = "horizontal";
+      // this.data.livestyle = 'liveplayerstyle'
+      that.setData({
+        livestyle:'fullScreen'
+      })
+    } else {
+      this.data.orientation = "vertical";
+      // this.data.livestyle = 'fullScreen'
+      that.setData({
+        livestyle: 'liveplayerstyle'
+      })
+    }
+
+    this.setData({
+      orientation: this.data.orientation
+    })
   },
-  quan(e){
+
+  onObjectfitClick: function () {
+    if (this.data.objectFit == "fillCrop") {
+      this.data.objectFit = "contain";
+    } else {
+      this.data.objectFit = "fillCrop";
+    }
+
+    this.setData({
+      objectFit: this.data.objectFit
+    })
+  },
+
+  onLogClick: function () {
+    this.setData({
+      debug: !this.data.debug
+    })
+    var that = this;
+    setTimeout(() => {
+      that.setData({
+        exterFlag: !that.data.exterFlag
+      })
+    }, 10)
+  },
+
+  onMuteClick: function () {
+    this.setData({
+      muted: !this.data.muted
+    })
+  },
+
+  onFullScreenClick: function () {
+
+    if (!this.data.fullScreen) {
+      this.data.videoContext.requestFullScreen({
+        direction: 0,
+
+      })
+
+    } else {
+      this.data.videoContext.exitFullScreen({
+
+      })
+    }
+  },
+
+  onPlayEvent: function (e) {
+    console.log(e.detail.code);
+    if (e.detail.code == -2301) {
+      this.stop();
+      wx.showToast({
+        title: '拉流多次失败',
+      })
+    }
+    if (e.detail.code == 2004) {
+      wx.hideLoading();
+    }
+  },
+
+  onFullScreenChange: function (e) {
+    this.setData({
+      fullScreen: e.detail.fullScreen,
+   
+    })
     console.log(e);
-  },
-  onReady(res) {
-    this.ctx = wx.createLivePlayerContext('player')
-    // var that = this;
-    // SocketTask.onOpen(res => {
-    //   socketOpen = true;
-    //   console.log('监听 WebSocket 连接打开事件。', res) 
-    // })
-    // SocketTask.onClose(onClose => {
-    //   console.log('监听 WebSocket 连接关闭事件。', onClose)
-    //   socketOpen = false;
-    //   this.webSocket()
-    // })
-    // SocketTask.onError(onError => {
-    //   console.log('监听 WebSocket 错误。错误信息', onError)
-    //   socketOpen = false
-    // })
-    // SocketTask.onMessage(onMessage => {
-    //   console.log('监听WebSocket接受到服务器的消息事件。服务器返回的消息', onMessage.data)
-    //   var onMessage_data = onMessage.data
-
-    //   that.setData({
-    //     link_list: onMessage_data
-    //   })
-    //   console.log(onMessage_data, onMessage_data instanceof Array)
-    //   // 是否为数组
-    //   if (onMessage_data instanceof Array) {
-    //     for (var i = 0; i < onMessage_data.length; i++) {
-    //       onMessage_data[i]
-    //     }
-    //   } else {
-
-    //   }
-    //   that.data.allContentList.push({ is_ai: true, onMessage_data: onMessage_data });
-    //   that.setData({
-    //     allContentList: that.data.allContentList
-    //   })
-    //   console.log(that.data.allContentList)
-    //   that.bottom()
-
-    // })
-  },
-
-  statechange(e) {
-    
-    console.log('live-player code:', e.detail.code)
-  },
-  error(e) {
-    console.error('live-player error:', e.detail.errMsg)
-  },
-  bindPlay() {
-    this.ctx.play({
-      success: res => {
-        console.log('play success')
-      },
-      fail: res => {
-        console.log('play fail')
-      }
+    wx.showToast({
+      title: this.data.fullScreen ? '全屏' : '退出全屏',
     })
   },
-  quanping:function(){
- 
-   var ctx = wx.createLivePlayerContext('player')
-   var that=this;
-    console.log(that.data.ishorizontalhidden)
-    console.log(that.data.isverticalhidden)
-    if (that.data.isverticalhidden)
-    {
-      ctx.requestFullScreen({
-        direction: 90,
-      })
-      that.setData({
-        ishorizontalhidden:true,
-        isverticalhidden: false,
-        window:1,
-      })
-  
-    }
-    else {
-      console.log(2);
-      that.setData({
-        ishorizontalhidden: false,
-        isverticalhidden: true,
-        window:0
-      })
-      ctx.exitFullScreen({
 
-      })
-    }
+  stop: function () {
+    this.setData({
+      playing: false,
+      // playUrl: "rtmp://2157.liveplay.myqcloud.com/live/2157_wx_live_test1",
+      orientation: "vertical",
+      objectFit: "contain",
+      muted: false,
+      fullScreen: false,
+      backgroundMuted: false,
+      debug: false,
+      exterFlag: false,
+    })
+    this.data.videoContext.stop();
+    wx.hideLoading();
   },
-  bindPause() {
-    this.ctx.pause({
-      success: res => {
-        console.log('pause success')
-      },
-      fail: res => {
-        console.log('pause fail')
-      }
+
+  createContext: function () {
+    this.setData({
+      videoContext: wx.createLivePlayerContext("video-livePlayer")
     })
   },
-  bindStop() {
-    this.ctx.stop({
-      success: res => {
-        console.log('stop success')
-      },
-      fail: res => {
-        console.log('stop fail')
-      }
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    this.createContext();
+    console.log(this.data.videoContext);
+
+    wx.setKeepScreenOn({
+      keepScreenOn: true,
     })
   },
-  bindResume() {
-    this.ctx.resume({
-      success: res => {
-        console.log('resume success')
-      },
-      fail: res => {
-        console.log('resume fail')
-      }
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    // 保持屏幕常亮
+    wx.setKeepScreenOn({
+      keepScreenOn: true
     })
   },
-  bindMute() {
-    this.ctx.mute({
-      success: res => {
-        console.log('mute success')
-      },
-      fail: res => {
-        console.log('mute fail')
-      }
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
-  // bottom: function () {
-  //   var that = this;
-  //   this.setData({
-  //     scrollTop: 1000000
-  //   })
-  // },
-  
+
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
- var that=this;
-    that.setData({
-      ishorizontalhidden: false,
-      isverticalhidden: true,
+    this.stop();
+
+    wx.setKeepScreenOn({
+      keepScreenOn: false,
     })
- console.log(123)
   },
 
   /**
@@ -294,15 +243,16 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      // title: '直播播放器',
+      // path: '/pages/play/play',
+      path: '/pages/main/main',
+      imageUrl: 'https://mc.qcloudimg.com/static/img/dacf9205fe088ec2fef6f0b781c92510/share.png'
+    }
+  },
+  onBack: function () {
+    wx.navigateBack({
+      delta: 1
+    });
   }
 })
-function sendSocketMessage(msg) {
-  var that = this;
-  console.log('通过 WebSocket 连接发送数据', JSON.stringify(msg))
-  SocketTask.send({
-    data: JSON.stringify(msg)
-  }, function (res) {
-    console.log('已发送', res)
-  })
-}

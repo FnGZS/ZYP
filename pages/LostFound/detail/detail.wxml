@@ -5,7 +5,7 @@
         <view class='detail-owner-lost'>
           #失物招领#
         </view>
-        <image src='/images/down.png'></image>
+   
       </view>
       <view class='detail-owner-message'>
         <view class='detail-owner-message-touxiang'>
@@ -79,12 +79,12 @@
     <view class='tabbottom'>
    
            <view class='bottom-share' >
-          <image src='/images/reply.png' class='replypic'></image>
-          <view class='bottom-text' >评论</view>
+          <!-- <image src='/images/reply.png' class='replypic'></image>
+          <view class='bottom-text' >评论</view> -->
         </view>
            <view class='bottom-share'>
-          <image src='/images/dianzan.png' class='dianzan'></image>
-          <view class='bottom-text'>点赞</view>
+          <!-- <image src='/images/dianzan.png' class='dianzan'></image>
+          <view class='bottom-text'>点赞</view> -->
         </view>
              <view class='bottom-share'>
           <!-- <image src='/images/share.png' class='share'></image>

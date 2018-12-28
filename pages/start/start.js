@@ -75,6 +75,7 @@ Page({
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
+
       wx.login({
         success: resp => {
           // 发送 resp.code 到后台换取 openId, sessionKey, unionId

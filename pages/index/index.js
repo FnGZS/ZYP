@@ -77,6 +77,15 @@ Page({
   },
   getPhoneNumber: function (e) {
     console.log(e);
+    wx.checkSession({
+      success() {
+        console.log(123123);
+      },
+      fail() {
+        // session_key 已经失效，需要重新执行登录流程
+        console.log(444444444);
+      }
+    })
     var that = this;
     console.log(wx.getStorageSync("sessionKey"))
     var sessionkey = wx.getStorageSync("sessionKey");
