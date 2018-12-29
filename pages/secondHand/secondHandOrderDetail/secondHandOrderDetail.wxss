@@ -1,0 +1,330 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('iconfont.eot?t=1545902147596'); /* IE9*/
+  src: url('iconfont.eot?t=1545902147596#iefix') format('embedded-opentype'),
+         /* IE6-IE8 */ url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAARAAAsAAAAABoQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFY8yEhEY21hcAAAAYAAAABLAAABcOd6tqBnbHlmAAABzAAAAJAAAACQsCuR6WhlYWQAAAJcAAAALwAAADYTtLaDaGhlYQAAAowAAAAcAAAAJAfeA4NobXR4AAACqAAAAAgAAAAICAAAAGxvY2EAAAKwAAAABgAAAAYASAAAbWF4cAAAArgAAAAgAAAAIAEQADRuYW1lAAAC2AAAAUUAAAJtPlT+fXBvc3QAAAQgAAAAHgAAAC/OentveJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkYWCcwMDKwMHUyXSGgYGhH0IzvmYwYuRgYGBiYGVmwAoC0lxTGByeBT0LYm7438AQw9zA0AAUZgTJAQDp9QyHeJxjYGBgZWBgYAZiHSBmYWBgDGFgZAABP6AoI1icmYELLM7CoARWwwISfxb0/z+MBPJZwCQDIxvDKOABkzJQHjisIJiBEQDxbgqxAAAEAAD/gAOyA4AADQAZABoAJwAABScmACc+ATceARcGAAcDDgEHHgEXPgE3LgEDIx4CMj4BNy4BJw4BAgAlJP6vGAX1uLj1BRj+ryQle6MDCsxLS8wKA6N7kQEmRExEJgECUj09UoAWDAE0+Ln0BQX0ufj+zAwDWQOje5PiLi7ik3uj/uInQicnQic+UQICUXicY2BkYGAA4vdf7XTj+W2+MnCzMIDADa+dzgj6fwMLA3MDkMvBwAQSBQAyWApMAHicY2BkYGBu+N/AEMPCAAJAkpEBFTABAEcIAmsEAAAABAAAAAAAAAAASAAAAAEAAAACACgABAAAAAAAAgAAAAoACgAAAP8AAAAAAAB4nGWPTU7DMBCFX/oHpBKqqGCH5AViASj9EatuWFRq911036ZOmyqJI8et1ANwHo7ACTgC3IA78EgnmzaWx9+8eWNPANzgBx6O3y33kT1cMjtyDRe4F65TfxBukF+Em2jjVbhF/U3YxzOmwm10YXmD17hi9oR3YQ8dfAjXcI1P4Tr1L+EG+Vu4iTv8CrfQ8erCPuZeV7iNRy/2x1YvnF6p5UHFockikzm/gple75KFrdLqnGtbxCZTg6BfSVOdaVvdU+zXQ+ciFVmTqgmrOkmMyq3Z6tAFG+fyUa8XiR6EJuVYY/62xgKOcQWFJQ6MMUIYZIjK6Og7VWb0r7FDwl57Vj3N53RbFNT/c4UBAvTPXFO6stJ5Ok+BPV8bUnV0K27LnpQ0kV7NSRKyQl7WtlRC6gE2ZVeOEXpc0Yk/KGdI/wAJWm7IAAAAeJxjYGKAAC4G7ICJkYmRmYE1JbMqI5OBAQANCAIzAAA=') format('woff'),
+         url('iconfont.ttf?t=1545902147596') format('truetype'),
+         /* chrome,
+         firefox,
+         opera,
+         Safari,
+         Android,
+         iOS 4.2+*/ url('iconfont.svg?t=1545902147596#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dizhi:before {
+  content: "\e652";
+}
+
+page {
+  min-height: 100%;
+  background-color: #f5f5f5;
+}
+
+#orderDetail {
+  width: 100%;
+  height: 100%;
+}
+
+.orderStatus {
+  background: url('http://zjw77.club/someimg/orderDetailBac.jpg');
+  background-size: 100% 100%;
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+}
+
+.orderStatusText {
+  margin-left: 5%;
+  color: #fff;
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 200rpx;
+}
+
+.orderGoods {
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.orderGoods-title {
+  margin-left: 5%;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #585858;
+  line-height: 80rpx;
+  border-bottom: 1px solid #f5f5f;
+}
+
+.orderAddress {
+  display: flex;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+  background: #fff;
+}
+
+.icon-dizhi {
+  color: #ef696c;
+  line-height: 100rpx;
+  font-size: 50rpx;
+  margin-left: 5%;
+  margin-right: 20rpx;
+}
+
+.orderAddress-main {
+  width: 80%;
+}
+
+.orderAddress-main-name {
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+
+.orderAddress-main-phone {
+  font-size: 25rpx;
+  color: #a8a8a8;
+}
+
+.orderAddress-main-pos {
+  font-size: 28rpx;
+}
+
+.goods-list {
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-bottom: 10rpx solid #f5f5f5;
+}
+
+.goods-list .list-title {
+  font-size: 28rpx;
+  color: #585858;
+  font-weight: bold;
+  margin-left: 5%;
+  line-height: 80rpx;
+}
+
+.goods-list  .a-goods {
+  width: 720rpx;
+  margin-left: 30rpx;
+  display: flex;
+  /*justify-content: space-between;*/
+  border-top: 1px solid #eee;
+  padding: 30rpx 30rpx 0rpx 0;
+}
+
+.goods-list  .a-goods .img-box {
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+  background-color: #d8d8d8;
+}
+
+.goods-list .img-box .img {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.goods-list  .a-goods .text-box {
+  width: 510rpx;
+  box-sizing: border-box;
+  padding-top: 10rpx;
+}
+
+.a-goods .text-box .arow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.a-goods .text-box .arow .goods-name {
+  width: 360rpx;
+  font-size: 26rpx;
+  height: 74rpx;
+  color: #000;
+  line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.a-goods .text-box .arow .goods-price {
+  font-size: 26rpx;
+  color: #000;
+  align-self: flex-start;
+}
+
+.a-goods .text-box .arow .goods-label {
+  font-size: 26rpx;
+  margin-top: 30rpx;
+  width: 70%;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.a-goods .text-box .arow .goods-num {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.orderPrice {
+  width: 100%;
+  font-size: 28rpx;
+  position: relative;
+  line-height: 80rpx;
+}
+
+.orderPrice-text {
+  margin-left: 5%;
+}
+
+.orderPrice-num {
+  position: absolute;
+  top: 0rpx;
+  right: 5%;
+}
+
+.orderPayPrice {
+  width: 100%;
+  font-size: 28rpx;
+  position: relative;
+  line-height: 80rpx;
+}
+
+.orderPayPrice-text {
+  border-top: 1rpx solid #f5f5f5;
+  margin-left: 5%;
+}
+
+.orderPayPrice-num {
+  position: absolute;
+  top: 0rpx;
+  right: 5%;
+  color: #ef696c;
+}
+
+.orderMes {
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.orderMes-title {
+  font-size: 28rpx;
+  color: #585858;
+  font-weight: bold;
+  margin-left: 5%;
+  line-height: 80rpx;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.orderNum {
+  margin-left: 5%;
+  display: flex;
+  font-size: 28rpx;
+  border-bottom: 1px solid #f5f5f5;
+  height: 70rpx;
+  line-height: 70rpx;
+  position: relative;
+}
+
+.orderNum-number {
+  position: absolute;
+  top: 0rpx;
+  right: 5%;
+}
+
+.orderTime {
+  margin-left: 5%;
+  display: flex;
+  font-size: 28rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px solid #f5f5f5;
+  position: relative;
+}
+
+.orderTime-number {
+  position: absolute;
+  top: 0rpx;
+  right: 5%;
+}
+
+.orderPayWay {
+  margin-left: 5%;
+  display: flex;
+  font-size: 28rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px solid #f5f5f5;
+  position: relative;
+}
+
+.orderPayWay-number {
+  position: absolute;
+  top: 0rpx;
+  right: 5%;
+}
+
+.orderWay {
+  margin-left: 5%;
+  display: flex;
+  font-size: 28rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px solid #f5f5f5;
+  position: relative;
+  margin-bottom: 120rpx;
+}
+
+.orderPayWay-number {
+  position: absolute;
+  top: 0rpx;
+  right: 5%;
+}
+.barBottom{
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1rpx solid #ddd;
+}
+ .orderStatusBtn{
+  position: absolute;
+  right: 5%;
+  top: 20rpx;
+  display: flex;
+  font-size: 25rpx;
+  height: 70rpx;
+}
+.btn-cancelOrder{
+  border:2rpx solid #ef696c;
+  padding: 15rpx 20rpx;
+  text-align: center;
+  color: #ef696c;
+  border-radius: 10rpx;
+}
+.bnt-payOrder{
+  border:2rpx solid #ef696c;
+  padding: 15rpx 30rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 10rpx;
+  background: #ef696c;
+  margin-left: 20rpx;
+} 
