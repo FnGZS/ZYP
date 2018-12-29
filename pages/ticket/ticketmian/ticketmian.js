@@ -109,7 +109,17 @@ Page({
     },
     onHide: function() {},
     onUnload: function() {},
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function() {
+      wx.showNavigationBarLoading();
+      this.getmian()
+      this.getAD()
+      // 隐藏导航栏加载框
+      wx.hideNavigationBarLoading();
+      // 停止下拉动作
+      wx.stopPullDownRefresh();
+
+
+    },
     onReachBottom: function() {},
     goSponsor: function(t) {
         wx.navigateTo({

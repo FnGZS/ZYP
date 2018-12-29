@@ -8,6 +8,7 @@ Page({
   onLoad(o) {
     console.log(o)
     var launchList = JSON.parse(o.launchList)
+    console.log(launchList)
     this.setData({
       launchList
     })
@@ -20,10 +21,10 @@ Page({
     console.log(launchList[index].id)
     var prizeId = launchList[index].id
       let infoOpt = {
-        url: '/luck/contentByPrize',
+        url: '/luck/luckDetails',
         type: 'GET',
         data: {
-          prizeId
+          luckId:prizeId
         },
         header: {
           'content-type': 'application/json',

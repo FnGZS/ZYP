@@ -32,10 +32,12 @@ page {
 .list-img {
     display: flex;
     align-items: center;
-    min-height: 320rpx;
+    width:750rpx;
+    height: 400rpx;
 }
 
 .list-img image {
+    height: 100%;
     width: 100%;
 }
 
@@ -45,6 +47,7 @@ page {
 
 .list-txt {
     display: flex;
+    flex-direction: column;
 }
 
 .list-tile {

@@ -35,7 +35,18 @@ Page({
     },
     onHide: function() {},
     onUnload: function() {},
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function() {
+      wx.showNavigationBarLoading();
+      this.godall()
+      this.godlaunch()
+      this.godlucky()
+      // 隐藏导航栏加载框
+      wx.hideNavigationBarLoading();
+      // 停止下拉动作
+      wx.stopPullDownRefresh();
+
+
+    },
     onReachBottom: function() {},
     goAddress: function(n) {
         wx.chooseAddress({
