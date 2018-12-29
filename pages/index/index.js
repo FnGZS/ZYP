@@ -66,7 +66,9 @@ Page({
     var that = this;
     console.log(wx.getStorageSync("phone"))
     if (wx.getStorageSync("phone")) {
-
+      that.setData({
+        cloudsShow: false
+      })
     } else {
       that.setData({
         cloudsShow: true
@@ -75,6 +77,15 @@ Page({
   },
   getPhoneNumber: function (e) {
     console.log(e);
+    wx.checkSession({
+      success() {
+        console.log(123123);
+      },
+      fail() {
+        // session_key 已经失效，需要重新执行登录流程
+        console.log(444444444);
+      }
+    })
     var that = this;
     console.log(wx.getStorageSync("sessionKey"))
     var sessionkey = wx.getStorageSync("sessionKey");
@@ -393,6 +404,7 @@ Page({
   onShow: function () {
 
     var that = this;
+    that.isshowgetPhoneNumber();
   },
   /**
    * 生命周期函数--监听页面隐藏

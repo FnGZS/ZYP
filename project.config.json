@@ -205,23 +205,6 @@
 					"name": "m",
 					"pathName": "pages/ticket/ticketmian/ticketmian",
 					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "结算成功",
-					"pathName": "pages/secondHand/secondHandPaySuccess/secondHandPaySuccess",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "订单详情",
-					"pathName": "pages/secondHand/secondHandOrderDetail/secondHandOrderDetail",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "二手发布",
-					"pathName": "pages/secondHand/secondHandPublish/secondHandPublish"
 				}
 			]
 		}

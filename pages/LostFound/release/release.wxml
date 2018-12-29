@@ -61,6 +61,7 @@
             <view class='detail-form-name' placeholder="请输入联系方式">联系方式:</view>
             <input bindinput="getphone"></input>
           </view>
+            <view class='Notes'>如未填写联系方式,则会联系当前微信绑定的手机号</view>
           <button form-type="submit" class='btn' bindtap='Release'>发布</button>
         </form>
 
@@ -72,6 +73,7 @@
          <button class='btn'>提交</button>
       </view>
   </view> -->
+
 </view>
   <import src="../../public/template/toast/toast.wxml"/>
 <template is="toast" data="{{txt,isShow,iconClass}}"></template>

@@ -199,3 +199,10 @@ align-items: center;
   
    color:#f65959;
 }
+.Notes{
+  width: 90%;
+  height: 30rpx;
+  padding: 10rpx;
+  font-size: 20rpx;
+  color: #E1E1E4;
+}

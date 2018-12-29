@@ -10,7 +10,7 @@
   </view>
   <view class='Live-list' bindtap='toLive'>
     <view class='list-images'>
-      <image src='https://www.sxscott.com/xuexiao.png' mode='aspectFill'></image>
+      <image src='https://www.sxscott.com/wanhui.png' mode='aspectFill'></image>
     </view>
     <view class='play'>
     <view class='play-icon'>

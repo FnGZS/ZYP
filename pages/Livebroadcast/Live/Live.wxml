@@ -1,51 +1,34 @@
-<view class="page-body">
-  <view class="page-section tc">
-    <!-- <live-player  src="rtmp://abc.sxscott.com/live/741977480" mode="live" orientation='vertical ' min-cache='1' max-cache='3' autoplay bindstatechange="statechange" binderror="error" /> -->
-       <live-player id='player'  autoplay src="rtmp://abc.sxscott.com/live/741977480"  min-cache='1' max-cache='3'  mode="live" bindstatechange="statechange"/>
-    <cover-view class='btn' wx:if='{{isverticalhidden}}'>
-      <cover-view class='btn-left'>
-        <cover-view class='Onlinenumber'>
-          9876
-        </cover-view>
-        <cover-view class='Onlinetitle'>
-       绍兴文理元培学院感恩晚会直播！
-        </cover-view>
-      </cover-view>
-      <cover-view class='btn-rigth'>
-        <cover-view class='report'>
-             <cover-image  src='../../../images/jinggao.png'></cover-image>
-        </cover-view>
-        <cover-view class='fullscreen' bindtap="quanping">
-      <cover-image  src='../../../images/quanping.png' ></cover-image>
-        </cover-view>
-      </cover-view>
+<!--pages/play/play.wxml-->
+<view style="width:100%;height: 100%; background-color: black; ">
+  <view style="width:100%;height:100%;">
+    <live-player class='{{livestyle}}'  id="video-livePlayer" mode="live" orientation="{{orientation}}" muted="{{muted}}" background-mute="{{backgroundMute}}" object-fit="{{objectFit}}" min-cache="1" max-cache="3" src="{{playUrl}}"
+      debug="{{debug}}" bindstatechange="onPlayEvent" bindfullscreenchange="onFullScreenChange">
+      <cover-image hidden="{{playing}}" style="width:100%; height: 100%; position:absolute;" src="https://mc.qcloudimg.com/static/img/7da57e0050d308e2e1b1e31afbc42929/bg.png"></cover-image>
 
+      <cover-view style="width:100%; height: 50px; position:absolute;bottom:0px;">
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/{{playing?'suspend':'start'}}.png" bindtap='onPlayClick'></cover-image>
 
-      <!-- <button class="body-button" type="">播放</button> -->
-    </cover-view>
-    <!-- <view class="btn-area">
-      <button bindtap="bindPlay" class="page-body-button" type="primary">播放</button>
-      <button bindtap="bindPause" class="page-body-button" type="primary">暂停</button>
-      <button bindtap="bindStop" class="page-body-button" type="primary">停止</button>
-      <button bindtap="bindResume" class="page-body-button" type="primary">恢复</button>
-      <button bindtap="bindMute" class="page-body-button" type="primary">静音</button>
-   
-    </view> -->
-       <!-- <button bindtap="quanping" class="page-body-button" type="primary">全屏</button> -->
-       <cover-view class='Horizontal-tlitle' wx:if='{{ishorizontalhidden}}' >
-       <cover-view class='title-back'  bindtap="quanping" > <cover-image  src='../../../images/left.png'></cover-image></cover-view>
-       <cover-view class='Horizontal-text'>    绍兴文理元培学院感恩晚会直播！</cover-view>
+        </cover-view>
+        <!-- <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/qr.png" bindtap='onScanQR'></cover-image>
+          <cover-view class='bottom_text'>扫码</cover-view>
+        </cover-view> -->
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/rotate.png" bindtap='onOrientationClick'></cover-image>
+          <!-- <cover-view class='bottom_text'>{{orientation == 'vertical'?'竖屏':'横屏'}}</cover-view> -->
+        </cover-view>
   
-       </cover-view>
-          <cover-view class='btn-Horizontal'  wx:if='{{ishorizontalhidden}}'>
-             <cover-view class='Horizontal-rigth'>
-              <cover-view class='Horizontal-report'>
-             <cover-image  src='../../../images/jinggao.png'></cover-image>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/{{muted?'sound-dis':'sound'}}.png" bindtap='onMuteClick'></cover-image>
+          <!-- <cover-view class='bottom_text'>声音</cover-view> -->
         </cover-view>
-        <cover-view class='Horizontal-fullscreen' bindtap="quanping">
-      <cover-image  src='../../../images/quanping.png' ></cover-image>
+        <cover-view class='bottom_box'>
+          <cover-image class="bottom_button" src="../../../images/{{objectFit == 'contain'?'adjust':'fill'}}.png" bindtap='onObjectfitClick'></cover-image>
+          <!-- <cover-view class='bottom_text'>{{objectFit == 'contain'?'适应':'填充'}}</cover-view> -->
         </cover-view>
-             </cover-view>
-          </cover-view>
+      </cover-view>
+      <!-- <cover-image class='close' style="top:{{(headerHeight + statusBarHeight) - 26}}rpx" src="../../../images/back.png" bindtap="onBack"></cover-image> -->
+    </live-player>
   </view>
 </view>

@@ -9,6 +9,7 @@ App({
     wx.setStorageSync('logs', logs)
     wx.setStorageSync("isLogin",0)
     wx.setStorageSync("sessionKey",'')
+    wx.setStorageSync("userinfo","")
     // this.getStart()
 
     // 登录
@@ -52,6 +53,7 @@ App({
                     },
                     success(res) {
                       console.log(res);
+                      wx.setStorageSync("userinfo", res.data)
                       wx.setStorageSync("userId", res.data.userId)
                       wx.setStorageSync("isLogin", 1)
                       that.globalData.nickName = res.data.userName

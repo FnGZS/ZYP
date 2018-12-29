@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "直播间"
+
+    "backgroundColor": "#000",
+    "backgroundTextStyle": "light",
+        "navigationStyle": "custom"
   }
