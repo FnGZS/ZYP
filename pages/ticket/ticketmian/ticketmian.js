@@ -1,8 +1,22 @@
 const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
+//递归随机函数
+function getNumNoRepeat() {
+  var num = Math.floor(Math.random() * 10) + 1;
+  if(getApp().data.arr.length == 10){getApp().data.arr = []}
 
+  console.log(getApp().data.arr)
+  if (-1 == getApp().data.arr.indexOf(num)) {//数组中不存在
+    getApp().data.arr.push(num);
+    
+    return num;
+  } else {
+    getNumNoRepeat()
+  }
+}
 Page({
     data: {
+      radom:1,
         audit:1,
         addnews: "",
         resAutomatic: [],
@@ -20,14 +34,15 @@ Page({
        
     },
     //获取列表详情
-    getmian(){
+    getmian(a){
+      
       var that=this
       let infoOpt = {
         url: '/luck/luckList',
         type: 'GET',
         data: {
           status:1,
-          pageNo:1,
+          pageNo:a,
           pageSize:5
         },
         header: {
@@ -39,34 +54,33 @@ Page({
         console.log(res);
          var cullingList = res.items
         for (let i in cullingList){
-          let infoOpt = {
-            url: '/luck/isPart',
-            type: 'POST',
+
+
+          wx.request({
+            url: url.host+'/luck/isPart',
+            method: 'POST',
             data: {
               userId: wx.getStorageSync('userId'),
               luckId: cullingList[i].id
-            },
+            },    //参数为键值对字符串
             header: {
               'content-type': 'application/json',
+              'authorization': wx.getStorageSync('authorization')
             },
-          }
-          let infoCb = {}
-          infoCb.success = function (res) {
-            console.log(res);
-            if(res.message =="未参与"){
-              cullingList[i]["joinkey"]=false
-            }else{
-              cullingList[i]["joinkey"] = true
-              
-            }
-            that.setData({
-              cullingList
-            })
-            console.log(cullingList)
-          }
+            success: function (res) {
+              console.log(res);
+              if (res.data.message == "未参与") {
+                cullingList[i]["joinkey"] = false
+              } else {
+                cullingList[i]["joinkey"] = true
 
-          sendAjax(infoOpt, infoCb, () => {
-          });
+              }
+              that.setData({
+                cullingList
+              })
+              console.log(cullingList)
+            }
+          })
         }
       }
 
@@ -154,7 +168,8 @@ Page({
         });
     },
     onShow: function() {
-      this.getmian()
+      var radom = this.data.radom
+      this.getmian(radom)
       this.getAD()
     },
     getUrl: function() {
@@ -164,7 +179,12 @@ Page({
     onUnload: function() {},
     onPullDownRefresh: function() {
       wx.showNavigationBarLoading();
-      this.getmian()
+
+      var radom = getNumNoRepeat() 
+      this.setData({
+        radom
+      })
+      this.getmian(radom)
       this.getAD()
       // 隐藏导航栏加载框
       wx.hideNavigationBarLoading();

@@ -112,7 +112,7 @@ App({
     }, 1500);
   }, 
   data:{
-    
+    arr:[]
   },
 
   globalData: {
