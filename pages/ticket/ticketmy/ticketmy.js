@@ -64,7 +64,7 @@ Page({
         data: {
           userId: wx.getStorageSync('userId'),
           pageNo: 1,
-          pageSize: 20
+          pageSize: 1000
         },
         header: {
           'content-type': 'application/json',
@@ -96,7 +96,7 @@ Page({
         data: {
           userId: wx.getStorageSync('userId'),
           pageNo: 1,
-          pageSize: 20
+          pageSize: 1000
         },
         header: {
           'content-type': 'application/json',
@@ -124,7 +124,7 @@ Page({
         data: {
           userId: wx.getStorageSync('userId'),
           pageNo: 1,
-          pageSize: 20
+          pageSize: 1000
         },
         header: {
           'content-type': 'application/json',
@@ -171,7 +171,7 @@ Page({
         data: {
           userId: wx.getStorageSync('userId'),
           pageNo: 1,
-          pageSize: 20
+          pageSize: 1000
         },
         header: {
           'content-type': 'application/json',
@@ -199,7 +199,7 @@ Page({
       data: {
         userId: wx.getStorageSync('userId'),
         pageNo: 1,
-        pageSize: 20
+        pageSize: 1000
       },
       header: {
         'content-type': 'application/json',
@@ -227,7 +227,7 @@ Page({
       data: {
         userId: wx.getStorageSync('userId'),
         pageNo: 1,
-        pageSize: 20
+        pageSize: 1000
       },
       header: {
         'content-type': 'application/json',
