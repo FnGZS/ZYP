@@ -274,6 +274,12 @@ Page({
       url: 'aboutUs/aboutUs',
     })
   },
+  //跳转我的订单
+  toOrder:function(){
+    wx.navigateTo({
+      url: '../secondHand/secondHandOrder/secondHandOrder',
+    })
+  },
   onReady: function () {
   },
   onShow: function () {

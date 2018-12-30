@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-      "pages/start/start",
+    "pages/start/start",
     "pages/user/user",
     "pages/currentaffairs/currentaffairs",
     "pages/currentaffairs/detailPage/detailPage",
@@ -34,6 +34,7 @@
     "pages/secondHand/secondHandMyBought/secondHandMyBought",
     "pages/secondHand/secondHandPayOrder/secondHandPayOrder",
     "pages/secondHand/secondHandPaySuccess/secondHandPaySuccess",
+    "pages/secondHand/secondHandOrder/secondHandOrder",
     "pages/secondHand/secondHandOrderDetail/secondHandOrderDetail",
     "pages/secondHand/secondHandAddress/secondHandAddress",
     "pages/secondHand/secondHandAddressAdd/secondHandAddressAdd",

@@ -1,0 +1,38 @@
+<view id='order'>
+  <view class='tabBar'>
+    <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap='clickMenu' data-current="0" data-status='0'>全部</view>
+    <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap='clickMenu' data-current="1" data-status='1'>待付款</view>
+    <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap='clickMenu' data-current="2" data-status='2'>待发货</view>
+    <view class="tab-item {{currentTab == 3 ? 'active' : ''}}" bindtap='clickMenu' data-current="3" data-status='3'>待收货</view>
+    <view class="tab-item {{currentTab == 4 ? 'active' : ''}}" bindtap='clickMenu' data-current="4" data-status='4'>售后</view>
+  </view>
+</view>
+<view class='orderList'>
+  <view class='order-head'>
+    <image class='order-head-img' mode='aspectFill' src='https://images-cdn.shimo.im/0jFQCbmf3zQhQweu/mmexport1534150628046.jpg!thumbnail'></image>
+    <view class='order-head-mes'>
+      <view class='order-head-nickname'>Effort</view>
+      <view class='order-head-pos'>创新创业学院125</view>
+    </view>
+    <view class='order-head-goodsWay'>官方自营</view>
+  </view>
+  <view class='order-mes'>
+    <image class='order-mes-img' src='https://images-cdn.shimo.im/0jFQCbmf3zQhQweu/mmexport1534150628046.jpg!thumbnail' data-img='{{item}}' mode='aspectFill' wx:key="key"></image>
+    <view class='orderTitle'>
+      <view class='orderTitle-text'>雷蛇键盘 只需998 一刀8888伤害 给你开挂的人生 成就你的梦想 做人生赢家</view>
+      <view class='tradingWay'>自提</view>
+    </view>
+    <view class='orderPrice'>￥59.00</view>
+    <view class='orderNum'>x1</view>
+  </view>
+  <view class='orderTotalPrice'>
+    <view class='orderTotalPrice-text'>合计：￥59.00</view>
+  </view>
+  <view class='orderBtn'>
+    <view class='order-all'>
+      <view class='btn-cancelOrder'>取消订单</view>
+      <view class='btn-pay'>马上付款</view>
+    </view>
+
+  </view>
+</view>

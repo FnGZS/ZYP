@@ -16,7 +16,7 @@
   <view class='order'>
     <view class='order-title'>
       <view class='order-title-text'>我的订单</view>
-      <view class='order-title-btn'>查看全部订单 ></view>
+      <view class='order-title-btn' bindtap='toOrder'>查看全部订单 ></view>
     </view>
     <view class='order-main'>
       <view class='order-daifukuan'>
