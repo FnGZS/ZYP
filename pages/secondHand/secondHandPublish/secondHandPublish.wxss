@@ -296,8 +296,8 @@ page {
 }
 
 .barBottom{
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 90rpx;
+  line-height: 90rpx;
   position: fixed;
   bottom: 0;
   width: 100%;

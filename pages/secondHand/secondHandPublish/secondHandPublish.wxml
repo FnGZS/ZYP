@@ -25,13 +25,17 @@
 
     <view class='content-pos'>
       <view class='iconfont icon-dizhi'></view>
-      <view class='posText'>创新创业学院125创新创业学院125创新创业学院125创新创业学院125</view>
+      <view class='posText' wx:if="{{isNeedAddress == 1}}" catchtap="addAddress">新增地址</view>
+      <view class='posText' wx:if="{{isNeedAddress == 0}}" catchtap="selectAddress">{{address}}</view>
     </view>
   </view>
   <view class='addDetail'>
     <view class='type'>
       <view class='type-title'>分类</view>
-      <view class='type-text'>官方自营</view>
+      <!-- <view class='type-text'>官方自营</view> -->
+      <picker  class='type-text' bindchange="bindPickerChange" value="{{index}}" data-typeid='{{typeArray[typeIndex].id}}' range-key="field" range="{{typeArray}}">
+        <view class="picker">{{typeArray[typeIndex].field}}</view>
+      </picker>
       <view class='type-arrow'>></view>
     </view>
     <view class='price'>
@@ -44,16 +48,20 @@
     </view>
     <view class='phone'>
       <view class='phone-title'>联系方式</view>
-      <input class='phone-text' placeholder-class='phone-input' maxlength='11' placeholder='请输入手机号码' type='number' bindinput='input_phone'></input>
+      <input class='phone-text' placeholder-class='phone-input' maxlength='11' placeholder='请输入您的手机号码' type='number' bindinput='input_phone'></input>
     </view>
     <view class='tradingWay'>
       <view class='tradingWay-title'>交易方式</view>
       <view class='tradingWayList'>
-        <view class='tradingWayList-main tradingWay-active'>自提</view>
-        <view class='tradingWayList-main'>派送</view>
+        <view class='tradingWayList-main {{traydingWayId == item.id? "tradingWay-active":""}}' wx:for="{{traydingWay}}" data-traydingwayid='{{item.id}}' bindtap='changeTraydingWay' >{{item.field}}</view>
       </view>
     </view>
   </view>
-  <view class='barBottom'>发布
+  <view class='barBottom' bindtap='publishBtn'>发布
   </view>
+</view>
+<view>
+    <loading hidden="{{lodingHidden}}">
+        加载中..
+    </loading>
 </view>
