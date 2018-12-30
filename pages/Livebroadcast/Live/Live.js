@@ -19,6 +19,24 @@ Page({
     headerHeight: app.globalData.headerHeight,
     statusBarHeight: app.globalData.statusBarHeight,
     animrotate:'',
+    currentTab:0,
+  },
+  //点击切换
+  clickTab: function (e) {
+    var _this = this;
+    // console.log(_this.data.newhigth);
+    if (_this.data.currentTab === e.target.dataset.current) {
+
+      return false;
+    } else {
+
+      _this.setData({
+        currentTab: e.target.dataset.current,
+
+      })
+  
+
+    }
   },
   //图标旋转
   onRotate:function(){

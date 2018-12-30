@@ -35,4 +35,11 @@
       <!-- <cover-image class='close' style="top:{{(headerHeight + statusBarHeight) - 26}}rpx" src="../../../images/back.png" bindtap="onBack"></cover-image> -->
     </live-player>
   </view>
+  <view class='function'>
+<view class="swiper-tab">
+  <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">直播详情</view>
+  <view class='line'></view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">互动聊天</view>
+    </view>
+  </view>
 </view>
