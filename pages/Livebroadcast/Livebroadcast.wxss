@@ -103,7 +103,7 @@ position: absolute;
   width: 100rpx;
   height: 100rpx;
     background: white;
-    border-radius: 120rpx;
+    border-radius: 60rpx;
   /* background: #ef696c; */
   opacity: .9;
   margin-top: 200rpx;
