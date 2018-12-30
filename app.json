@@ -57,7 +57,7 @@
     "pages/Livebroadcast/Live/Live"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "drak",
     "navigationBarBackgroundColor": "#ef696c",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "#fff"

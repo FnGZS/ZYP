@@ -17,8 +17,7 @@ Page({
         notice: []
     },
     onLoad: function(t) {
-        this.getmian()
-          this.getAD()
+       
     },
     //获取列表详情
     getmian(){
@@ -38,9 +37,37 @@ Page({
       let infoCb = {}
       infoCb.success = function (res) {
         console.log(res);
-        that.setData({
-          cullingList:res.items
-        })
+         var cullingList = res.items
+        for (let i in cullingList){
+          let infoOpt = {
+            url: '/luck/isPart',
+            type: 'POST',
+            data: {
+              userId: wx.getStorageSync('userId'),
+              luckId: cullingList[i].id
+            },
+            header: {
+              'content-type': 'application/json',
+            },
+          }
+          let infoCb = {}
+          infoCb.success = function (res) {
+            console.log(res);
+            if(res.message =="未参与"){
+              cullingList[i]["joinkey"]=false
+            }else{
+              cullingList[i]["joinkey"] = true
+              
+            }
+            that.setData({
+              cullingList
+            })
+            console.log(cullingList)
+          }
+
+          sendAjax(infoOpt, infoCb, () => {
+          });
+        }
       }
 
       sendAjax(infoOpt, infoCb, () => {
@@ -48,6 +75,31 @@ Page({
         // wx.setStorageSync('G_needUploadIndex', true)
       });
     },
+  //是否参加
+  getisPart(aa) {
+    var that = this
+    let infoOpt = {
+      url: '/luck/isPart',
+      type: 'POST',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        luckId: aa
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      that.setData({
+        message: res.message
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+    });
+  },
     //
     getAD(){
       var that = this
@@ -102,14 +154,25 @@ Page({
         });
     },
     onShow: function() {
-        
+      this.getmian()
+      this.getAD()
     },
     getUrl: function() {
        
     },
     onHide: function() {},
     onUnload: function() {},
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function() {
+      wx.showNavigationBarLoading();
+      this.getmian()
+      this.getAD()
+      // 隐藏导航栏加载框
+      wx.hideNavigationBarLoading();
+      // 停止下拉动作
+      wx.stopPullDownRefresh();
+
+
+    },
     onReachBottom: function() {},
     goSponsor: function(t) {
         wx.navigateTo({
@@ -118,8 +181,10 @@ Page({
     },
     goTicketmiandetail: function(t) {
         var id = t.currentTarget.dataset.item;
+      var cullingList = encodeURIComponent(JSON.stringify(this.data.cullingList));
+      
         wx.navigateTo({
-            url: "../ticketmiandetail/ticketmiandetail?id=" + id
+            url: "../ticketmiandetail/ticketmiandetail?id=" + id +"&&cullingList=" + cullingList
         });
     },
     goTicketadd: function(t) {

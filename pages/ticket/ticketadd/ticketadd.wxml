@@ -16,8 +16,8 @@
             <view bindtap = 'removeTicket'> <image class='jian' src='https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/jian.png'></image></view>
             </block>
                 <text class="flex-0-0">奖品名称</text>
-                <view class="list-warn-box color_fff font-24" wx:if="{{gName[index]==''}}">请输入奖品名称</view>
                 <view class="list-warn-box color_fff font-24" wx:if="{{(gName[index]==undefined&&gName[index+1]!=undefined)||(gName[index-1]!=undefined&&gName[index]==undefined&&gName[index+1]!=undefined)}}">请输入奖品名称</view>
+                <view class="list-warn-box color_fff font-24" wx:if="{{valueKey1}}">请输入奖品名称</view>
                 <input data-index='{{index}}' bindinput="bindKeyInput1" class="list-input-1 flex-1-1" maxlength="20" placeholder="请输入奖品名称" type="text"></input>
             </view>
            
@@ -25,6 +25,7 @@
             
                 <text class="flex-0-0">奖品数量</text>
                 <view class="list-warn-box color_fff font-24" wx:if="{{inputValue2[index]>100}}">数量不能超过100</view><view class="list-warn-box color_fff font-24" wx:if="{{(inputValue2[index]==undefined&&inputValue2[index+1]!=undefined)||(inputValue2[index-1]!=undefined&&inputValue2[index]==undefined&&inputValue2[index+1]!=undefined)}}">请输入奖品数量</view>
+                <view class="list-warn-box color_fff font-24" wx:if="{{valueKey2}}">请输入奖品数量</view>
                 <view class="list-right">
                     <input data-index='{{index}}' bindinput="bindKeyInput2" class="list-input-2" maxlength="3" placeholder="数量" type="number"></input>
                     <text class="flex-0-0">个</text>
@@ -49,7 +50,7 @@
                 <text class="flex-0-0">开奖时间</text>
                 <view class="list-warn-box  color_fff font-24" style="right:360rpx;" wx:if="{{inputValue6show==true}}">时间不能早于当前</view>
                 <view class="list-right color_808080 font-28">
-                    <text>{{dateArray}} {{(nowhour<hour||nowhour==hour)&&dayy==0?nowhour:hour}}:{{minute}}</text>
+                    <text>{{dateArray}} {{dayy == 0 && nowhour > hour ? nowhour :hour }}:{{minute}}</text>
                     <text class="iconfont icon-you color_808080 time-next"></text>
                 </view>
             </view>
@@ -81,13 +82,13 @@
               <text class="flex-0-0 color_8d8d8d" >抽奖说明</text>
               <text class="flex-0-0 color_8d8d8d" >非必填</text>
             </view>
-            <textarea class='ticket_say font-26' type='text' bindinput="userProposal"  placeholder="填写此抽奖的说明"></textarea>
+            <textarea class='ticket_say font-26' type='text' bindinput="luckExplain"  placeholder="填写此抽奖的说明"></textarea>
          <view class="list font-26 list-2" >
               <text class="flex-0-0 color_8d8d8d" >奖品介绍</text>
               <text class="flex-0-0 color_8d8d8d" >非必填</text>
             </view>
             <view class="flex-start">
-            <textarea maxlength="50000" class='ticket_explain font-26' type='text' bindinput="userProposal"  placeholder="填写此奖品的介绍"></textarea>
+            <textarea maxlength="50000" class='ticket_explain font-26' type='text' bindinput="luckPrizeExplain"  placeholder="填写此奖品的介绍"></textarea>
             <view class='picShangchuan'>
             <view class="picture-icon" bindtap="picture">
               <image  src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/picture.png"></image></view>

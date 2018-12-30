@@ -185,7 +185,7 @@
     border-radius: 50%;
     margin: 0 auto 60rpx auto;
     background: #e83928;
-    opacity: .8;
+    opacity: .5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -228,7 +228,7 @@
 
 .jion-box {
     background: #f0f0f0;
-    padding-top: 60rpx;
+    padding-top: 30rpx;
     text-align: center;
 }
 
@@ -255,7 +255,11 @@
     line-height: 140rpx;
     text-align: center;
 }
-
+.txt-box-jieshao{
+  width: 750rpx;
+  height: 100rpx;
+  font-size: 30rpx;
+}
 .txt-title::before {
     content: "";
     position: absolute;
@@ -285,7 +289,7 @@
 }
 
 .txt-box {
-    padding-bottom: 60rpx;
+    padding:30rpx;
 }
 
 .dot-box {
@@ -495,4 +499,49 @@
     position: absolute;
     top: -3000rpx;
     background: #fff;
+}
+
+.lucky_box{
+  margin: 30rpx 0;
+  width: 750rpx;
+  min-height: 500rpx;
+  background: #fff;
+  border:1rpx solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lucky_title{
+  font-size: 38rpx;
+  color: rgb(219, 47, 47);
+  font-weight: 700;
+  padding:30rpx 0;
+}
+.lucky_prize{
+  color: #4a4a4a;
+  font-size: 28rpx;
+  margin-bottom: 40rpx;
+}
+.userinfo-avatar{
+  width:80rpx;
+height:80rpx;
+border-radius:50%;
+margin-top:30rpx;
+
+}
+
+
+
+.userinfo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+
+}
+.userinfo-com{
+  margin: 0 20rpx;
+  text-align: center;
 }

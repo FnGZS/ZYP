@@ -15,7 +15,7 @@
                 </view>
                 <view class="list-body">
                     <view class="list-txt">
-                        <view class="list-tile flex-1-1 font-30" wx:if="{{item.status==1}}">
+                        <view class="list-tile flex-1-1 font-30 color_4a4a4a" wx:if="{{item.status==1}}">
                         <view wx:for="{{item.items}}">奖品：{{item.luckPrize}} X{{item.num}}</view>
                         
                         </view>
@@ -25,17 +25,14 @@
         </view>
                     </view>
                     <view class="color_999999 font-22 list-time">
-                        <view class="color_red font-w list-icon" wx:if="{{0}}">
+                        <view class="color_red font-w list-icon" wx:if="{{item.joinkey}}">
                             <icon color="#d53b35" size="12" type="success"></icon>
           已参加 |
         </view>
-                        <view wx:if="{{item.mode==2}}"> 
+                        <view wx:if="{{item.mode==1}}"> 
          {{item.lotteryTime}} 自动开奖
         </view>
-                        <view wx:if="{{item.condition==1}}"> 
-         {{item.man}} 人自动开奖
-        </view>
-                        <view wx:if="{{item.condition==2}}"> 
+                        <view wx:if="{{item.mode==2}}"> 
          发起人手动开奖
         </view>
                     </view>

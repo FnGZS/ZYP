@@ -241,7 +241,12 @@ button::after {
 .color_fff {
     color: #fff;
 }
-
+.color_959595 {
+    color: #959595;
+}
+.color_4a4a4a {
+    color: #4a4a4a;
+}
 .bg_fff {
     background: #fff!important;
 }

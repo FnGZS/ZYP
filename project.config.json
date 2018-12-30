@@ -202,12 +202,6 @@
 				},
 				{
 					"id": -1,
-					"name": "m",
-					"pathName": "pages/ticket/ticketmian/ticketmian",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "二手发布",
 					"pathName": "pages/secondHand/secondHandPublish/secondHandPublish"
 				}

@@ -185,7 +185,7 @@
     border-radius: 50%;
     margin: 0 auto 60rpx auto;
     background: #e83928;
-    opacity: .8;
+    opacity: .5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -255,7 +255,11 @@
     line-height: 140rpx;
     text-align: center;
 }
-
+.txt-box-jieshao{
+  width: 750rpx;
+  height: 100rpx;
+  font-size: 30rpx;
+}
 .txt-title::before {
     content: "";
     position: absolute;
@@ -285,7 +289,7 @@
 }
 
 .txt-box {
-    padding-bottom: 60rpx;
+    padding:30rpx;
 }
 
 .dot-box {

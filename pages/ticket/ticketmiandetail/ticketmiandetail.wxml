@@ -6,62 +6,56 @@
         </view>
         <view class="list-body">
             <view class="list-txt">
-                <view class="list-tile flex-1-1 font-32" wx:if="{{getDetailList.status == 1}}">
+                <view class="list-tile flex-1-1 font-30 color_4a4a4a" wx:if="{{getDetailList.status == 1}}">
 
                 <view wx:for="{{getDetailList.items}}">奖品：{{item.luckPrize}} X{{item.num}}</view>
 
                 </view>
-                <view class="flex-0-0  sponsor color_8d8d8d font-24">
+                <view class="flex-0-0  sponsor color_8d8d8d font-22">
                     <view class="w_120 ">{{getDetailList.userName}}</view>发起</view>
                 </view>
-            <view class="color_999999 font-26 list-time" wx:if="{{mode == 2}}"> 
+            <view class="color_999999 font-24 list-time" wx:if="{{getDetailList.mode == 1}}"> 
           {{getDetailList.lotteryTime}} 自动开奖
         </view>
-            <view class="color_999999 font-26 list-time" wx:if="{{item.condition==1}}"> 
-          {{item.accurate}} 人自动开奖
-        </view>
-            <view class="color_999999 font-26 list-time" wx:if="{{item.condition==2}}"> 
+            <view class="color_999999 font-24 list-time" wx:if="{{getDetailList.mode == 2}}"> 
           手动开奖
         </view>
-            <view class="color_999999 font-26 list-time" wx:if="{{item.condition==3}}"> 
-          现场开奖
         </view>
-        </view>
-        <view class="sponsormsg font-30" wx:if="{{1}}">
+        <view class="sponsormsg font-30" wx:if="{{getDetailList.explain!=''}}">
             <text class="iconfont icon-zhuangshiyongyinhao"></text>
             <text class=" ">{{getDetailList.explain}}</text>
         </view>
         <block wx:if="{{getDetailList.prizeExplain}}">
-            <import src="../../../wxParse/wxParse.wxml"></import>
-            <import src="../../../wxParse/wxParse.wxml"></import>
-            <view class="txt-box">
-                <view class="txt-title font-32 color_808080">了解更多</view>
-                <template is="wxParse" data="{{wxParseData:lottery.nodes}}">12312</template>
-                <template is="wxParse" data="{{wxParseData:content.nodes}}">21312</template>
+           
+            <view class="txt-box"> 
+            <view class='txt-box-jieshao color_4a4a4a'>奖品介绍：</view>
+            <view  class="font-26 color_4a4a4a"><import src="../../../wxParse/wxParse.wxml"></import>
+            <template is="wxParse"  data="{{wxParseData:article.nodes}}"/></view>
+            
             </view>
         </block>
         <view class="jion-box">
-            <form bindsubmit="rotateAndScale" reportSubmit="true" wx:if="{{status==true}}">
+            <form bindsubmit="rotateAndScale" reportSubmit="true" wx:if="{{message=='未参与'}}">
                 <button class="ticket-btn" formType="submit">
-                    <view class="ticket-btn-txt font-32 font-w color_fff">参与抽奖</view>
+                    <view class="ticket-btn-txt font-28 font-w color_fff">点击抽奖</view>
                     <view animation="{{animationData}}" class="font-30 font-w ticket-btn-border" style="background:#fff;height:0rpx;width:0rpx;border-radius: 50%; color:#000">
                         <view class="ticket-btn-border-con"></view>
                     </view>
                 </button>
             </form>
-            <view class="daikaijiang" wx:if="{{status==false}}">
-                <view class="ticket-btn-txt font-32 font-w color_e49791 z-4">待开奖</view>
+            <view class="daikaijiang" wx:if="{{message=='已参与'||message=='报名成功' }}">
+                <view class="ticket-btn-txt font-28 font-w color_fff z-4">待开奖</view>
                 <view animation="{{animationData}}" class=" font-30 font-w ticket-btn-border" style="background:#fff;height:0rpx;width:0rpx;border-radius: 50%; color:#000">
                     <view class="ticket-btn-border-con"></view>
                 </view>
             </view>
             <view bindtap="goTicketnum" class="font-26 jion-num" >
-                <text class="color_808080">已有{{item.total}}人参与，</text>
+                <text class="color_808080">已有{{joinMan.recordCount}}人参与，</text>
                 <text class="color_2574b9">查看全部<text class="font-w">></text>
                 </text>
             </view>
             <view class="header-img-box">
-                <image class="header-img" mode="widthFix" src="{{items.img}}" wx:for="{{item.img}}" wx:for-item="items"></image>
+                <image class="header-img" mode="widthFix" src="{{item.headImgUrl}}" wx:for="{{joinMan.items}}" ></image>
             </view>
         </view>
     </view>
