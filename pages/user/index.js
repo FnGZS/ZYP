@@ -148,6 +148,7 @@ Page({
             infoCb.success = function (res) {
               console.log(11111);
               // console.log(res)
+              wx.setStorageSync("phone", res.data.phone)
               wx.setStorageSync("userId", res.userId)
               wx.setStorageSync("isLogin", 1)
               wx.setStorageSync("nickName", res.userName)
@@ -156,7 +157,7 @@ Page({
               wx.setStorageSync("userKey", res.userKey)
               wx.setStorageSync("authorization", res.authorization)
               wx.setStorageSync("userId", res.userId)
-
+              wx.setStorageSync("userinfo", res.data)
               if (wx.getStorageSync('isbound') == 1) {
                 that.setData({
                   isboundUser: '已绑定学号'

@@ -536,44 +536,7 @@ text-align: center;
   color:#797979;
   line-height:30rpx;
 }
-image.getPhone_img{
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  width: 500rpx;
-  height: 889rpx;
-  z-index: 100;
-}
-.getPhone_box{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-background: rgba(0,0,0,0.3);
-}
-.getphone_buttom{
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  width: 420rpx;
-  height: 450rpx;
-  /* border: 1rpx solid red; */
-  z-index: 101;
-}
-.getphone_buttom .clous{
-  width: 80rpx;
-  height: 80rpx;
-  background: red;
-  margin-left: 340rpx;
-  opacity: 0;
-}
+
 
 
 button {

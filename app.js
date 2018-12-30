@@ -8,8 +8,8 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     wx.setStorageSync("isLogin",0)
-    wx.setStorageSync("sessionKey",'')
-    wx.setStorageSync("userinfo","")
+    // wx.setStorageSync("sessionKey",'')
+    // wx.setStorageSync("userinfo","")
     // this.getStart()
 
     // 登录

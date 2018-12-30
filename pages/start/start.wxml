@@ -13,3 +13,13 @@
 </view>
 <view wx:else>请升级微信版本</view>
 </view>
+<block wx:if="{{cloudsShow}}">
+  <view>
+    <view class='getphone_buttom'>
+      <view bindtap='clouds' class='clous'></view>
+      <button class='bottom_1' type='primary' open-type="getPhoneNumber" lang="zh_CN" bindgetphonenumber="getPhoneNumber">授权手机号</button>
+    </view>
+    <image class='getPhone_img' src='https://www.sxscott.com/crazyBirdimg/test/bindPhone.png'></image>
+    <view class='getPhone_box'></view>
+  </view>
+</block>

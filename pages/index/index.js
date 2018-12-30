@@ -19,7 +19,6 @@ Page({
     interval: 5000,
     duration: 1000,
     circular: true,
-    cloudsShow: false,
     //投票用的
     clubs: [], //原始数据
     animations: [],
@@ -61,78 +60,7 @@ Page({
       }
     })
   },
-  //绑定手机号
-  isshowgetPhoneNumber: function () {
-    var that = this;
-    console.log(wx.getStorageSync("phone"))
-    if (wx.getStorageSync("phone")) {
-      that.setData({
-        cloudsShow: false
-      })
-    } else {
-      that.setData({
-        cloudsShow: true
-      })
-    }
-  },
-  getPhoneNumber: function (e) {
-    console.log(e);
-    wx.checkSession({
-      success() {
-        console.log(123123);
-      },
-      fail() {
-        // session_key 已经失效，需要重新执行登录流程
-        console.log(444444444);
-      }
-    })
-    var that = this;
-    console.log(wx.getStorageSync("sessionKey"))
-    var sessionkey = wx.getStorageSync("sessionKey");
-    let infoOpt = {
-      url: '/user/deciphering',
-      type: 'GET',
-      data: {
-        encrypdata: e.detail.encryptedData,
-        ivdata: e.detail.iv,
-        sessionkey: sessionkey
-      },
-      header: {
-        'content-type': 'application/json',
-      },
-    }
-    let infoCb = {}
-    infoCb.success = function (res) {
-      // console.log(res)
-      if (res.message == "成功")
-        wx.setStorageSync("phone", res.phone)
-    }
-    infoCb.beforeSend = () => { }
-    sendAjax(infoOpt, infoCb, () => { });
-    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
-      wx.showModal({
-        title: '提示',
-        showCancel: false,
-        content: '如未授权手机号将无法使用功能',
-        success: function (res) {
-          that.setData({
-            cloudsShow: true
-          })
-        }
-      })
-    } else {
-      wx.showModal({
-        title: '提示',
-        showCancel: false,
-        content: '欢迎进入在元培',
-        success: function (res) {
-          that.setData({
-            cloudsShow: false
-          })
-        }
-      })
-    }
-  },
+  
  
   hhidden: function () {
     var that = this;
@@ -381,7 +309,7 @@ Page({
     //     cloudsShow: false
     //   })
     // }
-    that.isshowgetPhoneNumber();
+    // that.isshowgetPhoneNumber();
     that.hhidden();
     // that.Startpage();
     // console.log(111);
@@ -403,8 +331,6 @@ Page({
    */
   onShow: function () {
 
-    var that = this;
-    that.isshowgetPhoneNumber();
   },
   /**
    * 生命周期函数--监听页面隐藏

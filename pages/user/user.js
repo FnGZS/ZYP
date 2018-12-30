@@ -117,6 +117,7 @@ Page({
       let infoCb = {}
       infoCb.success = function (res) {
         // console.log(res)
+        wx.setStorageSync("userinfo", res.data)
         wx.setStorageSync("userId", res.userId)
         wx.setStorageSync("isLogin", 1)
         wx.setStorageSync("nickName", res.userName)
