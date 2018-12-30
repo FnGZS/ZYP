@@ -12,6 +12,8 @@ const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
 Page({
     data: {
+      //参与信息
+      message:"",
         hidden: !0,
         animationData: {},
         product: [1],
@@ -24,28 +26,65 @@ Page({
         luckId:t.id
       })
       this.getDetailList()
-        // var e = this;
-        // this.data.isLogin;
-        // wx.getStorageSync("openid") ? wx.getSetting({
-        //     success: function(t) {
-        //         t.authSetting["scope.userInfo"] && wx.getUserInfo({
-        //             success: function(t) {
-        //                 e.setData({
-        //                     isLogin: !1,
-        //                     userInfo: t.userInfo
-        //                 });
-        //             }
-        //         });
-        //     }
-        // }) : e.setData({
-        //     isLogin: !0
-        // });
-        // e = this, wx.getStorageSync("users").openid;
-        // var a = t.gid;
-        // e.setData({
-        //     gid: a
-        // });
+      this.getisPart()
+      this.getjoinMan()
     },
+    //参与人数
+    getjoinMan(){
+      var t = this, a = t.data.luckId;
+      let infoOpt = {
+        url: '/luck/luckPartake',
+        type: 'GET',
+        data: {
+          luckId: a,
+          pageNo: 1,
+          pageSize: 1000
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+        console.log(res);
+        t.setData({
+          joinMan:res
+        })
+      }
+
+      sendAjax(infoOpt, infoCb, () => {
+      });
+    
+    },
+    //是否参加
+  getisPart(){
+    var that = this
+    let infoOpt = {
+      url: '/luck/isPart',
+      type: 'POST',
+      data: {
+        userId:wx.getStorageSync('userId'),
+        luckId: that.data.luckId
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      that.setData({
+        message: res.message
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+    });
+  },
+
+
+
+    //详情
   getDetailList(){
     var that = this
     let infoOpt = {
@@ -130,6 +169,12 @@ Page({
         });
     },
     onShow: function() {
+      
+
+
+
+
+      
         var t = wx.createAnimation({
             transformOrigin: "50% 50%",
             duration: 1e3,
@@ -143,13 +188,30 @@ Page({
         console.log(o)
     },
     rotateAndScale: function(t) {
-        var e = this, a = wx.getStorageSync("users").openid, n = wx.getStorageSync("users").name, i = wx.getStorageSync("users").img, o = e.data.gid, s = wx.getStorageSync("users").id, c = t.detail.formId;
-        if ("" != a && "" != n && "" != i && "" != s && "" != o && null != a && null != n && null != i && null != s && null != o) {
-            this.animation.width("180rpx").height("180rpx").opacity(.3).step();
-            this.setData(_defineProperty({
-                animationData: this.animation.export()
-            }, "product[0].jion", !0))
-        }
+      console.log(t)
+      var that = this
+      let infoOpt = {
+        url: '/luck/part',
+        type: 'POST',
+        data: {
+          luckId: that.data.luckId,
+          userId: wx.getStorageSync("userId")
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+        console.log(res);
+        that.setData({
+          message:res.message
+        })
+        that.getjoinMan()
+      }
+
+      sendAjax(infoOpt, infoCb, () => {
+      });
     },
     getUrl: function() {
         var e = this;
@@ -165,9 +227,8 @@ Page({
         });
     },
     goTicketnum: function(t) {
-        var e = t.currentTarget.dataset.gid;
         wx.navigateTo({
-            url: "../ticketnum/ticketnum?gid=" + e
+          url: "../ticketnum/ticketnum?luckId=" + this.data.luckId
         });
     },
     goXcx: function(t) {
