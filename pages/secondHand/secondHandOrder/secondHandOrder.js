@@ -14,6 +14,11 @@ Page({
       status: status
     })
   },
+  toOrderDetail:function(){
+    wx.navigateTo({
+      url: '../secondHandOrderDetail/secondHandOrderDetail',
+    })
+  },
   onReady: function () {
   },
   onShow: function () {

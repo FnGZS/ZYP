@@ -7,7 +7,7 @@
     <view class="tab-item {{currentTab == 4 ? 'active' : ''}}" bindtap='clickMenu' data-current="4" data-status='4'>售后</view>
   </view>
 </view>
-<view class='orderList'>
+<view class='orderList' bindtap='toOrderDetail'>
   <view class='order-head'>
     <image class='order-head-img' mode='aspectFill' src='https://images-cdn.shimo.im/0jFQCbmf3zQhQweu/mmexport1534150628046.jpg!thumbnail'></image>
     <view class='order-head-mes'>
@@ -31,7 +31,7 @@
   <view class='orderBtn'>
     <view class='order-all'>
       <view class='btn-cancelOrder'>取消订单</view>
-      <view class='btn-pay'>马上付款</view>
+      <view class='btn-pay'>去付款</view>
     </view>
 
   </view>
