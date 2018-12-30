@@ -1,8 +1,8 @@
 <view>
     <view class="top color_808080 font-30">
-    {{product[0]}} 位参与者
+    {{canyuList.recordCount}} 位参与者
   </view>
     <view class="padding-left">
-        <image class="header-img" src="{{item.img}}" wx:for="{{product}}"></image>
+        <image class="header-img" src="{{item.headImgUrl}}" wx:for="{{canyuList.items}}"></image>
     </view>
 </view>

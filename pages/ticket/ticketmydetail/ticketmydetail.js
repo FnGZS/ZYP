@@ -12,7 +12,9 @@ const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
 Page({
   data: {
-    myDetail:[],
+    //参与信息
+    message: "",
+    getDetailList:[],
     hidden: !0,
     animationData: {},
     product: [1],
@@ -20,11 +22,114 @@ Page({
     gid: 0,
     luckId: 0
   },
-  onLoad: function (t) {
-    console.log(t)
+  onLoad: function (options) {
+    console.log(options)
+    var my = decodeURIComponent(options.my);
+    if (options.winList){
+      var winList = decodeURIComponent(options.winList);
+      var winList = JSON.parse(winList)
+      this.setData({
+        winList
+      })
+    }
+    var getDetailList = JSON.parse(my)
+    var arr = WxParse.wxParse('article', 'html', getDetailList.prizeExplain, this, 30)
+    
     this.setData({
-      myDetail: JSON.parse(t.myDetail)
+      getDetailList,
+      luckId: getDetailList.id,
+      luckStatus: getDetailList.status,
+      userInfo: getApp().globalData.userInfo,
+      
     })
+    if(options.name == undefined){
+      this.getisPart()
+    }
+    this.getjoinMan()
+    this.getwinMan()
+  },
+  //中奖者名单
+  getwinMan() {
+    var t = this, a = t.data.luckId, b = t.data.luckStatus
+    let infoOpt = {
+      url: '/luck/luckWinner',
+      type: 'GET',
+      data: {
+        status:b,
+        luckId: a,
+        orderByType:'',
+        pageNo: 1,
+        pageSize: 1000
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res.items);
+      t.setData({
+        comwinList:res.items
+      })
+
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+    });
+
+  },
+  //参与人数
+  getjoinMan(a) {
+    var t = this,a = t.data.luckId
+    let infoOpt = {
+      url: '/luck/luckPartake',
+      type: 'GET',
+      data: {
+        luckId: a,
+        pageNo: 1,
+        pageSize: 1000
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      t.setData({
+        joinMan: res
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+    });
+
+  },
+
+  //是否参加
+  getisPart() {
+    var that = this
+    let infoOpt = {
+      url: '/luck/isPart',
+      type: 'POST',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        luckId: that.data.luckId
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      that.setData({
+        message: res.message
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+    });
   },
   shareCanvas: function () {
     var t = this, e = "/yzcj_sun/pages/ticket/ticketmiandetail/ticketmiandetail?gid=" + t.data.gid;
@@ -99,13 +204,30 @@ Page({
     console.log(o)
   },
   rotateAndScale: function (t) {
-    var e = this, a = wx.getStorageSync("users").openid, n = wx.getStorageSync("users").name, i = wx.getStorageSync("users").img, o = e.data.gid, s = wx.getStorageSync("users").id, c = t.detail.formId;
-    if ("" != a && "" != n && "" != i && "" != s && "" != o && null != a && null != n && null != i && null != s && null != o) {
-      this.animation.width("180rpx").height("180rpx").opacity(.3).step();
-      this.setData(_defineProperty({
-        animationData: this.animation.export()
-      }, "product[0].jion", !0))
+    console.log(t)
+    var that = this
+    let infoOpt = {
+      url: '/luck/part',
+      type: 'POST',
+      data: {
+        luckId: that.data.luckId,
+        userId: wx.getStorageSync("userId")
+      },
+      header: {
+        'content-type': 'application/json',
+      },
     }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      that.setData({
+        message: res.message
+      })
+      that.getjoinMan()
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+    });
   },
   getUrl: function () {
     var e = this;
@@ -121,9 +243,8 @@ Page({
     });
   },
   goTicketnum: function (t) {
-    var e = t.currentTarget.dataset.gid;
     wx.navigateTo({
-      url: "../ticketnum/ticketnum?gid=" + e
+      url: "../ticketnum/ticketnum?luckId=" + this.data.luckId
     });
   },
   goXcx: function (t) {

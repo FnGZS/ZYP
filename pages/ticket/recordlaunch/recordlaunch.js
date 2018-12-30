@@ -33,9 +33,9 @@ Page({
       let infoCb = {}
       infoCb.success = function (res) {
         console.log(res);
-        
+        var my = encodeURIComponent(JSON.stringify(res));
         wx.navigateTo({
-          url:'../ticketmydetail/ticketmydetail?myDetail='+JSON.stringify(res)
+          url:'../ticketmydetail/ticketmydetail?my=' + my +"&&name="+"我是男神"
         })
       }
 
