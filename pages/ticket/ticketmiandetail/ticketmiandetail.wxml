@@ -14,30 +14,22 @@
                 <view class="flex-0-0  sponsor color_8d8d8d font-24">
                     <view class="w_120 ">{{getDetailList.userName}}</view>发起</view>
                 </view>
-            <view class="color_999999 font-26 list-time" wx:if="{{mode == 2}}"> 
+            <view class="color_999999 font-26 list-time" wx:if="{{getDetailList.mode == 1}}"> 
           {{getDetailList.lotteryTime}} 自动开奖
         </view>
-            <view class="color_999999 font-26 list-time" wx:if="{{item.condition==1}}"> 
-          {{item.accurate}} 人自动开奖
-        </view>
-            <view class="color_999999 font-26 list-time" wx:if="{{item.condition==2}}"> 
+            <view class="color_999999 font-26 list-time" wx:if="{{getDetailList.mode == 2}}"> 
           手动开奖
         </view>
-            <view class="color_999999 font-26 list-time" wx:if="{{item.condition==3}}"> 
-          现场开奖
         </view>
-        </view>
-        <view class="sponsormsg font-30" wx:if="{{1}}">
+        <view class="sponsormsg font-30" wx:if="{{getDetailList.explain!=''}}">
             <text class="iconfont icon-zhuangshiyongyinhao"></text>
             <text class=" ">{{getDetailList.explain}}</text>
         </view>
         <block wx:if="{{getDetailList.prizeExplain}}">
-            <import src="../../../wxParse/wxParse.wxml"></import>
-            <import src="../../../wxParse/wxParse.wxml"></import>
+           
             <view class="txt-box">
-                <view class="txt-title font-32 color_808080">了解更多</view>
-                <template is="wxParse" data="{{wxParseData:lottery.nodes}}">12312</template>
-                <template is="wxParse" data="{{wxParseData:content.nodes}}">21312</template>
+            <import src="../../../wxParse/wxParse.wxml"></import>
+            <template is="wxParse"  class="" data="{{wxParseData:article.nodes}}"/>
             </view>
         </block>
         <view class="jion-box">

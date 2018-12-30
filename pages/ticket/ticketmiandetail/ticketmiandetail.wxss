@@ -285,7 +285,7 @@
 }
 
 .txt-box {
-    padding-bottom: 60rpx;
+    padding:30rpx;
 }
 
 .dot-box {

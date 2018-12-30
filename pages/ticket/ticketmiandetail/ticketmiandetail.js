@@ -64,6 +64,7 @@ Page({
       that.setData({
         getDetailList: res
       })
+      var arr = WxParse.wxParse('article', 'html', res.prizeExplain, that, 30)
     }
 
     sendAjax(infoOpt, infoCb, () => {
