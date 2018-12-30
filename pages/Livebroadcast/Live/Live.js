@@ -18,8 +18,31 @@ Page({
     debug: false,
     headerHeight: app.globalData.headerHeight,
     statusBarHeight: app.globalData.statusBarHeight,
+    animrotate:'',
   },
-
+  //图标旋转
+  onRotate:function(){
+    var that=this;
+    var animationPlus = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    animationPlus.rotateZ(90).step();
+    that.setData({
+      animrotate: animationPlus.export(),
+    })
+  },
+  onRotateru: function () {
+    var that = this;
+    var animationPlus = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease-out'
+    })
+    animationPlus.rotateZ(0).step();
+    that.setData({
+      animrotate: animationPlus.export(),
+    })
+  },
   onScanQR: function () {
     this.stop();
     this.createContext();
@@ -73,12 +96,14 @@ Page({
       that.setData({
         livestyle:'fullScreen'
       })
+      this.onRotate();
     } else {
       this.data.orientation = "vertical";
       // this.data.livestyle = 'fullScreen'
       that.setData({
         livestyle: 'liveplayerstyle'
       })
+      this.onRotateru();
     }
 
     this.setData({
@@ -89,8 +114,10 @@ Page({
   onObjectfitClick: function () {
     if (this.data.objectFit == "fillCrop") {
       this.data.objectFit = "contain";
+     
     } else {
       this.data.objectFit = "fillCrop";
+      
     }
 
     this.setData({
