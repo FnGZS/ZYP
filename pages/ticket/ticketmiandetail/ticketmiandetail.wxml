@@ -2,7 +2,7 @@
     <view class="list" >
         <view class="list-img">
             <image src="{{getDetailList.luckPic}}" wx:if="{{getDetailList.luckPic}}"></image>
-                    <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg" wx:if="{{!getDetailList.luckPic&&!getDetailList}}"></image>
+                    <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/luckbanner.png" wx:if="{{!getDetailList.luckPic&&!getDetailList}}"></image>
         </view>
         <view class="list-body">
             <view class="list-txt">
@@ -72,4 +72,4 @@
     <image class="posterBanner" mode="aspectFill" src="{{prurl}}"></image>
     <view catchtap="save" class="shareBtnbot">保存分享图</view>
 </view>
-<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/home.png"></image>
+<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image>

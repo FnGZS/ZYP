@@ -215,8 +215,8 @@ button::after {
 .color_999999 {
     color: #999999;
 }
-.color_d15243{
-  color: #d15243;
+.color_ef696c{
+  color: #ef696c;
 }
 .color_b3b3b3 {
     color: #b3b3b3;

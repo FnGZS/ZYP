@@ -19,7 +19,7 @@ Page({
     var that = this
     var luckyList = that.data.luckyList
     // console.log(luckyList[index].id)
-    var luckId = luckyList[index].id
+    var luckId = luckyList[index].luckDrawId
     var win = luckyList[index]
     var winList = encodeURIComponent(JSON.stringify(win));
 

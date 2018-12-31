@@ -9,7 +9,7 @@ page {
 
 .banner image {
     width: 100%;
-    height: 417rpx;
+    height: 350rpx;
 }
 .picture-icon {
   left: 0;
@@ -175,7 +175,7 @@ picker-view-column {
 }
 
 .btn1 {
-    background: #d15243;
+    background: #ef696c;
     display: block;
     width: 100%;
     border-radius: 0;
@@ -294,7 +294,7 @@ picker-view-column {
   /* border: 2rpx solid #d15243; */
   border-radius: 10rpx;
   text-align: center;
-  color: #d15243;
+  color: #ef696c;
   line-height: 50rpx;
 }
 textarea.ticket_say{

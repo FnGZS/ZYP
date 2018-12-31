@@ -362,10 +362,31 @@ Page({
             for(let j in value2){
               GetUserPOST("/luck/addPrize", { luckDrawId: getApp().data.luckDrawId, luckPrize: value1[j], num: value2[j], luckPic: "", sponsor: "" })
             }
+            if (albumSrc.length != 0) {
+              wx.showToast({
+                title: '图片正在上传中...',
+                icon: 'loading',
+                duration: 2000
+              })
+              var timer = setTimeout(function () {
+                wx.reLaunch({
+                  url: "../ticketdetail/ticketdetail?luckdataPic=" + luckdataPic + "&&value1=" + value1[0] + "&&value2=" + value2[0]
+                });
+              }, 2000);
+             
+            }else{
+              wx.showToast({
+                title: '正在提交...',
+                icon: 'loading',
+                duration: 1000
+              })
+              var timer = setTimeout(function () {
+                wx.reLaunch({
+                  url: "../ticketdetail/ticketdetail?luckdataPic=" + luckdataPic + "&&value1=" + value1[0] + "&&value2=" + value2[0]
+                });
+              }, 1000);
+            }
             
-            wx.navigateTo({
-              url: "../ticketdetail/ticketdetail?luckdataPic=" + luckdataPic + "&&value1=" + value1[0]+"&&value2="+value2[0]
-            });
 
              }).catch((res) => { console.log(res) })
         }

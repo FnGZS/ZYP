@@ -2,7 +2,7 @@
     <view class="list bg_fff" wx:if="{{luckdataPic}}">
         <view class="list-img">
             <image src="{{luckdataPic}}" wx:if="{{luckdataPic}}"></image>
-            <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg" wx:if="{{!luckdataPic}}"></image>
+            <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/luckbanner.png" wx:if="{{!luckdataPic}}"></image>
         </view>
         <view class="list-body">
             <view class="list-txt">

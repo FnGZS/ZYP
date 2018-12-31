@@ -14,6 +14,7 @@ Page({
   data: {
     //参与信息
     message: "",
+    againTicket:0,
     getDetailList:[],
     hidden: !0,
     animationData: {},
@@ -23,7 +24,6 @@ Page({
     luckId: 0
   },
   onLoad: function (options) {
-    console.log(options)
     var my = decodeURIComponent(options.my);
     if (options.winList){
       var winList = decodeURIComponent(options.winList);
@@ -31,6 +31,7 @@ Page({
       this.setData({
         winList
       })
+      console.log(winList)
     }
     var getDetailList = JSON.parse(my)
     var arr = WxParse.wxParse('article', 'html', getDetailList.prizeExplain, this, 30)
@@ -40,13 +41,71 @@ Page({
       luckId: getDetailList.id,
       luckStatus: getDetailList.status,
       userInfo: getApp().globalData.userInfo,
-      
+      userId: getApp().globalData.userId
     })
     if(options.name == undefined){
       this.getisPart()
+    }else{
+      console.log("aaaaaaaaaaaaaaaaaa")
+      this.setData({
+        againTicket:1
+      })
     }
     this.getjoinMan()
     this.getwinMan()
+  },
+  getstatus(){
+    var t = this, a = t.data.luckId, b = t.data.luckStatus
+    let infoOpt = {
+      url: '/luck/luckWinner',
+      type: 'GET',
+      data: {
+        status: b,
+        luckId: a,
+        orderByType: '',
+        pageNo: 1,
+        pageSize: 1000
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res.items);
+      t.setData({
+        comwinList: res.items
+      })
+      var that = this
+      let infoOpt = {
+        url: '/luck/luckDetails',
+        type: 'GET',
+        data: {
+          luckId: that.data.luckId
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+        console.log(res);
+        that.setData({
+          getDetailList: res
+        })
+      }
+
+      sendAjax(infoOpt, infoCb, () => {
+      });
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+    });
+
+
+
+
+   
   },
   //中奖者名单
   getwinMan() {
@@ -71,7 +130,7 @@ Page({
       t.setData({
         comwinList:res.items
       })
-
+      
     }
 
     sendAjax(infoOpt, infoCb, () => {
@@ -131,6 +190,29 @@ Page({
     sendAjax(infoOpt, infoCb, () => {
     });
   },
+  //现在开奖
+  xianzaikaijiang(){
+    var that = this
+    let infoOpt = {
+      url: '/luck/random',
+      type: 'GET',
+      data: {
+        luckId: that.data.luckId,
+        mode: 2
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      that.getstatus()
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+    });
+  },
   shareCanvas: function () {
     var t = this, e = "/yzcj_sun/pages/ticket/ticketmiandetail/ticketmiandetail?gid=" + t.data.gid;
     console.log(e);
@@ -139,11 +221,17 @@ Page({
       console.log(n), app.func.creatPoster(app, e, 430, n, 1, "shareImg");
   },
   onShareAppMessage: function (t) {
-    var e = this, a = (wx.getStorageSync("users").openid, e.data.gid);
-    if (2 == t.target.dataset.cid) var n = "红包 " + e.data.product[0].gname + " 元"; else n = e.data.product[0].gname;
-    return "button" === t.from && console.log(t.target), {
-      title: e.data.userInfo.nickName + "邀你参与[" + n + "]抽奖",
-      path: "/yzcj_sun/pages/ticket/ticketmiandetail/ticketmiandetail?gid=" + a,
+    var that = this
+    console.log(t)
+    var top = "快来参与“"
+    var bottom = "”发布的抽奖吧~"
+    if (that.data.getDetailList.mode == 2 && that.data.getDetailList.status == 2 || that.data.getDetailList.mode == 1 && that.data.getDetailList.status == 2){
+      top = "快来查看“"
+      bottom = "”发布的抽奖结果吧~"
+    }
+    return  {
+      title: top + that.data.getDetailList.userName+ bottom,
+      path: '',
       success: function (t) { },
       fail: function (t) { }
     };
@@ -171,15 +259,7 @@ Page({
         });
       },
       fail: function (t) {
-        console.log("失败"), wx.getSetting({
-          success: function (t) {
-            t.authSetting["scope.writePhotosAlbum"] || (console.log("进入信息授权开关页面"), wx.openSetting({
-              success: function (t) {
-                console.log("openSetting success", t.authSetting);
-              }
-            }));
-          }
-        });
+        console.log("失败")
       }
     });
   },
