@@ -87,17 +87,6 @@ App({
     })
 
   },
-  getStart(){
-    var isFir = wx.getStorageSync("isFir")
-    // console.log(isFir)
-    if (isFir == true) {
-      wx.navigateTo({
-        url: "/pages/index/index"
-      })
-    }
-  
-  },
-  
   //自定义的消息弹窗
   toastShow: function (that, str, icon) {
     that.setData({
@@ -112,7 +101,6 @@ App({
     }, 1500);
   }, 
   data:{
-    arr:[]
   },
 
   globalData: {
@@ -128,6 +116,7 @@ App({
     headimgurl: '',
     authorization: '',
     isbound: '',
+    userId: wx.getStorageSync("userId"),
     token: '17_s3V-KBt1usCawSGL-JF_Tuw43TJ1WbJLOBcyzh4jw79ZiGGJki8-HbeYcufbLrPaO2kFLHwx8IpYxsOB_tS9Pckv8tyRK7XJ6RqRiVANFQhglzRO_ZH-UVyr7wGtmHKauTOJhCc2hB6nTKNfGDAeAJAKHE'
   },
 })

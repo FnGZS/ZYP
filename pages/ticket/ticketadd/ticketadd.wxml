@@ -2,7 +2,7 @@
     
     <view class="banner">
         <button bindtap="upload" class="color_808080 font-28">更换奖品图片</button>
-        <image src="{{pic ==''?'https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg':pic}}"></image>
+        <image src="{{pic ==''?'https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/luckbanner.png':pic}}"></image>
         
     </view>
     <view>
@@ -40,9 +40,9 @@
             <text class="flex-0-0 color_8d8d8d" wx:if="{{index==1&&!day||index==1&&day==0}}">3天内到达设定人数自动开奖</text>
             <text class="flex-0-0 color_8d8d8d" wx:if="{{index==2}}">发起人手动开奖</text>
             <text class="flex-0-0 color_8d8d8d" wx:if="{{index==3}}">现场抽奖</text>
-            <view class="color_d15243">
+            <view class="color_ef696c">
         修改开奖条件
-        <text class="iconfont icon-you color_808080 color_d15243 font-24 "></text>
+        <text class="iconfont icon-you color_808080 color_ef696c font-24 "></text>
             </view>
         </view>
         <view wx:if="{{index==0}}">
@@ -117,4 +117,4 @@
         <view bindtap="closeplay" class="paly_box-list" data-index="{{index}}" wx:for="{{palylist}}" wx:key=" ">{{item}}</view>
     </view>
 </view>
-<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/home.png"></image>
+<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image>

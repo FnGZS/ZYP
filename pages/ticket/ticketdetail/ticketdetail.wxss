@@ -33,7 +33,7 @@ page {
     display: flex;
     align-items: center;
     width:750rpx;
-    height: 400rpx;
+    height: 350rpx;
 }
 
 .list-img image {

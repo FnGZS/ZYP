@@ -10,9 +10,18 @@ Page({
         userInfo:{}
     },
     onLoad: function(n) {
+      
+    },
+    onReady: function() {},
+    goMydance: function(n) {
+        wx.navigateTo({
+            url: "../../circle/mydance/mydance"
+        });
+    },
+    onShow: function() {
       console.log(app.globalData.userInfo)
       this.setData({
-       userInfo:app.globalData.userInfo
+        userInfo: app.globalData.userInfo
       })
       this.godlucky()
       this.godlaunch()
@@ -23,15 +32,6 @@ Page({
         //     is_openzx: a,
         //     is_tel: e
         // });
-    },
-    onReady: function() {},
-    goMydance: function(n) {
-        wx.navigateTo({
-            url: "../../circle/mydance/mydance"
-        });
-    },
-    onShow: function() {
-        
     },
     onHide: function() {},
     onUnload: function() {},
@@ -216,6 +216,11 @@ Page({
 
     sendAjax(infoOpt, infoCb, () => {
 
+    });
+  },
+  gohome: function () {
+    wx.reLaunch({
+      url: "../ticketmian/ticketmian"
     });
   },
   //中奖纪录

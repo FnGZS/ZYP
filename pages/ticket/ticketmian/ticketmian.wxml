@@ -1,7 +1,7 @@
 <view wx:if="{{audit==1}}">
     <view class="container">
         <view class="top">
-            <view class="color_e13e35 font-36 font-w top_box">
+            <view class="color_ef696c font-36 font-w top_box">
                 <image class="icon-jiang" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/jiang.png"></image>每日精选</view>
             <button bindtap="onShareAppMessage" class="shareBtn color_4488d3 font-26 font-w" openType="share">
     Share <text class="iconfont icon-share font-w"></text>
@@ -11,7 +11,7 @@
             <view bindtap="goTicketmiandetail" class="list" data-item="{{item.id}}" wx:key="item.id" wx:for="{{cullingList}}">
                 <view class="list-img">
                     <image src="{{item.luckPic}}" wx:if="{{item.luckPic}}"></image>
-                    <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg" wx:if="{{!item.luckPic&&!cullingList}}"></image>
+                    <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/luckbanner.png" wx:if="{{!item.luckPic&&!cullingList}}"></image>
                 </view>
                 <view class="list-body">
                     <view class="list-txt">
@@ -25,8 +25,8 @@
         </view>
                     </view>
                     <view class="color_999999 font-22 list-time">
-                        <view class="color_red font-w list-icon" wx:if="{{item.joinkey}}">
-                            <icon color="#d53b35" size="12" type="success"></icon>
+                        <view class="color_ef696c font-w list-icon" wx:if="{{item.joinkey}}">
+                            <icon color="#ef696c" size="12" type="success"></icon>
           已参加 |
         </view>
                         <view wx:if="{{item.mode==1}}"> 
@@ -74,7 +74,7 @@
         </view>
     </view>
     <view class="nav-bar">
-        <view class="color_red">
+        <view class="color_ef696c">
             <text class="iconfont icon-fenlei "></text>
             <view wx:if="{{!support_font}}">广场</view>
             <view wx:if="{{support_font}}">{{support_font}}</view>
@@ -91,3 +91,4 @@
         </view>
     </view>
 </view>
+<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image>

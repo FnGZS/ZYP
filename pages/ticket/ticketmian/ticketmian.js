@@ -1,19 +1,5 @@
 const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
-//递归随机函数
-function getNumNoRepeat() {
-  var num = Math.floor(Math.random() * 10) + 1;
-  if(getApp().data.arr.length == 10){getApp().data.arr = []}
-
-  console.log(getApp().data.arr)
-  if (-1 == getApp().data.arr.indexOf(num)) {//数组中不存在
-    getApp().data.arr.push(num);
-    
-    return num;
-  } else {
-    getNumNoRepeat()
-  }
-}
 Page({
     data: {
       radom:1,
@@ -114,7 +100,13 @@ Page({
     sendAjax(infoOpt, infoCb, () => {
     });
   },
-    //
+  //回到首页
+  gohome: function () {
+    wx.reLaunch({
+      url: "/pages/index/index"
+    });
+  },
+    //广告
     getAD(){
       var that = this
       let infoOpt = {
@@ -168,8 +160,8 @@ Page({
         });
     },
     onShow: function() {
-      var radom = this.data.radom
-      this.getmian(radom)
+        var radom = this.data.radom
+        this.getmian(radom)
       this.getAD()
     },
     getUrl: function() {
@@ -179,8 +171,8 @@ Page({
     onUnload: function() {},
     onPullDownRefresh: function() {
       wx.showNavigationBarLoading();
-
-      var radom = getNumNoRepeat() 
+      var radom = this.data.radom;
+      radom > 9? radom =1 : radom++
       this.setData({
         radom
       })

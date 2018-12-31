@@ -3,7 +3,7 @@
     已中奖
   </view>
   <block wx:if="{{luckyList.length != 0}}">
-    <view bindtap="goluckyDetail" class="list bg_fff" data-id="{{item.id}}"  style="border-top:none" wx:for='{{luckyList}}' wx:key="*this">
+    <view bindtap="goluckyDetail" class="list bg_fff" data-id="{{index}}"  style="border-top:none" wx:for='{{luckyList}}' wx:key="*this">
         <view class="list-body">
             <view class="list-txt">
                 <view class="list-tile flex-1-1 font-28  list-2"  >奖品：{{item.luckPrize}} X {{item.num}}</view>

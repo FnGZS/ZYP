@@ -2,7 +2,7 @@
     <view class="list" >
         <view class="list-img">
             <image src="{{getDetailList.luckPic}}" wx:if="{{getDetailList.luckPic}}"></image>
-                    <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/banner.jpg" wx:if="{{!getDetailList.luckPic&&!getDetailList}}"></image>
+                    <image src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/luckbanner.png" wx:if="{{!getDetailList.luckPic&&!getDetailList}}"></image>
         </view>
         <view class="list-body">
             <view class="list-txt">
@@ -51,12 +51,17 @@
                 </view>
             </view>
             </block>
-            <block wx:if="{{getDetailList.status == 2}}">
-              <block wx:if="{{winList}}">
+            <block wx:if="{{getDetailList.status == 2}}" wx:for="{{comwinList}}" >
+              <block wx:if="{{winList||item.userId == userId}}">
             <view class="lucky_box">
               <view style=' border: 1rpx solid #d7c47f;width:90%;height:90%;padding:10rpx 0;'>
             <view class="lucky_title">恭喜！你已中奖</view>
+            <block wx:if="{{winList}}">
             <view class='lucky_prize'>奖品：{{winList.luckPrize}} X{{winList.num}}</view>
+            </block>
+            <block wx:else>
+            <view class='lucky_prize'>快去中奖记录里查看哦~</view>
+            </block>
             <view class="font-20 color_959595">——— 中奖者名单 ———</view>
             <view>
             <image class='userinfo-avatar' mode='aspectFill' src='{{userInfo.avatarUrl}}'></image>
@@ -69,7 +74,7 @@
               <block wx:else>
              <view class="lucky_box">
               <view style=' border: 1rpx solid #d7c47f;width:90%;height:90%;padding:34rpx 0;'>
-            <view class="lucky_title">很遗憾，这次没中奖~</view>
+            <view class="lucky_title_no">很遗憾，这次没中奖~</view>
             <view class='lucky_prize'></view>
             <view class="font-20 color_959595">——— 中奖者名单 ———</view>
             <view class='userinfo'>
@@ -96,15 +101,29 @@
     </view>
 </view>
 <view class="fix-bottom z-5">
+    <block wx:if="{{getDetailList.mode == 2&&getDetailList.status == 1}}">
+    <button bindtap="xianzaikaijiang" class="btn1 font-32" data-cid="{{item.cid}}" wx:for="{{product}}">现在开奖</button>
+    </block>
+    <block wx:if="{{getDetailList.mode == 2&&getDetailList.status == 2||getDetailList.mode == 1&&getDetailList.status == 2}}">
+    <button bindtap="onShareAppMessage" class="btn1 font-32" data-cid="{{item.cid}}" openType="share" wx:for="{{product}}">分享抽奖结果</button>
+    </block>
+    <block wx:if="{{getDetailList.mode == 1&&getDetailList.status == 1}}">
     <button bindtap="onShareAppMessage" class="btn1 font-32" data-cid="{{item.cid}}" openType="share" wx:for="{{product}}">邀请朋友参加</button>
+    </block>
+    <block wx:if="{{againTicket == 0}}">
     <button bindtap="goTicketadd" class="btn2 font-32">我也要发起抽奖</button>
+    </block>
+    <block wx:if="{{againTicket == 1}}">
+     <block wx:if="{{getDetailList.mode == 2&&getDetailList.status == 1}}">
+     <button bindtap="onShareAppMessage" class="btn2 font-32" data-cid="{{item.cid}}" openType="share" wx:for="{{product}}">邀请朋友参加</button>
+    </block>
+    <block wx:else>
+    <button bindtap="goTicketadd" class="btn2 font-32">再次发起抽奖</button>
+    </block>
+    </block>
 </view>
 <view>
 
 </view>
-<canvas canvasId="shareImg" class="canvas" style="width:580px;height:680px"></canvas>
-<view bindtap="hidden" class="mask" hidden="{{hidden}}">
-    <image class="posterBanner" mode="aspectFill" src="{{prurl}}"></image>
-    <view catchtap="save" class="shareBtnbot">保存分享图</view>
-</view>
-<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/home.png"></image>
+
+<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image>
