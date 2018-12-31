@@ -1,5 +1,7 @@
 // pages/play/play.js
 const app = getApp()
+var utils = require('../../../utils/util');
+var websocket = require('../../../utils/websocket.js');
 Page({
 
   /**
@@ -20,6 +22,9 @@ Page({
     statusBarHeight: app.globalData.statusBarHeight,
     animrotate:'',
     currentTab:0,
+    newslist:[],
+    message: '', 
+    toView:'',
   },
   //点击切换
   clickTab: function (e) {
@@ -123,7 +128,6 @@ Page({
       })
       this.onRotateru();
     }
-
     this.setData({
       orientation: this.data.orientation
     })
@@ -226,10 +230,59 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-
+    this.openwebsocket();
   },
+  //调通接口
+  openwebsocket:function(){
+    var that=this;
+    websocket.connect(this.data.userInfo, function (res) {
+      console.log(JSON.parse(res.data))
+      var list = []
+      list = that.data.newslist
+      list.push(JSON.parse(res.data))
+      that.setData({
+        newslist: list
+      })
+      console.log(that.data.newslist)
+      that.buttom()
+    })
+  },
+  send: function () {
+    var that = this
+    if (this.data.message.trim() == "") {
+      wx.showToast({
+        title: '消息不能为空哦~',
+        icon: "none",
+        duration: 2000
+      })
+    } else {
+      setTimeout(function () {
+        that.setData({
+          increase: false
 
+        })
+        that.buttom()
+      }, 500)
+      let infoCb = {
+          type:0,
+          content:that.data.message,
+          userinfo: wx.getStorageSync("userinfo"),
+          date: utils.formatTime(new Date())
+      }
+      // console.log(infoCb)
+      websocket.send(JSON.stringify(infoCb))
+      that.setData({
+        message:''
+      })
+    }
+   
+  },
+  //监听input值的改变
+  bindChange(res) {
+    this.setData({
+      message: res.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -241,17 +294,25 @@ Page({
       keepScreenOn: true,
     })
   },
+  buttom:function(){
+     
 
+    this.setData({
+      toView: 'toView'
+    })
+
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     // 保持屏幕常亮
+    this.buttom();
     wx.setKeepScreenOn({
       keepScreenOn: true
     })
   },
-
+ 
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -264,7 +325,7 @@ Page({
    */
   onUnload: function () {
     this.stop();
-
+    wx.closeSocket();
     wx.setKeepScreenOn({
       keepScreenOn: false,
     })

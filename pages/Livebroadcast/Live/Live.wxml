@@ -1,15 +1,15 @@
 <!--pages/play/play.wxml-->
-<view style="width:100%;height: 100%; background-color: black; ">
+<view style="width:100%;height: 100%; ">
   <view style="width:100%;height:100%;">
-    <live-player class='{{livestyle}}'  id="video-livePlayer" mode="live" orientation="{{orientation}}" muted="{{muted}}" background-mute="{{backgroundMute}}" object-fit="{{objectFit}}" min-cache="1" max-cache="3" src="{{playUrl}}"
-      debug="{{debug}}" bindstatechange="onPlayEvent" bindfullscreenchange="onFullScreenChange">
-     
+    <live-player class='{{livestyle}}' id="video-livePlayer" mode="live" orientation="{{orientation}}" muted="{{muted}}" background-mute="{{backgroundMute}}" object-fit="{{objectFit}}" min-cache="1" max-cache="3" src="{{playUrl}}" debug="{{debug}}" bindstatechange="onPlayEvent"
+      bindfullscreenchange="onFullScreenChange">
+
       <cover-image hidden="{{playing}}" style="width:100%; height: 100%; position:absolute;" src="https://mc.qcloudimg.com/static/img/7da57e0050d308e2e1b1e31afbc42929/bg.png"></cover-image>
 
       <cover-view style="width:100%; height: 50px; position:absolute;bottom:0px;">
-       <cover-view class='bunttom-bg'>
-      
-      </cover-view>
+        <cover-view class='bunttom-bg'>
+
+        </cover-view>
         <cover-view class='bottom_box'>
           <cover-image class="bottom_button" src="../../../images/{{playing?'suspend':'start'}}.png" animation="{{animrotate}}" bindtap='onPlayClick'></cover-image>
 
@@ -19,12 +19,12 @@
           <cover-view class='bottom_text'>扫码</cover-view>
         </cover-view> -->
         <cover-view class='bottom_box'>
-          <cover-image class="bottom_button"animation="{{animrotate}}" src="../../../images/rotate.png" bindtap='onOrientationClick'></cover-image>
+          <cover-image class="bottom_button" animation="{{animrotate}}" src="../../../images/rotate.png" bindtap='onOrientationClick'></cover-image>
           <!-- <cover-view class='bottom_text'>{{orientation == 'vertical'?'竖屏':'横屏'}}</cover-view> -->
         </cover-view>
-  
+
         <cover-view class='bottom_box'>
-          <cover-image class="bottom_button"animation="{{animrotate}}" src="../../../images/{{muted?'sound-dis':'sound'}}.png" bindtap='onMuteClick'></cover-image>
+          <cover-image class="bottom_button" animation="{{animrotate}}" src="../../../images/{{muted?'sound-dis':'sound'}}.png" bindtap='onMuteClick'></cover-image>
           <!-- <cover-view class='bottom_text'>声音</cover-view> -->
         </cover-view>
         <cover-view class='bottom_box'>
@@ -36,10 +36,58 @@
     </live-player>
   </view>
   <view class='function'>
-<view class="swiper-tab">
-  <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">直播详情</view>
-  <view class='line'></view>
-    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">互动聊天</view>
+    <view class="swiper-tab">
+      <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">直播详情</view>
+      <view class='line'></view>
+      <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">互动聊天</view>
+    </view>
+    <view class='nav_live'>
+      <view class='nav_live_cont' wx:if="{{currentTab==0}}">
+        <view class='cont_title'>
+          <h1>绍兴文理元培学院感恩晚会直播</h1>
+        </view>
+        <view class='cont-time'>
+          直播时间:2018/12/29 08:30
+        </view>
+        <view class='cont_wxParse'>
+
+        </view>
+      </view>
+      <view class='nav_live_chat' wx:if="{{currentTab==1}}">
+        <scroll-view scroll-into-view="{{toView}}" class="history" scroll-y="true"  id="page" scroll-with-animation >
+          <block wx:for="{{newslist}}" wx:key>
+            <view class="chat-news">
+              <view class="chat-userinfo" >
+                <image class='new_img' src="{{item.userinfo.avatar? item.userinfo.avatar:'images/avator.png'}}"></image>
+                <text class="name">{{ item.userinfo.userName }} : {{item.content}}</text>
+              </view>
+              <!-- <view class='you_left'>
+                <block >
+                  <view class='new_txt'>{{item.content}}</view>
+                </block>
+              
+              </view> -->
+            </view>
+          </block>
+          <view id="toView" class='kong'></view>
+        </scroll-view>
+        
+        <view class='chat_btn'>
+          <view class='chat_gift'>
+            <image class='voice_icon' bindtap='addImg' src='/images/jia_img.png'></image>
+          </view>
+          <view class='chat_btn_left'>
+
+            <input type="text" bindinput='bindChange' value='{{message}}' bindfocus="focus" confirm-type="done" placeholder="说两句"></input>
+          </view>
+          <view class='chat_btn_right'>
+            <view class='right_text' bindtap='send'>
+              发送
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
+
 </view>
