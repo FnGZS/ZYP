@@ -48,63 +48,63 @@ Page({
       })
     }
   },
-  getUserInfo: function (e) {
-    var that = this;
-    console.log(e);
-    if (e.detail.userInfo) {
-      app.globalData.userInfo = e.detail.userInfo
+  // getUserInfo: function (e) {
+  //   var that = this;
+  //   console.log(e);
+  //   if (e.detail.userInfo) {
+  //     app.globalData.userInfo = e.detail.userInfo
 
-      this.setData({
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true
-      })
-      var platUserInfoMap = that.data.platUserInfoMap;
-      platUserInfoMap["encryptedData"] = e.detail.encryptedData;
-      platUserInfoMap["iv"] = e.detail.iv;
-      // console.log(platUserInfoMap);
-      // console.log(JSON.stringify(data));
-      let infoOpt = {
-        url: '/user/login',
-        type: 'POST',
-        data: {
-          platCode: that.data.code,
-          platUserInfoMap: platUserInfoMap,
-        },
-        header: {
-          'content-type': 'application/json',
-          // 'authorization': wx.getStorageSync("authorization"),
-        },
-      }
-      let infoCb = {}
-      infoCb.success = function (res) {
-        // console.log(res)
-        wx.setStorageSync("userId", res.userId)
-        wx.setStorageSync("isLogin", 1)
-        wx.setStorageSync("nickName", res.userName)
-        wx.setStorageSync("isbound", res.isbound)
-        wx.setStorageSync("avatar", res.avatar)
-        wx.setStorageSync("userKey", res.userKey)
-        wx.setStorageSync("authorization", res.authorization)
-        wx.setStorageSync("userId", res.userId)
-        if (wx.getStorageSync('isbound') == 1) {
-          that.setData({
-            isboundUser: '已绑定学号'
-          })
-        }
+  //     this.setData({
+  //       userInfo: e.detail.userInfo,
+  //       hasUserInfo: true
+  //     })
+  //     var platUserInfoMap = that.data.platUserInfoMap;
+  //     platUserInfoMap["encryptedData"] = e.detail.encryptedData;
+  //     platUserInfoMap["iv"] = e.detail.iv;
+  //     // console.log(platUserInfoMap);
+  //     // console.log(JSON.stringify(data));
+  //     let infoOpt = {
+  //       url: '/user/login',
+  //       type: 'POST',
+  //       data: {
+  //         platCode: that.data.code,
+  //         platUserInfoMap: platUserInfoMap,
+  //       },
+  //       header: {
+  //         'content-type': 'application/json',
+  //         // 'authorization': wx.getStorageSync("authorization"),
+  //       },
+  //     }
+  //     let infoCb = {}
+  //     infoCb.success = function (res) {
+  //       console.log(res)
+  //       wx.setStorageSync("userId", res.userId)
+  //       wx.setStorageSync("isLogin", 1)
+  //       wx.setStorageSync("nickName", res.userName)
+  //       wx.setStorageSync("isbound", res.isbound)
+  //       wx.setStorageSync("avatar", res.avatar)
+  //       wx.setStorageSync("userKey", res.userKey)
+  //       wx.setStorageSync("authorization", res.authorization)
+  //       wx.setStorageSync("userId", res.userId)
+  //       if (wx.getStorageSync('isbound') == 1) {
+  //         that.setData({
+  //           isboundUser: '已绑定学号'
+  //         })
+  //       }
 
-      }
-      infoCb.beforeSend = () => { }
-      infoCb.complete = () => {
+  //     }
+  //     infoCb.beforeSend = () => { }
+  //     infoCb.complete = () => {
 
-      }
-      sendAjax(infoOpt, infoCb, () => {
-        // that.onLoad()
-        // wx.setStorageSync('G_needUploadIndex', true)
-      });
-    } else {
-      this.openSetting();
-    }
-  },
+  //     }
+  //     sendAjax(infoOpt, infoCb, () => {
+  //       // that.onLoad()
+  //       // wx.setStorageSync('G_needUploadIndex', true)
+  //     });
+  //   } else {
+  //     this.openSetting();
+  //   }
+  // },
   login: function () {
     // console.log(111)
     var that = this
@@ -146,9 +146,10 @@ Page({
             }
             let infoCb = {}
             infoCb.success = function (res) {
-              console.log(11111);
-              // console.log(res)
-              wx.setStorageSync("phone", res.data.phone)
+              // console.log(11111);
+              wx.setStorageSync("userinfo", res.data)
+              console.log(res)
+              wx.setStorageSync("phone", res.phone)
               wx.setStorageSync("userId", res.userId)
               wx.setStorageSync("isLogin", 1)
               wx.setStorageSync("nickName", res.userName)

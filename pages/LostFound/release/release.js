@@ -50,9 +50,7 @@ Page({
           var userinfo=[]
           var foundPic = JSON.stringify(that.data.arr_img)
            console.log(foundPic);
-          userinfo['nickName']=wx.getStorageSync("nickName")
-          userinfo['avatar'] = wx.getStorageSync("avatar")
-          userinfo['watchPhone'] = wx.getStorageSync("watchPhone")
+          userinfo = wx.getStorageSync('userinfo')
           console.log(userinfo)
           let infoOpt = {
             url: '/lost/lostInput',

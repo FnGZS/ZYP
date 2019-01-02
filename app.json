@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/start/start",
-    "pages/user/user",
     "pages/currentaffairs/currentaffairs",
     "pages/currentaffairs/detailPage/detailPage",
     "pages/user/index",
