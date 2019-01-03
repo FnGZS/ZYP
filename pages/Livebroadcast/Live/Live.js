@@ -113,6 +113,7 @@ Page({
 
   onOrientationClick: function () {
   var that=this;
+    console.log(this.data.orientation)
     if (this.data.orientation == "vertical") {
       this.data.orientation = "horizontal";
       // this.data.livestyle = 'liveplayerstyle'
