@@ -83,6 +83,8 @@ margin-left: 20rpx;
 .detail-owner-message-locate{
 font-size: 24rpx;
 color: #5f5d5df8;
+margin-top:20rpx;
+
 }
 .detail-owner-message-locate image{
   height: 25rpx;

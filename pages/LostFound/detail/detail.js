@@ -5,12 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    message:[]
+    message:[],
+
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  callphone:function(){
+    var that=this;
+    wx.makePhoneCall({
+      phoneNumber: that.data.message.personal.phone
+    })
+  },
   getdetail: function (detail){
     console.log(detail)
 
@@ -30,8 +38,9 @@ Page({
     infoCb.success = function (data) {
       console.log(data);
       data.details.foundPic = JSON.parse(data.details.foundPic)
+      data.details.personal = JSON.parse(data.details.personal)
        that.setData({
-         message: data.details
+         message: data.details,
        })
        console.log(that.data.message)
 

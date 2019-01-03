@@ -5,21 +5,21 @@
         <view class='detail-owner-lost'>
           #失物招领#
         </view>
-   
+
       </view>
       <view class='detail-owner-message'>
         <view class='detail-owner-message-touxiang'>
-          <image src='/images/school.png'></image>
+          <image src="{{message.personal.avatar?message.personal.avatar:'../../../images/avatar.jpg'}}"></image>
         </view>
         <view class='detail-owner-message-mess'>
           <view class='detail-owner-message-read'>
 
             <view class='detail-owner-message-name'>
-              男神么么哒
+              {{message.personal.userName}}
               <view class='detail-owner-message-time'>
                 {{message.day}} {{message.minute}}
                 <view class='detail-owner-message-readnum'>
-                 浏览量:{{message.brow}}
+                  浏览量:{{message.brow}}
                 </view>
               </view>
             </view>
@@ -31,13 +31,14 @@
         </view>
       </view>
       <view class='detail-title'>
-         {{message.title}}
+        {{message.title}}
       </view>
-      <view class='detail-discribe'><text> {{message.content}}</text>
+      <view class='detail-discribe'>
+        <text> {{message.content}}</text>
       </view>
     </view>
     <view class='detail-pic' wx:for="{{message.foundPic}}">
-            <image src="{{item}}" mode='aspectFill' > {{item}}</image>
+      <image src="{{item}}" mode='aspectFill'> {{item}}</image>
     </view>
   </view>
   <!-- <view class='reply'>
@@ -69,30 +70,30 @@
     </view>
   </view> -->
 
-  
 
 
 
-  
+
+
 </view>
 <view class='tabs'>
-    <view class='tabbottom'>
-   
-           <view class='bottom-share' >
-          <!-- <image src='/images/reply.png' class='replypic'></image>
+  <view class='tabbottom'>
+
+    <view class='bottom-share'>
+      <!-- <image src='/images/reply.png' class='replypic'></image>
           <view class='bottom-text' >评论</view> -->
-        </view>
-           <view class='bottom-share'>
-          <!-- <image src='/images/dianzan.png' class='dianzan'></image>
+    </view>
+    <view class='bottom-share'>
+      <!-- <image src='/images/dianzan.png' class='dianzan'></image>
           <view class='bottom-text'>点赞</view> -->
-        </view>
-             <view class='bottom-share'>
-          <!-- <image src='/images/share.png' class='share'></image>
+    </view>
+    <view class='bottom-share'>
+      <!-- <image src='/images/share.png' class='share'></image>
           <view class='bottom-text'>分享</view> -->
-          <button open-type='share'>热心分享</button>
-        </view>
-                   <view class='bottom-connect'>
-          <view class='connect'>联系Ta</view>
-        </view>
+      <button open-type='share'>热心分享</button>
+    </view>
+    <view class='bottom-connect' bindtap='callphone'>
+      <view class='connect'>联系Ta</view>
     </view>
   </view>
+</view>
