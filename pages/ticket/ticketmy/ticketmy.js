@@ -220,7 +220,7 @@ Page({
   },
   gohome: function () {
     wx.reLaunch({
-      url: "../ticketmian/ticketmian"
+      url: "/pages/index/index"
     });
   },
   //中奖纪录
