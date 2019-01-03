@@ -79,6 +79,18 @@
         "text": "时事"
       },
       {
+        "selectedIconPath": "images/直播2.png",
+        "iconPath": "images/直播.png",
+        "pagePath": "pages/Livebroadcast/Livebroadcast",
+        "text": "直播"
+      },
+        {
+          "selectedIconPath": "images/我的2.png",
+          "iconPath": "images/我的.png",
+          "pagePath": "pages/user/index",
+          "text": "锦鲤"
+        },
+      {
         "selectedIconPath": "images/我的2.png",
         "iconPath": "images/我的.png",
         "pagePath": "pages/user/index",
