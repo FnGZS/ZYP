@@ -28,7 +28,10 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (data) {
-         console.log(data);
+         that.setData({
+           roomlist:data.list
+         })
+         console.log(that.data.roomlist)
     }
 
     sendAjax(infoOpt, infoCb, () => {

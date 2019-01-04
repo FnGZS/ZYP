@@ -154,7 +154,7 @@ Page({
   },
   //直播跳转
   Livebroadcast: function (e) {
-    wx.navigateTo({
+    wx.switchTab({
       url: '../Livebroadcast/Livebroadcast'
     });
   },
@@ -692,7 +692,7 @@ Page({
   },
   //跳转校园二手
   toSecondHand: function () {
-    wx.navigateTo({
+    wx.switchTab({
       url: '../secondHand/secondHand',
     })
   },

@@ -72,6 +72,12 @@
         "pagePath": "pages/index/index",
         "text": "首页"
       },
+        {
+          "selectedIconPath": "images/商城2.png",
+          "iconPath": "images/商城.png",
+          "pagePath": "pages/secondHand/secondHand",
+          "text": "二手"
+        },
       {
         "selectedIconPath": "images/时事2.png",
         "iconPath": "images/时事.png",
@@ -84,12 +90,7 @@
         "pagePath": "pages/Livebroadcast/Livebroadcast",
         "text": "直播"
       },
-        {
-          "selectedIconPath": "images/我的2.png",
-          "iconPath": "images/我的.png",
-          "pagePath": "pages/user/index",
-          "text": "锦鲤"
-        },
+      
       {
         "selectedIconPath": "images/我的2.png",
         "iconPath": "images/我的.png",

@@ -8,7 +8,7 @@
   <view class='Live-title'>
     当前直播
   </view>
-  <view class='Live-list' bindtap='toLive'>
+  <view class='Live-list' bindtap='toLive'   wx:for="{{roomlist}}" wx:key="*this" >
     <view class='list-images'>
       <image src='https://www.sxscott.com/wanhui.png' mode='aspectFill'></image>
     </view>
@@ -19,7 +19,7 @@
     </view>
     <view class='single-title'>
       <view class='title'>
-        绍兴文理元培学院感恩晚会直播！
+        {{item.title}}
       </view>
       <view class='online'>
         3214人在看
