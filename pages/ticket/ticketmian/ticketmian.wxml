@@ -61,7 +61,7 @@
         </view>
         
     </view>
-    <view class="nav-bar">
+    <!-- <view class="nav-bar">
         <view class="color_ef696c">
             <text class="iconfont icon-liwu "></text>
             <view class='font-22' wx:if="{{!support_font}}">福利</view>
@@ -74,6 +74,7 @@
             <text class="iconfont icon-liebiaofenlei "></text>
             <view class='font-22' wx:if="{{!support_tel}}">开奖机</view>
         </view>
-    </view>
+    </view> -->
 </view>
-<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image>
+<!-- <image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image> -->
+<image bindtap="toAdd" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/toAdd.png"></image>

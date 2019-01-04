@@ -12,9 +12,14 @@ Page({
        })
         
     },
-    goTicketmy: function() {
-        wx.redirectTo({
-            url: "../ticketmy/ticketmy"
-        });
-    }
+  // goTicketmy: function () {
+  //   wx.redirectTo({
+  //     url: "../ticketmy/ticketmy"
+  //   });
+  // },
+  goTicketmy: function () {
+    wx.switchTab({
+      url: "/pages/user/index"
+    });
+  }
 });

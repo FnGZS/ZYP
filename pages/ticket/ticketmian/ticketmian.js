@@ -228,5 +228,11 @@ Page({
         wx.navigateTo({
             url: "../recordall/recordall"
         });
-    }
+    },
+  toAdd(){
+    wx.navigateTo({
+      url: "../ticketadd/ticketadd"
+    });
+  }
+    
 });

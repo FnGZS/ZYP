@@ -117,4 +117,4 @@
         <view bindtap="closeplay" class="paly_box-list" data-index="{{index}}" wx:for="{{palylist}}" wx:key=" ">{{item}}</view>
     </view>
 </view>
-<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image>
+<!-- <image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image> -->
