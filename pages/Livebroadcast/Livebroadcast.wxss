@@ -37,7 +37,7 @@
   height: 500rpx;
   width: 100%;
   /* background: rebeccapurple; */
-  position: absolute;
+  /* position: absolute; */
 }
 .list-images{
   width: 100%;
