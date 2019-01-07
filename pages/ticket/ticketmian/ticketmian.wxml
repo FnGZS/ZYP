@@ -3,8 +3,7 @@
         <view class="top">
             <view class="color_ef696c font-36 font-w top_box">
                 <image class="icon-jiang" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/jiang.png"></image>每日精选</view>
-            <button bindtap="onShareAppMessage" class="shareBtn color_4488d3 font-26 font-w" openType="share">
-    Share <text class="iconfont icon-share font-w"></text>
+            <button bindtap="onShareAppMessage" class="shareBtn color_ef696c font-26 font-w" openType="share"><text class="iconfont icon-share font-w"></text>
             </button>
         </view>
         <view>
@@ -50,8 +49,6 @@
             </view>
             <view class="see-me font-26 font-w" wx:if="{{!sponsor&&cullingList}}">
                 <text bindtap="goSponsor">我要上精选</text>
-                <text style="margin:0 20rpx"> |</text>
-                <text bindtap="goRecordall">我参与的抽奖</text>
             </view>
             <view bindtap="goXcx" class="ad-img-box1" data-appid="{{item.appid}}" data-url="{{item.url}}" wx:key="*"  wx:for="{{adList}}">
                 <swiper autoplay="true" circular="true">
@@ -62,33 +59,22 @@
                 <view class="ad-icon font-24">广告 {{item.xcx_name}}</view>
             </view>
         </view>
-        <view class="youzi" wx:if="{{item.name}}" wx:key="*"  wx:for="{{support}}">
-            <image src="{{url}}{{item.logo}}"></image>
-            <view>
-                <view>{{item.name}}出品</view>
-                <view wx:if="{{item.condition==1}}">合作电话：{{item.phone}}</view>
-                <view wx:if="{{item.condition==2}}">联系QQ号：{{item.phone}}</view>
-                <view wx:if="{{item.condition==3}}">联系微信号：{{item.phone}}</view>
-            </view>
-            <button bindtap="goCall" class="bg_fe5146 color_fff" data-phone="{{item.phone}}" wx:if="{{item.condition==1}}">拨打</button>
-        </view>
+        
     </view>
-    <view class="nav-bar">
+    <!-- <view class="nav-bar">
         <view class="color_ef696c">
-            <text class="iconfont icon-fenlei "></text>
-            <view wx:if="{{!support_font}}">广场</view>
-            <view wx:if="{{support_font}}">{{support_font}}</view>
+            <text class="iconfont icon-liwu "></text>
+            <view class='font-22' wx:if="{{!support_font}}">福利</view>
         </view>
         <view bindtap="goTicketadd">
-            <text class="iconfont icon-fabu1 "></text>
-            <view wx:if="{{!support_logo}}">发起</view>
-            <view wx:if="{{support_logo}}">{{support_logo}}</view>
+            <text class="iconfont icon-jiahao "></text>
+            <view class='font-22' wx:if="{{!support_logo}}">发起</view>
         </view>
         <view bindtap="goTicketmy">
-            <text class="iconfont icon-weibiaoti2fuzhi12 "></text>
-            <view wx:if="{{!support_tel}}">我的</view>
-            <view wx:if="{{support_tel}}">{{support_tel}}</view>
+            <text class="iconfont icon-liebiaofenlei "></text>
+            <view class='font-22' wx:if="{{!support_tel}}">开奖机</view>
         </view>
-    </view>
+    </view> -->
 </view>
-<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image>
+<!-- <image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image> -->
+<image bindtap="toAdd" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/toAdd.png"></image>

@@ -8,7 +8,12 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isboundUser: '绑定学号',
     platUserInfoMap: {},
-    code: '',
+    code: '', 
+    dallNum: 0,
+    launchnum: 0,
+    luckynum: 0,
+
+    userInfo: {}
   },
   onLoad: function (options) {
     if (app.globalData.userInfo) {
@@ -281,15 +286,201 @@ Page({
       url: '../secondHand/secondHandOrder/secondHandOrder',
     })
   },
+  //点击我参与的
+  goRecordall: function (n) {
+    var that = this;
+    let infoOpt = {
+      url: '/luck/joinList',
+      type: 'GET',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        pageNo: 1,
+        pageSize: 1000
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data.items)
+      wx.navigateTo({
+        url: "/pages/ticket/recordall/recordall?joinList=" + JSON.stringify(data.items)
+      });
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+
+
+
+
+  },
+  //点击我发布的
+  goRecordlaunch: function (n) {
+    var that = this;
+    let infoOpt = {
+      url: '/luck/delease',
+      type: 'GET',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        pageNo: 1,
+        pageSize: 1000
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      wx.navigateTo({
+        url: "/pages/ticket/recordlaunch/recordlaunch?launchList=" + JSON.stringify(data.items)
+      });
+    }
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+
+
+  },
+  //中奖纪录
+  goRecordlucky: function (n) {
+    var that = this;
+    let infoOpt = {
+      url: '/luck/award',
+      type: 'GET',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        pageNo: 1,
+        pageSize: 1000
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      wx.navigateTo({
+        url: "/pages/ticket/recordlucky/recordlucky?luckyList=" + JSON.stringify(data.items)
+      });
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+
+
+  },
+  //跳转抽奖
+  goTicketadd: function (n) {
+    wx.navigateTo({
+      url: "/pages/ticket/ticketadd/ticketadd"
+    });
+  },
+  //我参与的
+  godall: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/luck/joinList',
+      type: 'GET',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        pageNo: 1,
+        pageSize: 1000
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data.items.length)
+      that.setData({
+        dallNum: data.items.length
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  },
+  //我发起的
+  godlaunch: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/luck/delease',
+      type: 'GET',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        pageNo: 1,
+        pageSize: 1000
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data.items.length)
+      that.setData({
+        launchnum: data.items.length
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  },
+  //中奖纪录
+  godlucky: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/luck/award',
+      type: 'GET',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        pageNo: 1,
+        pageSize: 1000
+      },
+      header: {
+        'content-type': 'application/json',
+        //  'authorization': wx.getStorageSync("authorization"),
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (data) {
+      console.log(data.items.length)
+      that.setData({
+        luckynum: data.items.length
+      })
+    }
+
+    sendAjax(infoOpt, infoCb, () => {
+
+    });
+  },
   onReady: function () {
   },
   onShow: function () {
+
     this.login();
     if (wx.getStorageSync('isbound') == 1) {
       this.setData({
         isboundUser: '已绑定学号'
       })
     }
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
+    this.godlucky()
+    this.godlaunch()
+    this.godall()
   },
   onHide: function () {
   },

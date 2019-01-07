@@ -74,7 +74,26 @@
       </view>
     </view>
   </view>
-
+  <!-- 抽奖中心 -->
+<view class='ticket'>
+    <view class='ticket-title'>
+      <view class='ticket-title-text'>我的抽奖</view>
+    </view>
+    <view class="bg_fff num">
+        <view bindtap="goRecordall" class="num-list">
+            <view class="font-w font-34">{{dallNum}}</view>
+            <view class="color_4a4a4a font-28">参与抽奖</view>
+        </view>
+        <view bindtap="goRecordlaunch" class="num-list">
+            <view class="font-w font-34">{{launchnum}}</view>
+            <view class="color_4a4a4a font-28">发起抽奖</view>
+        </view>
+        <view bindtap="goRecordlucky" class="num-list">
+            <view class="font-w font-34">{{luckynum}}</view>
+            <view class="color_4a4a4a font-28">中奖记录</view>
+        </view>
+    </view>
+</view>
   <!-- 系统服务 -->
   <view class='service'>
     <view class='service-title'>

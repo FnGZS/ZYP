@@ -218,11 +218,7 @@
 					"pathName": "pages/Livebroadcast/Live/Live",
 					"query": ""
 				},
-				{
-					"id": -1,
-					"name": "直播列表",
-					"pathName": "pages/Livebroadcast/Livebroadcast"
-				}
+		
 			]
 		}
 	}

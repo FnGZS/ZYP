@@ -132,7 +132,7 @@ page{
 
 .see-me {
     height: 140rpx;
-    color: #2d72b3;
+    color: #ef696c;
     text-align: center;
     display: flex;
     align-items: center;

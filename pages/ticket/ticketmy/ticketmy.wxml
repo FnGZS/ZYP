@@ -45,18 +45,18 @@
 </view>
 <view class="nav-bar">
     <view bindtap="goTicketmain">
-        <text class="iconfont icon-fenlei "></text>
-        <view wx:if="{{!res.support_font}}">广场</view>
+        <text class="iconfont icon-liwu "></text>
+        <view  class='font-22' wx:if="{{!res.support_font}}">福利</view>
         <view wx:if="{{res.support_font}}">{{res.support_font}}</view>
     </view>
     <view bindtap="goTicketadd">
-        <text class="iconfont icon-fabu1 "></text>
-        <view wx:if="{{!res.support_logo}}">发起</view>
+        <text class="iconfont icon-jiahao"></text>
+        <view  class='font-22' wx:if="{{!res.support_logo}}">发起</view>
         <view wx:if="{{res.support_logo}}">{{res.support_logo}}</view>
     </view>
     <view class="color_red">
-        <text class="iconfont icon-weibiaoti2fuzhi12 "></text>
-        <view wx:if="{{!res.support_tel}}">我的</view>
+        <text class="iconfont icon-liebiaofenlei "></text>
+        <view  class='font-22' wx:if="{{!res.support_tel}}">开奖机</view>
         <view wx:if="{{res.support_tel}}">{{res.support_tel}}</view>
     </view>
 </view>
