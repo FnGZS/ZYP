@@ -199,7 +199,7 @@ Page({
   del: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index;
-    // var goodsId = e.currentTarget.dataset.goodsid;
+    var mesId = e.currentTarget.dataset.mesid;
     wx.showModal({
       title: '提示',
       content: '确定要删除吗',

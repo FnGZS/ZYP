@@ -26,8 +26,8 @@ Page({
 
   },
   onLoad: function (options) {
-    // var id = options.id;
-    var id = 1;
+    var id = options.id;
+    // var id = 1;
     var userId = wx.getStorageSync('userId');
     var avatar = wx.getStorageSync('avatar');
     this.setData({

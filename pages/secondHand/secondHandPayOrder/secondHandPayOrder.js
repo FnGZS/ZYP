@@ -103,6 +103,7 @@ Page({
   payBtn:function(){
 
     var that = this;
+    console.log(that.data.goodsDetail)
     wx.login({
       success: resp => {
         var that = this;
@@ -111,12 +112,12 @@ Page({
           type: 'POST',
           data: {
             platCode: resp.code,
-            goodsId: 1,
-            price:0.01,
-            fee:0.01,
-            consignee: '钟佳闱',
-            receivePhone: '17857058385',
-            receiveAddress: '创新创业学院125室',
+            goodsId: that.data.goodsDetail.id,
+            price: that.data.goodsDetail.price,
+            fee: that.data.goodsDetail.price,
+            consignee: that.data.addressName,
+            receivePhone: that.data.addressPhone,
+            receiveAddress: that.data.address,
           },
           header: {
             'content-type': 'application/json',
