@@ -37,7 +37,11 @@
     <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
   </view>
   <view class='fabu' catchtap='fabu'>
+    <!-- <view class='iconfont icon-shouye'></view> -->
     <view class='iconfont icon-fabu'></view>
+  </view>
+  <view class='toShouYe' catchtap='toShouYe'>
+    <view class='iconfont icon-shouye'></view>
   </view>
 </view>
 <view>

@@ -99,9 +99,53 @@ Page({
       url: '../secondHandAddressSelect/secondHandAddressSelect',
     })
   },
+  //支付
   payBtn:function(){
-    wx.navigateTo({
-      url: '../secondHandPaySuccess/secondHandPaySuccess',
+
+    var that = this;
+    wx.login({
+      success: resp => {
+        var that = this;
+        let infoOpt = {
+          url: '/secondary/order/create',
+          type: 'POST',
+          data: {
+            platCode: resp.code,
+            goodsId: 1,
+            price:0.01,
+            fee:0.01,
+            consignee: '钟佳闱',
+            receivePhone: '17857058385',
+            receiveAddress: '创新创业学院125室',
+          },
+          header: {
+            'content-type': 'application/json',
+          },
+        }
+        let infoCb = {}
+        infoCb.success = function (res) {
+          console.log(res);
+          wx.requestPayment({
+            timeStamp: res.orderInfo.timeStamp,
+            nonceStr: res.orderInfo.nonceStr,
+            package:  res.orderInfo.pkg,
+            signType: 'MD5',
+            paySign: res.orderInfo.paySign,
+            success(res) { 
+              console.log(res)
+                wx.navigateTo({
+                  url: '../secondHandPaySuccess/secondHandPaySuccess',
+                })
+
+            },
+            fail(res) { 
+              console.log(res)
+            }
+          })
+        }
+        infoCb.beforeSend = () => { }
+        sendAjax(infoOpt, infoCb, () => { });
+      }
     })
   },
   onReady: function () { },

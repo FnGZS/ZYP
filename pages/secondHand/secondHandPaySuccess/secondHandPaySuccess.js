@@ -5,7 +5,7 @@ Page({
   },
   backSec:function(){
     console.log(11)
-    wx.redirectTo({
+    wx.reLaunch({
       url: '../secondHand',
     })
   },

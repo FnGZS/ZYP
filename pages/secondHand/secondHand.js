@@ -221,6 +221,11 @@ Page({
       url: 'secondHandPublish/secondHandPublish',
     })
   },
+  toShouYe:function(){
+    wx.reLaunch({
+      url: '../index/index',
+    })
+  },
   onReady: function() {
 
   },
