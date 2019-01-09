@@ -73,12 +73,13 @@ Page({
   data: {
     gaoji: false, //隐藏高级
     albumSrc: [], //上传介绍图片包
-    valueKey1: false, //判断奖品名称空
-    valueKey2: false, //判断奖品数量为空
     luckExplain: "", //抽奖说明
     luckPrizeExplain: "", //抽奖介绍
     current: 0,
-
+    valueKey1:false,
+    valueKey2:false,
+    valueKeyShow1: [],
+    valueKeyShow2: [],
     awardtype: 1,
     showtime: !1,
     showpaly: !1,
@@ -229,11 +230,38 @@ Page({
   addTicket() {
     var that = this
     var addticketArr = that.data.addticketArr
+    var inputValue2 = that.data.inputValue2
+    var inputValue1 = that.data.inputValue1
+    var valueKeyShow1 = that.data.valueKeyShow1
+    var valueKeyShow2 = that.data.valueKeyShow2
+    if (inputValue1.length==0){
+      inputValue1.push("")
+      inputValue1.push("")
+    }else{
+      inputValue1.push("")
+    }
+    if (inputValue2.length == 0) {
+      inputValue2.push(false)
+      inputValue2.push(false)
+    } else {
+      inputValue2.push(false)
+    }
+    if (valueKeyShow2.length != 0) {
+      valueKeyShow2.push(false)
+    }
+    if (valueKeyShow1.length != 0) {
+      valueKeyShow1.push(false)
+    }
+    var addticketArr = that.data.addticketArr
     var addNum = 1 //第一次循环数
     addticketArr.push(addNum++) //添加
     // console.log(addticketArr)
     that.setData({
-      addticketArr
+      addticketArr,
+      inputValue2,
+      inputValue1,
+      valueKeyShow1,
+      valueKeyShow2
     })
   },
   //删除奖项
@@ -242,13 +270,25 @@ Page({
     var addticketArr = that.data.addticketArr
     var inputValue2 = that.data.inputValue2
     var inputValue1 = that.data.inputValue1
+    var valueKeyShow1 = that.data.valueKeyShow1
+    var valueKeyShow2 = that.data.valueKeyShow2
     addticketArr.pop() //删除
-    inputValue2.pop()
+    if (valueKeyShow1.length != 0){
+      valueKeyShow1.pop()
+    }
+    if (valueKeyShow2.length != 0) {
+      valueKeyShow2.pop()
+    }
     inputValue1.pop()
+    inputValue2.pop()
+    
+    
     that.setData({
       addticketArr,
       inputValue2,
-      inputValue1
+      inputValue1,
+      valueKeyShow2,
+      valueKeyShow1
     })
   },
   //设置封面
@@ -319,17 +359,48 @@ Page({
     var luckPrizeExplain = that.data.luckPrizeExplain + luckSrc
     var luckdataPic = that.data.pic
     var lotteryTime = year + "-" + that.data.time1 + " " + that.data.hour + ":" + that.data.minute
-    if (that.data.inputValue1.length == 0) {
+    var valueKeyShow1 = that.data.valueKeyShow1
+    var valueKeyShow2 = that.data.valueKeyShow2
+    if(value1.length==0){
+      valueKeyShow1[0] = true
       that.setData({
-        valueKey1: true
+        valueKeyShow1
       })
+    }else{
+      for (let i in value1) {
+        if (value1[i] == "") {
+          valueKeyShow1[i] = true
+        } else {
+          valueKeyShow2[i] = false
+
+        }
+      }
     }
-    if (that.data.inputValue2.length == 0) {
+    if (value2.length == 0) {
+      valueKeyShow2[0] = true
+
       that.setData({
-        valueKey2: true
+        valueKeyShow2
       })
+    } else {
+      that.setData({
+        valueKey2: false
+      })
+    for (let i in value2) {
+      if (!value2[i]) {
+        valueKeyShow2[i] = true
+      } else {
+        valueKeyShow2[i] = false
+
+      }
     }
-    if (that.data.inputValue1.length != 0 && that.data.inputValue2.length != 0) {
+    }
+    that.setData({
+      valueKeyShow1,
+      valueKeyShow2
+    })
+
+    if (valueKeyShow1.indexOf(true) == -1 && valueKeyShow2.indexOf(true) == -1 && value1.length != 0 && value2.length != 0) {
       if (luckdataPic == "") {
         wx.showToast({
           title: '请添加奖品图片',
@@ -442,14 +513,24 @@ Page({
       console.log(a)
       var index = a.currentTarget.dataset.index
       var value = a.detail.value
+      var valueKeyShow1 = this.data.valueKeyShow1
       // console.log(index)
       var inputValue1 = this.data.inputValue1
       inputValue1[index] = value
-      // console.log(inputValue1)
-      this.setData({
-        inputValue1,
-        valueKey1: false
-      });
+      if (value==""){
+        valueKeyShow1[index]=true
+        this.setData({
+          valueKeyShow1
+        });
+      }else{
+        valueKeyShow1[index] = false
+        this.setData({
+          inputValue1,
+          valueKeyShow1
+        });
+      }
+      
+      
     }
    
     
@@ -470,11 +551,20 @@ Page({
 
       var inputValue2 = this.data.inputValue2
       inputValue2[index] = value
-      // console.log(inputValue2)
-      this.setData({
-        inputValue2,
-        valueKey2: false
-      });
+      var valueKeyShow2 = this.data.valueKeyShow2
+      console.log(value)
+      if (!value) {
+        valueKeyShow2[index] = true
+        this.setData({
+          valueKeyShow2
+        });
+      } else {
+        valueKeyShow2[index] = false
+        this.setData({
+          inputValue2,
+          valueKeyShow2
+        });
+      }
     }
     
   },

@@ -76,12 +76,11 @@ Page({
       t.setData({
         comwinList: res.items
       })
-      var that = this
       let infoOpt = {
         url: '/luck/luckDetails',
         type: 'GET',
         data: {
-          luckId: that.data.luckId
+          luckId: t.data.luckId
         },
         header: {
           'content-type': 'application/json',
@@ -90,7 +89,7 @@ Page({
       let infoCb = {}
       infoCb.success = function (res) {
         console.log(res);
-        that.setData({
+        t.setData({
           getDetailList: res
         })
       }
@@ -156,7 +155,8 @@ Page({
     infoCb.success = function (res) {
       console.log(res);
       t.setData({
-        joinMan: res
+        joinMan: res,
+        num:res.items.length
       })
     }
 
@@ -192,26 +192,35 @@ Page({
   },
   //现在开奖
   xianzaikaijiang(){
+    
     var that = this
-    let infoOpt = {
-      url: '/luck/random',
-      type: 'GET',
-      data: {
-        luckId: that.data.luckId,
-        mode: 2
-      },
-      header: {
-        'content-type': 'application/json',
-      },
-    }
-    let infoCb = {}
-    infoCb.success = function (res) {
-      console.log(res);
-      that.getstatus()
-    }
+    if(that.data.num == 0){
+      wx.showModal({
+        title: '暂无参与人数',
+        content: '快邀请好友吧~',
+      })
+    }else{
+      let infoOpt = {
+        url: '/luck/random',
+        type: 'GET',
+        data: {
+          luckId: that.data.luckId,
+          mode: 2
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+        console.log(res);
+        that.getstatus()
+      }
 
-    sendAjax(infoOpt, infoCb, () => {
-    });
+      sendAjax(infoOpt, infoCb, () => {
+      });
+    }
+   
   },
   shareCanvas: function () {
     var t = this, e = "/yzcj_sun/pages/ticket/ticketmiandetail/ticketmiandetail?gid=" + t.data.gid;

@@ -16,16 +16,14 @@
             <view bindtap = 'removeTicket'> <image class='jian' src='https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/jian.png'></image></view>
             </block>
                 <text class="flex-0-0">奖品名称</text>
-                <view class="list-warn-box color_fff font-24" wx:if="{{(gName[index]==undefined&&gName[index+1]!=undefined)||(gName[index-1]!=undefined&&gName[index]==undefined&&gName[index+1]!=undefined)}}">请输入奖品名称</view>
-                <view class="list-warn-box color_fff font-24" wx:if="{{valueKey1}}">请输入奖品名称</view>
+                <view class="list-warn-box color_fff font-24" wx:if="{{valueKeyShow1[index]}}">请输入奖品名称</view>
                 <input data-index='{{index}}' bindinput="bindKeyInput1" class="list-input-1 flex-1-1" maxlength="20" placeholder="请输入奖品名称" type="text"></input>
             </view>
            
             <view class="list {{index != 0 && index==addticketArr.length-1? 'Style' : ''}} font-30 bg_fff listTwo">
-            
                 <text class="flex-0-0">奖品数量</text>
-                <view class="list-warn-box color_fff font-24" wx:if="{{inputValue2[index]>100}}">数量不能超过100</view><view class="list-warn-box color_fff font-24" wx:if="{{(inputValue2[index]==undefined&&inputValue2[index+1]!=undefined)||(inputValue2[index-1]!=undefined&&inputValue2[index]==undefined&&inputValue2[index+1]!=undefined)}}">请输入奖品数量</view>
-                <view class="list-warn-box color_fff font-24" wx:if="{{valueKey2}}">请输入奖品数量</view>
+                <view class="list-warn-box color_fff font-24" wx:if="{{inputValue2[index]>100}}">数量不能超过100</view>
+                <view class="list-warn-box color_fff font-24" wx:if="{{valueKeyShow2[index]}}">请输入奖品数量</view>
                 <view class="list-right">
                     <input data-index='{{index}}' bindinput="bindKeyInput2" class="list-input-2" maxlength="3" placeholder="数量" type="number"></input>
                     <text class="flex-0-0">个</text>
