@@ -5,25 +5,18 @@
   </view>
 </view>
 <view class='Live'>
-  <view class='Live-title'>
-    当前直播
+  <view class='Live-list' bindtap='toLive'   wx:for="{{roomlist}}" wx:key="item" data-message="{{item}}" >
+     <view class='list-images'>
+       <image src='{{item.imageUrl?item.image:"https://mc.qcloudimg.com/static/img/7da57e0050d308e2e1b1e31afbc42929/bg.png"}}'></image>
+       </view>
+        <view class='Mask'>
+        <view class='play'>
+          <view class='play-icon'>
+            <image src='../../images/start.png'></image>
+          </view>
+        </view>
+     <view class='Live-title'>{{item.title}}</view>
+     </view>
   </view>
-  <view class='Live-list' bindtap='toLive'   >
-    <view class='list-images'>
-      <image src='https://www.sxscott.com/wanhui.png' mode='aspectFill'></image>
-    </view>
-    <view class='play'>
-    <view class='play-icon'>
-    <image src='../../images/play.png'> </image>
-    </view>
-    </view>
-    <view class='single-title'>
-      <view class='title'>
-        {{item.title}}222
-      </view>
-      <view class='online'>
-        3214人在看
-      </view>
-    </view>
-  </view>
+
 </view>

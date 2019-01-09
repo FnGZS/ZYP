@@ -44,10 +44,10 @@
     <view class='nav_live'>
       <view class='nav_live_cont' wx:if="{{currentTab==0}}">
         <view class='cont_title'>
-          <h1>绍兴文理元培学院感恩晚会直播</h1>
+          <h1>{{message_data.title}}</h1>
         </view>
         <view class='cont-time'>
-          直播时间:2018/12/29 08:30
+          直播时间:{{message_data.endTime}}
         </view>
         <view class='cont_wxParse'>
 
@@ -55,8 +55,10 @@
       </view>
       <view class='nav_live_chat' wx:if="{{currentTab==1}}">
         <scroll-view scroll-into-view="{{toView}}" class="history" scroll-y="true"  id="page" scroll-with-animation >
+          <view class='live_text'>欢迎{{userinfo.userName}},进入直播间。请您文明地观看直播,若发布违法,违规,低俗等不良信息,我们将对违规者进行封禁。</view>
           <block wx:for="{{newslist}}" wx:key>
-            <view class="chat-news">
+          
+            <view class="chat-news" wx:if="{{item.type==0 && item.date>=time}}">
               <view class="chat-userinfo" >
                 <image class='new_img' src="{{item.userinfo.avatar? item.userinfo.avatar:'images/avator.png'}}"></image>
                 <text class="name">{{ item.userinfo.userName }} : {{item.content}}</text>
@@ -68,6 +70,9 @@
               
               </view> -->
             </view>
+            <!-- <view class='chat-news' wx:else>
+                 {{item.title}}
+            </view> -->
           </block>
           <view id="toView" class='kong'></view>
         </scroll-view>

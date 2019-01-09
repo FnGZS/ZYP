@@ -3,10 +3,10 @@ const url = require('../config.js')
 var wssurl = url.wss;
 // var utils = require('./util.js');
 
-function connect(user,func) {
-  console.log(url)
+function connect(roomid,user,func) {
+  console.log(roomid)
   wx.connectSocket({
-    url: wssurl,
+    url: wssurl+roomid,
     header:{'content-type': 'application/json'},
     success: function () {
       console.log('信道连接成功~')

@@ -13,7 +13,7 @@
 
 //正式
 var host = "https://www.sxscott.com/crazyBird" 
-var wss ="wss://www.sxscott.com/crazyBird/websocket"
+var wss ="wss://www.sxscott.com/crazyBird/websocket/"
 //本地
 //var host ="http://smartdove.iask.in:17946/api"
 //var host ="http://192.168.0.143:8086/api"

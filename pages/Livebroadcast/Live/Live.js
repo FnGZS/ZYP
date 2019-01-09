@@ -25,6 +25,9 @@ Page({
     newslist:[],
     message: '', 
     toView:'',
+    message_data:[],
+    userinfo: wx.getStorageSync("userinfo"),
+    time:'',
   },
   //点击切换
   clickTab: function (e) {
@@ -231,12 +234,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  //   var time = utils.formatTime(new Date());
+  // console.log(time)
+    this.setData({
+      message_data:JSON.parse(options.message),
+      time: utils.formatTime(new Date())
+    })
+    console.log(this.data.message_data)
     this.openwebsocket();
   },
   //调通接口
   openwebsocket:function(){
     var that=this;
-    websocket.connect(this.data.userInfo, function (res) {
+    var roomid = that.data.message_data.streamId
+    console.log(this.data.userinfo)
+    websocket.connect(roomid,this.data.userInfo, function (res) {
       console.log(JSON.parse(res.data))
       var list = []
       list = that.data.newslist

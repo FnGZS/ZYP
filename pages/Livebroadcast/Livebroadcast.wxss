@@ -9,6 +9,7 @@
   /* z-index: 999; */
   /* position: absolute; */
   top:0rpx;
+  z-index: 999;
 }
 .search-main{
   margin-left: 3%;
@@ -38,10 +39,13 @@
   width: 100%;
   /* background: rebeccapurple; */
   /* position: absolute; */
+  /* position: absolute; */
+ margin-top: 20rpx;
 }
 .list-images{
   width: 100%;
   height: 100%;
+  /* background: antiquewhite; */
 }
 .list-images image{
   width: 100%;
@@ -49,12 +53,25 @@
 }
 .Live-title{
   font-family:黑体;
-  width: 80%;
+  width: 90%;
   padding: 10rpx 0rpx 10rpx 20rpx; 
   height: 50rpx;
-  /* background: red; */
-  color: rgb(58, 58, 58);
-  font-size: 30rpx;
+  /* background: aqua; */
+  /* color: rgb(58, 58, 58); */
+  color: black;
+  font-size:30rpx;
+/* position: relative;
+bottom: 100rpx; */
+margin:0 auto;
+}
+.Mask{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  bottom: 500rpx;
+  /* background: navy; */
+  opacity: .8;
+
 }
 .single-title{
   width: 100%;
@@ -91,9 +108,9 @@
   height: 400rpx;
   /* background: antiquewhite; */
   /* opacity: .8; */
-
+/* 
 position: absolute;
-  top:0rpx;
+  top:0rpx; */
   display: flex;
   /* align-items: center; */
   justify-content: center;
@@ -102,7 +119,7 @@ position: absolute;
 .play-icon{
   width: 100rpx;
   height: 100rpx;
-    background: white;
+    /* background: white; */
     border-radius: 60rpx;
   /* background: #ef696c; */
   opacity: .9;

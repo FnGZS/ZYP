@@ -251,3 +251,7 @@ margin-left: 5rpx;
   height: 10rpx;
   /* background: #ef696c; */
 }
+.live_text{
+  color: #5ca6fa;
+  font-size: 30rpx;
+}

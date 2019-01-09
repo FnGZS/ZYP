@@ -6,11 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    roomlist:[]
+    roomlist:[],
   },
-  toLive: function () {
+  toLive: function (e) {
+    console.log(e.currentTarget.dataset.message);
+    var message = JSON.stringify(e.currentTarget.dataset.message)
     wx.navigateTo({
-      url: 'Live/Live',
+      url: 'Live/Live?message=' + message,
     })
   },
   getroomlist: function () {
