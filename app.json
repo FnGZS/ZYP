@@ -87,10 +87,10 @@
         "text": "时事"
       },
       {
-        "selectedIconPath": "images/直播2.png",
-        "iconPath": "images/直播.png",
-        "pagePath": "pages/Livebroadcast/Livebroadcast",
-        "text": "直播"
+        "selectedIconPath": "images/通讯2.png",
+        "iconPath": "images/通讯.png",
+        "pagePath": "pages/contact/contact",
+        "text": "通讯"
       },
       
       {
