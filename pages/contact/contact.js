@@ -38,19 +38,19 @@ Page({
     contactArr: [{
       name: '鸡柳薯条奶昂',
       phone: '15857542186',
-      ishidden: false
+
     }, {
       name: '黄焖鸡米饭',
       phone: '18357577100',
-      ishidden: false
+
     }, {
       name: '嵊州年糕炸面',
       phone: '18267597303',
-      ishidden: false
+
     }, {
       name: '6号档口炒饭盖浇饭',
       phone: '17857058385',
-      ishidden: false
+
     }, {
       name: '瓦罐小吃',
       phone: '17816535705',

@@ -36,14 +36,6 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "通讯录",
-					"pathName": "pages/contact/contact"
-				}
-			]
 		}
 	}
 }

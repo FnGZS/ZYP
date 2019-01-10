@@ -6,19 +6,22 @@
 
       <cover-image hidden="{{playing}}" style="width:100%; height: 100%; position:absolute;" src="https://mc.qcloudimg.com/static/img/7da57e0050d308e2e1b1e31afbc42929/bg.png"></cover-image>
 
-      <cover-view class="live_buttom" >
+      <cover-view class="live_buttom">
         <cover-view class='bottom-bg'>
 
         </cover-view>
+        <cover-view class='bottom_box' wx:if="{{orientation=='horizontal'}}">
+          <cover-image class="bottom_button" animation="{{animrotate}}" src="../../../images/{{barragestate?'BarrageOpen':'BarrageClose'}}.png" bindtap='barrageSwitch'></cover-image>
+          <!-- <cover-view class='bottom_text'>{{objectFit == 'contain'?'适应':'填充'}}</cover-view> -->
+        </cover-view>
         <cover-view class='bottom_box'>
           <cover-image class="bottom_button" src="../../../images/{{playing?'suspend':'start'}}.png" animation="{{animrotate}}" bindtap='onPlayClick'></cover-image>
-
         </cover-view>
         <!-- <cover-view class='bottom_box'>
           <cover-image class="bottom_button" src="../../../images/qr.png" bindtap='onScanQR'></cover-image>
           <cover-view class='bottom_text'>扫码</cover-view>
         </cover-view> -->
-        <cover-view class='bottom_box' >
+        <cover-view class='bottom_box'>
           <cover-image class="bottom_button" animation="{{animrotate}}" src="../../../images/rotate.png" bindtap='onOrientationClick'></cover-image>
           <!-- <cover-view class='bottom_text'>{{orientation == 'vertical'?'竖屏':'横屏'}}</cover-view> -->
         </cover-view>
@@ -31,9 +34,13 @@
           <cover-image class="bottom_button" animation="{{animrotate}}" src="../../../images/{{objectFit == 'contain'?'adjust':'fill'}}.png" bindtap='onObjectfitClick'></cover-image>
           <!-- <cover-view class='bottom_text'>{{objectFit == 'contain'?'适应':'填充'}}</cover-view> -->
         </cover-view>
+
       </cover-view>
-      <!-- <cover-image class='close' style="top:{{(headerHeight + statusBarHeight) - 26}}rpx" src="../../../images/back.png" bindtap="onBack"></cover-image> -->
+
+
+
     </live-player>
+
   </view>
   <view class='function' wx:if="{{orientation=='vertical'}}">
     <view class="swiper-tab">
@@ -54,12 +61,12 @@
         </view>
       </view>
       <view class='nav_live_chat' wx:if="{{currentTab==1}}">
-        <scroll-view scroll-into-view="{{toView}}" class="history" scroll-y="true"  id="page" scroll-with-animation >
+        <scroll-view scroll-into-view="{{toView}}" class="history" scroll-y="true" id="page" scroll-with-animation>
           <view class='live_text'>欢迎{{userinfo.userName}},进入直播间。请您文明地观看直播,若发布违法,违规,低俗等不良信息,我们将对违规者进行封禁。</view>
           <block wx:for="{{newslist}}" wx:key>
-          
+
             <view class="chat-news" wx:if="{{item.type==0 && item.date>=time}}">
-              <view class="chat-userinfo" >
+              <view class="chat-userinfo">
                 <image class='new_img' src="{{item.userinfo.avatar? item.userinfo.avatar:'images/avator.png'}}"></image>
                 <text class="name">{{ item.userinfo.userName }} : {{item.content}}</text>
               </view>
@@ -76,7 +83,7 @@
           </block>
           <view id="toView" class='kong'></view>
         </scroll-view>
-        
+
         <view class='chat_btn'>
           <view class='chat_gift'>
             <image class='voice_icon' bindtap='gift' src='../../../images/gift.png'></image>
