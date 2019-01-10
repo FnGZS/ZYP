@@ -55,7 +55,8 @@
     "pages/ticket/ticketmydetail/ticketmydetail",
     "pages/ticket/ticketnum/ticketnum",
     "pages/Livebroadcast/Livebroadcast",
-    "pages/Livebroadcast/Live/Live"
+    "pages/Livebroadcast/Live/Live",
+    "pages/contact/contact"
   ],
   "window": {
     "backgroundTextStyle": "drak",

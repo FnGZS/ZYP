@@ -1,0 +1,53 @@
+<!-- 搜索框 -->
+<view class="top-search">
+  <view class="input-box">
+    <input placeholder="请输入姓名" value="{{inputVal}}" bindinput="bindKeyInput"></input>
+  </view>
+</view>
+
+<view class="page-left" style="{{translate}}"  bindtouchstart="touchStart" bindtouchend="touchEnd"> 
+  <view class='choose' bindtap="tap_ch">
+    <view class='iconfont icon-liebiao'></view>
+    <view class='choose-title'>当前为：{{currentTypeName}}</view>
+  </view>
+  <!-- 主要内容 -->
+  <scroll-view  class="scroll-con" scroll-y scroll-top="{{scrollTop}}" bindscroll="handleScroll" style='height:{{phoneHeight}}rpx'>
+    <view wx:for="{{scrollList}}" wx:key="*this" id="view_{{item}}">
+      <view class="item-title" hidden="{{contactObj[item].ishidden}}">{{contactObj[item].title}}</view>
+      <view class="card-li" wx:for="{{contactObj[item].list}}" wx:key="index" data-mes='{{item}}' hidden="{{item.ishidden}}">
+        <view class="info-box">
+          <view class="info-top">
+            <text class="big-name">{{item.name}}</text>
+          </view>
+        </view>
+        <view class='info-phone'>{{item.phone}}</view>
+        <view class='iconfont icon-dianhua' data-mobile='{{item.phone}}' catchtap='handleMakeCall'></view>
+      </view>
+
+    </view>
+  </scroll-view>
+
+  <!-- 侧边字母  -->
+  <view class="side-az" wx:if="{{scrollList.length}}">
+    <view class="scroll-btn-group" style='height:{{phoneHeight}}rpx'>
+      <view wx:for="{{scrollList}}" wx:key="*this" data-key="{{item}}" catchtap="handleScrollView">
+        <text>{{contactObj[item].title}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 没有搜索到东西  -->
+  <view class="empty-search-view" wx:if="{{scrollList.length && emptySearch}}">
+    <view>没有搜索到相关联系人： {{inputVal}}</view>
+  </view>
+
+</view>
+
+
+<view class="page-right" >
+  <view class="type"  wx:if="{{open}}">
+    <view class="typeList {{currentTab == index ? 'typeList-active' : ''}}" wx:for="{{menuList}}" data-typeid='{{item.id}}' data-current="{{index}}" data-name="{{item.typeName}}" bindtap='clickMenu' wx:key="key" >
+      <view class='typeList-text'>{{item.typeName}}</view>
+    </view>
+  </view>
+</view>
