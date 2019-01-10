@@ -36,10 +36,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 30,
+			"current": 1,
 			"list": [
-				
-	
+				{
+					"id": -1,
+					"name": "123123",
+					"pathName": "pages/Livebroadcast/Live/Live",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直播列表",
+					"pathName": "pages/Livebroadcast/Livebroadcast"
+				}
 			]
 		}
 	}

@@ -2,6 +2,7 @@
 const app = getApp()
 var utils = require('../../../utils/util');
 var websocket = require('../../../utils/websocket.js');
+
 Page({
 
   /**
@@ -28,6 +29,10 @@ Page({
     message_data:[],
     userinfo: wx.getStorageSync("userinfo"),
     time:'',
+    // //弹幕
+
+    barragestate:true,
+
   },
   //点击切换
   clickTab: function (e) {
@@ -242,7 +247,9 @@ Page({
     })
     console.log(this.data.message_data)
     this.openwebsocket();
+
   },
+  
   //调通接口
   openwebsocket:function(){
     var that=this;
