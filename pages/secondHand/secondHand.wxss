@@ -6,6 +6,18 @@
   url('iconfont.ttf?t=1545111021820') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
   url('iconfont.svg?t=1545111021820#iconfont') format('svg'); /* iOS 4.1- */
 }
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1547033284851'); /* IE9 */
+  src: url('iconfont.eot?t=1547033284851#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAMkAAsAAAAABvgAAALWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqCAIFoATYCJAMICwYABCAFhG0HMhsQBsgOJZEIiYDFAQFkPDytsd6fHUwk0vEqHiGRaKQACUKTuxLEJCTPl/d/ddqPoeAUeCKVCCYGyXFIeYpSxrU9QFwBaVhwP5/ncnp3FVAg83vDbY5hmwIMLA1wL4x6kRRIAB5Jw9gFLuE2gVqDEujWqhqawUVmLQrEqaYOgEsuIsssXy1U1uzMEBdk1Wk9PQPOw8/HP2nhApKKAqymrZPKYSj56WwXFXPlnG6fIJ3PBbaPAvNAJvZqMxtEwZii2oxkFOyrPvjpXJa+Tez1xxOVYNXWg34ouSepK7vV2gRyPLoLHI36M6Qd3fhGQMj2zbmzOlG/eXXZSXb4DW/B3HaHXtj/Ud+w+TkkDnzKqr32IZASR79X6+9/DXXoXYXbg29hhbJxt3dvtLpzswNv72/fUpT2uZxj1zpTUjr8vRq9/h1vpc5MyqpL2uupYf56Kk2WFrfGRyXvyewob+lTbt6aLfGSeiN6xcqK0tlSj0/8VKxXlmSXvM63udX3g1QZ9H7yc9irp5O/ou79DDiEzhWafPqfJYDyOuvE9j/8HZsvam/1eRb8r66TAH50/X8Syvr5QPV9eIP/2ZKBsszB5ZY1ZVUD+ZLdUemEWt2vZAVa/Rhr6Lj5QqjW8Qq+KgMpCtXGycyYR4U6C6hUbRG15lTvr9OGEUV2BWYtA4RmF5E0uo9Cs+dkZnxHhU6/Uak5RNQ6CN8T60yGppQzPMDxMBocR9oQtRLHzpWovhGrDvMAy8pDVitmdi2OUpNSivlqbMVsjjX2ETWNc4IIoxZUBe7DZjNFNkaNeIgnGTi35SUnk7onJQ1RCyhWMdgADhuGDBqHaIZQVsQfziml9zfCVA5mA1hLV020FcbYaeMjqZKk9CCrNdZeXffyiN0IVRqOIxCCoSyQKuDCzHaGQmz104ywIVwSw4iUTZ5kNIj01SStr7N8QDHrwzKmsCeLUH1moI5xnJgKAAAA') format('woff2'),
+  url('iconfont.woff?t=1547033284851') format('woff'),
+  url('iconfont.ttf?t=1547033284851') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1547033284851#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.icon-shouye:before {
+  content: "\e607";
+}
 
 .iconfont {
   font-family:"iconfont" !important;
@@ -227,6 +239,23 @@ color: transparent;
 .icon-fabu {
   color: white;
   font-size: 45rpx;
+  line-height: 100rpx;
+}
+
+.toShouYe {
+  position: fixed;
+  right: 50rpx;
+  border-radius: 50%;
+  bottom: 170rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #ef696c;
+  text-align: center;
+}
+
+.icon-shouye {
+  color: white;
+  font-size: 55rpx;
   line-height: 100rpx;
 }
 /* .Bottom{

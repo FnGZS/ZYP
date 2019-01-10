@@ -99,9 +99,54 @@ Page({
       url: '../secondHandAddressSelect/secondHandAddressSelect',
     })
   },
+  //支付
   payBtn:function(){
-    wx.navigateTo({
-      url: '../secondHandPaySuccess/secondHandPaySuccess',
+
+    var that = this;
+    console.log(that.data.goodsDetail)
+    wx.login({
+      success: resp => {
+        var that = this;
+        let infoOpt = {
+          url: '/secondary/order/create',
+          type: 'POST',
+          data: {
+            platCode: resp.code,
+            goodsId: that.data.goodsDetail.id,
+            price: that.data.goodsDetail.price,
+            fee: that.data.goodsDetail.price,
+            consignee: that.data.addressName,
+            receivePhone: that.data.addressPhone,
+            receiveAddress: that.data.address,
+          },
+          header: {
+            'content-type': 'application/json',
+          },
+        }
+        let infoCb = {}
+        infoCb.success = function (res) {
+          console.log(res);
+          wx.requestPayment({
+            timeStamp: res.orderInfo.timeStamp,
+            nonceStr: res.orderInfo.nonceStr,
+            package:  res.orderInfo.pkg,
+            signType: 'MD5',
+            paySign: res.orderInfo.paySign,
+            success(res) { 
+              console.log(res)
+                wx.navigateTo({
+                  url: '../secondHandPaySuccess/secondHandPaySuccess',
+                })
+
+            },
+            fail(res) { 
+              console.log(res)
+            }
+          })
+        }
+        infoCb.beforeSend = () => { }
+        sendAjax(infoOpt, infoCb, () => { });
+      }
     })
   },
   onReady: function () { },

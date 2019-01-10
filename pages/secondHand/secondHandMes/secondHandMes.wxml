@@ -10,7 +10,7 @@
         </view>
         <view class='systemMes-isRead'></view>
       </view>
-      <view class="del" bindtap="del" data-index='{{index}}' data-goodsid='{{item.id}}'>删除</view>
+      <view class="del" bindtap="del" data-index='{{index}}' data-mesid='{{item.id}}'>删除</view>
     </view>
   </view>
 

@@ -1,43 +1,39 @@
 <view id='my'>
- 
-  <view class='userInfo' >
-   <button class='getShouQuan' wx:if="{{!hasUserInfo && canIUse && getUserInfoFail}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-   <view wx:if="{{hasUserInfo}}">
-    <image class='userinfo-avatar' mode='aspectFill' src='{{userInfo.avatarUrl}}'></image>
-    <view class='userinfo-name'>{{userInfo.nickName}}</view>
-    <view class='userinfo-balance'>余额：0.00
-      <!-- <view class='userinfo-balance-text'>余额：</view>
+
+  <view class='userInfo'>
+    <button class='getShouQuan' wx:if="{{!hasUserInfo && canIUse && getUserInfoFail}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <view wx:if="{{hasUserInfo}}">
+      <image class='userinfo-avatar' mode='aspectFill' src='{{userInfo.avatarUrl}}'></image>
+      <view class='userinfo-name'>{{userInfo.nickName}}</view>
+      <view class='userinfo-balance'>余额：0.00
+        <!-- <view class='userinfo-balance-text'>余额：</view>
       <view class='userinfo-balance-num'>0.00</view> -->
+      </view>
     </view>
-   </view>
-   
+
   </view>
   <!-- 我的订单 -->
   <view class='order'>
     <view class='order-title'>
-      <view class='order-title-text'>我的订单</view>
-      <view class='order-title-btn' bindtap='toOrder'>查看全部订单 ></view>
+      <view class='order-title-text'>我的账户</view>
+      <!-- <view class='order-title-btn' bindtap='toOrder'>查看全部订单 ></view> -->
     </view>
     <view class='order-main'>
-      <view class='order-daifukuan'>
-        <view class='iconfont icon-daifukuan'></view>
-        <view class='order-daifukuan-text'>待付款</view>
-        <!-- <view class='order-daifukuan-num'>99</view> -->
+      <view class='service-bangding' bindtap='binding'>
+        <view class='iconfont icon-bangding'></view>
+        <view class='service-bangding-text'>{{isboundUser}}</view>
       </view>
-      <view class='order-daifahuo'>
-        <view class='iconfont icon-daifahuo'></view>
-        <view class='order-daifahuo-text'>待发货</view>
-        <!-- <view class='order-daifahuo-num'>1</view> -->
+      <view class='secHand-dizhi' bindtap='toSecHandAddress'>
+        <view class='iconfont icon-dizhi'></view>
+        <view class='secHand-dizhi-text'>地址管理</view>
       </view>
-      <view class='order-daishouhuo'>
-        <view class='iconfont icon-daishouhuo'></view>
-        <view class='order-daishouhuo-text'>待收货</view>
-        <!-- <view class='order-daishouhuo-num'>2</view> -->
+      <view class='secHand-bill'>
+        <view class='iconfont icon-zhangdan'></view>
+        <view class='secHand-bill-text'>账单详情</view>
       </view>
-      <view class='order-shouhou'>
-        <view class='iconfont icon-shouhou'></view>
-        <view class='order-shouhou-text'>售后</view>
-        <!-- <view class='order-shouhou-num'>3</view> -->
+      <view class='secHand-cash'>
+        <view class='iconfont icon-tixian'></view>
+        <view class='secHand-cash-text'>资金提现</view>
       </view>
     </view>
   </view>
@@ -52,13 +48,13 @@
         <view class='iconfont icon-fabu'></view>
         <view class='secHand-fabu-text'>我发布的</view>
       </view>
-      <view class='secHand-maichu' bindtap='toSecHandMySold'>
-        <view class='iconfont icon-maichu'></view>
-        <view class='secHand-maichu-text'>我卖出的</view>
-      </view>
       <view class='secHand-mairu' bindtap='toSecHandMyBought'>
         <view class='iconfont icon-mairu'></view>
         <view class='secHand-mairu-text'>我买入的</view>
+      </view>
+      <view class='secHand-maichu' bindtap='toSecHandMySold'>
+        <view class='iconfont icon-maichu'></view>
+        <view class='secHand-maichu-text'>我卖出的</view>
       </view>
       <view class='secHand-xiangyao' bindtap='toSecHandMyWant'>
         <view class='iconfont icon-xiangyao'></view>
@@ -68,13 +64,11 @@
         <view class='iconfont icon-xiaoxi'></view>
         <view class='secHand-xiaoxi-text'>消息中心</view>
       </view>
-      <view class='secHand-dizhi' bindtap='toSecHandAddress'>
-        <view class='iconfont icon-dizhi'></view>
-        <view class='secHand-dizhi-text'>地址管理</view>
-      </view>
+
     </view>
   </view>
-  <!-- 抽奖中心 -->
+
+ <!-- 抽奖中心 -->
 <view class='ticket'>
     <view class='ticket-title'>
       <view class='ticket-title-text'>我的抽奖</view>
@@ -100,14 +94,14 @@
       <view class='service-title-text'>系统服务</view>
     </view>
     <view class='service-main'>
-      <view class='service-bangding' bindtap='binding'>
+      <!-- <view class='service-bangding' bindtap='binding'>
         <view class='iconfont icon-bangding'></view>
         <view class='service-bangding-text'>{{isboundUser}}</view>
-      </view>
+      </view> -->
       <view class='service-kefu'>
         <view class='iconfont icon-kefu'></view>
         <view class='service-kefu-text'>在线客服</view>
-        <button class='service-kefu-btn'  plain open-type="contact"></button>
+        <button class='service-kefu-btn' plain open-type="contact"></button>
       </view>
       <view class='service-yijianfankui' bindtap='toIdeaBack'>
         <view class='iconfont icon-yijianfankui'></view>

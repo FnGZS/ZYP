@@ -8,12 +8,10 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isboundUser: '绑定学号',
     platUserInfoMap: {},
-    code: '', 
+    code: '',
     dallNum: 0,
     launchnum: 0,
     luckynum: 0,
-
-    userInfo: {}
   },
   onLoad: function (options) {
     if (app.globalData.userInfo) {
@@ -166,7 +164,7 @@ Page({
               wx.setStorageSync("userinfo", res.data)
               if (wx.getStorageSync('isbound') == 1) {
                 that.setData({
-                  isboundUser: '已绑定学号'
+                  isboundUser: '已绑定'
                 })
               }
 
@@ -227,7 +225,7 @@ Page({
     }
   },
   //跳转二手我发布的
-  toSecHandMyPublish:function(){
+  toSecHandMyPublish: function () {
     wx.navigateTo({
       url: '../secondHand/secondHandMyPublish/secondHandMyPublish',
     })
@@ -235,13 +233,13 @@ Page({
   //跳转二手我卖出的
   toSecHandMySold: function () {
     wx.navigateTo({
-      url: '../secondHand/secondHandMySold/secondHandMySold',
+      url: '../secondHand/secondHandOrderSold/secondHandOrderSold',
     })
   },
   //跳转二手我买入的
   toSecHandMyBought: function () {
     wx.navigateTo({
-      url: '../secondHand/secondHandMyBought/secondHandMyBought',
+      url: '../secondHand/secondHandOrderBought/secondHandOrderBought',
     })
   },
   //跳转二手我想要的
@@ -251,7 +249,7 @@ Page({
     })
   },
   //跳转二手消息中心
-  toSecMes:function(){
+  toSecMes: function () {
     wx.navigateTo({
       url: '../secondHand/secondHandMes/secondHandMes',
     })
@@ -263,27 +261,21 @@ Page({
     })
   },
   //跳转意见反馈
-  toIdeaBack:function(){
+  toIdeaBack: function () {
     wx.navigateTo({
       url: 'ideaBack/ideaBack',
     })
   },
   //跳转帮助文档
-  toHelp:function(){
+  toHelp: function () {
     wx.navigateTo({
       url: 'help/help',
     })
   },
   //跳转关于我们
-  toAboutUs:function(){
+  toAboutUs: function () {
     wx.navigateTo({
       url: 'aboutUs/aboutUs',
-    })
-  },
-  //跳转我的订单
-  toOrder:function(){
-    wx.navigateTo({
-      url: '../secondHand/secondHandOrder/secondHandOrder',
     })
   },
   //点击我参与的
@@ -468,19 +460,12 @@ Page({
   onReady: function () {
   },
   onShow: function () {
-
     this.login();
     if (wx.getStorageSync('isbound') == 1) {
       this.setData({
-        isboundUser: '已绑定学号'
+        isboundUser: '已绑定'
       })
     }
-    this.setData({
-      userInfo: app.globalData.userInfo
-    })
-    this.godlucky()
-    this.godlaunch()
-    this.godall()
   },
   onHide: function () {
   },
