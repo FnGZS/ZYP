@@ -38,7 +38,7 @@
 
   <!-- 没有搜索到东西  -->
   <view class="empty-search-view" wx:if="{{scrollList.length && emptySearch}}">
-    <view>没有搜索到相关联系人： {{inputVal}}</view>
+    <view>没有搜索到相关名称： {{inputVal}}</view>
   </view>
 
 </view>

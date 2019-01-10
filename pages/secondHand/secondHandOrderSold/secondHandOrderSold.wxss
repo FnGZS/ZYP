@@ -181,3 +181,12 @@ page {
   right: 3%;
   font-size: 25rpx;
 }
+.btn-refund {
+  border: 1rpx solid #ef696c;
+  padding: 5rpx 20rpx;
+  margin-left: 20rpx;
+  border-radius: 25rpx;
+  color: #ef696c;
+  right: 3%;
+  font-size: 25rpx;
+}

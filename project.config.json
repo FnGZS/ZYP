@@ -36,6 +36,21 @@
 			"list": []
 		},
 		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "通讯录",
+					"pathName": "pages/contact/contact",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "通讯录",
+					"pathName": "pages/secondHand/secondHandOrderSold/secondHandOrderSold",
+					"query": ""
+				}
+			]
 		}
 	}
 }

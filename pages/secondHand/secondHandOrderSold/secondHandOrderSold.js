@@ -66,6 +66,30 @@ Page({
 
   
   },
+  //去退款
+  toRefund:function(){
+    var that = this;
+    let infoOpt = {
+      url: '/pay/refund',
+      type: 'POST',
+      data: {
+        type:1,
+        orderId: '12019010921063193152671929833352',
+        totalFee:0.01,
+        refundFee: 0.01
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      
+    }
+    infoCb.beforeSend = () => { }
+    sendAjax(infoOpt, infoCb, () => { });
+  },
   onReady: function () {
   },
   onShow: function () {

@@ -227,6 +227,7 @@
   position: fixed;
   transition: All 0.4s ease; 
   -webkit-transition: All 0.4s ease;
+  margin-bottom: 100rpx;
 }
 .c-state1{
   transform: rotate(0deg) scale(1) translate(75%,0%); 

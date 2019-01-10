@@ -32,6 +32,7 @@
     <view class='order-all'>
       <view class='btn-cancelOrder'>取消订单</view>
       <view class='btn-pay' catchtap='toPay'>去付款</view>
+      <view class='btn-refund'  catchtap='toRefund'>申请退款</view>
     </view>
 
   </view>

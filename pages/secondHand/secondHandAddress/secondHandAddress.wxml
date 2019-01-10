@@ -12,6 +12,6 @@
   </view>
   <view class='add-btn' bindtap='toAddAddress'>
     <view class='iconfont icon-xinzeng'></view>
-    <view class='add-btn-text'>新增收货地址</view>
+    <view class='add-btn-text'>新增地址</view>
   </view>
 </view>
