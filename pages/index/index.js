@@ -154,7 +154,7 @@ Page({
   },
   //直播跳转
   Livebroadcast: function (e) {
-    wx.switchTab({
+    wx.navigateTo({
       url: '../Livebroadcast/Livebroadcast'
     });
   },
