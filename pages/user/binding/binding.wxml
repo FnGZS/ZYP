@@ -12,13 +12,7 @@
         <view class='cont-middle-input'>
           <input maxlength="10" bindinput='watchPassWord' placeholder="请输入身份证后六位" />
         </view>
-        <view class='cont-middle-input-phone'>
-          <input maxlength="11" bindinput='watchPhone' placeholder="请输入手机号" />
-          <view class='code' bindtap='{{isClick}}'>{{time}}</view>
-        </view>
-        <view class='cont-middle-input'>
-          <input maxlength="10" bindinput='watchCode' placeholder="请输入验证码" />
-        </view>
+      
         <view class='cont-middle-help'>
           注意事项:
           <ul>

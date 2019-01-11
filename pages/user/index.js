@@ -15,7 +15,7 @@ Page({
     luckynum: 0,
   },
   onLoad: function (options) {
-       
+    console.log(this.data.userInfo)
   },
   // getUserInfo: function (e) {
   //   var that = this;
@@ -76,42 +76,21 @@ Page({
   // },
   login: function () {
     var that = this
-    login.wxLogin();
+    login.wxLogin(function (res) {
+      that.setData({
+        userInfo: wx.getStorageSync('userinfo'),
+      })
+     });
   
   },
-  //跳转设置页面授权
-  openSetting: function () {
-    var that = this
-    if (wx.openSetting) {
-      wx.openSetting({
-        success: function (res) {
-          // console.log(9);
-          //尝试再次登录
-          that.login()
-        }
-      })
-    } else {
-      // console.log(10);
-      wx.showModal({
-        title: '授权提示',
-        content: '小程序需要您的微信授权才能使用哦~ 错过授权页面的处理方法：删除小程序->重新搜索进入->点击授权按钮'
-      })
-    }
-  },
+
   //绑定页面
   binding: function () {
-    var isLogin = wx.getStorageSync('isLogin');
-    if (isLogin == 1) {
+  
       wx.navigateTo({
         url: 'binding/binding'
       })
-    } else {
-      wx.showModal({
-        title: '请登录',
-        content: '请获取头像昵称',
-        showCancel: false
-      })
-    }
+    
   },
   //跳转二手我发布的
   toSecHandMyPublish: function () {
@@ -297,7 +276,7 @@ Page({
       url: '/luck/delease',
       type: 'GET',
       data: {
-        userId: wx.getStorageSync('userId'),
+        userId: that.data.userInfo.userId,
         pageNo: 1,
         pageSize: 1000
       },

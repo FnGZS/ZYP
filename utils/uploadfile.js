@@ -1,6 +1,6 @@
 const url = require('../config.js')
 var Promise = require('promise');
-function upload_picture_fun(options, callback, outTimeAuthCbOrNeedAuth) {
+function upload_picture_fun(options, outTimeAuthCbOrNeedAuth) {
   let promise = new Promise(function (resolve, reject) {
     console.log(options)
     // 登录信息过期处理类型
@@ -34,7 +34,7 @@ function upload_picture_fun(options, callback, outTimeAuthCbOrNeedAuth) {
       formData: _sets.data,
       header: {
         'content-type': 'application/json',
-        'authorization': 'ciRW3cOmi1JYY8niXxG7xxx3+b5no4/N5k3gZFChkEzIR+Cbv2rpqh2M8q7RuwTx'
+        'authorization': outTimeAuthCbOrNeedAuth
       },
       success(res) {
         console.log(res);

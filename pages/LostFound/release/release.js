@@ -26,7 +26,8 @@ Page({
     arr_img: [],
     isShow: false,
     txt: '',
-    iconClass: 'icon-cry'
+    iconClass: 'icon-cry',
+    userinfo: wx.getStorageSync('userinfo')
   },
   //页面其他内容上传
   getphone: function (e) {
@@ -149,7 +150,7 @@ Page({
           },
         }
         //异步
-        upload.upload_picture_fun(infoOpt).then((res) => {
+        upload.upload_picture_fun(infoOpt,page.data.userinfo.authorization).then((res) => {
           arr_img.push(res)
           console.log(res)
           if (arr_img.length == upload_picture_list.length) {
