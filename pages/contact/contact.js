@@ -12,25 +12,9 @@ Page({
    */
   data: {
     currentTab: 0, //当前的分类tab
-    currentTypeid: 0, //当前的分类的id,
+    currentTypeid: 1, //当前的分类的id,
     currentTypeName: '南区食堂三楼', //当前的分类名字
-    menuList: [{
-        id: 1,
-        typeName: '南区食堂三楼'
-      },
-      {
-        id: 2,
-        typeName: '北区食堂三楼'
-      },
-      {
-        id: 3,
-        typeName: '创新创业学院'
-      },
-      {
-        id: 4,
-        typeName: '校内常用热线'
-      }
-    ],
+    menuList: [],
     scrollList: [],
     contactObj: {},
     scrollTop: 0,
@@ -42,7 +26,6 @@ Page({
     }, {
       name: '黄焖鸡米饭',
       phone: '18357577100',
-
     }, {
       name: '嵊州年糕炸面',
       phone: '18267597303',
@@ -95,9 +78,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-    let that = this
-    that.getuserdata(1);
+    let that = this;
+    this.getContactType();
+    this.getContactData();
     // 获取系统信息
     this.setData({
       phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight - 141
@@ -115,12 +98,68 @@ Page({
       currentTab: current,
       currentTypeName: name,
       translate: 'transform: translateX(0px)',
+      contactArr:[]
     })
+    console.log(this.data.currentTypeid)
     setTimeout(function() {
       that.setData({
         open: open
       })
     }, 300)
+    this.getContactData();
+  },
+  //获取通讯录类型
+  getContactType:function(){
+    var that = this;
+    let infoOpt = {
+      url: '/contacts/getContactsType',
+      type: 'GET',
+      data: {},
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      that.setData({
+        menuList: res.contactsTypeList
+      })
+    }
+    infoCb.beforeSend = () => { }
+    sendAjax(infoOpt, infoCb, () => { });
+  },
+  //获取数据
+  getContactData() {
+    var that = this;
+    var id = this.data.currentTypeid;
+    let infoOpt = {
+      url: '/contacts/getContactsTypeList/' + id ,
+      type: 'GET',
+      data: {},
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      var contactList = res.list;
+      for(var i = 0 ; i < contactList.length ; i ++){
+        contactList[i]['ishidden'] = false;
+      }
+      console.log(contactList)
+      that.setData({
+        contactArr: contactList
+      })
+      that.handleSortdata();
+      wx.hideLoading();
+    }
+    infoCb.beforeSend = () => {
+      wx.showLoading({
+        title: '加载中'
+      })
+     }
+    sendAjax(infoOpt, infoCb, () => { });
   },
   // 触摸开始事件 
   touchStart: function(e) {
@@ -157,12 +196,7 @@ Page({
       }
     }
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function() {
-
-
   },
 
   /**
@@ -179,19 +213,12 @@ Page({
     wx.stopPullDownRefresh();
   },
 
-  /**
-   * 通讯录实现
-   *
-   */
-  getuserdata(n) {
-    this.handleSortdata();
-  },
+
 
   /**
    * 拿到后台数据
    */
   handleSortdata() {
-
     let contactArr = this.data.contactArr;
     console.log(contactArr)
     /**
@@ -204,24 +231,18 @@ Page({
     contactArr.forEach(item => {
       //查看拼音首字母大写,调用getInviterFirst.js
       let firstInitials = query(item.name)
-
       if (!((/[A-Z]/g).test(firstInitials))) {
-
         firstInitials = '11';
       }
       if (contactObj[firstInitials]) {
-
         contactObj[firstInitials].list.push(item)
       } else {
-
         if (firstInitials !== '11') {
-
           contactObj[firstInitials] = {
             title: firstInitials,
             list: [item]
           }
         } else {
-
           contactObj['11'] = {
             title: '#',
             list: [item]
@@ -231,24 +252,19 @@ Page({
       }
     })
 
-
     /**
      * 对首字母排序
      */
     let arr = []
     let hiddenCount = 0
-
     for (let key in contactObj) {
       contactObj[key].ishidden = contactObj[key].list.every(contact => contact.ishidden)
       arr.push(key)
-
       if (contactObj[key].ishidden) {
         hiddenCount++
       }
     }
-
     arr = arr.sort()
-
     this.setData({
       scrollList: arr,
       contactObj: contactObj,
@@ -260,7 +276,6 @@ Page({
    * 滚动条位置
    */
   handleScroll: function(e) {
-
     this.setData({
       scrollTopstart: e.detail.scrollTop
     })
@@ -268,19 +283,13 @@ Page({
 
   /**
    * 链接侧边字母与内容字母
-   * 
    */
   handleScrollView(e) {
     let that = this
-
     let key = e.currentTarget.dataset.key
-    console.log(key)
-
     let query = wx.createSelectorQuery()
-
     query.select(`#view_${key}`).boundingClientRect()
     query.selectViewport().scrollOffset()
-
     query.exec(function(res) {
       console.log(res)
       console.log(that.data.scrollTopstart)
@@ -295,46 +304,19 @@ Page({
    * 搜索功能
    */
   bindKeyInput: function(e) {
-
     let contactArr = this.data.contactArr
     console.log(contactArr)
     let inputVal = e.detail.value
     let reg = new RegExp(inputVal, 'i')
-
     contactArr.forEach(item => {
-
       item.ishidden = !reg.test(item.name);
     })
-
     this.setData({
       contactArr,
       inputVal
     })
-
     this.handleSortdata()
   },
-
-  /**
-   * 清空输入
-   */
-  handlecancelSearch() {
-
-    let contactArr = this.data.contactArr
-
-    contactArr.forEach(item => {
-
-      item.ishidden = false
-    })
-
-    this.setData({
-      inputVal: '',
-    });
-
-    this.handleSortdata();
-
-    return;
-  },
-
 
   /**
    * 拨打电话
@@ -352,7 +334,6 @@ Page({
       var open = !this.data.open;
       this.setData({
         translate: 'transform: translateX(0px)',
-
       })
       setTimeout(function() {
         that.setData({
@@ -367,5 +348,10 @@ Page({
       })
     }
   },
-
+  toContactDetail:function(e){
+    var id = e.currentTarget.dataset.contactid;
+    wx.navigateTo({
+      url: 'contactDetail/contactDetail?id=' + id,
+    })
+  }
 })

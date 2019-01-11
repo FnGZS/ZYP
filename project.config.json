@@ -45,9 +45,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "通讯录",
-					"pathName": "pages/secondHand/secondHandOrderSold/secondHandOrderSold",
+					"id": 1,
+					"name": "通讯详情",
+					"pathName": "pages/contact/contactDetail/contactDetail",
 					"query": ""
 				}
 			]
