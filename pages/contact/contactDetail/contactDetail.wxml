@@ -1,0 +1,26 @@
+<view class='mailDetail'>
+  <view class='detail-mes' >
+    <view class='detail-company'>
+      <view class='detail-left'>名称</view>
+      <view class='detail-right '>黄焖鸡米饭</view>
+    </view>
+    <view class='detail-phone'>
+      <view class='detail-left'>电话1</view>
+      <view class='detail-right detail-right-color' data-mobile="{{item.mobile}}" bindtap='handleMakeCall'>178570058385</view>
+    </view>
+    <view class='detail-mailbox'>
+      <view class='detail-left'>电话2</view>
+      <view class='detail-right detail-right-color' data-mobile="{{item.mobile}}" bindtap='handleMakeCall'>518385</view>
+    </view>
+    <view class='detail-fax'>
+      <view class='detail-left'>类别</view>
+      <view class='detail-right'>南区食堂三楼</view>
+    </view>
+    <view class='detail-card'>
+      <view class='detail-left left-card'>图片</view>
+      <view class='card-img'>
+        <image src='{{item}}' wx:for="{{contactPic}}"  wx:key="key" data-img='{{item}}' bindtap='imgYu' ></image>
+      </view>
+    </view>
+  </view>
+</view>
