@@ -1,9 +1,10 @@
 var url = require('../../config.js')
 const sendAjax = require('../../utils/sendAjax.js')
+var login = require('../../utils/wxlogin.js')
 var app = getApp()
 Page({
   data: {
-    userInfo: {},
+    userInfo: wx.getStorageSync('userinfo'),
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isboundUser: '绑定学号',
@@ -14,42 +15,7 @@ Page({
     luckynum: 0,
   },
   onLoad: function (options) {
-    if (app.globalData.userInfo) {
-      // console.log(1)
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // console.log(2)
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        // console.log(12)
-        app.globalData.userInfo = res.userInfo
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        },
-        fail: res => {
-          // console.log(4);
-          this.setData({
-            getUserInfoFail: true
-          })
-        }
-      })
-    }
+       
   },
   // getUserInfo: function (e) {
   //   var that = this;
@@ -109,86 +75,9 @@ Page({
   //   }
   // },
   login: function () {
-    // console.log(111)
     var that = this
-    // if (typeof success == "function") {
-    //   console.log(6);
-    //   console.log('success');
-    //   this.data.getUserInfoSuccess = success
-    // }
-    wx.login({
-      success: function (resp) {
-        var code = resp.code;
-        that.setData({
-          code: resp.code,
-        })
-        wx.getUserInfo({
-          success: function (resq) {
-            app.globalData.userInfo = resq.userInfo
-            that.setData({
-              getUserInfoFail: false,
-              userInfo: resq.userInfo,
-              hasUserInfo: true
-            })
-            var platUserInfoMap = that.data.platUserInfoMap;
-            platUserInfoMap["encryptedData"] = resq.encryptedData;
-            platUserInfoMap["iv"] = resq.iv;
-            // console.log(platUserInfoMap);
-            // console.log(JSON.stringify(data));
-            let infoOpt = {
-              url: '/user/login',
-              type: 'POST',
-              data: {
-                platCode: resp.code,
-                platUserInfoMap: platUserInfoMap,
-              },
-              header: {
-                'content-type': 'application/json',
-                // 'authorization': wx.getStorageSync("authorization"),
-              },
-            }
-            let infoCb = {}
-            infoCb.success = function (res) {
-              // console.log(11111);
-              wx.setStorageSync("userinfo", res.data)
-              console.log(res)
-              wx.setStorageSync("phone", res.phone)
-              wx.setStorageSync("userId", res.userId)
-              wx.setStorageSync("isLogin", 1)
-              wx.setStorageSync("nickName", res.userName)
-              wx.setStorageSync("isbound", res.isbound)
-              wx.setStorageSync("avatar", res.avatar)
-              wx.setStorageSync("userKey", res.userKey)
-              wx.setStorageSync("authorization", res.authorization)
-              wx.setStorageSync("userId", res.userId)
-              wx.setStorageSync("userinfo", res.data)
-              if (wx.getStorageSync('isbound') == 1) {
-                that.setData({
-                  isboundUser: '已绑定'
-                })
-              }
-
-            }
-            infoCb.beforeSend = () => { }
-            infoCb.complete = () => {
-
-            }
-            sendAjax(infoOpt, infoCb, () => {
-              // that.onLoad()
-              // wx.setStorageSync('G_needUploadIndex', true)
-            });
-            //平台登录
-          },
-          fail: function (res) {
-            // console.log(8);
-            // console.log(res);
-            that.setData({
-              getUserInfoFail: true
-            })
-          }
-        })
-      }
-    })
+    login.wxLogin();
+  
   },
   //跳转设置页面授权
   openSetting: function () {
@@ -461,7 +350,7 @@ Page({
   },
   onShow: function () {
     this.login();
-    if (wx.getStorageSync('isbound') == 1) {
+    if (this.data.userInfo) {
       this.setData({
         isboundUser: '已绑定'
       })
