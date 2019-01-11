@@ -14,7 +14,7 @@ function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
   if (typeof _sets.data === 'undefined') {
     _sets.data = {}
   }
-
+console.log(_sets.data)
   // 如果不是明确不需要登录权限 而且 没有 G_authorization 的缓存信息 
   // if (outTimeAuthCbOrNeedAuth !== false && !wx.getStorageSync('authorization')) {
   // console.log(1111);
@@ -48,7 +48,7 @@ function sendAjax(options, callback, outTimeAuthCbOrNeedAuth) {
       'authorization': outTimeAuthCbOrNeedAuth !== false ? wx.getStorageSync('authorization') : ''
     },
     success(res) {
-       console.log(res);
+      console.log(_sets.data)
       if (res.data.code == 200) {
      
         scallback(res.data)

@@ -44,6 +44,7 @@ Page({
     newpageSize: 2,
     isBottomnew: 0,
     newmeslist: [],
+    userinfo: wx.getStorageSync('userinfo')
   },
   //是否授权
   getauthSetting: function () {
@@ -266,27 +267,9 @@ Page({
 
   },
   vote: function () {
-    // console.log('123123');
-    var isLogin = wx.getStorageSync('isLogin');
-    if (isLogin == 1) {
       wx.navigateTo({
         url: '../vote/index',
       })
-    } else {
-      wx.showModal({
-        title: '请登录',
-        content: '请获取头像昵称',
-        showCancel: false,
-        success: function (res) {
-          if (res.confirm) {
-            wx.switchTab({
-              url: '../user/user',
-            })
-          } else if (res.cancel) {
-          }
-        }
-      })
-    }
   },
   currentaffairs: function () {
     // console.log('123123');
@@ -299,6 +282,7 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    console.log(wx.getStorageSync('userinfo'))
     // console.log(wx.getStorageSync("isbound"))
     // if (wx.getStorageSync("isbound") == "2") {
     //   that.setData({
@@ -330,7 +314,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(wx.getStorageSync('userinfo'))
   },
   /**
    * 生命周期函数--监听页面隐藏

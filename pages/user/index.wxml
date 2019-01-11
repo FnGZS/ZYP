@@ -1,10 +1,9 @@
 <view id='my'>
 
   <view class='userInfo'>
-    <button class='getShouQuan' wx:if="{{!hasUserInfo && canIUse && getUserInfoFail}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <view wx:if="{{hasUserInfo}}">
-      <image class='userinfo-avatar' mode='aspectFill' src='{{userInfo.avatarUrl}}'></image>
-      <view class='userinfo-name'>{{userInfo.nickName}}</view>
+    <view wx:if="{{userInfo}}">
+      <image class='userinfo-avatar' mode='aspectFill' src='{{userInfo.avatar}}'></image>
+      <view class='userinfo-name'>{{userInfo.userName}}</view>
       <view class='userinfo-balance'>余额：0.00
         <!-- <view class='userinfo-balance-text'>余额：</view>
       <view class='userinfo-balance-num'>0.00</view> -->
