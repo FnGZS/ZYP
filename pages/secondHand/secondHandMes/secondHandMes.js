@@ -15,7 +15,7 @@ Page({
     isBottom: false //是否到底
   },
   onLoad: function (options) {
-    var userId = wx.getStorageSync('userId');
+    var userId = wx.getStorageSync('userinfo').userId;
     this.setData({
       userId:userId
     })

@@ -21,7 +21,7 @@ Page({
   },
   onLoad: function (options) {
     var detail = JSON.parse(options.detail);
-    var userId = wx.getStorageSync('userId');
+    var userId = wx.getStorageSync('userinfo').userId;
     this.setData({
       userId: userId,
       goodsDetail: detail

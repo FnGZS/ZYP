@@ -135,7 +135,7 @@
   text-align: center;
 }
 .info-phone{
-  width: 30%;
+  width: 32%;
   font-size: 28rpx;
   color: #4a4a4a;
 }

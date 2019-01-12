@@ -14,6 +14,19 @@
   line-height: 80rpx;
   right: 5%;
 }
+.detail-left_text{
+    font-size: 30rpx;
+  line-height: 80rpx;
+  width: 40%;
+}
+.detail-right_text{
+  width: 57.5%;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  /* text-align: right; */
+}
 .detail-right-color{
   color: #63B8FF;
 }
@@ -21,32 +34,37 @@
   background: white;
   margin-top: 20rpx;
 }
-.detail-company{
+.detail-name{
   height: 80rpx;
   margin-left: 5%;
   display: flex;
   border-bottom: 1rpx solid #ddd;
 }
 
-.detail-phone{
+.detail-phone1{
   height: 80rpx;
   margin-left: 5%;
   display: flex;
   border-bottom: 1rpx solid #ddd;
 }
-.detail-mailbox{
+.detail-phone2{
   height: 80rpx;
   margin-left: 5%;
   display: flex;
   border-bottom: 1rpx solid #ddd;
 }
-.detail-fax{
+.detail-type{
   height: 80rpx;
   margin-left: 5%;
   display: flex;
   border-bottom: 1rpx solid #ddd;
 }
-
+.detail-manger{
+  margin-left: 5%;
+   /* margin-right: 5%; */
+  display: flex;
+  border-bottom: 1rpx solid #ddd;
+}
 .detail-card{
   /* height: 300rpx; */
   margin-left: 5%;
@@ -66,3 +84,27 @@
   width: 30%;
   height: 170rpx;
 }
+.btn-share {
+  margin-top: 50rpx;
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  bottom: 0;
+  font-size: 25rpx;
+  margin-left: 5%;
+  color: #fff;
+  background-color:#fff;
+}
+.btn-more{
+    margin-top: 20rpx;
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  bottom: 0;
+  font-size: 25rpx;
+  margin-left: 5%;
+  color: #ef696c;
+  border: 1rpx solid #ef696c;
+  background-color:#fff;
+}
+button::after{ border: none; } 

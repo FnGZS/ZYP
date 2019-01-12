@@ -28,8 +28,8 @@ Page({
   onLoad: function (options) {
     var id = options.id;
     // var id = 1;
-    var userId = wx.getStorageSync('userId');
-    var avatar = wx.getStorageSync('avatar');
+    var userId = wx.getStorageSync('userinfo').userId;
+    var avatar = wx.getStorageSync('userinfo').avatar;
     this.setData({
       id:id,
       userId: userId,
@@ -81,7 +81,7 @@ Page({
       },
       header: {
         'content-type': 'application/json',
-        'authorization': wx.getStorageSync('authorization')
+        'authorization': wx.getStorageSync('userinfo').authorization
       },
     }
     let infoCb = {}
@@ -138,7 +138,7 @@ Page({
       },
       header: {
         'content-type': 'application/json',
-        'authorization': wx.getStorageSync('authorization')
+        'authorization': wx.getStorageSync('userinfo').authorization
       },
     }
     let infoCb = {}

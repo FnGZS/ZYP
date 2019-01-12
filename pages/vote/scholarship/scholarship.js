@@ -4,7 +4,7 @@ Page({
   data: {
     URL: url.host,
     id: null,  //活动ID
-    studentId: wx.getStorageSync("userId"),  //用户ID
+    studentId: wx.getStorageSync("userinfo").userId,  //用户ID
     currentNavId: 0, //当前导航栏ID
     lodingHidden: '',
     voteTimeAll: '',
@@ -158,7 +158,7 @@ Page({
   checkVote: function (voteStatus) {
     // console.log(voteStatus)
     var that = this;
-    var studentId = wx.getStorageSync("userId");
+    var studentId = wx.getStorageSync("userinfo").userId;
     let infoOpt = {
       url: '/vote/check',
       type: 'POST',
@@ -456,7 +456,7 @@ Page({
       },
       header: {
         'content-type': 'application/json',
-        'authorization': wx.getStorageSync("authorization"),
+        'authorization': wx.getStorageSync("userinfo").authorization,
       },
     }
     let infoCb = {}
@@ -494,8 +494,8 @@ Page({
   // 投票
   voteBtn: function () {
     var that = this;
-    console.log(wx.getStorageSync("userId"));
-    var isbound = wx.getStorageSync('isbound');//判断是否绑定了学号
+    console.log(wx.getStorageSync("userinfo").userId);
+    var isbound = wx.getStorageSync('userinfo').isbound;//判断是否绑定了学号
     console.log(isbound);
     if (isbound == 2) {
       that.setData({
@@ -547,7 +547,7 @@ Page({
         // console.log(creatVote.length);
         // console.log(voteString);
 
-        var studentId = wx.getStorageSync("userId");
+        var studentId = wx.getStorageSync("userinfo").userId;
         console.log(studentId);
         let infoOpt = {
           url: '/vote/create',

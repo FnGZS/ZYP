@@ -35,7 +35,7 @@ Page({
     var status = this.data.status;
     var pageNo = this.data.pageNo;
     var pageSize = this.data.pageSize;
-    var userId = wx.getStorageSync('userId');
+    var userId = wx.getStorageSync('userinfo').userId;
     let infoOpt = {
       url: '/secondary/user',
       type: 'GET',

@@ -26,7 +26,7 @@ Page({
       },
       header: {
         'content-type': 'application/json',
-        'authorization': wx.getStorageSync('authorization')
+        'authorization': wx.getStorageSync('userinfo').authorization
       },
     }
     let infoCb = {}

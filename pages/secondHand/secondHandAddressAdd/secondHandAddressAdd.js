@@ -10,7 +10,7 @@ Page({
   },
   
   onLoad: function (options) {
-    var userId = wx.getStorageSync('userId');
+    var userId = wx.getStorageSync('userinfo').userId;
     this.setData({
       userId: userId
     })

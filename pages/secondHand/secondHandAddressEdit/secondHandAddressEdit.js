@@ -11,7 +11,7 @@ Page({
   },
 
   onLoad: function (options) {
-    var userId = wx.getStorageSync('userId');
+    var userId = wx.getStorageSync('userinfo').userId;
     var detail = JSON.parse(options.detail);
     console.log(detail)
     if(detail.isDefault == 1){
