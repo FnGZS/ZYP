@@ -45,7 +45,7 @@ console.log(_sets.data)
     data: _sets.data,
     header: {
       'content-type': 'application/json',
-      'authorization': outTimeAuthCbOrNeedAuth !== false ? wx.getStorageSync('authorization') : ''
+      'authorization': outTimeAuthCbOrNeedAuth !== false ? wx.getStorageSync('userinfo').authorization : ''
     },
     success(res) {
       console.log(_sets.data)
