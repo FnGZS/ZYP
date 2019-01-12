@@ -16,17 +16,17 @@ function connect(roomid,user,func) {
     } 
   })
   wx.onSocketOpen(function (res) {
-     wx.showToast({
-       title: '信道已开通~',
-       icon: "success",
-       duration: 2000
-     })
+    //  wx.showToast({
+    //    title: '信道已开通~',
+    //    icon: "success",
+    //    duration: 2000
+    //  })
      //接受服务器消息
      wx.onSocketMessage(func);//func回调可以拿到服务器返回的数据
   });
   wx.onSocketError(function (res) {
     wx.showToast({
-      title: '信道连接失败，请检查！',
+      title: '信道连接失败，请检查網絡！',
       icon: "none",
       duration: 2000
     })

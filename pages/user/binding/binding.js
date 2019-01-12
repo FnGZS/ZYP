@@ -10,7 +10,7 @@ Page({
     userInfo: wx.getStorageSync('userinfo'),
     watchID: '',
     watchPassWord: '',
-    isshow: 2,
+    isshow: 0,
     watchCode: ''
   },
 
@@ -95,9 +95,9 @@ Page({
   onShow: function() {
     var that = this;
     // console.log(wx.getStorageSync('isbound'));
-    // that.setData({
-    //   isshow: that.data.userInfo.isbound
-    // })
+    that.setData({
+      isshow: that.data.userInfo.isbound
+    })
   },
 
   /**

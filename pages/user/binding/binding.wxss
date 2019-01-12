@@ -150,7 +150,7 @@ margin-left: 67rpx;
 }
 .cont-btn button{
  
-  height: 100rpx;
+  /* height: 100rpx; */
   width: 100%;
   background: #F56E4E;
   color: white;
