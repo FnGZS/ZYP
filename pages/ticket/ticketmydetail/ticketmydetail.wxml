@@ -64,8 +64,8 @@
             </block>
             <view class="font-20 color_959595">——— 中奖者名单 ———</view>
             <view>
-            <image class='userinfo-avatar' mode='aspectFill' src='{{userInfo.avatarUrl}}'></image>
-             <view class='userinfo-name font-20 color_4a4a4a'>{{userInfo.nickName}}</view>
+            <image class='userinfo-avatar' mode='aspectFill' src='{{userInfo.avatar}}'></image>
+             <view class='userinfo-name font-20 color_4a4a4a'>{{userInfo.openAccount}}</view>
             </view> 
 
             </view>
