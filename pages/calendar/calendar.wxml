@@ -1,3 +1,8 @@
 <view class='calendar'>
   <image src='{{calendar}}' data-pic='{{calendar}}' bindtap='previewImage' mode="widthFix"></image>
 </view>
+<view>
+  <loading hidden="{{lodingHidden}}">
+    加载中..
+  </loading>
+</view>

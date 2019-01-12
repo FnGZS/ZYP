@@ -7,7 +7,8 @@ Page({
    */
   data: {
     URL: url.host,
-    calendar:null
+    calendar:null,
+    lodingHidden:false
   },
   onLoad: function (options) {
     this.getCalendar();
@@ -19,8 +20,6 @@ Page({
       method: 'GET',
       url: this.data.URL + '/calendar',
       data: {
-        actionId: that.data.id,
-        studentId: that.data.studentId
       },
       header: {
         'content-type': 'application/json'
@@ -28,7 +27,8 @@ Page({
       success(res) {
         console.log(res)
         that.setData({
-          calendar: res.data.calendar
+          calendar: res.data.calendar,
+          lodingHidden:true
         })
       }
     })

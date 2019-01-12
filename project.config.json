@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -65,7 +65,14 @@
 				{
 					"id": -1,
 					"name": "直播列表",
-					"pathName": "pages/Livebroadcast/Livebroadcast"
+					"pathName": "pages/Livebroadcast/Livebroadcast",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "校历",
+					"pathName": "pages/calendar/calendar",
+					"query": ""
 				}
 			]
 		}
