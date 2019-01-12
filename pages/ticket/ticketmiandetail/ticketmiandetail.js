@@ -188,30 +188,40 @@ Page({
         console.log(o)
     },
     rotateAndScale: function(t) {
+      wx.showToast({
+        title: "正在提交",
+        icon: 'loading',
+        mask: true,
+        duration: 1000
+      });
       console.log(t)
       var that = this
-      let infoOpt = {
-        url: '/luck/part',
-        type: 'POST',
-        data: {
-          luckId: that.data.luckId,
-          userId: wx.getStorageSync("userId")
-        },
-        header: {
-          'content-type': 'application/json',
-        },
-      }
-      let infoCb = {}
-      infoCb.success = function (res) {
-        console.log(res);
-        that.setData({
-          message:res.message
-        })
-        that.getjoinMan()
-      }
+      var timer = setTimeout(function(){
+        
+        let infoOpt = {
+          url: '/luck/part',
+          type: 'POST',
+          data: {
+            luckId: that.data.luckId,
+            userId: wx.getStorageSync("userId")
+          },
+          header: {
+            'content-type': 'application/json',
+          },
+        }
+        let infoCb = {}
+        infoCb.success = function (res) {
+          console.log(res);
+          that.setData({
+            message: res.message
+          })
+          that.getjoinMan()
+        }
 
-      sendAjax(infoOpt, infoCb, () => {
-      });
+        sendAjax(infoOpt, infoCb, () => {
+        });
+      },1000)
+      
     },
     getUrl: function() {
         var e = this;

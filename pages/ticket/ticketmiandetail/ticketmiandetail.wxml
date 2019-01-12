@@ -72,4 +72,4 @@
     <image class="posterBanner" mode="aspectFill" src="{{prurl}}"></image>
     <view catchtap="save" class="shareBtnbot">保存分享图</view>
 </view>
-<image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image>
+<!-- <image bindtap="gohome" class="fix_honme" src="https://www.sxscott.com/crazyBirdimg/test/luckDraw/resource/images/gohome.png"></image> -->

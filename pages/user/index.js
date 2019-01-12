@@ -334,6 +334,10 @@ Page({
         isboundUser: '已绑定'
       })
     }
+    this.godall()
+    this.godlucky()
+    this.godlaunch()
+
   },
   onHide: function () {
   },

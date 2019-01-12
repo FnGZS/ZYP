@@ -21,9 +21,11 @@ Page({
     product: [1],
     status: "",
     gid: 0,
-    luckId: 0
+    luckId: 0,
+    userInfo:{}
   },
   onLoad: function (options) {
+    console.log(wx.getStorageSync("userinfo"))
     var my = decodeURIComponent(options.my);
     if (options.winList){
       var winList = decodeURIComponent(options.winList);
@@ -40,8 +42,8 @@ Page({
       getDetailList,
       luckId: getDetailList.id,
       luckStatus: getDetailList.status,
-      userInfo: getApp().globalData.userInfo,
-      userId: getApp().globalData.userId
+      userInfo: wx.getStorageSync("userinfo"),
+      userId: wx.getStorageSync('userId')
     })
     if(options.name == undefined){
       this.getisPart()
