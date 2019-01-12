@@ -229,8 +229,8 @@ color: transparent;
   right: 50rpx;
   border-radius: 50%;
   bottom: 50rpx;
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   background: #ef696c;
   text-align: center;
   /* opacity: 0.9; */
@@ -238,25 +238,27 @@ color: transparent;
 
 .icon-fabu {
   color: white;
-  font-size: 45rpx;
-  line-height: 100rpx;
+  font-size: 40rpx;
+  line-height: 80rpx;
 }
 
 .toShouYe {
-  position: fixed;
-  right: 50rpx;
-  border-radius: 50%;
-  bottom: 170rpx;
-  width: 100rpx;
-  height: 100rpx;
-  background: #ef696c;
-  text-align: center;
+position:fixed;
+right:50rpx;
+border-radius:50%;
+bottom:170rpx;
+width:80rpx;
+height:80rpx;
+background:#ef696c;
+text-align:center;
+
 }
 
 .icon-shouye {
-  color: white;
-  font-size: 55rpx;
-  line-height: 100rpx;
+  color:white;
+font-size:40rpx;
+line-height:80rpx;
+
 }
 /* .Bottom{
   width: 100%;

@@ -30,9 +30,9 @@ Page({
     userinfo: wx.getStorageSync("userinfo"),
     time:'',
     // //弹幕
-
+    horizontal_message:'',
     barragestate:true,
-
+    horizontal_room:false
   },
   //点击切换
   clickTab: function (e) {
@@ -118,7 +118,13 @@ Page({
       wx.hideLoading();
     }
   },
-
+  barrageSwitch:function(){
+    var that=this;
+    that.setData({
+      horizontal_room: !that.data.horizontal_room,
+      barragestate: !that.data.barragestate
+    })
+  },
   onOrientationClick: function () {
   var that=this;
     console.log(this.data.orientation)
@@ -126,14 +132,16 @@ Page({
       this.data.orientation = "horizontal";
       // this.data.livestyle = 'liveplayerstyle'
       that.setData({
-        livestyle:'fullScreen'
+        livestyle:'fullScreen',
+        horizontal_room:true
       })
       this.onRotate();
     } else {
       this.data.orientation = "vertical";
       // this.data.livestyle = 'fullScreen'
       that.setData({
-        livestyle: 'liveplayerstyle'
+        livestyle: 'liveplayerstyle',
+        horizontal_room:false
       })
       this.onRotateru();
     }
@@ -264,6 +272,16 @@ Page({
         newslist: list
       })
       console.log(that.data.newslist)
+      //截取數組
+      if(list.length>5){
+        var horizontal_message= list.slice(-5)
+      }
+      else {
+        var horizontal_message=list
+      }
+      that.setData({
+        horizontal_message: horizontal_message
+      })
       that.buttom()
     })
   },
