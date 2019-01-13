@@ -55,7 +55,9 @@ console.log(_sets.data)
       } else {
 
         if (res.data.code == 401) {
-
+          wx.navigateTo({
+            url: '/pages/start/start',
+          })
           // getApp().uploadUserInfo(OTCB)
         } else {
           if (res.data.code == 400) {

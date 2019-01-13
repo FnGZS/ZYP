@@ -34,26 +34,25 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     let that = this;
   },
-  onShow: function() {
+  onShow: function () {
     var that = this;
     var i = 0;
 
     this.getContactType();
     this.getContactData();
   },
-  onReady: function() {
+  onReady: function () {
     var that = this;
     // 获取系统信息
     that.setData({
       phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight - 141
     })
-    console.log(that.data.phoneHeight)
   },
   //单击导航栏
-  clickMenu: function(e) {
+  clickMenu: function (e) {
     var that = this;
     var current = e.currentTarget.dataset.current //获取当前tab的index
     var typeid = e.currentTarget.dataset.typeid; //获取当前的类型id
@@ -67,7 +66,7 @@ Page({
       contactArr: []
     })
     console.log(this.data.currentTypeid)
-    setTimeout(function() {
+    setTimeout(function () {
       that.setData({
         open: open
       })
@@ -75,7 +74,7 @@ Page({
     this.getContactData();
   },
   //获取通讯录类型
-  getContactType: function() {
+  getContactType: function () {
     var that = this;
     let infoOpt = {
       url: '/contacts/getContactsType',
@@ -86,13 +85,13 @@ Page({
       },
     }
     let infoCb = {}
-    infoCb.success = function(res) {
+    infoCb.success = function (res) {
       that.setData({
         menuList: res.contactsTypeList
       })
     }
-    infoCb.beforeSend = () => {}
-    sendAjax(infoOpt, infoCb, () => {});
+    infoCb.beforeSend = () => { }
+    sendAjax(infoOpt, infoCb, () => { });
   },
   //获取数据
   getContactData() {
@@ -107,7 +106,7 @@ Page({
       },
     }
     let infoCb = {}
-    infoCb.success = function(res) {
+    infoCb.success = function (res) {
       console.log(res);
       var contactList = res.list;
       for (var i = 0; i < contactList.length; i++) {
@@ -119,21 +118,22 @@ Page({
       })
       that.handleSortdata();
       wx.hideLoading();
+
     }
     infoCb.beforeSend = () => {
       wx.showLoading({
         title: '加载中'
       })
     }
-    sendAjax(infoOpt, infoCb, () => {});
+    sendAjax(infoOpt, infoCb, () => { });
   },
   // 触摸开始事件 
-  touchStart: function(e) {
+  touchStart: function (e) {
     touchDotX = e.touches[0].pageX; // 获取触摸时的原点
     touchDotY = e.touches[0].pageY;
   },
   // 触摸结束事件 
-  touchEnd: function(e) {
+  touchEnd: function (e) {
     var that = this;
     var touchMoveX = e.changedTouches[0].pageX;
     var touchMoveY = e.changedTouches[0].pageY;
@@ -148,7 +148,7 @@ Page({
           translate: 'transform: translateX(0px)',
 
         })
-        setTimeout(function() {
+        setTimeout(function () {
           that.setData({
             open: open
           })
@@ -166,7 +166,7 @@ Page({
   /**
    * 下拉刷新
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     this.setData({
       scrollTop: 0,
       scrollTopstart: 0,
@@ -236,7 +236,7 @@ Page({
     this.handleRight();
   },
   //右侧字母距离处理
-  handleRight:function(){
+  handleRight: function () {
     var that = this;
     var contactArr = this.data.contactObj;
     for (let key in contactArr) {
@@ -248,10 +248,10 @@ Page({
           [`contactObj.${key}.top`]: res[0].top
         })
         contactArr[key].top = res[0].top
-      })  
+      })
     }
     console.log(contactArr)
-    
+
     console.log(that.data.contactObj)
   },
   /**
@@ -265,13 +265,13 @@ Page({
     wx.pageScrollTo({
       scrollTop: top - 65
     })
-   
+
   },
 
   /**
    * 搜索功能
    */
-  bindKeyInput: function(e) {
+  bindKeyInput: function (e) {
     let contactArr = this.data.contactArr
     console.log(contactArr)
     let inputVal = e.detail.value
@@ -289,13 +289,13 @@ Page({
   /**
    * 拨打电话
    */
-  handleMakeCall: function(e) {
+  handleMakeCall: function (e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.mobile
     })
   },
 
-  tap_ch: function(e) {
+  tap_ch: function (e) {
     console.log(this.data.open)
     var that = this;
     if (this.data.open) {
@@ -303,7 +303,7 @@ Page({
       this.setData({
         translate: 'transform: translateX(0px)',
       })
-      setTimeout(function() {
+      setTimeout(function () {
         that.setData({
           open: open
         })
@@ -316,7 +316,7 @@ Page({
       })
     }
   },
-  toContactDetail: function(e) {
+  toContactDetail: function (e) {
     var id = e.currentTarget.dataset.contactid;
     wx.navigateTo({
       url: 'contactDetail/contactDetail?id=' + id,
