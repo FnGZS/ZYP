@@ -164,9 +164,9 @@ Page({
     bindGetUserInfo: function(t) {
     },
     gohome: function() {
-        wx.reLaunch({
-            url: "../ticketmian/ticketmian"
-        });
+      wx.navigateBack({
+        data: 1
+      });
     },
     onShow: function() {
       

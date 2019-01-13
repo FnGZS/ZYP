@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hhidden: 0,
+    // hhidden: 0,
     //轮播用的
     imgUrlsloca: [
     ],
@@ -63,23 +63,23 @@ Page({
   },
   
  
-  hhidden: function () {
-    var that = this;
-    wx.request({
-      url: 'https://www.sxscott.com/crazyBird/vote/test',
-      data: {
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        console.log(res.data)
-        that.setData({
-          hhidden: res.data.type
-        })
-      }
-    })
-  },
+  // hhidden: function () {
+  //   var that = this;
+  //   wx.request({
+  //     url: 'https://www.sxscott.com/crazyBird/vote/test',
+  //     data: {
+  //     },
+  //     header: {
+  //       'content-type': 'application/json' // 默认值
+  //     },
+  //     success(res) {
+  //       console.log(res.data)
+  //       that.setData({
+  //         hhidden: res.data.type
+  //       })
+  //     }
+  //   })
+  // },
   //轮播图
   setImgBroadcast: function () {
     // console.log(222);
@@ -294,7 +294,7 @@ Page({
     //   })
     // }
     // that.isshowgetPhoneNumber();
-    that.hhidden();
+    // that.hhidden();
     // that.Startpage();
     // console.log(111);
     that.getauthSetting();
