@@ -34,16 +34,25 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      // console.log(res);
-      that.setData({
-        manger: res.manger,
-        name: res.name,
-        phone: res.phone,
-        phone2: res.phone2,
-        pic: JSON.parse(res.pic),
-        typeName: res.typeName
-      })
-      wx.hideLoading();
+      if(res.code == 200){
+        // console.log(res);
+        that.setData({
+          manger: res.manger,
+          name: res.name,
+          phone: res.phone,
+          phone2: res.phone2,
+          pic: JSON.parse(res.pic),
+          typeName: res.typeName
+        })
+        wx.hideLoading();
+      }else{
+        
+        wx.navigateTo({
+          url: '/pages/start/start',
+        })
+        wx.hideLoading();
+      }
+     
     }
     infoCb.beforeSend = () => {
       wx.showLoading({
