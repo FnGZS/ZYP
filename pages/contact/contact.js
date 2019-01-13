@@ -17,7 +17,7 @@ Page({
     menuList: [],
     scrollList: [],
     contactObj: {},
-    scrollTop: 0,
+    scrollTop: -65,
     scrollTopstart: 0,
     contactArr: [],
     inputVal: '',
@@ -37,22 +37,19 @@ Page({
   onLoad: function(options) {
     let that = this;
   },
-  onShow: function () {
+  onShow: function() {
     var that = this;
     var i = 0;
 
     this.getContactType();
     this.getContactData();
   },
-  onReady:function(){
+  onReady: function() {
     var that = this;
-    setTimeout(function () {
-      // 获取系统信息
-      that.setData({
-        phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight - 141
-      })
-      console.log(that.data.phoneHeight)
-    }, 1000)
+    // 获取系统信息
+    that.setData({
+      phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight - 141
+    })
     console.log(that.data.phoneHeight)
   },
   //单击导航栏
@@ -67,7 +64,7 @@ Page({
       currentTab: current,
       currentTypeName: name,
       translate: 'transform: translateX(0px)',
-      contactArr:[]
+      contactArr: []
     })
     console.log(this.data.currentTypeid)
     setTimeout(function() {
@@ -78,7 +75,7 @@ Page({
     this.getContactData();
   },
   //获取通讯录类型
-  getContactType:function(){
+  getContactType: function() {
     var that = this;
     let infoOpt = {
       url: '/contacts/getContactsType',
@@ -89,20 +86,20 @@ Page({
       },
     }
     let infoCb = {}
-    infoCb.success = function (res) {
+    infoCb.success = function(res) {
       that.setData({
         menuList: res.contactsTypeList
       })
     }
-    infoCb.beforeSend = () => { }
-    sendAjax(infoOpt, infoCb, () => { });
+    infoCb.beforeSend = () => {}
+    sendAjax(infoOpt, infoCb, () => {});
   },
   //获取数据
   getContactData() {
     var that = this;
     var id = this.data.currentTypeid;
     let infoOpt = {
-      url: '/contacts/getContactsTypeList/' + id ,
+      url: '/contacts/getContactsTypeList/' + id,
       type: 'GET',
       data: {},
       header: {
@@ -110,10 +107,10 @@ Page({
       },
     }
     let infoCb = {}
-    infoCb.success = function (res) {
+    infoCb.success = function(res) {
       console.log(res);
       var contactList = res.list;
-      for(var i = 0 ; i < contactList.length ; i ++){
+      for (var i = 0; i < contactList.length; i++) {
         contactList[i]['ishidden'] = false;
       }
       console.log(contactList)
@@ -127,8 +124,8 @@ Page({
       wx.showLoading({
         title: '加载中'
       })
-     }
-    sendAjax(infoOpt, infoCb, () => { });
+    }
+    sendAjax(infoOpt, infoCb, () => {});
   },
   // 触摸开始事件 
   touchStart: function(e) {
@@ -187,7 +184,6 @@ Page({
    */
   handleSortdata() {
     let contactArr = this.data.contactArr;
-    console.log(contactArr)
     /**
      * 拿到数据那名字的首字母firstInitials.js
      * 处理为contactObj ={firstInitials{title:firstInitials,list:[item]}}
@@ -237,34 +233,39 @@ Page({
       contactObj: contactObj,
       emptySearch: hiddenCount === arr.length
     })
+    this.handleRight();
   },
-
-  /**
-   * 滚动条位置
-   */
-  handleScroll: function(e) {
-    this.setData({
-      scrollTopstart: e.detail.scrollTop
-    })
+  //右侧字母距离处理
+  handleRight:function(){
+    var that = this;
+    var contactArr = this.data.contactObj;
+    for (let key in contactArr) {
+      let query = wx.createSelectorQuery()
+      query.select(`#view_${key}`).boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(function (res) {
+        that.setData({
+          [`contactObj.${key}.top`]: res[0].top
+        })
+        contactArr[key].top = res[0].top
+      })  
+    }
+    console.log(contactArr)
+    
+    console.log(that.data.contactObj)
   },
-
   /**
    * 链接侧边字母与内容字母
    */
   handleScrollView(e) {
     let that = this
     let key = e.currentTarget.dataset.key
-    let query = wx.createSelectorQuery()
-    query.select(`#view_${key}`).boundingClientRect()
-    query.selectViewport().scrollOffset()
-    query.exec(function(res) {
-      console.log(res)
-      console.log(that.data.scrollTopstart)
-      that.setData({
-        scrollTop: that.data.scrollTopstart + res[0].top - 65
-      })
-      console.log(that.data.scrollTop)
+    let top = e.currentTarget.dataset.top
+    console.log(key)
+    wx.pageScrollTo({
+      scrollTop: top - 65
     })
+   
   },
 
   /**
@@ -315,7 +316,7 @@ Page({
       })
     }
   },
-  toContactDetail:function(e){
+  toContactDetail: function(e) {
     var id = e.currentTarget.dataset.contactid;
     wx.navigateTo({
       url: 'contactDetail/contactDetail?id=' + id,
