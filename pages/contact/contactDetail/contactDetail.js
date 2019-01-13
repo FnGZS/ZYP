@@ -15,7 +15,6 @@ Page({
     this.setData({
       id:id
     })
-    this.getContactDetail();
   },
   handleMakeCall:function(e){
     wx.makePhoneCall({
@@ -76,7 +75,8 @@ Page({
   },
   onReady: function () {
   },
-  onShow: function () {
+  onShow: function (options) {
+    this.getContactDetail();
   },
   onHide: function () {
   },

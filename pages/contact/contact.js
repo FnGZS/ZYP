@@ -19,50 +19,7 @@ Page({
     contactObj: {},
     scrollTop: 0,
     scrollTopstart: 0,
-    contactArr: [{
-      name: '鸡柳薯条奶昂',
-      phone: '15857542186',
-
-    }, {
-      name: '黄焖鸡米饭',
-      phone: '18357577100',
-    }, {
-      name: '嵊州年糕炸面',
-      phone: '18267597303',
-
-    }, {
-      name: '6号档口炒饭盖浇饭',
-      phone: '17857058385',
-
-    }, {
-      name: '瓦罐小吃',
-      phone: '17816535705',
-      ishidden: false
-    }, {
-      name: '清真兰州拉面',
-      phone: '17857054226',
-      ishidden: false
-    }, {
-      name: '煎饼',
-      phone: '18868706019',
-      ishidden: false
-    }, {
-      name: '砂锅凉面',
-      phone: '13515757606',
-      ishidden: false
-    }, {
-      name: '麻辣烫',
-      phone: '15005859077',
-      ishidden: false
-    }, {
-      name: '港式盖浇饭',
-      phone: '13429585820',
-      ishidden: false
-    }, {
-      name: '烤肉饭',
-      phone: '15167546660',
-      ishidden: false
-    }],
+    contactArr: [],
     inputVal: '',
     // canIUserScroll: true,
     isLoading: false,
@@ -79,12 +36,24 @@ Page({
    */
   onLoad: function(options) {
     let that = this;
+  },
+  onShow: function () {
+    var that = this;
+    var i = 0;
+
     this.getContactType();
     this.getContactData();
-    // 获取系统信息
-    this.setData({
-      phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight - 141
-    })
+  },
+  onReady:function(){
+    var that = this;
+    setTimeout(function () {
+      // 获取系统信息
+      that.setData({
+        phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight - 141
+      })
+      console.log(that.data.phoneHeight)
+    }, 1000)
+    console.log(that.data.phoneHeight)
   },
   //单击导航栏
   clickMenu: function(e) {
@@ -195,8 +164,6 @@ Page({
         })
       }
     }
-  },
-  onShow: function() {
   },
 
   /**

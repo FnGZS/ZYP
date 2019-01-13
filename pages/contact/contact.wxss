@@ -80,6 +80,7 @@
   margin-top: 140rpx;
   background:#fff;
     border-left: 1rpx solid #f5f5f5;
+    margin-bottom: 100rpx;
 }
 
 .card-az {
@@ -235,7 +236,7 @@
   position: fixed;
   transition: All 0.4s ease; 
   -webkit-transition: All 0.4s ease;
-  margin-bottom: 100rpx;
+  margin-bottom: 500rpx;
 }
 .c-state1{
   transform: rotate(0deg) scale(1) translate(75%,0%); 

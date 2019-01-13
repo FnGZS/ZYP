@@ -46,7 +46,7 @@ function wxLogin(callBack) {
             })
           }else{
             wx.navigateTo({
-              url: '../start/start'
+              url: '/pages/start/start'
             })
           }
         }
