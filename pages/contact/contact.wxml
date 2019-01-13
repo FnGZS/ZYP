@@ -47,7 +47,7 @@
   <!-- 侧边字母  -->
   <view class="side-az" wx:if="{{scrollList.length}}">
     <view class="scroll-btn-group" style='height:{{phoneHeight}}rpx'>
-      <view wx:for="{{scrollList}}" wx:key="*this" data-key="{{item}}" data-top="{{contactObj[item].top}}" catchtap="handleScrollView">
+      <view wx:for="{{scrollList}}" wx:key="*this" data-key="{{item}}" catchtap="handleScrollView">
         <text>{{contactObj[item].title}}</text>
       </view>
     </view>

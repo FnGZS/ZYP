@@ -35,7 +35,7 @@
             </view>
         </block>
         <view class="jion-box">
-            <form bindsubmit="rotateAndScale" reportSubmit="true" wx:if="{{message=='未参与'}}">
+            <form bindsubmit="{{canSubmit == 1 ? 'rotateAndScale' : ''}}" reportSubmit="true" wx:if="{{message=='未参与'}}">
                 <button class="ticket-btn" formType="submit">
                     <view class="ticket-btn-txt font-28 font-w color_fff">点击抽奖</view>
                     <view animation="{{animationData}}" class="font-30 font-w ticket-btn-border" style="background:#fff;height:0rpx;width:0rpx;border-radius: 50%; color:#000">
