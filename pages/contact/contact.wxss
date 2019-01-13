@@ -90,7 +90,7 @@
 .scroll-con {
   margin-top: 60rpx;
   background: #fff;
-
+  border-left: 1rpx solid #f5f5f5;
 }
 
 .card-az {
@@ -205,7 +205,7 @@
 
 .empty-search-view {
   position: relative;
-  top: -1100rpx;
+  top: 0rpx;
   margin: 300rpx auto;
   text-align: center;
   font-size: 28rpx;
@@ -224,7 +224,7 @@
   z-index: 998;
   top: 0rpx;
   text-align: center;
-    border-right: 1rpx solid #f5f5f5;
+
 }
 
 
