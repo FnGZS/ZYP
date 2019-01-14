@@ -264,7 +264,7 @@ Page({
   },
   onShow: function () {
     // console.log(wx.getStorageSync('userinfo'))
-    var that=this
+    var that=this 
     login.wxLogin(0, function (res) {
       console.log(res);
       that.setData({
