@@ -3,16 +3,16 @@ var url = require('../config.js')
 const sendAjax = require('sendAjax.js')
 var app = getApp()
 
-// function checkLogin() {
-//   var uesrinfo=wx.getStorageSync("userinfo")
-//   if(uesrinfo){
-//     return true
-//   }else {
-//     wx.navigateTo({
-//       url: '/pages/start/start'
-//     })
-//   }
-// }
+function checkLogin() {
+  var uesrinfo=wx.getStorageSync("userinfo")
+  if(uesrinfo){
+    return true
+  }else {
+    wx.navigateTo({
+      url: '/pages/start/start'
+    })
+  }
+}
 //type:1 授权页面 0其他页面
 function wxLogin(type,callBack) {
   console.log(type)
@@ -70,5 +70,5 @@ function wxLogin(type,callBack) {
 
 module.exports = {
   wxLogin: wxLogin,
-
+  checkLogin: checkLogin
 }
