@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -72,6 +72,12 @@
 					"id": -1,
 					"name": "校历",
 					"pathName": "pages/calendar/calendar",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二手发布",
+					"pathName": "pages/secondHand/secondHandPublish/secondHandPublish",
 					"query": ""
 				}
 			]
