@@ -1,8 +1,7 @@
 // pages/index/index.js
 var app = getApp()
 var url = require('../../config.js')
-var URL = getApp().globalData.PHPURL;
-var IMGURL = getApp().globalData.IMGURL;
+var login = require('../../utils/wxlogin.js')
 const sendAjax = require('../../utils/sendAjax.js')
 Page({
 
@@ -12,8 +11,7 @@ Page({
   data: {
     // hhidden: 0,
     //轮播用的
-    imgUrlsloca: [
-    ],
+    imgUrlsloca: [],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -28,8 +26,8 @@ Page({
     container: [], //记录当前5个位置为哪5个item，理解为5个容器
     curPos: 2, //记录当前显示位置是第几个容器（从0开始）
     zindex: [0, 10, 100, 10, 0], //与container中的对应
-    curIndex: 1,//从显示位置的item在clubs中的index
-    postions: [0, 1, 2, 3, 4],//container中5个容器所在位置
+    curIndex: 1, //从显示位置的item在clubs中的index
+    postions: [0, 1, 2, 3, 4], //container中5个容器所在位置
     opacities: [0, 0.8, 1, 0.8, 0],
     move: 0,
     Gradual: '',
@@ -46,42 +44,25 @@ Page({
     newmeslist: [],
     userinfo: wx.getStorageSync('userinfo')
   },
-  //是否授权
-  getauthSetting: function () {
-    wx.getSetting({
-      success: res => {
-        // console.log(res.authSetting['scope.userInfo'])
-        if (res.authSetting['scope.userInfo']) {
-        } else {
-          console.log(res)
-          wx.navigateTo({
-            url: '/pages/start/start',
-          })
-        }
-      }
-    })
-  },
-  
- 
-  // hhidden: function () {
-  //   var that = this;
-  //   wx.request({
-  //     url: 'https://www.sxscott.com/crazyBird/vote/test',
-  //     data: {
-  //     },
-  //     header: {
-  //       'content-type': 'application/json' // 默认值
-  //     },
-  //     success(res) {
-  //       console.log(res.data)
-  //       that.setData({
-  //         hhidden: res.data.type
-  //       })
+  // //是否授权
+  // getauthSetting: function () {
+  //   wx.getSetting({
+  //     success: res => {
+  //       // console.log(res.authSetting['scope.userInfo'])
+  //       if (res.authSetting['scope.userInfo']) {
+  //       } else {
+  //         console.log(res)
+  //         wx.navigateTo({
+  //           url: '/pages/start/start',
+  //         })
+  //       }
   //     }
   //   })
   // },
+
+
   //轮播图
-  setImgBroadcast: function () {
+  setImgBroadcast: function() {
     // console.log(222);
     var that = this;
     let infoOpt = {
@@ -98,7 +79,7 @@ Page({
 
     }
     let infoCb = {}
-    infoCb.success = function (data) {
+    infoCb.success = function(data) {
       console.log(data.tags);
       that.setData({
         imgUrlsloca: data.tags
@@ -112,7 +93,7 @@ Page({
 
   },
   //获取时事
-  getnewmes: function () {
+  getnewmes: function() {
     var that = this;
     let infoOpt = {
       url: '/affaris/getAffairsList',
@@ -128,7 +109,7 @@ Page({
       },
     }
     let infoCb = {}
-    infoCb.success = function (data) {
+    infoCb.success = function(data) {
       // console.log(data)
       if (data.message != null) {
         that.setData({
@@ -154,13 +135,13 @@ Page({
     });
   },
   //直播跳转
-  Livebroadcast: function (e) {
+  Livebroadcast: function(e) {
     wx.navigateTo({
       url: '../Livebroadcast/Livebroadcast'
     });
   },
   //投票跳转
-  toVote: function (e) {
+  toVote: function(e) {
     // console.log(123);
     var isLogin = wx.getStorageSync('isLogin');
     if (isLogin == 1) {
@@ -173,33 +154,31 @@ Page({
         title: '请登录',
         content: '请获取头像昵称',
         showCancel: false,
-        success: function (res) {
+        success: function(res) {
           if (res.confirm) {
             wx.switchTab({
               url: '../user/user',
             })
-          } else if (res.cancel) {
-          }
+          } else if (res.cancel) {}
         }
       })
     }
 
   },
   //投票轮播
-  setvoteBroadcast: function () {
+  setvoteBroadcast: function() {
     var that = this;
     var arr = [];
     let infoOpt = {
       url: '/vote/getAction/hot',
       type: 'GET',
-      data: {
-      },
+      data: {},
       header: {
         'content-type': 'application/json',
       },
     }
     let infoCb = {}
-    infoCb.success = function (data) {
+    infoCb.success = function(data) {
       // console.log(data);
       that.setData({
         clubs: data.voteList
@@ -266,12 +245,12 @@ Page({
 
 
   },
-  vote: function () {
-      wx.navigateTo({
-        url: '../vote/index',
-      })
+  vote: function() {
+    wx.navigateTo({
+      url: '../vote/index',
+    })
   },
-  currentaffairs: function () {
+  currentaffairs: function() {
     // console.log('123123');
     wx.switchTab({
       url: '../currentaffairs/currentaffairs',
@@ -280,24 +259,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let that = this;
     console.log(wx.getStorageSync('userinfo'))
-    // console.log(wx.getStorageSync("isbound"))
-    // if (wx.getStorageSync("isbound") == "2") {
-    //   that.setData({
-    //     cloudsShow:true
-    //   })
-    // }else{
-    //   that.setData({
-    //     cloudsShow: false
-    //   })
-    // }
-    // that.isshowgetPhoneNumber();
-    // that.hhidden();
-    // that.Startpage();
-    // console.log(111);
-    that.getauthSetting();
+
     that.setImgBroadcast();
     that.setvoteBroadcast();
     that.getnewmes();
@@ -306,31 +271,38 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    console.log(wx.getStorageSync('userinfo'))
+  onShow: function() {
+    var that = this
+    if (!that.data.userinfo) {
+      login.wxLogin(0, function(res) {
+        that.setData({
+          userinfo: wx.setStorageSync("userinfo", res)
+        })
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
   //跳转详情页
-  detailPage: function (e) {
+  detailPage: function(e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../currentaffairs/detailPage/detailPage?id=' + id
@@ -339,7 +311,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     let that = this;
     // that.Startpage();
     that.setData({
@@ -358,8 +330,8 @@ Page({
       container: [], //记录当前5个位置为哪5个item，理解为5个容器
       curPos: 2, //记录当前显示位置是第几个容器（从0开始）
       zindex: [0, 10, 100, 10, 0], //与container中的对应
-      curIndex: 1,//从显示位置的item在clubs中的index
-      postions: [0, 1, 2, 3, 4],//container中5个容器所在位置
+      curIndex: 1, //从显示位置的item在clubs中的index
+      postions: [0, 1, 2, 3, 4], //container中5个容器所在位置
       opacities: [0, 0.8, 1, 0.8, 0],
       move: 0,
       Gradual: '',
@@ -384,14 +356,14 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
   //设置位置
@@ -399,7 +371,7 @@ Page({
    * pos:显示位置在container中的位置
    * index：显示位置的clubs索引
    */
-  setPos: function (pos, index) {
+  setPos: function(pos, index) {
     let container = [];
     let p2 = pos;
     let p1 = this.findPrePos(p2);
@@ -423,14 +395,14 @@ Page({
   /**
    * container中的位置
    */
-  findNextPos: function (pos) {
+  findNextPos: function(pos) {
     if (pos != 4) {
       return pos + 1;
     }
     return 0;
 
   },
-  findPrePos: function (pos) {
+  findPrePos: function(pos) {
     if (pos != 0) {
       return pos - 1;
     }
@@ -438,15 +410,15 @@ Page({
   },
 
   //触摸开始事件
-  touchstart: function (e) {
+  touchstart: function(e) {
     this.data.touchDot = e.touches[0].pageX;
     var that = this;
-    this.data.interval = setInterval(function () {
+    this.data.interval = setInterval(function() {
       that.data.time += 1;
     }, 100);
   },
   //触摸移动事件
-  touchmove: function (e) {
+  touchmove: function(e) {
     let touchMove = e.touches[0].pageX;
     let touchDot = this.data.touchDot;
     let time = this.data.time;
@@ -463,7 +435,7 @@ Page({
     }
   },
   //触摸结束事件
-  touchend: function (e) {
+  touchend: function(e) {
     clearInterval(this.data.interval);
     this.data.time = 0;
     this.data.done = false;
@@ -669,36 +641,36 @@ Page({
     return this.data.clubs.length - 1;
   },
   //跳转创新创业
-  toInnovate: function () {
+  toInnovate: function() {
     wx.navigateTo({
       url: '../innovate/innovate',
     })
   },
   //跳转校园二手
-  toSecondHand: function () {
+  toSecondHand: function() {
     wx.switchTab({
       url: '../secondHand/secondHand',
     })
   },
-  toTicket: function () {
+  toTicket: function() {
     wx.navigateTo({
       url: '../ticket/ticketmian/ticketmian',
     })
   },
   //暂未开发
-  noDevelop: function () {
+  noDevelop: function() {
     wx.showToast({
       title: '暂未开放，敬请期待ha~',
       icon: 'none',
       duration: 1000
     })
   },
-  LostFound: function () {
+  LostFound: function() {
     wx.navigateTo({
       url: '../LostFound/LostFound'
     });
   },
-  toCalendar: function () {
+  toCalendar: function() {
     wx.navigateTo({
       url: '../calendar/calendar',
     })

@@ -15,12 +15,13 @@ Page({
   onLoad: function () { 
 
   },
-  
+
   bindGetUserInfo: function (e) {
     var that=this;
+    var type=1;
     if (e.detail.userInfo) {
       console.log(e.detail.userInfo)
-     login.wxLogin(function(res){
+     login.wxLogin(type,function(res){
        console.log(res)
        wx.setStorageSync("userinfo", res)
        that.setData({
