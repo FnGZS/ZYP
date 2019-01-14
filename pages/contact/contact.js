@@ -17,7 +17,7 @@ Page({
     menuList: [],
     scrollList: [],
     contactObj: {},
-    scrollTop: 0,
+    scrollTop: -65,
     scrollTopstart: 0,
     contactArr: [],
     inputVal: '',
@@ -34,7 +34,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     let that = this;
   },
   onShow: function () {
@@ -44,8 +44,9 @@ Page({
     this.getContactType();
     this.getContactData();
   },
-  onReady:function(){
+  onReady: function () {
     var that = this;
+
     wx.getSystemInfo({
       success: function (res) {
         console.log(res.windowWidth)
@@ -65,9 +66,10 @@ Page({
       console.log(that.data.phoneHeight)
     }, 1000)
     console.log(that.data.phoneHeight)
+
   },
   //单击导航栏
-  clickMenu: function(e) {
+  clickMenu: function (e) {
     var that = this;
     var current = e.currentTarget.dataset.current //获取当前tab的index
     var typeid = e.currentTarget.dataset.typeid; //获取当前的类型id
@@ -78,10 +80,10 @@ Page({
       currentTab: current,
       currentTypeName: name,
       translate: 'transform: translateX(0px)',
-      contactArr:[]
+      contactArr: []
     })
     console.log(this.data.currentTypeid)
-    setTimeout(function() {
+    setTimeout(function () {
       that.setData({
         open: open
       })
@@ -89,7 +91,7 @@ Page({
     this.getContactData();
   },
   //获取通讯录类型
-  getContactType:function(){
+  getContactType: function () {
     var that = this;
     let infoOpt = {
       url: '/contacts/getContactsType',
@@ -113,7 +115,7 @@ Page({
     var that = this;
     var id = this.data.currentTypeid;
     let infoOpt = {
-      url: '/contacts/getContactsTypeList/' + id ,
+      url: '/contacts/getContactsTypeList/' + id,
       type: 'GET',
       data: {},
       header: {
@@ -124,7 +126,7 @@ Page({
     infoCb.success = function (res) {
       console.log(res);
       var contactList = res.list;
-      for(var i = 0 ; i < contactList.length ; i ++){
+      for (var i = 0; i < contactList.length; i++) {
         contactList[i]['ishidden'] = false;
       }
       console.log(contactList)
@@ -133,21 +135,22 @@ Page({
       })
       that.handleSortdata();
       wx.hideLoading();
+
     }
     infoCb.beforeSend = () => {
       wx.showLoading({
         title: '加载中'
       })
-     }
+    }
     sendAjax(infoOpt, infoCb, () => { });
   },
   // 触摸开始事件 
-  touchStart: function(e) {
+  touchStart: function (e) {
     touchDotX = e.touches[0].pageX; // 获取触摸时的原点
     touchDotY = e.touches[0].pageY;
   },
   // 触摸结束事件 
-  touchEnd: function(e) {
+  touchEnd: function (e) {
     var that = this;
     var touchMoveX = e.changedTouches[0].pageX;
     var touchMoveY = e.changedTouches[0].pageY;
@@ -162,7 +165,7 @@ Page({
           translate: 'transform: translateX(0px)',
 
         })
-        setTimeout(function() {
+        setTimeout(function () {
           that.setData({
             open: open
           })
@@ -180,7 +183,7 @@ Page({
   /**
    * 下拉刷新
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     this.setData({
       scrollTop: 0,
       scrollTopstart: 0,
@@ -198,7 +201,6 @@ Page({
    */
   handleSortdata() {
     let contactArr = this.data.contactArr;
-    console.log(contactArr)
     /**
      * 拿到数据那名字的首字母firstInitials.js
      * 处理为contactObj ={firstInitials{title:firstInitials,list:[item]}}
@@ -248,40 +250,45 @@ Page({
       contactObj: contactObj,
       emptySearch: hiddenCount === arr.length
     })
+    this.handleRight();
   },
+  //右侧字母距离处理
+  handleRight: function () {
+    var that = this;
+    var contactArr = this.data.contactObj;
+    for (let key in contactArr) {
+      let query = wx.createSelectorQuery()
+      query.select(`#view_${key}`).boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(function (res) {
+        that.setData({
+          [`contactObj.${key}.top`]: res[0].top
+        })
+        contactArr[key].top = res[0].top
+      })
+    }
+    console.log(contactArr)
 
-  /**
-   * 滚动条位置
-   */
-  handleScroll: function(e) {
-    this.setData({
-      scrollTopstart: e.detail.scrollTop
-    })
+    console.log(that.data.contactObj)
   },
-
   /**
    * 链接侧边字母与内容字母
    */
   handleScrollView(e) {
     let that = this
     let key = e.currentTarget.dataset.key
-    let query = wx.createSelectorQuery()
-    query.select(`#view_${key}`).boundingClientRect()
-    query.selectViewport().scrollOffset()
-    query.exec(function(res) {
-      console.log(res)
-      console.log(that.data.scrollTopstart)
-      that.setData({
-        scrollTop: that.data.scrollTopstart + res[0].top - 65
-      })
-      console.log(that.data.scrollTop)
+    let top = e.currentTarget.dataset.top
+    console.log(key)
+    wx.pageScrollTo({
+      scrollTop: top - 65
     })
+
   },
 
   /**
    * 搜索功能
    */
-  bindKeyInput: function(e) {
+  bindKeyInput: function (e) {
     let contactArr = this.data.contactArr
     console.log(contactArr)
     let inputVal = e.detail.value
@@ -299,13 +306,13 @@ Page({
   /**
    * 拨打电话
    */
-  handleMakeCall: function(e) {
+  handleMakeCall: function (e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.mobile
     })
   },
 
-  tap_ch: function(e) {
+  tap_ch: function (e) {
     console.log(this.data.open)
     var that = this;
     if (this.data.open) {
@@ -313,7 +320,7 @@ Page({
       this.setData({
         translate: 'transform: translateX(0px)',
       })
-      setTimeout(function() {
+      setTimeout(function () {
         that.setData({
           open: open
         })
@@ -326,7 +333,7 @@ Page({
       })
     }
   },
-  toContactDetail:function(e){
+  toContactDetail: function (e) {
     var id = e.currentTarget.dataset.contactid;
     wx.navigateTo({
       url: 'contactDetail/contactDetail?id=' + id,

@@ -11,7 +11,7 @@
     <view class='choose-title'>当前为：{{currentTypeName}}</view>
   </view>
   <!-- 主要内容 -->
-  <scroll-view class="scroll-con" scroll-y scroll-top="{{scrollTop}}" bindscroll="handleScroll" style='height:{{phoneHeight}}rpx' >
+  <view class="scroll-con">
     <view wx:for="{{scrollList}}" wx:key="*this" id="view_{{item}}">
       <view class="item-title" hidden="{{contactObj[item].ishidden}}">{{contactObj[item].title}}</view>
       <view class="card-li" wx:for="{{contactObj[item].list}}" wx:key="index" data-mes='{{item}}' data-contactid='{{item.id}}' hidden="{{item.ishidden}}" bindtap='toContactDetail'>
@@ -33,16 +33,9 @@
       </view>
 
     </view>
-  </scroll-view>
-
-  <!-- 侧边字母  -->
-  <view class="side-az" wx:if="{{scrollList.length}}">
-    <view class="scroll-btn-group" style='height:{{phoneHeight}}rpx'>
-      <view wx:for="{{scrollList}}" wx:key="*this" data-key="{{item}}" catchtap="handleScrollView">
-        <text>{{contactObj[item].title}}</text>
-      </view>
-    </view>
   </view>
+
+
 
   <!-- 没有搜索到东西  -->
   <view class="empty-search-view" wx:if="{{scrollList.length && emptySearch}}">
@@ -51,7 +44,14 @@
 
 </view>
 
-
+  <!-- 侧边字母  -->
+  <view class="side-az" wx:if="{{scrollList.length}}">
+    <view class="scroll-btn-group" style='height:{{phoneHeight}}rpx'>
+      <view wx:for="{{scrollList}}" wx:key="*this" data-key="{{item}}" data-top='{{contactObj[item].top}}' catchtap="handleScrollView">
+        <text>{{contactObj[item].title}}</text>
+      </view>
+    </view>
+  </view>
 <view class="page-right">
   <view class="type" wx:if="{{open}}">
     <view class="typeList {{currentTab == index ? 'typeList-active' : ''}}" wx:for="{{menuList}}" data-typeid='{{item.id}}' data-current="{{index}}" data-name="{{item.typeName}}" bindtap='clickMenu' wx:key="key">

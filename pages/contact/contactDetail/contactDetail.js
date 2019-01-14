@@ -2,30 +2,30 @@ const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
 Page({
   data: {
-    id:null,
-    manger:'',
-    name:'',
-    phone:'',
-    phone2:'',
-    pic:[],
-    typeName:''
+    id: null,
+    manger: '',
+    name: '',
+    phone: '',
+    phone2: '',
+    pic: [],
+    typeName: ''
   },
   onLoad: function (options) {
     var id = options.id;
     this.setData({
-      id:id
+      id: id
     })
   },
-  handleMakeCall:function(e){
+  handleMakeCall: function (e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.mobile
     })
   },
-  getContactDetail:function(){
+  getContactDetail: function () {
     var that = this;
     var id = this.data.id;
     let infoOpt = {
-      url: '/contacts/getContactsDetail/' +id,
+      url: '/contacts/getContactsDetail/' + id,
       type: 'GET',
       data: {},
       header: {
@@ -34,31 +34,21 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      if(res.code == 200){
-        // console.log(res);
-        that.setData({
-          manger: res.manger,
-          name: res.name,
-          phone: res.phone,
-          phone2: res.phone2,
-          pic: JSON.parse(res.pic),
-          typeName: res.typeName
-        })
-        wx.hideLoading();
-      }else{
-        
-        wx.navigateTo({
-          url: '/pages/start/start',
-        })
-        wx.hideLoading();
-      }
-     
+      that.setData({
+        manger: res.manger,
+        name: res.name,
+        phone: res.phone,
+        phone2: res.phone2,
+        pic: JSON.parse(res.pic),
+        typeName: res.typeName
+      })
+      wx.hideLoading();
     }
     infoCb.beforeSend = () => {
       wx.showLoading({
         title: '加载中',
       })
-     }
+    }
     sendAjax(infoOpt, infoCb, () => { });
   },
   imgYu: function (e) {
@@ -72,11 +62,11 @@ Page({
       success: function (res) { },
       fail: function (res) {
         // console.log(res)
-       },
+      },
       complete: function (res) { },
     })
   },
-  btn_more:function(){
+  btn_more: function () {
     console.log(111)
     wx.switchTab({
       url: '../contact',

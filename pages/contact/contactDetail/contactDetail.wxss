@@ -33,6 +33,7 @@
 .detail-mes{
   background: white;
   margin-top: 20rpx;
+  padding-bottom: 50rpx;
 }
 .detail-name{
   height: 80rpx;
@@ -97,6 +98,7 @@
 }
 .btn-more{
     margin-top: 20rpx;
+
   width: 90%;
   height: 80rpx;
   line-height: 80rpx;

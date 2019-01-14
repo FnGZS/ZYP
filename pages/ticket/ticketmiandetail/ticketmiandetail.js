@@ -19,7 +19,8 @@ Page({
         product: [1],
         status: "",
         gid:0,
-        luckId:0
+        luckId:0,
+        canSubmit:1
     },
     onLoad: function(t) {
       this.setData({
@@ -213,10 +214,16 @@ Page({
         infoCb.success = function (res) {
           console.log(res);
           that.setData({
-            message: res.message
+            message: res.message,
+            canSubmit: 1
           })
           that.getjoinMan()
         }
+        infoCb.beforeSend = () => {
+          that.setData({
+            canSubmit:0
+          })
+         }
 
         sendAjax(infoOpt, infoCb, () => {
         });
