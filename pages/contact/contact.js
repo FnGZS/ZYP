@@ -336,7 +336,7 @@ Page({
   toContactDetail: function (e) {
     var id = e.currentTarget.dataset.contactid;
     wx.navigateTo({
-      url: 'contactDetail/contactDetail?id=' + id,
+      url: 'contactDetail/contactDetail?id=' + id + '&isShare=0',
     })
   }
 })
