@@ -1,11 +1,9 @@
 const url = require('../../../config.js')
-
 const sendAjax = require('../../../utils/sendAjax.js')
 const login = require('../../../utils/wxlogin.js')
 Page({
   data: {
     id: null,
-    userInfo: wx.getStorageSync('userinfo'),
     manger: '',
     name: '',
     phone: '',
@@ -15,25 +13,17 @@ Page({
   },
   onLoad: function (options) {
     var id = options.id;
-    var isShare = options.isShare;
     var that=this;
     that.setData({
       id: id
     })
-    if (isShare == 1){
-    
-      login.wxLogin(0, function (res) {
-        console.log(res);
-        that.setData({
-          userInfo: res,
-        })
-      })
-    }
-    that.getContactDetail();
   },
   onShow: function (options) {
     var that=this;
-    that.getContactDetail();
+    if (login.checkLogin()){
+      that.getContactDetail();
+    }
+
   },
   handleMakeCall: function (e) {
     wx.makePhoneCall({
@@ -109,7 +99,7 @@ Page({
     var name = this.data.name;
     return {
       title: '推荐给您 ' + name,
-      path: 'pages/contact/contactDetail/contactDetail?id=' + id + '&isShare=1',
+      path: 'pages/contact/contactDetail/contactDetail?id=' + id ,
     };
 
   }
