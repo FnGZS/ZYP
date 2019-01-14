@@ -4,9 +4,9 @@ var login = require('../../utils/wxlogin.js')
 var app = getApp()
 Page({
   data: {
-    userInfo: wx.getStorageSync('userinfo'),
+    userInfo:null,
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    // canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isboundUser: '绑定学号',
     platUserInfoMap: {},
     code: '',
@@ -18,16 +18,7 @@ Page({
     console.log(this.data.userInfo)
   },
 
-  login: function () {
-    var that = this
-    console.log(wx.getStorageSync('userinfo'));
-    login.wxLogin(0,function (res) {
-      that.setData({
-        userInfo: wx.setStorageSync('userinfo',res),
-      })
-     });
-  
-  },
+
 
   //绑定页面
   binding: function () {
@@ -248,7 +239,7 @@ Page({
       url: '/luck/award',
       type: 'GET',
       data: {
-        userId: wx.getStorageSync('userId'),
+        userId: that.data.userInfo.userId,
         pageNo: 1,
         pageSize: 1000
       },
@@ -272,16 +263,24 @@ Page({
   onReady: function () {
   },
   onShow: function () {
-    
-    this.login();
-    if (this.data.userInfo.isbound==1) {
-      this.setData({
-        isboundUser: '已绑定'
+    // console.log(wx.getStorageSync('userinfo'))
+    var that=this
+    login.wxLogin(0, function (res) {
+      console.log(res);
+      that.setData({
+        userInfo: res,
       })
-    }
-    this.godall()
-    this.godlucky()
-    this.godlaunch()
+      console.log(that.data.userInfo)
+      if (that.data.userInfo.isbound == 1) {
+        that.setData({
+          isboundUser: '已绑定'
+        })
+      }
+      that.godall()
+      that.godlucky()
+      that.godlaunch()
+
+    });
 
   },
   onHide: function () {
