@@ -73,7 +73,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
-      // console.log(res)
+      console.log(res)
       if (res.message == "成功")
       login.wxLogin();
     }

@@ -46,8 +46,19 @@ Page({
   },
   onReady:function(){
     var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowWidth)
+        console.log(res.windowHeight)
+        // that.setData({
+        //   phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight - 141
+        // })
+      }
+    })
     setTimeout(function () {
       // 获取系统信息
+      console.log(wx.getSystemInfoSync().windowWidth)
+      console.log(wx.getSystemInfoSync().windowHeight)
       that.setData({
         phoneHeight: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight - 141
       })

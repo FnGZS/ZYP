@@ -12,6 +12,7 @@ App({
     // wx.setStorageSync("userinfo","")
     // this.getStart()
     // 登录
+    
     login.wxLogin(function(res){
       wx.setStorageSync("userinfo", res)
     }
