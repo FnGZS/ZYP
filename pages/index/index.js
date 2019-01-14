@@ -1,7 +1,7 @@
 // pages/index/index.js
 var app = getApp()
 var url = require('../../config.js')
-
+var login = require('../../utils/wxlogin.js')
 const sendAjax = require('../../utils/sendAjax.js')
 Page({
 
@@ -264,8 +264,11 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    login.wxLogin(0, function (res) {
+      wx.setStorageSync("userinfo", res)
     console.log(wx.getStorageSync('userinfo'))
 
+    })
     that.setImgBroadcast();
     that.setvoteBroadcast();
     that.getnewmes();

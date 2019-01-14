@@ -1,10 +1,11 @@
 const url = require('../../../config.js')
+
 const sendAjax = require('../../../utils/sendAjax.js')
 const login = require('../../../utils/wxlogin.js')
 Page({
   data: {
     id: null,
-    userInfo:null,
+    userInfo: wx.getStorageSync('userinfo'),
     manger: '',
     name: '',
     phone: '',
@@ -19,15 +20,20 @@ Page({
     that.setData({
       id: id
     })
-    if (isShare == 1){
-      login.wxLogin(0, function (res) {
-        console.log(res);
-        that.setData({
-          userInfo: res,
-        })
-        that.getContactDetail();
-      })
-    }
+    // if (isShare == 1){
+    
+    //   login.wxLogin(0, function (res) {
+    //     console.log(res);
+    //     that.setData({
+    //       userInfo: res,
+    //     })
+    //   })
+    // }
+    that.getContactDetail();
+  },
+  onShow: function (options) {
+
+  
 
   },
   handleMakeCall: function (e) {
@@ -89,22 +95,7 @@ Page({
   },
   onReady: function () {
   },
-  onShow: function (options) {
-   var that=this;
-    if (that.data.userInfo){
-      that.getContactDetail();
 
-    }else{
-      login.wxLogin(0, function (res) {
-        console.log(res);
-        that.setData({
-          userInfo: res,
-        })
-        that.getContactDetail();
-      })
-    }
-
-  },
   onHide: function () {
   },
   onUnload: function () {

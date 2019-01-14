@@ -13,10 +13,7 @@ App({
     // this.getStart()
     // 登录
     
-    login.wxLogin(0,function(res){
-      wx.setStorageSync("userinfo", res)
-    }
-    );
+
   },
   //自定义的消息弹窗
   toastShow: function (that, str, icon) {
