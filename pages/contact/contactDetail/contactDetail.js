@@ -20,21 +20,20 @@ Page({
     that.setData({
       id: id
     })
-    // if (isShare == 1){
+    if (isShare == 1){
     
-    //   login.wxLogin(0, function (res) {
-    //     console.log(res);
-    //     that.setData({
-    //       userInfo: res,
-    //     })
-    //   })
-    // }
+      login.wxLogin(0, function (res) {
+        console.log(res);
+        that.setData({
+          userInfo: res,
+        })
+      })
+    }
     that.getContactDetail();
   },
   onShow: function (options) {
-
-  
-
+    var that=this;
+    that.getContactDetail();
   },
   handleMakeCall: function (e) {
     wx.makePhoneCall({
@@ -43,7 +42,7 @@ Page({
   },
   getContactDetail: function () {
     var that = this;
-    var id = this.data.id;
+    var id = that.data.id;
     let infoOpt = {
       url: '/contacts/getContactsDetail/' + id,
       type: 'GET',
