@@ -1,6 +1,6 @@
 const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
-const wxlogin = require('../../../utils/wxlogin.js')
+const login = require('../../../utils/wxlogin.js')
 Page({
   data: {
     id: null,
@@ -15,7 +15,8 @@ Page({
   onLoad: function (options) {
     var id = options.id;
     var isShare = options.isShare;
-    this.setData({
+    var that=this;
+    that.setData({
       id: id
     })
     if (isShare == 1){
@@ -24,6 +25,7 @@ Page({
         that.setData({
           userInfo: res,
         })
+        that.getContactDetail();
       })
     }
 
@@ -46,6 +48,7 @@ Page({
     }
     let infoCb = {}
     infoCb.success = function (res) {
+      console.log(res);
       that.setData({
         manger: res.manger,
         name: res.name,
@@ -87,14 +90,17 @@ Page({
   onReady: function () {
   },
   onShow: function (options) {
-    if (this.data.userInfo){
-      this.getContactDetail();
+   var that=this;
+    if (that.data.userInfo){
+      that.getContactDetail();
+
     }else{
       login.wxLogin(0, function (res) {
         console.log(res);
         that.setData({
           userInfo: res,
         })
+        that.getContactDetail();
       })
     }
 
