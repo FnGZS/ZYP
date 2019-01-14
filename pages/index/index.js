@@ -1,7 +1,7 @@
 // pages/index/index.js
 var app = getApp()
 var url = require('../../config.js')
-var login = require('../../utils/wxlogin.js')
+
 const sendAjax = require('../../utils/sendAjax.js')
 Page({
 

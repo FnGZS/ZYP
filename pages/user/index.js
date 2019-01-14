@@ -17,68 +17,13 @@ Page({
   onLoad: function (options) {
     console.log(this.data.userInfo)
   },
-  // getUserInfo: function (e) {
-  //   var that = this;
-  //   console.log(e);
-  //   if (e.detail.userInfo) {
-  //     app.globalData.userInfo = e.detail.userInfo
 
-  //     this.setData({
-  //       userInfo: e.detail.userInfo,
-  //       hasUserInfo: true
-  //     })
-  //     var platUserInfoMap = that.data.platUserInfoMap;
-  //     platUserInfoMap["encryptedData"] = e.detail.encryptedData;
-  //     platUserInfoMap["iv"] = e.detail.iv;
-  //     // console.log(platUserInfoMap);
-  //     // console.log(JSON.stringify(data));
-  //     let infoOpt = {
-  //       url: '/user/login',
-  //       type: 'POST',
-  //       data: {
-  //         platCode: that.data.code,
-  //         platUserInfoMap: platUserInfoMap,
-  //       },
-  //       header: {
-  //         'content-type': 'application/json',
-  //         // 'authorization': wx.getStorageSync("authorization"),
-  //       },
-  //     }
-  //     let infoCb = {}
-  //     infoCb.success = function (res) {
-  //       console.log(res)
-  //       wx.setStorageSync("userId", res.userId)
-  //       wx.setStorageSync("isLogin", 1)
-  //       wx.setStorageSync("nickName", res.userName)
-  //       wx.setStorageSync("isbound", res.isbound)
-  //       wx.setStorageSync("avatar", res.avatar)
-  //       wx.setStorageSync("userKey", res.userKey)
-  //       wx.setStorageSync("authorization", res.authorization)
-  //       wx.setStorageSync("userId", res.userId)
-  //       if (wx.getStorageSync('isbound') == 1) {
-  //         that.setData({
-  //           isboundUser: '已绑定学号'
-  //         })
-  //       }
-
-  //     }
-  //     infoCb.beforeSend = () => { }
-  //     infoCb.complete = () => {
-
-  //     }
-  //     sendAjax(infoOpt, infoCb, () => {
-  //       // that.onLoad()
-  //       // wx.setStorageSync('G_needUploadIndex', true)
-  //     });
-  //   } else {
-  //     this.openSetting();
-  //   }
-  // },
   login: function () {
     var that = this
-    login.wxLogin(function (res) {
+    console.log(wx.getStorageSync('userinfo'));
+    login.wxLogin(0,function (res) {
       that.setData({
-        userInfo: wx.getStorageSync('userinfo'),
+        userInfo: wx.setStorageSync('userinfo',res),
       })
      });
   
@@ -86,11 +31,9 @@ Page({
 
   //绑定页面
   binding: function () {
-  
       wx.navigateTo({
         url: 'binding/binding'
       })
-    
   },
   //跳转二手我发布的
   toSecHandMyPublish: function () {
@@ -153,7 +96,7 @@ Page({
       url: '/luck/joinList',
       type: 'GET',
       data: {
-        userId: wx.getStorageSync('userId'),
+        userId: that.data.userInfo.userId,
         pageNo: 1,
         pageSize: 1000
       },
@@ -185,7 +128,7 @@ Page({
       url: '/luck/delease',
       type: 'GET',
       data: {
-        userId: wx.getStorageSync('userId'),
+        userId: that.data.userInfo.userId,
         pageNo: 1,
         pageSize: 1000
       },
@@ -213,7 +156,7 @@ Page({
       url: '/luck/award',
       type: 'GET',
       data: {
-        userId: wx.getStorageSync('userId'),
+        userId: that.data.userInfo.userId,
         pageNo: 1,
         pageSize: 1000
       },
@@ -243,12 +186,13 @@ Page({
   },
   //我参与的
   godall: function () {
+    console.log(1111111111111111111111111 + this.data.userInfo)
     var that = this;
     let infoOpt = {
       url: '/luck/joinList',
       type: 'GET',
       data: {
-        userId: wx.getStorageSync('userId'),
+        userId: that.data.userInfo.userId,
         pageNo: 1,
         pageSize: 1000
       },
@@ -328,8 +272,9 @@ Page({
   onReady: function () {
   },
   onShow: function () {
+    
     this.login();
-    if (this.data.userInfo) {
+    if (this.data.userInfo.isbound==1) {
       this.setData({
         isboundUser: '已绑定'
       })
