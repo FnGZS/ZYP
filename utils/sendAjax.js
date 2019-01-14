@@ -52,22 +52,14 @@ console.log(_sets.data)
       if (res.data.code == 200) {
      
         scallback(res.data)
-      } else {
-
-        if (res.data.code == 401) {
-          wx.navigateTo({
-            url: '/pages/start/start',
-          })
-          // getApp().uploadUserInfo(OTCB)
-        } else {
-          if (res.data.code == 400) {
+      } else if (res.data.code == 400) {
             wx.showModal({
               title: '提示',
               content: res.data.message || '处理失败',
               showCancel: false
             });
-          }
-        }
+          
+        
       }
     },
     fail() {
