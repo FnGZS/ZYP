@@ -93,7 +93,7 @@
       <button open-type='share'>热心分享</button>
     </view>
     <view class='bottom-connect' bindtap='callphone'>
-      <view class='connect'>联系Ta</view>
+      <view class='connect'>我知道</view>
     </view>
   </view>
 </view>

@@ -48,11 +48,10 @@ Page({
             var frist_img = that.data.arr_img[0]
           console.log(that.data.arr_img[0]);
           console.log(JSON.stringify(that.data.arr_img))
-          var userinfo=[]
           var foundPic = JSON.stringify(that.data.arr_img)
            console.log(foundPic);
-          userinfo = wx.getStorageSync('userinfo')
-          console.log(userinfo)
+          // userinfo = that.data.userinfo;
+          // console.log(userinfo)
           let infoOpt = {
             url: '/lost/lostInput',
             type: 'POST',
@@ -65,17 +64,27 @@ Page({
               messageId: that.data.lostcurrentTab,
               address: that.data.address,
               contact: that.data.phone,
-              personal:JSON.stringify(userinfo)
+              personal: JSON.stringify(that.data.userinfo)
             },
             header: {
               'content-type': 'application/json',
-              'authorization': userinfo.authorization,
+              'authorization': that.data.userinfo.authorization,
             },
           }
           let infoCb = {}
           infoCb.success = function (data) {
             console.log(data)
+            // let pages = getCurrentPages(); //页面栈
+            // let currPage = pages[pages.length - 1]; //当前页面
+            // console.log(currPage)
+            let pages = getCurrentPages(); //页面栈
+            let currPage = pages[pages.length - 2]; //当前页面
+            console.log(currPage)
+            currPage.setData({
+              refresh: 1 //获取上上级页面传的参数
+            })
             wx.navigateBack({
+              delta: 1
             })
           }
 
@@ -150,7 +159,7 @@ Page({
           },
         }
         //异步
-        upload.upload_picture_fun(infoOpt,page.data.userinfo.authorization).then((res) => {
+        upload.upload_picture_fun(infoOpt, page.data.userinfo.authorization).then((res) => {
           arr_img.push(res)
           console.log(res)
           if (arr_img.length == upload_picture_list.length) {
@@ -297,6 +306,7 @@ Page({
   },
   onLoad: function (options) {
     var that = this
+
     that.getlostType();
   },
 

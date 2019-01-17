@@ -10,6 +10,7 @@ textarea {
 
 .textarea-wrp {
   width: 100%;
+  margin-top: 20rpx;
 }
 
 .page-section {

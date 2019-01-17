@@ -34,6 +34,7 @@ Page({
     isShow: false,
     txt: '',
     iconClass: 'icon-cry',
+    refresh:0
     // scrollTop:[]
   },
   setheight: function() {
@@ -277,7 +278,18 @@ Page({
     });
   },
   onShow: function() {
-    // var that = this
+     var that = this
+    console.log(that.data.refresh)
+    if (that.data.refresh){
+      
+      that.setData({
+        refresh: 0
+      })
+      that.reload();
+    }
+    // that.setData({
+    //   refresh: currPage.options.name //获取上上级页面传的参数
+    // })
     // that.setData({
     //   winHeight: 0,
     //   //初始的頁面:
@@ -288,7 +300,7 @@ Page({
     //   iconClass: 'icon-cry',
     //   message: [],
     // })
-    // that.getlosttype();
+    // that.reload();
 
   },
 
