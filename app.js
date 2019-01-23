@@ -35,5 +35,6 @@ App({
     userInfo: null,
     platUserInfoMap: {},
   
-  }
+  },
+  
 })

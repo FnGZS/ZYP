@@ -1,5 +1,6 @@
 const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
+
 Page({
   data: {
     currentTab:0,

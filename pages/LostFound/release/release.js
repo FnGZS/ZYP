@@ -2,6 +2,7 @@
 const sendAjax = require('../../../utils/sendAjax.js')
 const url = require('../../../config.js')
 const upload = require('../../../utils/uploadfile.js')
+
 var app = getApp();
 Page({
 
@@ -20,9 +21,15 @@ Page({
     currentTab: 1,
     typename: '请选择分类',
     lostcurrentTab: 0,
-    lostTab: [{ id: 0, name: '#失物招领#' }, { id: 1, name: '#寻物启事#' }],
+    lostTab: [{
+      id: 0,
+      name: '#失物招领#'
+    }, {
+      id: 1,
+      name: '#寻物启事#'
+    }],
     goodsname: null,
-    phone: null, 
+    phone: null,
     arr_img: [],
     isShow: false,
     txt: '',
@@ -30,26 +37,26 @@ Page({
     userinfo: wx.getStorageSync('userinfo')
   },
   //页面其他内容上传
-  getphone: function (e) {
+  getphone: function(e) {
     var that = this;
     that.setData({
       phone: e.detail.value
     })
   },
 
-  pushlost: function () {
+  pushlost: function() {
 
     var that = this;
     if (that.data.goodsname) {
       if (that.data.address) {
         if (that.data.phone) {
           console.log(that.data.arr_img);
-          if(that.data.arr_img)
+          if (that.data.arr_img)
             var frist_img = that.data.arr_img[0]
           console.log(that.data.arr_img[0]);
           console.log(JSON.stringify(that.data.arr_img))
           var foundPic = JSON.stringify(that.data.arr_img)
-           console.log(foundPic);
+          console.log(foundPic);
           // userinfo = that.data.userinfo;
           // console.log(userinfo)
           let infoOpt = {
@@ -72,7 +79,7 @@ Page({
             },
           }
           let infoCb = {}
-          infoCb.success = function (data) {
+          infoCb.success = function(data) {
             console.log(data)
             // let pages = getCurrentPages(); //页面栈
             // let currPage = pages[pages.length - 1]; //当前页面
@@ -91,8 +98,7 @@ Page({
           sendAjax(infoOpt, infoCb, () => {
 
           });
-        }
-        else {
+        } else {
           app.toastShow(that, "請輸入聯係方式", "icon-cry");
         }
       } else {
@@ -104,19 +110,19 @@ Page({
     }
 
   },
-  goodsname: function (e) {
+  goodsname: function(e) {
     var that = this;
     that.setData({
       goodsname: e.detail.value
     })
   },
-  getaddress: function (e) {
+  getaddress: function(e) {
     var that = this;
     that.setData({
       address: e.detail.value
     })
   },
-  imagesshow: function () {
+  imagesshow: function() {
     var that = this
     var picurl = that.data.picurl
     if (picurl.length >= 4) {
@@ -134,7 +140,7 @@ Page({
 
   //点击上传事件
   //头非常大 先自己封装了上传图片uploadfile.js之后用promise.js来进行异步保证在所有图片上传成功后进行接下来的操作
-  uploadimage: function () {
+  uploadimage: function() {
     var page = this
     var upload_picture_list = page.data.picurl
     console.log(upload_picture_list)
@@ -147,7 +153,7 @@ Page({
         duration: 100000
       })
       for (var j in upload_picture_list) {
-         console.log(upload_picture_list[j])
+        console.log(upload_picture_list[j])
         let infoOpt = {
           url: url.uploadFile,
           list: upload_picture_list[j].toLowerCase(),
@@ -178,13 +184,12 @@ Page({
         })
       }
       console.log(arr_img)
-    }
-    else {
+    } else {
       page.pushlost()
     }
     // console.log(arr_img)
   },
-  addpicture: function () {
+  addpicture: function() {
     var that = this
     var cnt = that.data.picurl.length
     var picurl = that.data.picurl
@@ -202,23 +207,27 @@ Page({
 
           }
           // console.log(picurl)
-          that.setData({ picurl: picurl })
+          that.setData({
+            picurl: picurl
+          })
           console.log(picurl)
         }
       })
     }
     that.imagesshow();
   },
-  removepicture: function (e) {
+  removepicture: function(e) {
     var that = this
     var picurl = that.data.picurl
     console.log(e)
     var index = e.currentTarget.dataset.index
     picurl.splice(index, 1)
-    that.setData({ picurl: picurl })
+    that.setData({
+      picurl: picurl
+    })
     that.imagesshow();
   },
-  chingepicture: function (e) {
+  chingepicture: function(e) {
     var that = this
     var picurl = that.data.picurl
     var index = e.currentTarget.dataset.index
@@ -236,14 +245,16 @@ Page({
         for (var i = 0; i < tempFilePaths.length; i++) {
           picurl.splice(index, 1, tempFilePaths[i])
         }
-        that.setData({ picurl: picurl })
+        that.setData({
+          picurl: picurl
+        })
         // console.log(that.data.picurl)
       }
     })
 
     that.imagesshow();
   },
-  getmap: function () {
+  getmap: function() {
     var that = this
     // console.log('111')
     wx.getLocation({
@@ -252,7 +263,7 @@ Page({
         const latitude = res.latitude
         const longitude = res.longitude
         wx.chooseLocation({
-          success: function (res) {
+          success: function(res) {
             console.log(res)
             that.setData({
               address: res.name
@@ -262,7 +273,7 @@ Page({
       }
     })
   },
-  toExplain: function () {
+  toExplain: function() {
     var that = this;
 
     if (that.data.text == '请填写物品说明') {
@@ -279,20 +290,19 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  getlostType: function () {
+  getlostType: function() {
     var that = this;
     let infoOpt = {
       url: '/lost/lostType',
       type: 'GET',
-      data: {
-      },
+      data: {},
       header: {
         'content-type': 'application/json',
         //  'authorization': wx.getStorageSync("authorization"),
       },
     }
     let infoCb = {}
-    infoCb.success = function (data) {
+    infoCb.success = function(data) {
       that.setData({
         lostTypeList: data.lostTypeList,
         currentTab: data.lostTypeList.length
@@ -304,7 +314,7 @@ Page({
 
     });
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this
 
     that.getlostType();
@@ -313,10 +323,10 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
-  clicklostTab: function (e) {
+  clicklostTab: function(e) {
     var _this = this;
     // console.log(_this.data.currentTab);
     // console.log(e.target.dataset.id);
@@ -332,7 +342,7 @@ Page({
     }
   },
   //点击切换
-  clickTab: function (e) {
+  clickTab: function(e) {
     var _this = this;
     // console.log(_this.data.currentTab);
     // console.log(e.target.dataset.id);
@@ -350,14 +360,14 @@ Page({
   },
 
   //发布
-  Release: function () {
+  Release: function() {
     this.uploadimage()
-  
+
   },
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
     let that = this;
 
@@ -367,8 +377,7 @@ Page({
 
     if (currPage.data.mydata == null || currPage.data.mydata == undefined) {
 
-    }
-    else {
+    } else {
       that.setData({
         text: currPage.data.mydata.text,
         explainclass: currPage.data.mydata.isshow
@@ -381,35 +390,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
