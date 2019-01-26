@@ -46,7 +46,7 @@
             <view class='leaveMesList-replyTime'>{{item.gmtCreated}}</view>
           </view>
         </view>
-        <view class='leaveMesList-replyInfo'>{{item.content}}</view>
+        <view bindtap='reply' data-id='{{item.id}}' data-schoolNum='{{item.schoolNum}}' data-name='{{item.commentName}}' class='leaveMesList-replyInfo'>{{item.content}}</view>
         <view class='leaveMesList-rereply' wx:for-item="itemy" wx:for="{{item.items}}" wx:key="key"  data-id='{{item.id}}' data-schoolNum='{{itemy.schoolNum}}' data-name='{{itemy.replyName}}' bindtap='reply'>
           <view class='leaveMesList-rereply-top'>
             <image class='rereplyImg' src='{{itemy.headImgUrl}}' mode='aspectFill'></image>

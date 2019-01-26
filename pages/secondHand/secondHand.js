@@ -19,7 +19,6 @@ Page({
     goodsList: [],  //商品列表
     pageNo: 1, 
     pageSize: 10,
-    lodingHidden: true,
     isBottom: false //是否到底
   },
 
@@ -45,13 +44,15 @@ Page({
     var current = e.currentTarget.dataset.current //获取当前tab的index
     var tabWidth = this.data.windowWidth / 5 // 导航tab共5个，获取一个的宽度
     var typeid = e.currentTarget.dataset.typeid; //获取当前的类型id
+    wx.showLoading({
+      title: '加载中',
+    })
     this.setData({
       tabScroll: (current - 2) * tabWidth, //使点击的tab始终在居中位置
       currentTypeid: typeid,
       currentTab: current,
       goodsList: [],
       pageNo: 1,
-      lodingHidden: false,
       isBottom: false
     })
     this.getGoodsList();
@@ -78,13 +79,15 @@ Page({
         if (currentTab != this.data.menuList.length - 1) {
           currentTab = currentTab + 1;
           currentTypeid = menuList[currentTab].id;
+          wx.showLoading({
+            title: '加载中',
+          })
           this.setData({
             tabScroll: (currentTab - 2) * tabWidth,
             currentTypeid: currentTypeid,
             currentTab: currentTab,
             goodsList: [],
             pageNo: 1,
-            lodingHidden: false,
             isBottom: false
           })
           this.getGoodsList();
@@ -93,13 +96,15 @@ Page({
         if (currentTab != 0) {
           currentTab = currentTab - 1;
           currentTypeid = menuList[currentTab].id;
+          wx.showLoading({
+            title: '加载中',
+          })
           this.setData({
             tabScroll: (currentTab - 2) * tabWidth,
             currentTypeid: currentTypeid,
             currentTab: currentTab,
             goodsList: [],
             pageNo: 1,
-            lodingHidden: false,
             isBottom: false
           })
           this.getGoodsList();
@@ -176,9 +181,7 @@ Page({
       var goodsNewList = res.list;
       var goodsList = that.data.goodsList;
       if (goodsNewList.length == 0 && goodsList.length != 0) {
-        that.setData({
-          lodingHidden: true,
-        })
+        wx.hideLoading();
         setTimeout(function () {
           wx.showToast({
             title: '没有更多的商品了',
@@ -195,8 +198,8 @@ Page({
         console.log(goodsList)
         that.setData({
           goodsList: goodsList,
-          lodingHidden: true
         })
+        wx.hideLoading();
       }
     }
     infoCb.beforeSend = () => {}
@@ -239,10 +242,12 @@ Page({
 
   },
   onPullDownRefresh: function() {
+    wx.showLoading({
+      title: '加载中',
+    })
     this.setData({
       pageNo: 1,
       goodsList: [],
-      lodingHidden: false,
       isBottom: false
     })
     this.getLunbo();
@@ -255,9 +260,11 @@ Page({
     var pageNo = this.data.pageNo;
     console.log(this.data.isBottom)
     if (this.data.isBottom == false){
+      wx.showLoading({
+        title: '加载中',
+      })
       this.setData({
         pageNo: pageNo + 1,
-        lodingHidden: false
       })
       this.getGoodsList();
     }

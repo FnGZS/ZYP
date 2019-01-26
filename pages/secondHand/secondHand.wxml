@@ -44,8 +44,3 @@
     <view class='iconfont icon-shouye'></view>
   </view>
 </view>
-<view>
-  <loading hidden="{{lodingHidden}}">
-    加载中..
-  </loading>
-</view>

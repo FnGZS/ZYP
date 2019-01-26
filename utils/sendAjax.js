@@ -48,7 +48,7 @@ console.log(_sets.data)
       'authorization': outTimeAuthCbOrNeedAuth !== false ? wx.getStorageSync('userinfo').authorization : ''
     },
     success(res) {
-      console.log(_sets.data)
+      // console.log(_sets.data)
       if (res.data.code == 200) {
      
         scallback(res.data)

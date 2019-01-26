@@ -276,7 +276,6 @@ Page({
               wx.showToast({
                 title: '回复成功',
                 icon: 'none',
-                duration: 1500
               })
             }, 500) 
           }
@@ -306,7 +305,6 @@ Page({
               wx.showToast({
                 title: '留言成功',
                 icon: 'none',
-                duration: 1500
               })
             }, 500)  
 

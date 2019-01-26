@@ -13,15 +13,15 @@
         <view class='iconfont icon-tianjiazhaopian'></view>
         <view class='addPicNoPic-text'>添加图片</view>
       </view>
-      <view class='imgList' wx:for="{{imgUrls}}">
+      <view class='imgList' wx:for="{{imgUrls}}" wx:key="key"> 
         <image class='publishImg' src='{{item}}' mode='aspectFill'></image>
         <view class='imgDel' data-index='{{index}}' catchtap='removePic'>x</view>
       </view>
     </view>
   </view>
   <view class='addContent'>
-    <input class='content-title' placeholder-class='input_title' maxlength='30' placeholder='请填写宝贝的标题（限30字）'></input>
-    <textarea class='content-content' placeholder-class='input_content' placeholder='请描述宝贝的转手原因、品牌、规格等'></textarea>
+    <input class='content-title' placeholder-class='input_title' maxlength='30' placeholder='请填写宝贝的标题（限30字）' bindinput='input_title'></input>
+    <textarea class='content-content' placeholder-class='input_content' placeholder='请描述宝贝的转手原因、品牌、规格等' bindinput='input_content'></textarea>
 
     <view class='content-pos'>
       <view class='iconfont icon-dizhi'></view>

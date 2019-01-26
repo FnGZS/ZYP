@@ -4,9 +4,12 @@ const uploadimgs = require('../../../utils/uploadimg.js')
 var app = getApp();
 Page({
   data: {
+    userInfo:null,
     userId: null,
     imgUrls: [],
     arr_img:null,
+    title:'',
+    content:'',
     addressList: [],
     isNeedAddress: null,
     addressId: '',
@@ -23,8 +26,10 @@ Page({
     lodingHidden: true
   },
   onLoad: function(options) {
+    var userInfo = wx.getStorageSync('userinfo');
     var userId = wx.getStorageSync('userinfo').userId;
     this.setData({
+      userInfo: userInfo,
       userId: userId
     })
     this.getAddressList();
@@ -116,24 +121,103 @@ Page({
       }
     });
   },
-  publish:function(){
-    console.log(that.data.arr_img)
+  publish: function () {
     var userId = this.data.userId;
-    var imgUrls = this.data.imgUrls;
+    var imgUrls = JSON.stringify(this.data.arr_img);
+    var title = this.data.title;
+    var content = this.data.content;
     var address = this.data.address;
     var typeId = this.data.typeId;
     var price = this.data.price;
     var oldPrice = this.data.oldPrice;
     var phone = this.data.phone;
     var traydingWayId = this.data.traydingWayId;
-    console.log(userId);
-    console.log(imgUrls);
-    console.log(address)
-    console.log(typeId)
-    console.log(price)
-    console.log(oldPrice)
-    console.log(phone)
-    console.log(traydingWayId)
+    var that = this;
+    console.log(111)
+    let infoOpt = {
+      url: '/secondary/create',
+      type: 'POST',
+      data: {
+        userId: userId,
+        goodsTitle:title,
+        goodsContent:content,
+        goodsImag: imgUrls,
+        postion: address,
+        goodsType: typeId,
+        goodsWay:2,
+        tradingWay: traydingWayId,
+        price: price
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      if (res.message == '发布成功'){
+        wx.showModal({
+          title: '提示',
+          content: '发布成功，请耐心等待审核',
+          showCancel: false
+        })
+      }
+    }
+    infoCb.beforeSend = () => { }
+    sendAjax(infoOpt, infoCb, () => { });
+  },
+  publishBtn:function(){
+    var userInfo = this.data.userInfo;
+    var userId = this.data.userId;
+    var imgUrls = this.data.imgUrls;
+    var title = this.data.title;
+    var content = this.data.content;
+    var address = this.data.address;
+    var typeId = this.data.typeId;
+    var price = this.data.price;
+    var oldPrice = this.data.oldPrice;
+    var phone = this.data.phone;
+    var traydingWayId = this.data.traydingWayId;
+
+    if (userInfo.isbound != 1){
+      wx.showModal({
+        title: '提示',
+        content: '请先绑定学号',
+        showCancel:false
+      })
+    } else if (imgUrls.length == 0){
+      wx.showToast({
+        title: '请先添加图片',
+        icon:'none'
+      })
+    }else if(title == ''){
+      wx.showToast({
+        title: '请输入标题',
+        icon: 'none'
+      })
+    } else if (content == '') {
+      wx.showToast({
+        title: '请输入内容',
+        icon: 'none'
+      })
+    }else if (address == null || address ==''){
+      wx.showToast({
+        title: '请先添加地址',
+        icon: 'none'
+      })
+    } else if (price == null || oldPrice == null || price > oldPrice){
+      wx.showToast({
+        title: '请输入正确的价格',
+        icon: 'none'
+      })
+    } else if (phone == null || phone == ''){
+      wx.showToast({
+        title: '请输入正确的手机号',
+        icon: 'none'
+      })
+    }else{
+      this.uploadimg();
+    }
   },
   //移除图片
   removePic: function(e) {
@@ -247,6 +331,20 @@ Page({
     infoCb.beforeSend = () => {}
     sendAjax(infoOpt, infoCb, () => {});
   },
+  //输入的标题
+  input_title:function(e){
+    var title = e.detail.value;
+    this.setData({
+      title: title
+    })
+  },
+  //输入的内容
+  input_content: function (e) {
+    var content = e.detail.value;
+    this.setData({
+      content: content
+    })
+  },
   //输入的价格
   input_price: function(e) {
     var v1 = e.detail.value;
@@ -298,13 +396,6 @@ Page({
       traydingWayId: traydingWayId
     })
     console.log(this.data.traydingWayId)
-  },
-  publish:function(){
-    console.log(this.data.arr_img)
-  },
-  publishBtn: function() {
-    this.uploadimg();
-    
   },
   onReady: function() {},
   onShow: function() {
