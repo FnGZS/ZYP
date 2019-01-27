@@ -146,7 +146,9 @@ Page({
         goodsType: typeId,
         goodsWay:2,
         tradingWay: traydingWayId,
-        price: price
+        price: price,
+        oldPrice: oldPrice,
+        telephone: phone
       },
       header: {
         'content-type': 'application/json',
@@ -159,7 +161,12 @@ Page({
         wx.showModal({
           title: '提示',
           content: '发布成功，请耐心等待审核',
-          showCancel: false
+          showCancel: false,
+          success(res){
+            if(res.confirm){
+              wx.navigateBack();
+            }
+          }
         })
       }
     }

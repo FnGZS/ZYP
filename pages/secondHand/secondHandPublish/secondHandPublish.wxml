@@ -53,7 +53,7 @@
     <view class='tradingWay'>
       <view class='tradingWay-title'>交易方式</view>
       <view class='tradingWayList'>
-        <view class='tradingWayList-main {{traydingWayId == item.id? "tradingWay-active":""}}' wx:for="{{traydingWay}}" data-traydingwayid='{{item.id}}' bindtap='changeTraydingWay' >{{item.field}}</view>
+        <view class='tradingWayList-main {{traydingWayId == item.id? "tradingWay-active":""}}' wx:for="{{traydingWay}}" data-traydingwayid='{{item.id}}' bindtap='changeTraydingWay' wx:key="key">{{item.field}}</view>
       </view>
     </view>
   </view>

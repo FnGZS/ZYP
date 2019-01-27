@@ -187,7 +187,7 @@ page {
   font-size: 25rpx;
 }
 .btn-confirm{
-    border: 1rpx solid #ef696c;
+  border: 1rpx solid #ef696c;
   padding: 5rpx 20rpx;
   margin-left: 20rpx;
   border-radius: 25rpx;
@@ -196,7 +196,7 @@ page {
   font-size: 25rpx;
 }
 .btn-refund{
-    border: 1rpx solid #585858;
+  border: 1rpx solid #585858;
   padding: 5rpx 20rpx;
   margin-left: 20rpx;
   border-radius: 25rpx;
@@ -204,7 +204,15 @@ page {
   font-size: 25rpx;
 }
 .btn-stay{
-      border: 1rpx solid #585858;
+  border: 1rpx solid #585858;
+  padding: 5rpx 20rpx;
+  margin-left: 20rpx;
+  border-radius: 25rpx;
+  color: #585858;
+  font-size: 25rpx;
+}
+.btn-finish{
+  border: 1rpx solid #585858;
   padding: 5rpx 20rpx;
   margin-left: 20rpx;
   border-radius: 25rpx;

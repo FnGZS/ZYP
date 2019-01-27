@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "我买入的"
+  "navigationBarTitleText": "我买入的",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 50,
+        "backgroundTextStyle": "dark"
 }

@@ -23,9 +23,10 @@ Page({
     })
     this.getOrderList();
   },
-  toOrderDetail: function() {
+  toOrderDetail: function(e) {
+    var orderId = e.currentTarget.dataset.orderid;
     wx.navigateTo({
-      url: '../secondHandOrderDetail/secondHandOrderDetail',
+      url: '../secondHandOrderDetail/secondHandOrderDetail?orderId=' + orderId,
     })
   },
   //获取订单列表
@@ -101,11 +102,16 @@ Page({
           infoCb.success = function (res) {
             console.log(res);
             if (res.message == "取消订单成功"){
-              wx.showToast({
-                title: '取消成功',
-                icon:'none'
+              wx.showModal({
+                title: '提示',
+                content: '取消成功',
+                showCancel: false,
+                success(res) {
+                  if (res.confirm) {
+                    that.onPullDownRefresh();
+                  }
+                }
               })
-              that.getOrderList();
             }
           }
           infoCb.beforeSend = () => { }
@@ -115,8 +121,10 @@ Page({
     })
   },
   //去付款
-  toPay: function() {
+  toPay: function(e) {
     var that = this;
+    var price = e.currentTarget.dataset.price;
+    var orderId = e.currentTarget.dataset.orderid;
     wx.login({
       success: resp => {
         let infoOpt = {
@@ -124,8 +132,8 @@ Page({
           type: 'POST',
           data: {
             platCode: resp.code,
-            fee: 0.01,
-            orderId: '12019010922002215352671929855420',
+            fee: price,
+            orderId: orderId,
             type: 1
           },
           header: {
@@ -158,12 +166,56 @@ Page({
       }
     })
   },
-  
+  //确认收货
+  confirmOrder:function(e){
+    var that = this;
+    var orderId = e.currentTarget.dataset.orderid;
+    let infoOpt = {
+      url: '/secondary/order/orderAccept',
+      type: 'PUT',
+      data: {
+        orderId:orderId
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res);
+      if(res.message == '收货成功'){
+       wx.showModal({
+         title: '提示',
+         content: '确认收货成功',
+         showCancel:false,
+         success(res){
+           if(res.confirm){
+             that.onPullDownRefresh();
+           }
+         }
+       })
+      }
+    }
+    infoCb.beforeSend = () => { }
+    sendAjax(infoOpt, infoCb, () => { });
+  },
   onReady: function() {},
-  onShow: function() {},
+  onShow: function() {
+    this.getOrderList();
+  },
   onHide: function() {},
   onUnload: function() {},
-  onPullDownRefresh: function() {},
+  onPullDownRefresh: function() {
+    wx.showLoading({
+      title: '加载中',
+    })
+    this.setData({
+      pageNo: 1,
+      orderList: []
+    })
+    this.getOrderList();
+    wx.stopPullDownRefresh();
+  },
   onReachBottom: function() {
     var pageNo = this.data.pageNo;
     wx.showLoading({

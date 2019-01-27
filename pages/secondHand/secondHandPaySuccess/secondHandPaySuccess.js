@@ -4,9 +4,13 @@ Page({
   onLoad: function (options) {
   },
   backSec:function(){
-    console.log(11)
     wx.reLaunch({
       url: '../secondHand',
+    })
+  },
+  toOrder:function(){
+    wx.navigateTo({
+      url: '../secondHandOrderBought/secondHandOrderBought',
     })
   },
   onReady: function () {

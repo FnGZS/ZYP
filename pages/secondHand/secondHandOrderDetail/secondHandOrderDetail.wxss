@@ -113,12 +113,11 @@ page {
 }
 
 .goods-list  .a-goods {
-  width: 720rpx;
-  margin-left: 30rpx;
+  width: 90%;
+  margin-left: 5%;
   display: flex;
   /*justify-content: space-between;*/
   border-top: 1px solid #eee;
-  padding: 30rpx 30rpx 0rpx 0;
 }
 
 .goods-list  .a-goods .img-box {
@@ -319,7 +318,7 @@ page {
   color: #ef696c;
   border-radius: 10rpx;
 }
-.bnt-payOrder{
+.btn-payOrder{
   border:2rpx solid #ef696c;
   padding: 15rpx 30rpx;
   text-align: center;
@@ -328,3 +327,33 @@ page {
   background: #ef696c;
   margin-left: 20rpx;
 } 
+.btn-stay{
+  border:2rpx solid #585858;
+  padding: 15rpx 20rpx;
+  text-align: center;
+  color: #585858;
+  border-radius: 10rpx;
+}
+.btn-refund{
+  border:2rpx solid #585858;
+  padding: 15rpx 20rpx;
+  text-align: center;
+  color: #585858;
+  border-radius: 10rpx;
+}
+.btn-finish{
+  border:2rpx solid #585858;
+  padding: 15rpx 20rpx;
+  text-align: center;
+  color: #585858;
+  border-radius: 10rpx;
+}
+.btn-confirm{
+   border:2rpx solid #ef696c;
+  padding: 15rpx 30rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 10rpx;
+  background: #ef696c;
+  margin-left: 20rpx;
+}
