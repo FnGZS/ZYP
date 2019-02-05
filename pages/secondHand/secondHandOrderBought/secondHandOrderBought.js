@@ -23,10 +23,11 @@ Page({
     })
     this.getOrderList();
   },
+  //跳转订单详情
   toOrderDetail: function(e) {
     var orderId = e.currentTarget.dataset.orderid;
     wx.navigateTo({
-      url: '../secondHandOrderDetail/secondHandOrderDetail?orderId=' + orderId,
+      url: '../secondHandOrderDetail/secondHandOrderDetail?orderId=' + orderId + '&isBuyer=1',
     })
   },
   //获取订单列表
@@ -170,37 +171,50 @@ Page({
   confirmOrder:function(e){
     var that = this;
     var orderId = e.currentTarget.dataset.orderid;
-    let infoOpt = {
-      url: '/secondary/order/orderAccept',
-      type: 'PUT',
-      data: {
-        orderId:orderId
-      },
-      header: {
-        'content-type': 'application/json',
-      },
-    }
-    let infoCb = {}
-    infoCb.success = function (res) {
-      console.log(res);
-      if(res.message == '收货成功'){
-       wx.showModal({
-         title: '提示',
-         content: '确认收货成功',
-         showCancel:false,
-         success(res){
-           if(res.confirm){
-             that.onPullDownRefresh();
-           }
-         }
-       })
+    wx.showModal({
+      title: '提示',
+      content: '确认收货吗？',
+      success(res) {
+        if (res.confirm) {
+          let infoOpt = {
+            url: '/secondary/order/orderAccept',
+            type: 'PUT',
+            data: {
+              orderId: orderId
+            },
+            header: {
+              'content-type': 'application/json',
+            },
+          }
+          let infoCb = {}
+          infoCb.success = function (res) {
+            console.log(res);
+            if (res.message == '收货成功') {
+              wx.showModal({
+                title: '提示',
+                content: '确认收货成功',
+                showCancel: false,
+                success(res) {
+                  if (res.confirm) {
+                    that.onPullDownRefresh();
+                  }
+                }
+              })
+            }
+          }
+          infoCb.beforeSend = () => { }
+          sendAjax(infoOpt, infoCb, () => { });
+        }
       }
-    }
-    infoCb.beforeSend = () => { }
-    sendAjax(infoOpt, infoCb, () => { });
+    })
+   
   },
   onReady: function() {},
   onShow: function() {
+    this.setData({
+      orderList:[],
+      pageNo: 1,
+    })
     this.getOrderList();
   },
   onHide: function() {},
@@ -211,7 +225,7 @@ Page({
     })
     this.setData({
       pageNo: 1,
-      orderList: []
+      orderList: [],
     })
     this.getOrderList();
     wx.stopPullDownRefresh();

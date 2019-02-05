@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 11,
 			"list": [
 				{
 					"id": 0,
@@ -89,7 +89,27 @@
 				{
 					"id": -1,
 					"name": "订单详情",
-					"pathName": "pages/secondHand/secondHandOrderDetail/secondHandOrderDetail"
+					"pathName": "pages/secondHand/secondHandOrderDetail/secondHandOrderDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我卖出的",
+					"pathName": "pages/secondHand/secondHandOrderSold/secondHandOrderSold",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "消息中心",
+					"pathName": "pages/secondHand/secondHandMes/secondHandMes",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息详情",
+					"pathName": "pages/secondHand/secondHandMesDetail/secondHandMesDetail",
+					"scene": null
 				}
 			]
 		}

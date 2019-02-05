@@ -1,7 +1,7 @@
 <view id='secondHandMes'>
   <view class='systemMes'>
-    <view class="systemMesList touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-id='{{item.id}}' data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{systemMes}}" wx:key="key">
-      <view class='content'>
+    <view class="systemMesList touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-id='{{item.id}}' data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{systemMes}}" bindtap='toSysDetail'  wx:if="{{item.isView != 2}}" wx:key="key">
+      <view class='content' bindtap='toSysDetail' data-goodsid='{{item.mesid}}'>
         <view class='iconfont icon-xitongxiaoxi'></view>
         <view class='systemMes-main'>
           <view class='systemMes-text'>系统消息</view>
@@ -16,7 +16,7 @@
 
   <view class='userMes'>
     <view class="userMesList touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart1" bindtouchmove="touchmove1" wx:for="{{userMes}}" wx:key="key">
-      <view class='content'>
+      <view class='content' bindtap='toGoodsDetail' data-goodsid='{{item.goodsId}}' >
         <image class='userMesList-img' src='{{item.headImgUrl}}' mode='aspectFill'></image>
         <view class='userMes-main'>
           <view class='userMes-text'>{{item.replyName}}</view>
@@ -25,7 +25,7 @@
         </view>
         <view wx:if="{{item.isView == 0}}" class='userMes-isRead'></view>
       </view>
-      <view class="del" bindtap="del1" data-index='{{index}}' data-goodsid='{{item.id}}'>删除</view>
+      <view class="del" bindtap="del1" data-index='{{index}}' data-mesid='{{item.id}}'>删除</view>
     </view>
      <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
   </view>

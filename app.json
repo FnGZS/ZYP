@@ -41,6 +41,7 @@
     "pages/secondHand/secondHandAddressEdit/secondHandAddressEdit",
     "pages/secondHand/secondHandAddressSelect/secondHandAddressSelect",
     "pages/secondHand/secondHandMes/secondHandMes",
+    "pages/secondHand/secondHandMesDetail/secondHandMesDetail",
     "pages/logs/logs",
     "pages/ticket/ticketmian/ticketmian",
     "pages/ticket/ticketadd/ticketadd",
@@ -60,10 +61,10 @@
     "pages/contact/contactDetail/contactDetail"
   ],
   "window": {
-    "backgroundTextStyle": "drak",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ef696c",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#CECECE",

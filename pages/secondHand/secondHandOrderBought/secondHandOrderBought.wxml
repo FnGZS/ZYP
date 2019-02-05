@@ -4,7 +4,7 @@
     <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap='clickMenu' data-current="1" data-status='0'>待付款</view>
     <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap='clickMenu' data-current="2" data-status='1'>待发货</view>
     <view class="tab-item {{currentTab == 3 ? 'active' : ''}}" bindtap='clickMenu' data-current="3" data-status='2'>待收货</view>
-    <view class="tab-item {{currentTab == 4 ? 'active' : ''}}" bindtap='clickMenu' data-current="4" data-status='3'>售后</view>
+    <!-- <view class="tab-item {{currentTab == 4 ? 'active' : ''}}" bindtap='clickMenu' data-current="4" data-status='3'>售后</view> -->
   </view>
 
   <view class='orderList' bindtap='toOrderDetail' data-orderid='{{item.orderId}}' wx:for="{{orderList}}" wx:key="key">

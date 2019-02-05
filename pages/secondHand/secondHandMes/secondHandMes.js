@@ -19,8 +19,6 @@ Page({
     this.setData({
       userId:userId
     })
-    this.getSystemMes();
-    this.getUserMes();
   },
   //获取系统消息
   getSystemMes:function(){
@@ -199,7 +197,7 @@ Page({
   del: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index;
-    var mesId = e.currentTarget.dataset.mesid;
+    var mesid = e.currentTarget.dataset.mesid;
     wx.showModal({
       title: '提示',
       content: '确定要删除吗',
@@ -211,7 +209,29 @@ Page({
           that.setData({
             systemMes: systemMes
           })
-          // console.log(goodsId)
+          let infoOpt = {
+            url: '/secondary/violationMessage/delete/' + mesid,
+            type: 'POST',
+            data: {
+             
+            },
+            header: {
+              'content-type': 'application/json',
+            },
+          }
+          let infoCb = {}
+          infoCb.success = function (res) {
+            console.log(res);
+            if (res.code == 200) {
+              wx.showModal({
+                title: '提示',
+                content: '删除成功',
+                showCancel: false
+              })
+            }
+          }
+          infoCb.beforeSend = () => { }
+          sendAjax(infoOpt, infoCb, () => { });
         }
       }
     });
@@ -220,7 +240,7 @@ Page({
   del1: function (e) {
     var that = this;
     var index = e.currentTarget.dataset.index;
-    // var goodsId = e.currentTarget.dataset.goodsid;
+    var mesid = e.currentTarget.dataset.mesid;
     wx.showModal({
       title: '提示',
       content: '确定要删除吗',
@@ -232,20 +252,71 @@ Page({
           that.setData({
             userMes: userMes
           })
-          // console.log(goodsId)
+          let infoOpt = {
+            url: '/secondary/commentMessage/delete',
+            type: 'POST',
+            data: {
+              id: mesid
+            },
+            header: {
+              'content-type': 'application/json',
+            },
+          }
+          let infoCb = {}
+          infoCb.success = function (res) {
+            console.log(res);
+            if(res.code == 200){
+              wx.showModal({
+                title: '提示',
+                content: '删除成功',
+                showCancel:false
+              })
+            }
+          }
+          infoCb.beforeSend = () => { }
+          sendAjax(infoOpt, infoCb, () => { });
         }
       }
     });
   },
+  //跳转系统消息详情
+  toSysDetail:function(e){
+    var mesid = e.currentTarget.dataset.mesid;
+    wx.navigateTo({
+      url: '../secondHandMesDetail/secondHandMesDetail?id=' + mesid,
+    })
+  },
+  //跳转商品消息详情
+  toGoodsDetail:function(e){
+    var goodsid = e.currentTarget.dataset.goodsid;
+    wx.navigateTo({
+      url: '../secondHandDetail/secondHandDetail?id=' + goodsid,
+    })
+  },
   onReady: function () {
   },
   onShow: function () {
+    this.setData({
+      systemMes: [],
+      userMes: [],
+      pageNo: 1,
+    })
+    this.getSystemMes();
+    this.getUserMes();
   },
   onHide: function () {
   },
   onUnload: function () {
   },
   onPullDownRefresh: function () {
+    this.setData({
+      systemMes: [],
+      userMes: [],
+      pageNo: 1,
+    })
+    this.getSystemMes();
+    this.getUserMes();
+    wx.stopPullDownRefresh();
   },
   onReachBottom: function () {
     var pageNo = this.data.pageNo;

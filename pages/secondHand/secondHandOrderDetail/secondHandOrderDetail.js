@@ -3,12 +3,15 @@ const sendAjax = require('../../../utils/sendAjax.js')
 Page({
   data: {
     orderId:null,
+    isBuyer:null,
     orderDetail:{}
   },
   onLoad: function (options) {
     var orderId = options.orderId;
+    var isBuyer = options.isBuyer;
     this.setData({
-      orderId: orderId
+      orderId: orderId,
+      isBuyer: isBuyer
     })
     this.getOrderDetail();
   },
@@ -124,38 +127,87 @@ Page({
       }
     })
   },
-  //确认收货
-  confirmOrder: function (e) {
+  //确认发货
+  confirmSend: function (e) {
     var that = this;
     var orderId = e.currentTarget.dataset.orderid;
-    let infoOpt = {
-      url: '/secondary/order/orderAccept',
-      type: 'PUT',
-      data: {
-        orderId: orderId
-      },
-      header: {
-        'content-type': 'application/json',
-      },
-    }
-    let infoCb = {}
-    infoCb.success = function (res) {
-      console.log(res);
-      if (res.message == '收货成功') {
-        wx.showModal({
-          title: '提示',
-          content: '确认收货成功',
-          showCancel: false,
-          success(res) {
-            if (res.confirm) {
-              that.onLoad();
+    wx.showModal({
+      title: '提示',
+      content: '确认发货吗？',
+      success(res) {
+        if (res.confirm) {
+          let infoOpt = {
+            url: '/secondary/order/orderDelivery',
+            type: 'PUT',
+            data: {
+              orderId: orderId
+            },
+            header: {
+              'content-type': 'application/json',
+            },
+          }
+          let infoCb = {}
+          infoCb.success = function (res) {
+            console.log(res);
+            if (res.message == '发货成功') {
+              wx.showModal({
+                title: '提示',
+                content: '确认发货成功',
+                showCancel: false,
+                success(res) {
+                  if (res.confirm) {
+                    wx.navigateBack();
+                  }
+                }
+              })
             }
           }
-        })
+          infoCb.beforeSend = () => { }
+          sendAjax(infoOpt, infoCb, () => { });
+        }
       }
-    }
-    infoCb.beforeSend = () => { }
-    sendAjax(infoOpt, infoCb, () => { });
+    })
+  },
+  //确认收货
+  confirmReceive: function (e) {
+    var that = this;
+    var orderId = e.currentTarget.dataset.orderid;
+    wx.showModal({
+      title: '提示',
+      content: '确认收货吗？',
+      success(res) {
+        if (res.confirm) {
+          let infoOpt = {
+            url: '/secondary/order/orderAccept',
+            type: 'PUT',
+            data: {
+              orderId: orderId
+            },
+            header: {
+              'content-type': 'application/json',
+            },
+          }
+          let infoCb = {}
+          infoCb.success = function (res) {
+            console.log(res);
+            if (res.message == '收货成功') {
+              wx.showModal({
+                title: '提示',
+                content: '确认收货成功',
+                showCancel: false,
+                success(res) {
+                  if (res.confirm) {
+                    wx.navigateBack();
+                  }
+                }
+              })
+            }
+          }
+          infoCb.beforeSend = () => { }
+          sendAjax(infoOpt, infoCb, () => { });
+        }
+      }
+    })
   },
   onReady: function () {
   },

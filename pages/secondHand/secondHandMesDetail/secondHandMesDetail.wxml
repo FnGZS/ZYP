@@ -1,0 +1,15 @@
+<view id='mesDetail'>
+  <view class='detail-title'>审核未通过</view>
+  <view class='detail-time'>2018-12-21 14:50:29</view>
+  <view class='detail-line'></view>
+  <view class='detail-content'>
+    <view class='detail-goods'>
+      <view class='detail-goods-text'>商品：</view>
+      <view class='detail-goods-title'>黑蛇黑寡妇蜘蛛X 经济版87键 悬浮式机械键盘。（雷蛇）黑蛇黑寡妇蜘蛛X 经济版87键 悬浮式机械键盘。（雷蛇）</view>
+    </view>
+    <view class='detail-mes'>
+      <view class='detail-mes-text'>信息：</view>
+      <view class='detail-mes-title'>内容违规</view>
+    </view>
+  </view>
+</view>
