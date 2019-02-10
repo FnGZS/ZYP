@@ -2,7 +2,7 @@ var url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
 Page({
   data: {
-    balance:null,
+    balance:null, //用户余额
     tips:'',
     tipsBtnHidden:false,
     status:1,  //1：正常提现，2：错误操作
@@ -60,12 +60,12 @@ Page({
               status:2
             })
           } else {
-            if(val > balance){
+            if (parseFloat(val) > parseFloat(balance)){
               var tips = '提现金额超出用户余额';
               this.setData({
                 status: 2
               })
-            }else if(val < 1){
+            } else if (parseFloat(val) < 1){
               var tips = '提现金额至少超过1元';
               this.setData({
                 status: 2
@@ -79,12 +79,12 @@ Page({
             }   
           }
         } else {
-          if (val > balance) {
+          if (parseFloat(val) > parseFloat(balance)) {
             var tips = '提现金额超出用户余额';
             this.setData({
               status: 2
             })
-          } else if (val < 1) {
+          } else if (parseFloat(val) < 1) {
             var tips = '提现金额至少超过1元';
             this.setData({
               status: 2

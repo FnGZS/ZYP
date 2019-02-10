@@ -318,6 +318,7 @@ page {
   text-align: center;
   color: #ef696c;
   border-radius: 10rpx;
+    margin-left: 20rpx;
 }
 .btn-cancelOrder{
   border:2rpx solid #ef696c;
@@ -341,6 +342,7 @@ page {
   text-align: center;
   color: #585858;
   border-radius: 10rpx;
+    margin-left: 20rpx;
 }
 .btn-refund{
   border:2rpx solid #585858;
@@ -348,6 +350,7 @@ page {
   text-align: center;
   color: #585858;
   border-radius: 10rpx;
+    margin-left: 20rpx;
 }
 .btn-finish{
   border:2rpx solid #585858;

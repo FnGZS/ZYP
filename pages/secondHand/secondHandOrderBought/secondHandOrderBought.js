@@ -6,7 +6,10 @@ Page({
     status: '',
     pageNo: 1,
     pageSize: 5,
-    orderList: []
+    orderList: [],
+    refundOrderId:'',
+    hiddenRefund:true,
+    input_refund:''
   },
   onLoad: function(options) {
     // this.getOrderList();
@@ -165,6 +168,74 @@ Page({
         infoCb.beforeSend = () => {}
         sendAjax(infoOpt, infoCb, () => {});
       }
+    })
+  },
+  //申请退款输入
+  input_refund:function(e){
+    var val = e.detail.value;
+    this.setData({
+      input_refund:val
+    })
+  },
+  //申请退款
+  refundOrder:function(e){
+    var orderid = e.currentTarget.dataset.orderid;
+    this.setData({
+      hiddenRefund:false,
+      input_refund:'',
+      refundOrderId: orderid
+    })
+  },
+  //确认申请退款
+  confirmRefund:function(e){
+    var that = this;
+    var input_refund = this.data.input_refund;
+    var refundOrderId = this.data.refundOrderId;
+    if(input_refund == ''){
+      wx.showToast({
+        title: '请输入退款原因',
+        icon:'none'
+      })
+    }else{
+      let infoOpt = {
+        url: '/secondary/order/orderApply',
+        type: 'PUT',
+        data: {
+          orderId: refundOrderId,
+          content: input_refund
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+        console.log(res);
+        if (res.message == '已成功申请，请耐心等待结果！'){
+          that.setData({
+            hiddenRefund: true
+          })
+          wx.showModal({
+            title: '提示',
+            content: '已申请退款，请耐心等待',
+            showCancel:false,
+            success(res) {
+              if (res.confirm) {
+                that.onPullDownRefresh();
+              }
+            }
+          })
+          
+        }
+      }
+      infoCb.beforeSend = () => { }
+      sendAjax(infoOpt, infoCb, () => { });
+    }
+   
+  },
+  cancelRefund:function(){
+    this.setData({
+      hiddenRefund: true
     })
   },
   //确认收货

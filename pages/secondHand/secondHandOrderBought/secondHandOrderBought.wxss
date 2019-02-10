@@ -219,3 +219,6 @@ page {
   color: #585858;
   font-size: 25rpx;
 }
+.input-refund{
+  text-align: center;
+}

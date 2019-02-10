@@ -27,6 +27,12 @@ Page({
         url: 'binding/binding'
       })
   },
+  //跳转账单详情
+  bill:function(){
+    wx.navigateTo({
+      url: 'bill/bill'
+    })
+  },
   //跳转资金提现页面
   cash:function(){
     wx.navigateTo({

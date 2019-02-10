@@ -1,0 +1,47 @@
+page{
+  background: #F5F5F5;
+}
+.balance{
+  width: 100%;
+  height: 100rpx;
+  background: linear-gradient(to bottom, #ef696c, #ffa07a);
+  color: #fff;
+  text-align: center;
+}
+.balance-text{
+  font-size: 25rpx;
+  line-height: 50rpx;
+}
+.balance-num{
+  font-size: 32rpx;
+    line-height: 40rpx;
+}
+.billList{
+  height: 80rpx;
+  margin-left: 5%;
+  position: relative;
+  padding-top: 15rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.bill-title{
+  font-size: 23rpx;
+  color: #B4B4B4;
+}
+.bill-time{
+    font-size: 23rpx;
+  color: #B4B4B4;
+}
+.bill-numAdd{
+  position: absolute;
+  right: 5%;
+  top: 30rpx;
+  font-size: 28rpx;
+  color: #53C435;
+}
+.bill-numReduce{
+    position: absolute;
+  right: 5%;
+  top: 30rpx;
+  font-size: 28rpx;
+  color: #FF6A6A;
+}

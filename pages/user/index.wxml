@@ -26,7 +26,7 @@
         <view class='iconfont icon-dizhi'></view>
         <view class='secHand-dizhi-text'>地址管理</view>
       </view>
-      <view class='secHand-bill'>
+      <view class='secHand-bill' bindtap='bill'>
         <view class='iconfont icon-zhangdan'></view>
         <view class='secHand-bill-text'>账单详情</view>
       </view>

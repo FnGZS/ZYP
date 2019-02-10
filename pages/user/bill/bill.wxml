@@ -1,0 +1,12 @@
+<view id='bill'>
+  <view class='balance'>
+    <view class='balance-text'>账户余额（元）</view>
+    <view class='balance-num'>{{balance}}</view>
+  </view>
+  <view class='billList' wx:for="{{billList}}" wx:key="key">
+    <view class='bill-title'>{{item.title}}-{{item.message}}</view>
+    <view class='bill-time'>{{item.gmtCreated}}</view>
+    <view class='bill-numAdd' wx:if="{{item.type == 1}}">+{{item.cash}}</view>
+    <view class='bill-numReduce' wx:if="{{item.type == -1}}">-{{item.cash}}</view>
+  </view>
+</view>
