@@ -124,6 +124,7 @@ page {
   width: 160rpx;
   height: 160rpx;
   overflow: hidden;
+  margin-top: 20rpx;
   margin-right: 20rpx;
   background-color: #d8d8d8;
 }
@@ -311,6 +312,13 @@ page {
   font-size: 25rpx;
   height: 70rpx;
 }
+.btn-contact{
+    border:2rpx solid #ef696c;
+  padding: 15rpx 20rpx;
+  text-align: center;
+  color: #ef696c;
+  border-radius: 10rpx;
+}
 .btn-cancelOrder{
   border:2rpx solid #ef696c;
   padding: 15rpx 20rpx;
@@ -347,6 +355,7 @@ page {
   text-align: center;
   color: #585858;
   border-radius: 10rpx;
+    margin-left: 20rpx;
 }
 .btn-confirm{
    border:2rpx solid #ef696c;

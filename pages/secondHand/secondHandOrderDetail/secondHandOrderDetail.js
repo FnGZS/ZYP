@@ -209,6 +209,21 @@ Page({
       }
     })
   },
+  //跳转商品详情
+  toGoodsDetail:function(e){
+    var goodsid = e.currentTarget.dataset.goodsid;
+    wx.navigateTo({
+      url: '../secondHandDetail/secondHandDetail?id=' + goodsid,
+    })
+  },
+  //联系卖家
+  contact:function(e){
+    var phone = e.currentTarget.dataset.phone;
+    console.log(phone)
+    wx.makePhoneCall({
+      phoneNumber: phone 
+    })
+  },
   onReady: function () {
   },
   onShow: function () {

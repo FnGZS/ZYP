@@ -10,6 +10,7 @@ Page({
     isboundUser: '绑定学号',
     platUserInfoMap: {},
     code: '',
+    balance:'',
     dallNum: 0,
     launchnum: 0,
     luckynum: 0,
@@ -25,6 +26,12 @@ Page({
       wx.navigateTo({
         url: 'binding/binding'
       })
+  },
+  //跳转资金提现页面
+  cash:function(){
+    wx.navigateTo({
+      url: 'cash/cash'
+    })
   },
   //跳转二手我发布的
   toSecHandMyPublish: function () {
@@ -79,6 +86,27 @@ Page({
     wx.navigateTo({
       url: 'aboutUs/aboutUs',
     })
+  },
+  //获取用户的账户余额
+  getBalance: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/secondary/order/getSecondaryCapital',
+      type: 'GET',
+      data: {},
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      var balance = res.list.remainder.toFixed(2);
+      that.setData({
+        balance: balance,
+      })
+    }
+    infoCb.beforeSend = () => { }
+    sendAjax(infoOpt, infoCb, () => { });
   },
   //点击我参与的
   goRecordall: function (n) {
@@ -276,6 +304,7 @@ Page({
           isboundUser: '已绑定'
         })
       }
+      that.getBalance()
       that.godall()
       that.godlucky()
       that.godlaunch()

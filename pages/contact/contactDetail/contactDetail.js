@@ -17,7 +17,7 @@ Page({
     var that=this;
     that.setData({
       id: id,
-      isShare:isShare
+      // isShare:isShare
     })
     
 

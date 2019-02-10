@@ -10,6 +10,8 @@
     "pages/user/help/help",
     "pages/user/aboutUs/aboutUs",
     "pages/user/binding/binding",
+    "pages/user/cash/cash",
+    "pages/user/bill/bill",
     "pages/vote/index",
     "pages/vote/scholarship/scholarship",
     "pages/vote/voteDetail/voteDetail",

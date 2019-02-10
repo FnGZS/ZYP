@@ -4,7 +4,7 @@
     <view wx:if="{{userInfo}}">
       <image class='userinfo-avatar' mode='aspectFill' src='{{userInfo.avatar}}'></image>
       <view class='userinfo-name'>{{userInfo.userName}}</view>
-      <view class='userinfo-balance'>余额：0.00
+      <view class='userinfo-balance'>余额：{{balance}}
         <!-- <view class='userinfo-balance-text'>余额：</view>
       <view class='userinfo-balance-num'>0.00</view> -->
       </view>
@@ -30,7 +30,7 @@
         <view class='iconfont icon-zhangdan'></view>
         <view class='secHand-bill-text'>账单详情</view>
       </view>
-      <view class='secHand-cash'>
+      <view class='secHand-cash' bindtap='cash'>
         <view class='iconfont icon-tixian'></view>
         <view class='secHand-cash-text'>资金提现</view>
       </view>

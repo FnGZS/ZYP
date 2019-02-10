@@ -16,7 +16,7 @@
   </view>
   <view class="goods-list">
     <view class="list-title">商品信息 </view>
-    <view class="a-goods" wx:key="{{index}}">
+    <view class="a-goods" wx:key="{{index}}" data-goodsid='{{orderDetail.goodsId}}' bindtap='toGoodsDetail'>
       <view class="img-box">
         <image src="{{orderDetail.goodsImg[0]}}" mode='aspectFill' class="img" />
       </view>
@@ -62,6 +62,7 @@
   </view>
   <view class='barBottom'>
     <view class='orderStatusBtn'>
+      <view class='btn-contact' wx:if="{{isBuyer == 1 && orderDetail.orderState != 0}}" data-phone='{{orderDetail.telephone}}' bindtap='contact'>联系卖家</view>
       <view class='btn-cancelOrder' wx:if="{{isBuyer == 1 && orderDetail.orderState == 0}}" data-orderid='{{orderDetail.orderId}}' catchtap='cancelOrder'>取消订单</view>
       <view class='btn-payOrder' wx:if="{{isBuyer == 1 && orderDetail.orderState == 0}}" catchtap='toPay' data-price='{{orderDetail.orderPrice}}' data-orderid='{{orderDetail.orderId}}'>去付款</view>
       <view class='btn-confirm' wx:if="{{isBuyer == 0 && orderDetail.orderState == 1 && orderDetail.logistics == 0 }}" catchtap='confirmSend' data-orderid='{{orderDetail.orderId}}'>确认发货</view>

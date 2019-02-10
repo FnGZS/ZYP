@@ -9,7 +9,7 @@ Page({
     orderList: []
   },
   onLoad: function (options) {
-    this.getOrderList();
+    // this.getOrderList();
   },
   //单击导航栏
   clickMenu: function (e) {

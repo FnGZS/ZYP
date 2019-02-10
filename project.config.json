@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 13,
 			"list": [
 				{
 					"id": 0,
@@ -109,6 +109,20 @@
 					"id": -1,
 					"name": "消息详情",
 					"pathName": "pages/secondHand/secondHandMesDetail/secondHandMesDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "资金提现",
+					"pathName": "pages/user/cash/cash",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "账单详情",
+					"pathName": "pages/user/bill/bill",
 					"scene": null
 				}
 			]
