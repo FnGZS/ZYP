@@ -1,5 +1,6 @@
 const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
+const templeMsg = require('../../../utils/templeMsg.js')
 Page({
 
   /**
@@ -271,7 +272,30 @@ Page({
         infoCb.success = function (res) {
           console.log(res);
           if(res.code == 200){
-            that.getComment();             
+            that.getComment(); 
+
+            //模板消息回复
+            var id = that.data.id;
+            var title = that.data.goodsDetail.goodsTitle;
+            var name = wx.getStorageSync('userinfo').userName;
+            var template_id = 'eWMALLAPiQY6TlhWpp0BlsvD72xPh-ZN1cUdOL_TkiQ';
+            var page = '/pages/secondHand/secondHandDetail/secondHandDetail?id=' + id ;
+            var data = {
+              "keyword1": {
+                "value": title
+              },
+              "keyword2": {
+                "value": name
+              },
+              "keyword3": {
+                "value": content
+              },
+              "keyword4": {
+                "value": "2018.12.26 14.42"
+              }
+            };
+            templeMsg.templeMsg(template_id, page, data);
+
             setTimeout(function () {
               wx.showToast({
                 title: '回复成功',
@@ -301,6 +325,30 @@ Page({
           console.log(res);
           if (res.code == 200) {
             that.getComment();
+
+            //模板消息回复
+            var id = that.data.id;
+            var title = that.data.goodsDetail.goodsTitle;
+            var name = wx.getStorageSync('userinfo').userName;
+            console.log(123456)
+            var template_id = 'eWMALLAPiQY6TlhWpp0BlsvD72xPh-ZN1cUdOL_TkiQ';
+            var page = '/pages/secondHand/secondHandDetail/secondHandDetail?id=' + id;
+            var data = {
+              "keyword1": {
+                "value": title
+              },
+              "keyword2": {
+                "value": name
+              },
+              "keyword3": {
+                "value": content
+              },
+              "keyword4": {
+                "value": "2018.12.26 14.42"
+              }
+            };
+            templeMsg.templeMsg(template_id, page, data);
+
             setTimeout(function () {
               wx.showToast({
                 title: '留言成功',

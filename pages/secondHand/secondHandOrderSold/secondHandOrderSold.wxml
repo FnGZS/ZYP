@@ -1,9 +1,13 @@
 <view id='order'>
-  <view class='tabBar'>
-    <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap='clickMenu' data-current="0" data-status=''>全部</view>
-    <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap='clickMenu' data-current="1" data-status='0'>待发货</view>
-    <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap='clickMenu' data-current="2" data-status='1'>待收货</view>
-  </view>
+  <form bindsubmit="getFormId" report-submit="true">
+    <button form-type="submit"  class='stickyClass'>
+      <view class='tabBar '>
+        <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap='clickMenu' data-current="0" data-status=''>全部</view>
+        <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap='clickMenu' data-current="1" data-status='0'>待发货</view>
+        <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap='clickMenu' data-current="2" data-status='1'>待收货</view>
+      </view>
+    </button>
+  </form>
   <view class='orderList' bindtap='toOrderDetail' data-orderid='{{item.orderId}}' wx:for="{{orderList}}" wx:key="key">
     <view class='order-head'>
       <image class='order-head-img' mode='aspectFill' src='{{item.headImgUrl}}'></image>

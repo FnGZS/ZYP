@@ -294,6 +294,31 @@ Page({
 
     });
   },
+  getFormId:function(e){
+    var formId = e.detail.formId;
+    var userId = wx.getStorageSync('userinfo').userId;
+    var openId = wx.getStorageSync('userinfo').openId;
+    if (formId != 'the formId is a mock one') {
+      var that = this;
+      let infoOpt = {
+        url: '/user/insertForm',
+        type: 'POST',
+        data: {
+          userId: userId,
+          openId: openId,
+          formId: formId
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+      }
+      infoCb.beforeSend = () => { }
+      sendAjax(infoOpt, infoCb, () => { });
+    }
+  },
   onReady: function () {
   },
   onShow: function () {

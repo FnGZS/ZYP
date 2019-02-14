@@ -4,10 +4,25 @@ var login = require('/utils/wxlogin.js')
 App({
   onLaunch: function () {
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
+    wx.login({
+      success: (res) => {
+        if (res.code) {
+          wx.request({
+            url: "https://api.weixin.qq.com/sns/jscode2session",
+            data: {
+              appid: 'wx070db500b5e5740f',//你的appid
+              secret: 'd22b361c01e467afd5a55418a04ecb78',//你的secret
+              js_code: res.code,
+              grant_type: "authorization_code"
+            },
+            success: (res) => {
+              console.log(res);
+              wx.setStorageSync('oppenid', res.data.openid)
+            }
+          })
+        }
+      }
+    })
     // wx.setStorageSync("sessionKey",'')
     // wx.setStorageSync("userinfo","")
     // this.getStart()

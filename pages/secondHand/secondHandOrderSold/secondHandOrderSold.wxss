@@ -11,21 +11,26 @@ page {
   border-top: 2rpx solid #f5f5f5;
   border-bottom: 1rpx solid #f5f5f5;
   display: flex;
-}
 
+}
+.stickyClass{
+    position: sticky;
+    top: 0rpx;
+      z-index: 999;
+}
 .tab-item {
-  display: inline-block;
+  /* display: inline-block; */
   flex: 1;
   text-align: center;
   line-height: 80rpx;
   font-size: 28rpx;
+      z-index: 999;
 }
 
 .active {
   border-bottom: 3rpx solid #ff3434;
   color: #ff3434;
 }
-
 .orderList {
   width: 94%;
   margin-left: 3%;
@@ -196,3 +201,4 @@ page {
   color: #585858;
   font-size: 25rpx;
 }
+button::after{ border: none; } 

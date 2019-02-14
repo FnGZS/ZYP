@@ -9,19 +9,27 @@
   display: flex;
 }
 
+.stickyClass {
+  position: sticky;
+  top: 0rpx;
+  z-index: 999;
+}
+
 .tab-item {
   display: inline-block;
   flex: 1;
   text-align: center;
   line-height: 80rpx;
   font-size: 28rpx;
+      z-index: 999;
 }
 
 .active {
   border-bottom: 3rpx solid #ff3434;
   color: #ff3434;
 }
-.goods-list-main{
+
+.goods-list-main {
   margin-left: 3%;
   width: 94%;
   height: 180rpx;
@@ -29,18 +37,21 @@
   padding-bottom: 20rpx;
   display: flex;
   padding-right: 3%;
-  border-bottom: 1px solid #F6F6F6;
+  border-bottom: 1px solid #f6f6f6;
 }
-.goods-list-main-img{
+
+.goods-list-main-img {
   width: 30%;
   height: 100%;
   border-radius: 10rpx;
 }
-.goods-list-mes{
+
+.goods-list-mes {
   width: 70%;
   position: relative;
 }
-.goods-list-mes-title{
+
+.goods-list-mes-title {
   position: absolute;
   font-size: 28rpx;
   margin-left: 3%;
@@ -53,7 +64,8 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
-.goods-list-mes-price{
+
+.goods-list-mes-price {
   position: absolute;
   bottom: 40rpx;
   left: 0;
@@ -61,89 +73,103 @@
   color: #ef696c;
   display: flex;
 }
-.goods-list-mes-price-flag{
+
+.goods-list-mes-price-flag {
   font-size: 20rpx;
   margin-top: 10rpx;
 }
-.goods-list-mes-price-num{
+
+.goods-list-mes-price-num {
   font-size: 28rpx;
   margin-left: 5rpx;
 }
-.goods-list-mes-pos{
+
+.goods-list-mes-pos {
   position: absolute;
   font-size: 23rpx;
   bottom: 10rpx;
   left: 0;
   margin-left: 3%;
   width: 60%;
-  color: #CCCCCC;
+  color: #ccc;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
-.icon-pos{
+
+.icon-pos {
   font-size: 23rpx;
   line-height: 30rpx;
   padding-top: 20rpx;
 }
-.goods-list-mes-goodsWay{
+
+.goods-list-mes-goodsWay {
   position: absolute;
   font-size: 23rpx;
   right: 0;
   bottom: 40rpx;
-  color: #FF3434;
+  color: #ff3434;
 }
-.goods-list-mes-browse{
+
+.goods-list-mes-browse {
   position: absolute;
   font-size: 23rpx;
   right: 0;
   bottom: 7rpx;
-  color: #CCCCCC;
+  color: #ccc;
 }
-.Bottom{
+
+.Bottom {
   width: 100%;
   height: 50rpx;
   text-align: center;
   font-size: 20rpx;
- padding-top:10rpx;
- margin-top: 10rpx;
-  border-top:1rpx solid #f5f5f5;
-  color: #E1E1E4
+  padding-top: 10rpx;
+  margin-top: 10rpx;
+  border-top: 1rpx solid #f5f5f5;
+  color: #e1e1e4;
 }
+
 .touch-item {
- display: flex;
- justify-content: space-between;
- width: 100%;
- overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
 }
-.touch-move-active .content,
-.touch-move-active .del {
- -webkit-transform: translateX(0);
- transform: translateX(0);
+
+.touch-move-active .content, .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
+
 .content {
- width: 100%;
- margin-right:0;
- -webkit-transition: all 0.4s;
- transition: all 0.4s;
- -webkit-transform: translateX(150rpx);
- transform: translateX(150rpx);
- margin-left: -150rpx
+  width: 100%;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(150rpx);
+  transform: translateX(150rpx);
+  margin-left: -150rpx;
 }
+
 .del {
- background-color: #ef696c;
- width: 150rpx;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- color: #fff;
- -webkit-transform: translateX(300rpx);
- transform: translateX(300rpx);
- -webkit-transition: all 0.4s;
- transition: all 0.4s;
- font-size: 30rpx;
-   border-bottom: 1px solid #F6F6F6;
+  background-color: #ef696c;
+  width: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(300rpx);
+  transform: translateX(300rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-size: 30rpx;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+button::after {
+  border: none;
 }

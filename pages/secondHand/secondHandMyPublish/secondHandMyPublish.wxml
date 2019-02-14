@@ -1,8 +1,12 @@
 <view id='secondHandMyPublish'>
-  <view class='tabBar'>
-    <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap='clickMenu' data-current="0" data-status='1'>在卖宝贝</view>
-    <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap='clickMenu' data-current="1" data-status='0'>待审核</view>
-  </view>
+  <form bindsubmit="getFormId" report-submit="true">
+    <button form-type="submit" class='stickyClass'>
+      <view class='tabBar '>
+        <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap='clickMenu' data-current="0" data-status='1'>在卖宝贝</view>
+        <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap='clickMenu' data-current="1" data-status='0'>待审核</view>
+      </view>
+    </button>
+  </form>
   <view class="goods-list touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{goodsList}}" wx:key="key">
     <view class='content'>
       <view class='goods-list-main' data-id='{{item.id}}' bindtap='toDetail'>
@@ -25,9 +29,4 @@
     <view class="del" bindtap="del" data-index='{{index}}' data-goodsid='{{item.id}}'>删除</view>
   </view>
   <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
-</view>
-<view>
-  <loading hidden="{{lodingHidden}}">
-    加载中..
-  </loading>
 </view>

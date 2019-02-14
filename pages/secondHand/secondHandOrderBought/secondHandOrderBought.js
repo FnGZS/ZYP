@@ -16,6 +16,7 @@ Page({
   },
   //单击导航栏
   clickMenu: function(e) {
+    console.log(11)
     var current = e.currentTarget.dataset.current; //获取当前tab的index
     var status = e.currentTarget.dataset.status;
     this.setData({
@@ -261,6 +262,24 @@ Page({
           infoCb.success = function (res) {
             console.log(res);
             if (res.message == '收货成功') {
+              var template_id = 'YaajHJis-CXmlRQVzcbwhhJJoQ6bN7ZoY3gO3plGKY8';
+              var page = '/pages/secondHand/secondHandOrderSold/secondHandOrderSold';
+              var data = {
+                "keyword1": {
+                  "value": orderId
+                },
+                "keyword2": {
+                  "value": name
+                },
+                "keyword3": {
+                  "value": content
+                },
+                "keyword4": {
+                  "value": "2018.12.26 14.42"
+                }
+              };
+              templeMsg.templeMsg(template_id, page, data);
+
               wx.showModal({
                 title: '提示',
                 content: '确认收货成功',
@@ -279,6 +298,32 @@ Page({
       }
     })
    
+  },
+  //收集formId
+  getFormId: function (e) {
+    var formId = e.detail.formId;
+    var userId = wx.getStorageSync('userinfo').userId;
+    var openId = wx.getStorageSync('userinfo').openId;
+    if (formId != 'the formId is a mock one') {
+      var that = this;
+      let infoOpt = {
+        url: '/user/insertForm',
+        type: 'POST',
+        data: {
+          userId: userId,
+          openId: openId,
+          formId: formId
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+      }
+      infoCb.beforeSend = () => { }
+      sendAjax(infoOpt, infoCb, () => { });
+    }
   },
   onReady: function() {},
   onShow: function() {

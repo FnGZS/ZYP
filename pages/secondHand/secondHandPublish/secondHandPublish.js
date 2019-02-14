@@ -247,6 +247,7 @@ Page({
       data: {},
       header: {
         'content-type': 'application/json',
+        'authorize':wx.getStorageSync('userinfo').authorization
       },
     }
     let infoCb = {}

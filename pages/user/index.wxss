@@ -392,13 +392,17 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
   margin-left: 5%;
   color: #585858;
 }
-
+button{
+  line-height: 80rpx;
+}
+button::after{ border: none; } 
+.button-hover{
+  background-color:#fff;
+}
 .secHand-main {
   display: flex;
   padding-bottom: 50rpx;
   flex-wrap: wrap;
-  margin-top:20rpx;
-
 }
 
 .secHand-fabu {
@@ -415,7 +419,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-fabu-text {
-  margin-top: -10rpx;
+  margin-top: -30rpx;
   font-size: 23rpx;
 }
 
@@ -433,7 +437,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-maichu-text {
-  margin-top: -10rpx;
+  margin-top: -30rpx;
   font-size: 23rpx;
 }
 
@@ -451,7 +455,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-mairu-text {
-  margin-top: -10rpx;
+  margin-top: -30rpx;
   font-size: 23rpx;
 }
 
@@ -469,7 +473,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-xiangyao-text {
-  margin-top: -10rpx;
+  margin-top: -30rpx;
   font-size: 23rpx;
 }
 
@@ -487,7 +491,7 @@ box-shadow:1rpx 1rpx 20rpx #dddcdc;
 }
 
 .secHand-xiaoxi-text {
-  margin-top: -10rpx;
+  margin-top: -30rpx;
   font-size: 23rpx;
 }
 
@@ -668,3 +672,4 @@ background-color:transparent;
 .num-list:first-child::before {
     background: #fff;
 }
+

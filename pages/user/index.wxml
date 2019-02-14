@@ -44,49 +44,69 @@
     </view>
     <view class='secHand-main'>
       <view class='secHand-fabu' bindtap='toSecHandMyPublish'>
-        <view class='iconfont icon-fabu'></view>
-        <view class='secHand-fabu-text'>我发布的</view>
+        <form bindsubmit="getFormId" report-submit="true">
+          <button form-type="submit">
+            <view class='iconfont icon-fabu'></view>
+            <view class='secHand-fabu-text'>我发布的</view>
+          </button>
+        </form>
       </view>
       <view class='secHand-mairu' bindtap='toSecHandMyBought'>
-        <view class='iconfont icon-mairu'></view>
-        <view class='secHand-mairu-text'>我买入的</view>
+        <form bindsubmit="getFormId" report-submit="true">
+          <button form-type="submit">
+            <view class='iconfont icon-mairu'></view>
+            <view class='secHand-mairu-text'>我买入的</view>
+          </button>
+        </form>
       </view>
       <view class='secHand-maichu' bindtap='toSecHandMySold'>
-        <view class='iconfont icon-maichu'></view>
-        <view class='secHand-maichu-text'>我卖出的</view>
+        <form bindsubmit="getFormId" report-submit="true">
+          <button form-type="submit">
+            <view class='iconfont icon-maichu'></view>
+            <view class='secHand-maichu-text'>我卖出的</view>
+          </button>
+        </form>
       </view>
       <view class='secHand-xiangyao' bindtap='toSecHandMyWant'>
-        <view class='iconfont icon-xiangyao'></view>
-        <view class='secHand-xiangyao-text'>我想要的</view>
+        <form bindsubmit="getFormId" report-submit="true">
+          <button form-type="submit">
+            <view class='iconfont icon-xiangyao'></view>
+            <view class='secHand-xiangyao-text'>我想要的</view>
+          </button>
+        </form>
       </view>
       <view class='secHand-xiaoxi' bindtap='toSecMes'>
-        <view class='iconfont icon-xiaoxi'></view>
-        <view class='secHand-xiaoxi-text'>消息中心</view>
+        <form bindsubmit="getFormId" report-submit="true">
+          <button form-type="submit">
+            <view class='iconfont icon-xiaoxi'></view>
+            <view class='secHand-xiaoxi-text'>消息中心</view>
+          </button>
+        </form>
       </view>
 
     </view>
   </view>
 
- <!-- 抽奖中心 -->
-<view class='ticket'>
+  <!-- 抽奖中心 -->
+  <view class='ticket'>
     <view class='ticket-title'>
       <view class='ticket-title-text'>我的抽奖</view>
     </view>
     <view class="bg_fff num">
-        <view bindtap="goRecordall" class="num-list">
-            <view class="font-w font-34">{{dallNum}}</view>
-            <view class="color_4a4a4a font-28">参与抽奖</view>
-        </view>
-        <view bindtap="goRecordlaunch" class="num-list">
-            <view class="font-w font-34">{{launchnum}}</view>
-            <view class="color_4a4a4a font-28">发起抽奖</view>
-        </view>
-        <view bindtap="goRecordlucky" class="num-list">
-            <view class="font-w font-34">{{luckynum}}</view>
-            <view class="color_4a4a4a font-28">中奖记录</view>
-        </view>
+      <view bindtap="goRecordall" class="num-list">
+        <view class="font-w font-34">{{dallNum}}</view>
+        <view class="color_4a4a4a font-28">参与抽奖</view>
+      </view>
+      <view bindtap="goRecordlaunch" class="num-list">
+        <view class="font-w font-34">{{launchnum}}</view>
+        <view class="color_4a4a4a font-28">发起抽奖</view>
+      </view>
+      <view bindtap="goRecordlucky" class="num-list">
+        <view class="font-w font-34">{{luckynum}}</view>
+        <view class="color_4a4a4a font-28">中奖记录</view>
+      </view>
     </view>
-</view>
+  </view>
   <!-- 系统服务 -->
   <view class='service'>
     <view class='service-title'>

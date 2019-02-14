@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 15,
 			"list": [
 				{
 					"id": 0,
@@ -123,6 +123,21 @@
 					"id": -1,
 					"name": "账单详情",
 					"pathName": "pages/user/bill/bill",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "模板消息样例",
+					"pathName": "pages/logs/logs",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "二手",
+					"pathName": "pages/secondHand/secondHand",
+					"query": "",
 					"scene": null
 				}
 			]

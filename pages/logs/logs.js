@@ -1,3 +1,4 @@
+var login = require('../../utils/wxlogin.js')
 Page({
 
   /**
@@ -13,32 +14,28 @@ Page({
       icon: 'loading',
     });
     var fId = e.detail.formId;
-    console.log(fId)
-    var l = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + getApp().globalData.token;
+    console.log(typeof(fId))
+    var l = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + '18_W3KdyccHnWi7-S2i3sRpbepxDSyV3zwly-pAW8Gs1dx0OB_cnhNqjuq8ggNLSahgKDpwAbwC8D5aNAqVcLvhygtcI-VjSDdI3TJzFXy1B_dajiBoEyNnMuy_H2JLDQXSJCXJ5HakGLowYMoTAKKgADAMWW';
     var d = {
       "keyword1": {
-        "value": "键盘鼠标",
-        "color": "#4a4a4a"
+        "value": "键盘鼠标"
       },
       "keyword2": {
-        "value": "Effort",
-        "color": "#9b9b9b"
+        "value": "Effort"
       },
       "keyword3": {
-        "value": "价格好商量",
-        "color": "#9b9b9b"
+        "value": "价格好商量"
       },
       "keyword4": {
-        "value": "2018.12.26 14.42",
-        "color": "#9b9b9b"
+        "value": "2018.12.26 14.42"
       }
     };
-    console.log(d)
+    console.log(wx.getStorageSync('userinfo').openId)
     wx.request({
       url: l,
       　　　　　//注意不要用value代替data
       data: {
-        touser: this.data.openid,
+        touser: wx.getStorageSync('userinfo').openId,
         template_id: 'eWMALLAPiQY6TlhWpp0BlsvD72xPh-ZN1cUdOL_TkiQ',//申请的模板消息id，  
         page: '/pages/user/index',
         form_id: fId,
@@ -64,26 +61,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.login({
-      success: (res) => {
-        if (res.code) {
-          wx.request({
-            url: "https://api.weixin.qq.com/sns/jscode2session",
-            data: {
-              appid: getApp().globalData.appid,//你的appid
-              secret: getApp().globalData.secret,//你的secret
-              js_code: res.code,
-              grant_type: "authorization_code"
-            },
-            success: (res) => {
-              console.log(res);
-              that.setData({
-                openid: res.data.openid //存储openid
-              })
-            }
-          })
-        }
-      }
+    login.wxLogin(0, function (res) {
+      wx.setStorageSync("userinfo", res)
+      console.log(wx.getStorageSync('userinfo'))
+
     })
+
   }
 })

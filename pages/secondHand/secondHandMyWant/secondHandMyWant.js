@@ -7,7 +7,6 @@ Page({
     goodsList: [], //商品列表
     pageNo: 1,
     pageSize: 4,
-    lodingHidden: true,
     isBottom: false //是否到底
   },
   onLoad: function(options) {
@@ -22,7 +21,6 @@ Page({
       status: status,
       goodsList: [],
       pageNo: 1,
-      lodingHidden: false,
       isBottom: false
     })
     this.getCollectionList();
@@ -52,9 +50,9 @@ Page({
       var goodsList = that.data.goodsList;
       if (goodsNewList.length == 0 && goodsList.length != 0) {
         that.setData({
-          lodingHidden: true,
           isBottom: true
         })
+        wx.hideLoading();
       } else {
         for (var i = 0; i < goodsNewList.length; i++) {
           var arr = goodsNewList[i].goodsImg;
@@ -64,11 +62,15 @@ Page({
         console.log(goodsList)
         that.setData({
           goodsList: goodsList,
-          lodingHidden: true
         })
+        wx.hideLoading();
       }
     }
-    infoCb.beforeSend = () => {}
+    infoCb.beforeSend = () => {
+      wx.showLoading({
+        title: '加载中',
+      })
+    }
     sendAjax(infoOpt, infoCb, () => {});
   },
   //跳转详情
@@ -77,6 +79,32 @@ Page({
     wx.navigateTo({
       url: '../secondHandDetail/secondHandDetail?id=' + id,
     })
+  },
+  //收集formId
+  getFormId: function (e) {
+    var formId = e.detail.formId;
+    var userId = wx.getStorageSync('userinfo').userId;
+    var openId = wx.getStorageSync('userinfo').openId;
+    if (formId != 'the formId is a mock one') {
+      var that = this;
+      let infoOpt = {
+        url: '/user/insertForm',
+        type: 'POST',
+        data: {
+          userId: userId,
+          openId: openId,
+          formId: formId
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+      }
+      infoCb.beforeSend = () => { }
+      sendAjax(infoOpt, infoCb, () => { });
+    }
   },
   onReady: function() {},
   onShow: function() {},
@@ -91,7 +119,6 @@ Page({
     if (this.data.isBottom == false) {
       this.setData({
         pageNo: pageNo + 1,
-        lodingHidden: false
       })
       this.getCollectionList();
     }

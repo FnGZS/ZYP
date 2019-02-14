@@ -1,9 +1,14 @@
 <view id='secondHandWant'>
-  <view class='tabBar'>
+
+ <form bindsubmit="getFormId" report-submit="true">
+    <button form-type="submit" class='stickyClass'>
+  <view class='tabBar '>
     <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap='clickMenu' data-current="0" data-status='1'>在卖宝贝</view>
     <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap='clickMenu' data-current="1" data-status='3'>被抢宝贝</view>
     <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap='clickMenu' data-current="2" data-status='4'>下架宝贝</view>
   </view>
+  </button>
+  </form>
   <view class='wantList' wx:for="{{goodsList}}" data-id='{{item.id}}' bindtap='toDetail' wx:key="key">
     <view class='detail-head'>
       <image class='detail-head-img' mode='aspectFill' src='{{item.headImgUrl}}'></image>
@@ -27,9 +32,4 @@
     <view wx:if="{{status == 4}}" class='underShelf'>下架</view> -->
   </view>
   <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
-</view>
-<view>
-  <loading hidden="{{lodingHidden}}">
-    加载中..
-  </loading>
 </view>

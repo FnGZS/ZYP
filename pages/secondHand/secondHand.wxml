@@ -12,11 +12,15 @@
       </swiper-item>
     </block>
   </swiper>
-  <scroll-view class="tab stickyClass" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
-    <block wx:for="{{menuList}}" wx:key="index">
-      <view class="tab-item {{currentTab == index ? 'active' : ''}}" data-current="{{index}}" bindtap='clickMenu' data-typeid='{{item.id}}'>{{item.field}}</view>
-    </block>
-  </scroll-view>
+  <form bindsubmit="getFormId" report-submit="true">
+    <button form-type="submit">
+      <scroll-view class="tab stickyClass" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
+        <block wx:for="{{menuList}}" wx:key="index">
+          <view class="tab-item {{currentTab == index ? 'active' : ''}}" data-current="{{index}}" bindtap='clickMenu' data-typeid='{{item.id}}'>{{item.field}}</view>
+        </block>
+      </scroll-view>
+    </button>
+  </form>
   <view class='goods-list' bindtouchstart="touchStart" bindtouchend="touchEnd">
     <view class='goods-list-main' wx:for="{{goodsList}}" wx:key="key" data-id='{{item.id}}' bindtap='toDetail'>
       <image src='{{item.goodsImg[0]}}' mode='aspectFill' class='goods-list-main-img'></image>
@@ -36,11 +40,19 @@
     </view>
     <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
   </view>
-  <view class='fabu' catchtap='fabu'>
-    <!-- <view class='iconfont icon-shouye'></view> -->
-    <view class='iconfont icon-fabu'></view>
-  </view>
-  <view class='toShouYe' catchtap='toShouYe'>
-    <view class='iconfont icon-shouye'></view>
-  </view>
+  <form bindsubmit="fabu" report-submit="true">
+    <button form-type="submit">
+      <view class='fabu' catchtap=''>
+        <view class='iconfont icon-fabu'></view>
+      </view>
+    </button>
+  </form>
+  <form bindsubmit="toShouYe" report-submit="true">
+    <button form-type="submit">
+      <view class='toShouYe' catchtap=''>
+        <view class='iconfont icon-shouye'></view>
+
+      </view>
+    </button>
+  </form>
 </view>

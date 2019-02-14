@@ -13,6 +13,7 @@ Page({
   },
   //单击导航栏
   clickMenu: function (e) {
+    console.log(11)
     var current = e.currentTarget.dataset.current; //获取当前tab的index
     var status = e.currentTarget.dataset.status;
     this.setData({
@@ -144,6 +145,32 @@ Page({
     }
     infoCb.beforeSend = () => { }
     sendAjax(infoOpt, infoCb, () => { });
+  },
+  //收集formId
+  getFormId: function (e) {
+    var formId = e.detail.formId;
+    var userId = wx.getStorageSync('userinfo').userId;
+    var openId = wx.getStorageSync('userinfo').openId;
+    if (formId != 'the formId is a mock one') {
+      var that = this;
+      let infoOpt = {
+        url: '/user/insertForm',
+        type: 'POST',
+        data: {
+          userId: userId,
+          openId: openId,
+          formId: formId
+        },
+        header: {
+          'content-type': 'application/json',
+        },
+      }
+      let infoCb = {}
+      infoCb.success = function (res) {
+      }
+      infoCb.beforeSend = () => { }
+      sendAjax(infoOpt, infoCb, () => { });
+    }
   },
   onReady: function () {
   },
