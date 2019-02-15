@@ -1,13 +1,14 @@
 const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
+const templeMsg = require('../../../utils/templeMsg.js')
 Page({
   data: {
     userId: null,
     goodsDetail: [{
-      'pic': 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1781889091,1773255097&fm=26&gp=0.jpg',
-      'name': '黑蛇键盘的窘境围殴覅欧文覅加尔文费解诶org将诶肉我偶尔发任务分解',
-      'price': 558.88,
-      'label': '范围分为非',
+      'pic': '',
+      'name': '',
+      'price': 0,
+      'label': '',
       'number': 1,
     }],
     addressList: [],
@@ -16,11 +17,12 @@ Page({
     address: '',
     addressName: '',
     addressPhone: '',
-    isSelect:0,
+    isSelect: 0,
     lodingHidden: true
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     var detail = JSON.parse(options.detail);
+    console.log(detail)
     var userId = wx.getStorageSync('userinfo').userId;
     this.setData({
       userId: userId,
@@ -29,7 +31,7 @@ Page({
     this.getAddressList();
   },
   //获取用户的地址
-  getAddressList: function () {
+  getAddressList: function() {
     var userId = this.data.userId;
     var that = this;
     let infoOpt = {
@@ -41,7 +43,7 @@ Page({
       },
     }
     let infoCb = {}
-    infoCb.success = function (res) {
+    infoCb.success = function(res) {
       let pages = getCurrentPages();
       let currPage = pages[pages.length - 1];
       if (res.list.length == 0) {
@@ -64,18 +66,18 @@ Page({
           lodingHidden: true,
           isSelect: 0
         })
-      } else if (currPage.data.isSelect == 1){
-          that.setData({ //将携带的参数赋值
-            addressId: currPage.data.addressId,
-            address: currPage.data.address,
-            addressName: currPage.data.addressName,
-            addressPhone: currPage.data.addressPhone,
-            isNeedAddress: 0,
-            lodingHidden: true,
-            isSelect:0
-          });
-      } else{
-        that.setData({ 
+      } else if (currPage.data.isSelect == 1) {
+        that.setData({ //将携带的参数赋值
+          addressId: currPage.data.addressId,
+          address: currPage.data.address,
+          addressName: currPage.data.addressName,
+          addressPhone: currPage.data.addressPhone,
+          isNeedAddress: 0,
+          lodingHidden: true,
+          isSelect: 0
+        });
+      } else {
+        that.setData({
           isNeedAddress: 0,
           lodingHidden: true,
           isSelect: 0
@@ -87,22 +89,25 @@ Page({
         lodingHidden: false
       })
     }
-    sendAjax(infoOpt, infoCb, () => { });
+    sendAjax(infoOpt, infoCb, () => {});
   },
-  addAddress: function () {
+  addAddress: function() {
     wx.navigateTo({
       url: '../secondHandAddressSelect/secondHandAddressSelect',
     })
   },
-  selectAddress: function () {
+  selectAddress: function() {
     wx.navigateTo({
       url: '../secondHandAddressSelect/secondHandAddressSelect',
     })
   },
   //支付
-  payBtn:function(){
+  payBtn: function(e) {
 
     var that = this;
+    var goodsName = e.currentTarget.dataset.goodsname;
+    var goodsPrice = e.currentTarget.dataset.goodsprice;
+    var userId = e.currentTarget.dataset.userid;
     console.log(that.data.goodsDetail)
     wx.login({
       success: resp => {
@@ -124,39 +129,57 @@ Page({
           },
         }
         let infoCb = {}
-        infoCb.success = function (res) {
+        infoCb.success = function(res) {
           console.log(res);
           wx.requestPayment({
             timeStamp: res.orderInfo.timeStamp,
             nonceStr: res.orderInfo.nonceStr,
-            package:  res.orderInfo.pkg,
+            package: res.orderInfo.pkg,
             signType: 'MD5',
             paySign: res.orderInfo.paySign,
-            success(res) { 
+            success(res) {
               console.log(res)
-                wx.navigateTo({
-                  url: '../secondHandPaySuccess/secondHandPaySuccess',
-                })
+              var template_id = 'V1SlWA-7qIlDkFEo60ERr1HJRQ4brEvSDBm8FPvpk4A';
+              var page = '/pages/secondHand/secondHandOrderSold/secondHandOrderSold';
+              var data = {
+                "keyword1": {
+                  "value": goodsName
+                },
+                "keyword2": {
+                  "value": goodsPrice
+                },
+                "keyword3": {
+                  "value": '已支付'
+                },
+                "keyword4": {
+                  "value": '微信支付'
+                }
+              };
+              templeMsg.templeMsg(userId, template_id, page, data);
+
+              wx.navigateTo({
+                url: '../secondHandPaySuccess/secondHandPaySuccess',
+              })
 
             },
-            fail(res) { 
+            fail(res) {
               console.log(res)
             }
           })
         }
-        infoCb.beforeSend = () => { }
-        sendAjax(infoOpt, infoCb, () => { });
+        infoCb.beforeSend = () => {}
+        sendAjax(infoOpt, infoCb, () => {});
       }
     })
   },
-  onReady: function () { },
-  onShow: function () {
-    
-      this.getAddressList();
+  onReady: function() {},
+  onShow: function() {
+
+    this.getAddressList();
   },
-  onHide: function () { },
-  onUnload: function () { },
-  onPullDownRefresh: function () { },
-  onReachBottom: function () { },
-  onShareAppMessage: function () { }
+  onHide: function() {},
+  onUnload: function() {},
+  onPullDownRefresh: function() {},
+  onReachBottom: function() {},
+  onShareAppMessage: function() {}
 })

@@ -10,10 +10,11 @@ Page({
     phone2: '',
     pic: [],
     typeName: '',
-    isShare:0,
+    // isShare:0,
   },
   onLoad: function (options) {
     var id = options.id;
+    // var isShare = options.isShare
     var that=this;
     that.setData({
       id: id,
@@ -24,14 +25,14 @@ Page({
   },
   onShow: function (options) {
     var that=this;
-    if (that.data.isShare) {
+    // if (that.data.isShare) {
       login.wxLogin(0, function (res) {
         console.log(res);
         that.setData({
           userInfo: res,
         })
       })
-    }
+    // }
     that.getContactDetail();
 
   },

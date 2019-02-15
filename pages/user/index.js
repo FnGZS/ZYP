@@ -11,11 +11,15 @@ Page({
     platUserInfoMap: {},
     code: '',
     balance:'',
+    messageNum:0,
     dallNum: 0,
     launchnum: 0,
     luckynum: 0,
   },
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     console.log(this.data.userInfo)
   },
 
@@ -294,6 +298,30 @@ Page({
 
     });
   },
+  //获取未读消息数量
+  getMessageNum:function(){
+    var userId = wx.getStorageSync('userinfo').userId;
+    var that = this;
+    let infoOpt = {
+      url: '/secondary/message/' + userId,
+      type: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) {
+      console.log(res)
+      that.setData({
+        messageNum:res.sum
+      })
+    }
+    infoCb.beforeSend = () => { }
+    sendAjax(infoOpt, infoCb, () => { });
+  },
+  //收藏formId
   getFormId:function(e){
     var formId = e.detail.formId;
     var userId = wx.getStorageSync('userinfo').userId;
@@ -330,12 +358,14 @@ Page({
         userInfo: res,
       })
       console.log(that.data.userInfo)
+      wx.hideLoading();
       if (that.data.userInfo.isbound == 1) {
         that.setData({
           isboundUser: '已绑定'
         })
       }
       that.getBalance()
+      that.getMessageNum();
       that.godall()
       that.godlucky()
       that.godlaunch()

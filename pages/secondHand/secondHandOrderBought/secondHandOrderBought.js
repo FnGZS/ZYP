@@ -1,5 +1,6 @@
 const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
+const templeMsg = require('../../../utils/templeMsg.js')
 Page({
   data: {
     currentTab: 0,
@@ -242,7 +243,10 @@ Page({
   //确认收货
   confirmOrder:function(e){
     var that = this;
+    var sellerId = e.currentTarget.dataset.sellerid;
     var orderId = e.currentTarget.dataset.orderid;
+    var goodsName = e.currentTarget.dataset.goodsname;
+    var orderPrice = e.currentTarget.dataset.orderprice;
     wx.showModal({
       title: '提示',
       content: '确认收货吗？',
@@ -261,24 +265,24 @@ Page({
           let infoCb = {}
           infoCb.success = function (res) {
             console.log(res);
-            if (res.message == '收货成功') {
-              var template_id = 'YaajHJis-CXmlRQVzcbwhhJJoQ6bN7ZoY3gO3plGKY8';
+            if (res.code == '200') {
+              var template_id = 'YaajHJis-CXmlRQVzcbwhkay95BbEm29jsIvbY-ENu4';
               var page = '/pages/secondHand/secondHandOrderSold/secondHandOrderSold';
               var data = {
                 "keyword1": {
-                  "value": orderId
+                  "value": goodsName
                 },
                 "keyword2": {
-                  "value": name
+                  "value": orderId
                 },
                 "keyword3": {
-                  "value": content
+                  "value": orderPrice
                 },
                 "keyword4": {
-                  "value": "2018.12.26 14.42"
+                  "value": res.message
                 }
               };
-              templeMsg.templeMsg(template_id, page, data);
+              templeMsg.templeMsg(sellerId,template_id, page, data);
 
               wx.showModal({
                 title: '提示',

@@ -494,7 +494,20 @@ button::after{ border: none; }
   margin-top: -30rpx;
   font-size: 23rpx;
 }
-
+.secHand-xiaoxi-num{
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  color: #fff;
+  top: 0;
+  right: 25%;
+  font-size: 20rpx;
+  border-radius: 50%;
+  border: 1rpx solid #fff;
+  background: #ef696c;
+  text-align: center;
+  line-height: 30rpx;
+}
 
 
 .service {

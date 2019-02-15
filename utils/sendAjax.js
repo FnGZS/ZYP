@@ -26,15 +26,15 @@ console.log(_sets.data)
   _sets.type = _sets.type.toUpperCase();
 
   const bcallback = callback.beforeSend || function(data) {
-    wx.showToast({
-      title: '正在加载...',
-      icon: 'loading',
-      duration: 10000
-    })
+    // wx.showToast({
+    //   title: '正在加载...',
+    //   icon: 'loading',
+    //   duration: 10000
+    // })
   };
   const scallback = callback.success || function(data) {};
   const ccallback = callback.complete || function(data) {
-    wx.hideToast()
+    // wx.hideToast()
   };
 
   bcallback()

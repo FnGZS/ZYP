@@ -1,12 +1,12 @@
 var url = require('../config.js')
 const sendAjax = require('sendAjax.js')
 
-function templeMsg(template_id, page, data){
+function templeMsg(userId,template_id, page, data){
   console.log(template_id)
   console.log(page)
   console.log(data)
   var that = this;
-  var userId = wx.getStorageSync('userinfo').userId;
+
   let infoOpt = {
     url: '/user/message',
     type: 'POST',

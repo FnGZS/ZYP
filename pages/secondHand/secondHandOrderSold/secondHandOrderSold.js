@@ -1,5 +1,6 @@
 const url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
+const templeMsg = require('../../../utils/templeMsg.js')
 Page({
   data: {
     currentTab: 0,
@@ -83,7 +84,12 @@ Page({
   //确认发货
   confirmSend: function (e) {
     var that = this;
+    var userId = e.currentTarget.dataset.userid;
     var orderId = e.currentTarget.dataset.orderid;
+    var goodsName = e.currentTarget.dataset.goodsname;
+    var buyName = e.currentTarget.dataset.buyname;
+    var buyPhone = e.currentTarget.dataset.buyphone;
+    var buyAddress = e.currentTarget.dataset.buyaddress;
     wx.showModal({
       title: '提示',
       content: '确认发货吗？',
@@ -102,7 +108,32 @@ Page({
           let infoCb = {}
           infoCb.success = function (res) {
             console.log(res);
-            if (res.message == '发货成功') {
+            if (res.code == '200') {
+              //发货模板消息
+              var template_id = 'LBburnQiXBFUjsxc2OkbWE8sCIwZosv1L5FGZQaZMfU';
+              var page = '/pages/secondHand/secondHandOrderBought/secondHandOrderBought';
+              var data = {
+                "keyword1": {
+                  "value": goodsName
+                },
+                "keyword2": {
+                  "value": orderId
+                },
+                "keyword3": {
+                  "value": buyName
+                },
+                "keyword4": {
+                  "value": buyPhone
+                },
+                 "keyword5": {
+                  "value":buyAddress
+                },
+                "keyword6": {
+                  "value": res.message
+                }
+              };
+              templeMsg.templeMsg(userId,template_id, page, data);
+
               wx.showModal({
                 title: '提示',
                 content: '确认发货成功',

@@ -35,7 +35,7 @@
       <image class='comment-img' mode='aspectFill' src='{{avatar}}'></image>
       <view class='comment-small'></view>
       <input class='comment-input' placeholder="{{comment_placeholder}}" bindinput='comment_input' focus="{{focus}}" value='{{comment_content}}' ></input>
-      <view class='comment-send' bindtap='comment_send'>发送</view>
+      <view class='comment-send'  bindtap='comment_send'>发送</view>
     </view>
     <view class='leaveMes-main'>
       <view class='leaveMesList' wx:for="{{comment}}" wx:key="key">
@@ -87,9 +87,4 @@
   </view>
   <view wx:if="{{goodsDetail.status == 3}}" class='shixiao'>该宝贝已售出</view>
   <view wx:if="{{goodsDetail.status == 4}}" class='shixiao'>该宝贝已下架</view>
-</view>
-<view>
-    <loading hidden="{{lodingHidden}}">
-        加载中..
-    </loading>
 </view>

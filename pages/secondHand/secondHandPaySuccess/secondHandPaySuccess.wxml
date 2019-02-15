@@ -1,6 +1,6 @@
 <view id='secondHandPaySuccess'>
 <view class='main'>
-  <image class='main-img' src='http://www.zjw77.club/someimg/paySuc1.png'></image>
+  <image class='main-img' src='https://www.sxscott.com/crazyBirdimg/secondHand/paySuc1.png'></image>
   <!-- <view class='main-text'>订单已提交，您可以</view> -->
   <view class='main-btn'>
     <view class='backSec' bindtap='backSec'>返回二手</view>

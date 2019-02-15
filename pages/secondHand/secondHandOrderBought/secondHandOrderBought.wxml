@@ -39,7 +39,7 @@
         <view class='btn-refund' wx:if="{{item.orderState == 1 && item.logistics == 0 }}" catchtap='refundOrder' data-orderid='{{item.orderId}}'>申请退款</view>
         <view class='btn-refund' wx:if="{{item.orderState == 3 && item.logistics == 0 }}">申请退款中</view>
         <view class='btn-finish' wx:if="{{item.orderState == 2}}">订单已完成</view>
-        <view class='btn-confirm' wx:if="{{item.orderState == 1 && item.logistics == 1 }}" catchtap='confirmOrder' data-orderid='{{item.orderId}}'>确认收货</view>
+        <view class='btn-confirm' wx:if="{{item.orderState == 1 && item.logistics == 1 }}" catchtap='confirmOrder' data-sellerid='{{item.sellerId}}' data-orderid='{{item.orderId}}' data-goodsname='{{item.goodsTitle}}' data-orderprice='{{item.orderPrice}}'>确认收货</view>
         <view class='btn-refund' wx:if="{{item.orderState == 3 && item.logistics == 1 }}">申请退款中</view>
       </view>
 

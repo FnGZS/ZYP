@@ -80,6 +80,7 @@
           <button form-type="submit">
             <view class='iconfont icon-xiaoxi'></view>
             <view class='secHand-xiaoxi-text'>消息中心</view>
+            <view class='secHand-xiaoxi-num' wx:if="{{messageNum != 0}}">{{messageNum}}</view>
           </button>
         </form>
       </view>

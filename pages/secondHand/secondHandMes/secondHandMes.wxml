@@ -8,7 +8,7 @@
           <view class='systemMes-title'>[{{item.title}}]{{item.goodsTitle}}</view>
           <view class='systemMes-time'>{{item.gmtCreated}}</view>
         </view>
-        <view class='systemMes-isRead'></view>
+        <view class='systemMes-isRead' wx:if="{{item.isView == 0}}" ></view>
       </view>
       <view class="del" bindtap="del" data-index='{{index}}' data-mesid='{{item.id}}'>删除</view>
     </view>
