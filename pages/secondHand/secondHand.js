@@ -222,9 +222,26 @@ Page({
   //跳转发布
   fabu:function(e){
     this.getFormId(e);
-    wx.navigateTo({
-      url: 'secondHandPublish/secondHandPublish',
-    })
+    var isbound = wx.getStorageSync('userinfo').isbound;
+    if(isbound != 1){
+      wx.showModal({
+        title: '提示',
+        content: '请先绑定学号之后再进行发布操作',
+        showCancel:false,
+        success(res){
+         if(res.confirm){
+           wx.navigateTo({
+             url: '../user/binding/binding',
+           })
+         }
+        }
+      })
+    }else{
+      wx.navigateTo({
+        url: 'secondHandPublish/secondHandPublish',
+      })
+    }
+   
   },
   //跳转首页
   toShouYe:function(e){

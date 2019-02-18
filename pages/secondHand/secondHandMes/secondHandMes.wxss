@@ -48,7 +48,7 @@ page {
 }
 
 .systemMes-main {
-  width: 70%;
+  width: 75%;
   position:relative;
 }
 
@@ -113,7 +113,7 @@ page {
 }
 
 .userMes-main {
-  width: 70%;
+  width: 75%;
   position: relative;
 }
 

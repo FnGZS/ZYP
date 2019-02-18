@@ -421,10 +421,26 @@ Page({
   },
   //跳转立即结算
   toPayOrder: function() {
-    var detail = JSON.stringify(this.data.goodsDetail);
-    wx.navigateTo({
-      url: '../secondHandPayOrder/secondHandPayOrder?detail=' + detail,
-    })
+    var isbound = wx.getStorageSync('userinfo').isbound;
+    if (isbound != 1) {
+      wx.showModal({
+        title: '提示',
+        content: '请先绑定学号之后再进行发布操作',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../../user/binding/binding',
+            })
+          }
+        }
+      })
+    }else{
+      var detail = JSON.stringify(this.data.goodsDetail);
+      wx.navigateTo({
+        url: '../secondHandPayOrder/secondHandPayOrder?detail=' + detail,
+      })
+    }
   },
   onReady: function() {
 

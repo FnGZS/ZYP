@@ -1,6 +1,6 @@
 <view id='secondHandMes'>
   <view class='systemMes'>
-    <view class="systemMesList touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-id='{{item.id}}' data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{systemMes}}" bindtap='toSysDetail'  wx:if="{{item.isView != 2}}" wx:key="key">
+    <view class="systemMesList touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-id='{{item.id}}' data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{systemMes}}"  wx:if="{{item.isView != 2}}" wx:key="key">
       <view class='content' bindtap='toSysDetail' data-goodsid='{{item.mesid}}'>
         <view class='iconfont icon-xitongxiaoxi'></view>
         <view class='systemMes-main'>

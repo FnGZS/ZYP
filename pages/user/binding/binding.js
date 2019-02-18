@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: wx.getStorageSync('userinfo'),
+    userInfo: null,
     watchID: '',
     watchPassWord: '',
     isshow: 0,
@@ -18,7 +18,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // console.log(wx.getStorageSync("authorization"));
+    console.log(wx.getStorageSync('userinfo'));
+    this.setData({
+      userInfo:wx.getStorageSync('userinfo')
+    })
   },
 
   /**
@@ -67,19 +70,28 @@ Page({
           title: '提示',
           content: data.message || '处理失败',
           showCancel: false,
-        });
-        // console.log(data.result);
-        if (data.result) {
-          wx.setStorageSync('isbound', 1);
-          wx.setStorageSync('watchPhone', that.data.watchPhone);
-          wx.setStorageSync('authorization', data.asToken);
-          that.setData({
-            isshow: 0
-          })
-          wx.navigateBack({
-            delta: 1
-          })
-        }
+          success(res){
+            if(res.confirm){
+              if (data.result) {
+                var userinfo = wx.getStorageSync('userinfo');
+                console.log(userinfo)
+                userinfo['isbound'] = 1;
+                userinfo['authorization'] = data.asToken;
+                wx.setStorageSync('userinfo', userinfo);
+                console.log(userinfo)
+                // wx.setStorageSync('userinfo["isbound"]', 1);
+                // wx.setStorageSync('watchPhone', that.data.watchPhone);
+                // wx.setStorageSync('authorization', data.asToken);
+                that.setData({
+                  isshow: 0
+                })
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            }
+          }
+        });       
       }
     }
 
@@ -94,7 +106,7 @@ Page({
    */
   onShow: function() {
     var that = this;
-    // console.log(wx.getStorageSync('isbound'));
+    console.log(that.data.userInfo.isbound);
     that.setData({
       isshow: that.data.userInfo.isbound
     })
