@@ -10,7 +10,7 @@ Page({
     isboundUser: '绑定学号',
     platUserInfoMap: {},
     code: '',
-    balance:'',
+    balance:'0',
     messageNum:0,
     dallNum: 0,
     launchnum: 0,

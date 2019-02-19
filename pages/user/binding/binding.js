@@ -73,9 +73,11 @@ Page({
           success(res){
             if(res.confirm){
               if (data.result) {
+                console.log(data.result)
                 var userinfo = wx.getStorageSync('userinfo');
                 console.log(userinfo)
                 userinfo['isbound'] = 1;
+                userinfo['userId'] = that.data.watchID;
                 userinfo['authorization'] = data.asToken;
                 wx.setStorageSync('userinfo', userinfo);
                 console.log(userinfo)
