@@ -106,6 +106,10 @@ Page({
       that.setData({
         hearwidth: length
       })
+
+
+
+      
     }
 
     sendAjax_API.sendAjax_API(infoOpt, infoCb).then((res) => {

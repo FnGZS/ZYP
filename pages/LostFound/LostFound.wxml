@@ -1,4 +1,4 @@
- <view>
+<view>
 
   <image src="../../images/rotating.png" class="img-plus-style" animation="{{animPlus}}" bindtap="torelease"></image>
 </view>
@@ -11,50 +11,91 @@
   </view>
 </view>
 <view class='search' bindtap='tosearch'>
- <view class='search-icon'>
-             <image  src="../../images/search.png"  ></image>
-      </view> 
+  <view class='search-icon'>
+    <image src="../../images/search.png"></image>
+  </view>
   <view class='search-text'>
-     
-     请输入关键词搜索
-   </view>
+
+    请输入关键词搜索
+  </view>
 </view>
 <!-- <view style='  background: #f65959;  height: 500rpx;'></view> -->
-<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab"  style='height:{{winHeight}}rpx;'>
+<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{winHeight}}rpx;'>
 
-  <swiper-item wx:for="{{message}}" >
-    <view class='current' wx:for="{{item.items}}" wx:key="*this" bindtap='detailPage' data-conter="{{item.id}}" >
-      <view class='current-img' >
+  <swiper-item wx:for="{{message}}">
+    <view wx:for="{{item.items}}">
+      <view wx:if="{{item.titlePic}}">
+        <view class='current' wx:key="*this" bindtap='detailPage' data-conter="{{item.id}}">
+          <view class='example'>
+            <view class='name'>
+              <view class='current-text-cont '>
+                {{item.title}}
+              </view>
+              <view class='current-text-Identification'>
+                <view class='Identification'>
+                  {{item.typeName}}
+                </view>
+              </view>
+            </view>
+            <view class='time-pic'>
+              <view class='current-img'>
+                <image mode='aspectFill' src='{{item.titlePic}}'></image>
+              </view>
 
-        <image mode='aspectFill'  src='{{item.titlePic}}'></image>
-
-      </view>
-      <view class='current-text '>
-        <view class='current-text-cont '>
-          {{item.title}}
-        </view>
-        <view class='current-text-Identification'>
-          <view class='Identification'>
-
-            {{item.typeName}}
-
+              <view class='time'>
+                {{item.day}} {{item.minute}}</view>
+            </view>
           </view>
         </view>
-        <view class='time'>
-          {{item.day}} {{item.minute}}</view>
+
+
+
+      </view>
+      <view wx:else>
+        <view class='currentt' wx:key="*this" bindtap='detailPage' data-conter="{{item.id}}">
+          <view class='example'>
+            <view class='name'>
+              <view class='current-text-cont '>
+                {{item.title}}
+              </view>
+              <view class='current-text-Identification'>
+                <view class='Identification'>
+                  {{item.typeName}}
+                </view>
+              </view>
+            </view>
+            <view class='time-pic'>
+              <view class='current-img'>
+                <!-- <image mode='aspectFill' src='{{item.titlePic}}'></image> -->
+              </view>
+
+              <view class='time'>
+                {{item.day}} {{item.minute}}</view>
+            </view>
+          </view>
+        </view>
+
+
+
+      </view>
+
+
+    </view>
+
+    <view class=' current-lin ' hidden='{{item.bottonshow}}'>
+      <view class='current-left'>
+
+      </view>
+      <view class='current-center'>
+        我是有底线的
+      </view>
+      <view class='current-right'>
+
       </view>
     </view>
-    <view class=' current-lin ' hidden='{{item.bottonshow}}' >
-         <view class='current-left'>
-              
-         </view>
-         <view class='current-center'>
-         我是有底线的
-         </view>
-         <view class='current-right'>
-        
-         </view>
-    </view>
+
+
+
   </swiper-item>
   <!-- <swiper-item wx:for="{{message}}">
     <view class='current' wx:for="{{item.list}}" wx:key="*this" bindtap='detailPage' data-id="{{item.id}}">
@@ -86,5 +127,5 @@
    </view>
   </swiper-item> -->
 </swiper>
-<import src="../public/template/toast/toast.wxml"/>
+<import src="../public/template/toast/toast.wxml" />
 <template is="toast" data="{{txt,isShow,iconClass}}"></template>

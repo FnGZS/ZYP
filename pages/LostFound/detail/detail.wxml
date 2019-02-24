@@ -37,9 +37,12 @@
         <text> {{message.content}}</text>
       </view>
     </view>
-    <view class='detail-pic' wx:for="{{message.foundPic}}">
-      <image src="{{item}}" mode='aspectFill'> {{item}}</image>
+    <view class='three'>
+      <view class='detail-pic' wx:for="{{message.foundPic}}">
+        <image src="{{item}}" mode='aspectFill'> {{item}}</image>
+      </view>
     </view>
+    
   </view>
   <!-- <view class='reply'>
     <view class='replycnt'>
@@ -79,14 +82,14 @@
 <view class='tabs'>
   <view class='tabbottom'>
 
-    <view class='bottom-share'>
+    <!-- <view class='bottom-share'>
       <!-- <image src='/images/reply.png' class='replypic'></image>
           <view class='bottom-text' >评论</view> -->
-    </view>
-    <view class='bottom-share'>
+    <!-- </view>
+    <view class='bottom-share'> -->
       <!-- <image src='/images/dianzan.png' class='dianzan'></image>
-          <view class='bottom-text'>点赞</view> -->
-    </view>
+          <view class='bottom-text'>点赞</view> 
+    </view> -->
     <view class='bottom-share'>
       <!-- <image src='/images/share.png' class='share'></image>
           <view class='bottom-text'>分享</view> -->
