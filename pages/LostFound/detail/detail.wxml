@@ -38,8 +38,8 @@
       </view>
     </view>
     <view class='three'>
-      <view class='detail-pic' wx:for="{{message.foundPic}}">
-        <image src="{{item}}" mode='aspectFill'> {{item}}</image>
+      <view class='detail-pic' wx:for="{{message.foundPic}}"  wx:key="index">
+        <image src="{{item}}" mode='aspectFill' data-img='{{item}}' bindtap='openpic' id="{{index}}"> {{item}}</image>
       </view>
     </view>
     
