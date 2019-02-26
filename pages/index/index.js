@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // hhidden: 0,
+    hhidden: 0,
     //轮播用的
     imgUrlsloca: [
     ],
@@ -269,6 +269,7 @@ Page({
     console.log(wx.getStorageSync('userinfo'))
 
     })
+    that.test();
     that.setImgBroadcast();
     that.setvoteBroadcast();
     that.getnewmes();
@@ -672,6 +673,29 @@ Page({
   toCalendar: function () {
     wx.navigateTo({
       url: '../calendar/calendar',
+    })
+  },
+
+  test:function(){
+    var that = this;
+    wx.request({
+      url: 'https://www.sxscott.com/crazyBird/vote/test', 
+      data: {},
+      header: {
+        'content-type': 'application/json' 
+      },
+      success(res) {
+        console.log(res)
+        if (res.data.type == 1) {
+          that.setData({
+            hhidden: 1
+          })
+        } else {
+          that.setData({
+            hhidden: 0
+          })
+        }
+      }
     })
   }
 })
