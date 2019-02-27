@@ -48,7 +48,7 @@
             </view>
             <view class='index-body-icon-bg-content-text'>校园校历</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='Livebroadcast'>
+          <view class='index-body-icon-bg-content' bindtap='Livebroadcast' wx:if="{{hhidden == 0}}">
             <view class='index-body-icon-bg-content-icon'>
               <view class='index-body-icon-bg-content-icon-border'>
                 <image src='/images/icon-gaobai.png'></image>
@@ -56,7 +56,7 @@
             </view>
             <view class='index-body-icon-bg-content-text'>校园直播</view>
           </view>
-          <view class='index-body-icon-bg-content' bindtap='toSecondHand' >
+          <view class='index-body-icon-bg-content' bindtap='toSecondHand' wx:if="{{hhidden == 0}}" >
             <view class='index-body-icon-bg-content-icon'>
               <view class='index-body-icon-bg-content-icon-border'>
                 <image src='/images/icon-ershou.png'></image>
