@@ -38,7 +38,7 @@
               </view>
             </view>
             <view class='time-pic'>
-              <view class='current-img'>
+              <view class='current-img' >
                 <image mode='aspectFill' src='{{item.titlePic}}'></image>
               </view>
 

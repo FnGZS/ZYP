@@ -13,6 +13,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  //图片预览
+  openpic: function (e) {
+     
+    console.log(e);
+    var img = e.currentTarget.dataset.img;
+    var pic = this.data.message.foundPic;
+    wx.previewImage({
+      // current: img, 
+      urls: pic, 
+    })
+  },
   callphone:function(){
     var that=this;
     wx.makePhoneCall({
