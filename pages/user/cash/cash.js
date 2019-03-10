@@ -2,15 +2,37 @@ var url = require('../../../config.js')
 const sendAjax = require('../../../utils/sendAjax.js')
 Page({
   data: {
+    userId: null,
     balance:null, //用户余额
     tips:'',
     tipsBtnHidden:false,
-    status:1,  //1：正常提现，2：错误操作
+    status:2,  //1：正常提现，2：错误操作
     focus:'',
     input_num:''
   },
   onLoad: function (options) {
-    this.getBalance();
+  },
+  onShow: function () {
+    if (wx.getStorageSync('userinfo').isbound != 1) {
+      wx.showModal({
+        title: '提示',
+        content: '请先绑定学号后再进行操作',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../binding/binding',
+            })
+          }
+        }
+      })
+    } else {
+      var userId = wx.getStorageSync('userinfo').userId;
+      this.setData({
+        userId: userId
+      })
+      this.getBalance();
+    }
   },
   //获取用户的账户余额
   getBalance:function(){
@@ -43,6 +65,9 @@ Page({
     var reg = /^[-\+]?\d+(\.\d+)?$/;
     var val = e.detail.value;
     var balance = this.data.balance;
+    this.setData({
+      input_num:val
+    })
     if(val == ''){
       var tips = '当前账户余额' + balance + ','
       this.setData({
@@ -120,10 +145,36 @@ Page({
       tipsBtnHidden:true
     })
   },
+  cashBtn:function(){
+    var userId = this.data.userId;
+    var input_num = this.data.input_num;
+    console.log(input_num)
+    wx.login({
+      success: resp => {
+        let infoOpt = {
+          url: '/secondary/order/cash',
+          type: 'POST',
+          data: {
+            platCode: resp.code,
+            userId: userId,
+            cash: input_num
+          },
+          header: {
+            'content-type': 'application/json',
+          },
+        }
+        let infoCb = {}
+        infoCb.success = function (res) {
+          console.log(res);
+        }
+        infoCb.beforeSend = () => { }
+        sendAjax(infoOpt, infoCb, () => { });
+      }
+    })
+  },
   onReady: function () {
   },
-  onShow: function () {
-  },
+
   onHide: function () {
   },
   onUnload: function () {

@@ -8,8 +8,26 @@ Page({
     pageNo:1
   },
   onLoad: function (options) {
-    this.getBalance();
-    this.getBillList();
+    
+  },
+  onShow: function () {
+    if (wx.getStorageSync('userinfo').isbound != 1) {
+      wx.showModal({
+        title: '提示',
+        content: '请先绑定学号后再进行操作',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../binding/binding',
+            })
+          }
+        }
+      })
+    } else {
+      this.getBalance();
+      this.getBillList();
+    }
   },
   //获取用户的账户余额
   getBalance: function () {
@@ -76,8 +94,7 @@ Page({
   },
   onReady: function () {
   },
-  onShow: function () {
-  },
+
   onHide: function () {
   },
   onUnload: function () {

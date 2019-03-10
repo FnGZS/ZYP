@@ -2,7 +2,7 @@
   暂未开发，敬请期待ha~
 </view> -->
 
-<view id='vote' wx:if="{{hhidden == 1}}">
+<view id='vote' >
       <scroll-view class="scroll-con" scroll-y="true" scroll-top="50" bindscroll="handleScroll" bindscrolltolower="scrollToLower"   style='height:{{phoneHeight}}rpx'>
     <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true" class='lunbotu' >
       <block wx:for="{{imgUrls}}" wx:key="key">

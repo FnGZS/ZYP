@@ -12,6 +12,29 @@ Page({
   onLoad: function (options) {
     // this.getOrderList();
   },
+  onShow: function () {
+    if (wx.getStorageSync('userinfo').isbound != 1) {
+      wx.showModal({
+        title: '提示',
+        content: '请先绑定学号后再进行操作',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../../user/binding/binding',
+            })
+          }
+        }
+      })
+    }else{
+      this.setData({
+        orderList: [],
+        pageNo: 1,
+      })
+      this.getOrderList();
+    }
+    
+  },
   //单击导航栏
   clickMenu: function (e) {
     console.log(11)
@@ -205,13 +228,7 @@ Page({
   },
   onReady: function () {
   },
-  onShow: function () {
-    this.setData({
-      orderList: [],
-      pageNo: 1,
-    })
-    this.getOrderList();
-  },
+
   onHide: function () {
   },
   onUnload: function () {

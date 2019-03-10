@@ -241,7 +241,7 @@ Page({
     this.getVoteList();
   },
   toVoteDetail:function(e){
-    var islogin=(wx.getStorageSync("isLogin"));
+    var islogin=(wx.getStorageSync("userinfo"));
     if(islogin){
   //  var isbound=wx.getStorageSync('isbound', 1);//判断是否绑定了学号
   //  if(isbound==2)

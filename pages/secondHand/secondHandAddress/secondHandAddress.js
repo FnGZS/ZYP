@@ -6,11 +6,29 @@ Page({
     addressList:[]
   },
   onLoad: function (options) {
-    var userId = wx.getStorageSync('userinfo').userId;
-    this.setData({
-      userId: userId
-    })
-    this.getAddressList();
+   
+  },
+  onShow: function () {
+    if (wx.getStorageSync('userinfo').isbound != 1) {
+      wx.showModal({
+        title: '提示',
+        content: '请先绑定学号后再进行操作',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../../user/binding/binding',
+            })
+          }
+        }
+      })
+    }else{
+      var userId = wx.getStorageSync('userinfo').userId;
+      this.setData({
+        userId: userId
+      })
+      this.getAddressList();
+    }
   },
   //获取用户的地址
   getAddressList:function(){
@@ -50,9 +68,7 @@ Page({
   },
   onReady: function () {
   },
-  onShow: function () {
-    this.getAddressList();
-  },
+
   onHide: function () {
   },
   onUnload: function () {

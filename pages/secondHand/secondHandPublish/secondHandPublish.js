@@ -233,6 +233,7 @@ Page({
     console.log(e);
     var index = e.currentTarget.dataset.index;
     imgUrls.splice(index, 1);
+    console.log(imgUrls)
     that.setData({
       imgUrls: imgUrls
     })

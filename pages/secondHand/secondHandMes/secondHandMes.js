@@ -15,10 +15,34 @@ Page({
     isBottom: false //是否到底
   },
   onLoad: function (options) {
-    var userId = wx.getStorageSync('userinfo').userId;
-    this.setData({
-      userId:userId
-    })
+    
+  },
+  onShow: function () {
+    if (wx.getStorageSync('userinfo').isbound != 1) {
+      wx.showModal({
+        title: '提示',
+        content: '请先绑定学号后再进行操作',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../../user/binding/binding',
+            })
+          }
+        }
+      })
+    }else{
+      var userId = wx.getStorageSync('userinfo').userId;
+      this.setData({
+        userId: userId,
+        systemMes: [],
+        userMes: [],
+        pageNo: 1,
+      })
+      this.getSystemMes();
+      this.getUserMes();
+    }
+
   },
   //获取系统消息
   getSystemMes:function(){
@@ -295,15 +319,7 @@ Page({
   },
   onReady: function () {
   },
-  onShow: function () {
-    this.setData({
-      systemMes: [],
-      userMes: [],
-      pageNo: 1,
-    })
-    this.getSystemMes();
-    this.getUserMes();
-  },
+
   onHide: function () {
   },
   onUnload: function () {

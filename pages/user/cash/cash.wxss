@@ -68,3 +68,6 @@ page{
   border-radius: 10rpx;
   margin-top: 50rpx;
 }
+.cash-btn1{
+  background:gray
+}
