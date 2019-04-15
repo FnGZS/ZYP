@@ -148,7 +148,7 @@ color: transparent;
 .goods-list-main{
   margin-left: 3%;
   width: 94%;
-  height: 220rpx;
+  height: 250rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   display: flex;
@@ -198,7 +198,7 @@ color: transparent;
   bottom: 10rpx;
   left: 0;
   margin-left: 3%;
-  width: 60%;
+  /* width: 60%; */
   color: #CCCCCC;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -264,4 +264,18 @@ line-height:80rpx;
 /* button {
   display: inherit;
 } */
-button::after{ border: none; } 
+.goods-list-main::after{
+  border: none
+}
+
+button::after{
+  border:none;
+}
+.goods-list button.button-hover {
+  background-color: #fff;
+}
+input{
+  outline:none;
+  border:none;
+  list-style: none;
+}

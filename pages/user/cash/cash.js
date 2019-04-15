@@ -8,7 +8,8 @@ Page({
     tipsBtnHidden:false,
     status:2,  //1：正常提现，2：错误操作
     focus:'',
-    input_num:''
+    input_num:'',
+    btnText:'提现'
   },
   onLoad: function (options) {
   },
@@ -62,46 +63,59 @@ Page({
   },
   //输入的内容
   input_num: function (e) {
-    var reg = /^[-\+]?\d+(\.\d+)?$/;
     var val = e.detail.value;
-    var balance = this.data.balance;
     this.setData({
       input_num:val
     })
-    if(val == ''){
+    this.input_judge();
+  },  
+  input_all:function(){
+    var balance = this.data.balance;
+    var service = parseFloat(balance * 0.03).toFixed(2);
+    var tips = '额外扣除￥' + service + '手续费（费率3%）';
+    this.setData({
+      input_num: balance
+    })
+    this.input_judge();
+  },
+  input_judge:function(){
+    var val = this.data.input_num;
+    var reg = /^[-\+]?\d+(\.\d+)?$/;
+    var balance = this.data.balance;
+    if (val == '') {
       var tips = '当前账户余额' + balance + ','
       this.setData({
         tips: tips,
-        tipsBtnHidden:false,
-        status:1
+        tipsBtnHidden: false,
+        status: 1
       })
-    }else{
+    } else {
       if (reg.test(val)) {   //判断输入的是否为数字
         if (val.indexOf('.') > -1) {
           var num = val.split('.');
           if (num[1].length > 2) {
             var tips = '请保留小数点后两位';
             this.setData({
-              status:2
+              status: 2
             })
           } else {
-            if (parseFloat(val) > parseFloat(balance)){
+            if (parseFloat(val) > parseFloat(balance)) {
               var tips = '提现金额超出用户余额';
               this.setData({
                 status: 2
               })
-            } else if (parseFloat(val) < 1){
+            } else if (parseFloat(val) < 1) {
               var tips = '提现金额至少超过1元';
               this.setData({
                 status: 2
               })
-            }else{
+            } else {
               var service = parseFloat(val * 0.03).toFixed(2);
               var tips = '额外扣除￥' + service + '手续费（费率3%）';
               this.setData({
                 status: 1
               })
-            }   
+            }
           }
         } else {
           if (parseFloat(val) > parseFloat(balance)) {
@@ -114,7 +128,7 @@ Page({
             this.setData({
               status: 2
             })
-          }else{
+          } else {
             var service = parseFloat(val * 0.03).toFixed(2);
             var tips = '额外扣除￥' + service + '手续费（费率3%）';
             this.setData({
@@ -133,21 +147,15 @@ Page({
         tipsBtnHidden: true
       })
     }
-  },  
-  input_all:function(){
-    var balance = this.data.balance;
-    var service = parseFloat(balance * 0.03).toFixed(2);
-    var tips = '额外扣除￥' + service + '手续费（费率3%）';
-    this.setData({
-      input_num: balance,
-      status: 1,
-      tips:tips,
-      tipsBtnHidden:true
-    })
   },
   cashBtn:function(){
     var userId = this.data.userId;
     var input_num = this.data.input_num;
+    var that = this;
+    that.setData({
+      status: 2,
+      btnText:'提现中…'
+    })
     console.log(input_num)
     wx.login({
       success: resp => {
@@ -166,8 +174,36 @@ Page({
         let infoCb = {}
         infoCb.success = function (res) {
           console.log(res);
+          if(res.code == '200'){
+            wx.showModal({
+              title: '提示',
+              content: '提现成功',
+              showCancel: false,
+              success(res) {
+                if (res.confirm) {
+                  that.setData({
+                    balance: null, //用户余额
+                    tips: '',
+                    tipsBtnHidden: false,
+                    status: 2,  //1：正常提现，2：错误操作
+                    focus: '',
+                    input_num: '',
+                    btnText:'提现'
+                  })
+                  that.getBalance();
+                }
+              }
+            })
+            wx.hideLoading();
+          }
         }
-        infoCb.beforeSend = () => { }
+        infoCb.beforeSend = () => {
+
+          wx.showLoading({
+            title: '加载中',
+          })
+          
+         }
         sendAjax(infoOpt, infoCb, () => { });
       }
     })

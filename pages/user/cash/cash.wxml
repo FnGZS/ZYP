@@ -12,6 +12,6 @@
       <view class='cash-tips-text {{status==1?"":"cash-tips-wrong"}}'>{{tips}}</view>
       <view class='cash-tips-all' hidden='{{tipsBtnHidden}}' bindtap='input_all'>全部提现</view>
     </view>
-    <view class='cash-btn {{status != 1 ? "cash-btn1" : ""}} ' bindtap='{{status == 1 ? "cashBtn" : ""}}'>提现</view>
+    <view class='cash-btn {{status != 1 ? "cash-btn1" : ""}} ' bindtap='{{status == 1 ? "cashBtn" : ""}}'>{{btnText}}</view>
   </view>
 </view>

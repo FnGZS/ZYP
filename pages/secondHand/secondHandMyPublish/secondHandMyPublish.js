@@ -30,6 +30,11 @@ Page({
         }
       })
     }else{
+      this.setData({
+        goodsList: [],
+        pageNo: 1,
+        isBottom: false
+      })
       this.getPublishList();
     }
   },

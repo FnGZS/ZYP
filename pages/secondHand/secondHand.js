@@ -110,7 +110,6 @@ Page({
           this.getGoodsList();
         }
       }
-      console.log(currentTab + '....' + currentTypeid)
 
     }
 
@@ -255,6 +254,7 @@ Page({
     var formId = e.detail.formId;
     var userId = wx.getStorageSync('userinfo').userId;
     var openId = wx.getStorageSync('userinfo').openId;
+    console.log(formId)
     if (formId != 'the formId is a mock one'){
       var that = this;
       let infoOpt = {

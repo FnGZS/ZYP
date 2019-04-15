@@ -22,22 +22,24 @@
     </button>
   </form>
   <view class='goods-list' bindtouchstart="touchStart" bindtouchend="touchEnd">
-    <view class='goods-list-main' wx:for="{{goodsList}}" wx:key="key" data-id='{{item.id}}' bindtap='toDetail'>
-      <image src='{{item.goodsImg[0]}}' mode='aspectFill' class='goods-list-main-img'></image>
-      <view class='goods-list-mes'>
-        <view class='goods-list-mes-title'>{{item.goodsTitle}}</view>
-        <view class='goods-list-mes-price'>
-          <view class='goods-list-mes-price-flag'>￥</view>
-          <view class='goods-list-mes-price-num'>{{item.price}}</view>
+    <form bindsubmit="getFormId" report-submit="true" wx:for="{{goodsList}}" wx:key="key" data-id='{{item.id}}' bindtap='toDetail'>
+      <button form-type="submit" class='goods-list-main'  hover-class="button-hover">
+        <image src='{{item.goodsImg[0]}}' mode='aspectFill' class='goods-list-main-img'></image>
+        <view class='goods-list-mes'>
+          <view class='goods-list-mes-title'>{{item.goodsTitle}}</view>
+          <view class='goods-list-mes-price'>
+            <view class='goods-list-mes-price-flag'>￥</view>
+            <view class='goods-list-mes-price-num'>{{item.price}}</view>
+          </view>
+          <view class='goods-list-mes-pos'>
+            <text class='iconfont icon-pos'></text>
+            <text>{{item.postion}}</text>
+          </view>
+          <view class='goods-list-mes-goodsWay'>{{item.goodsWay}}</view>
+          <view class='goods-list-mes-browse'>{{item.views}}人浏览过</view>
         </view>
-        <view class='goods-list-mes-pos'>
-          <text class='iconfont icon-pos'></text>
-          <text>{{item.postion}}</text>
-        </view>
-        <view class='goods-list-mes-goodsWay'>{{item.goodsWay}}</view>
-        <view class='goods-list-mes-browse'>{{item.views}}人浏览过</view>
-      </view>
-    </view>
+      </button>
+    </form>
     <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
   </view>
   <form bindsubmit="fabu" report-submit="true">

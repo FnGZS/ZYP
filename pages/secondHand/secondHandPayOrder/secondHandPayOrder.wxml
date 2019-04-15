@@ -56,7 +56,7 @@
       <view class="left-price">
         <view class="total">合计：¥ {{goodsDetail.price}}</view>
       </view>
-      <button class="to-pay-btn" formType="submit" bindtap='payBtn' data-userid='{{goodsDetail.userId}}' data-goodsname='{{goodsDetail.goodsTitle}}' data-goodsprice='{{goodsDetail.price}}'>支付</button>
+      <button class="to-pay-btn" formType="submit" bindtap='{{canPay == 1 ? "payBtn":""}}' data-userid='{{goodsDetail.userId}}' data-goodsname='{{goodsDetail.goodsTitle}}' data-goodsprice='{{goodsDetail.price}}'>{{payText}}</button>
     </view>
   </form>
 </view>

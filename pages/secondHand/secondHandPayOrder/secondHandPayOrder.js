@@ -18,6 +18,8 @@ Page({
     addressName: '',
     addressPhone: '',
     isSelect: 0,
+    canPay:1,
+    payText:'支付',
     lodingHidden: true
   },
   onLoad: function(options) {
@@ -108,6 +110,9 @@ Page({
     var goodsName = e.currentTarget.dataset.goodsname;
     var goodsPrice = e.currentTarget.dataset.goodsprice;
     var userId = e.currentTarget.dataset.userid;
+    that.setData({
+      canPay:2
+    })
     console.log(that.data.goodsDetail)
     wx.login({
       success: resp => {
@@ -131,6 +136,7 @@ Page({
         let infoCb = {}
         infoCb.success = function(res) {
           console.log(res);
+          wx.hideLoading();
           wx.requestPayment({
             timeStamp: res.orderInfo.timeStamp,
             nonceStr: res.orderInfo.nonceStr,
@@ -156,7 +162,7 @@ Page({
                 }
               };
               templeMsg.templeMsg(userId, template_id, page, data);
-
+              
               wx.navigateTo({
                 url: '../secondHandPaySuccess/secondHandPaySuccess',
               })
@@ -164,10 +170,22 @@ Page({
             },
             fail(res) {
               console.log(res)
+              that.setData({
+                canPay:1,
+                payText: '支付'
+              })
+              wx.hideLoading();
             }
           })
         }
-        infoCb.beforeSend = () => {}
+        infoCb.beforeSend = () => {
+          wx.showLoading({
+            title: '加载中',
+          })
+          that.setData({
+            payText:'支付中…'
+          })
+        }
         sendAjax(infoOpt, infoCb, () => {});
       }
     })
