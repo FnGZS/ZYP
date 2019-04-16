@@ -64,7 +64,7 @@
     <view class='orderStatusBtn'>
       <view class='btn-contact' wx:if="{{isBuyer == 1 && orderDetail.orderState != 0}}" data-phone='{{orderDetail.telephone}}' bindtap='contact'>联系卖家</view>
       <view class='btn-cancelOrder' wx:if="{{isBuyer == 1 && orderDetail.orderState == 0}}" data-orderid='{{orderDetail.orderId}}' catchtap='cancelOrder'>取消订单</view>
-      <view class='btn-payOrder' wx:if="{{isBuyer == 1 && orderDetail.orderState == 0}}" catchtap='toPay' data-price='{{orderDetail.orderPrice}}' data-orderid='{{orderDetail.orderId}}'>去付款</view>
+      <view class='btn-payOrder' wx:if="{{isBuyer == 1 && orderDetail.orderState == 0}}" catchtap='{{canPay == 1 ? "toPay":"toPayno"}}' data-price='{{orderDetail.orderPrice}}' data-orderid='{{orderDetail.orderId}}'>{{payText}}</view>
       <view class='btn-confirm' wx:if="{{isBuyer == 0 && orderDetail.orderState == 1 && orderDetail.logistics == 0 }}" catchtap='confirmSend' data-orderid='{{orderDetail.orderId}}' data-goodsname='{{orderDetail.goodsTitle}}' data-buyname='{{orderDetail.consignee}}' data-buyphone='{{orderDetail.receivePhone}}' data-buyaddress='{{orderDetail.receiveAddress}}' data-userid='{{orderDetail.userId}}'>确认发货</view>
       <view class='btn-stay' wx:if="{{isBuyer == 1 && orderDetail.orderState == 1 && orderDetail.logistics == 0 }}">买家已付款</view>
       <!-- <view class='btn-refund' wx:if="{{orderDetail.orderState == 3 && orderDetail.logistics == 0 }}">申请退款中</view> -->

@@ -10,7 +10,9 @@ Page({
     orderList: [],
     refundOrderId:'',
     hiddenRefund:true,
-    input_refund:''
+    input_refund:'',
+    canPay: 1,
+    payText: '去付款',
   },
   onLoad: function(options) {
     // this.getOrderList();
@@ -154,6 +156,9 @@ Page({
     var that = this;
     var price = e.currentTarget.dataset.price;
     var orderId = e.currentTarget.dataset.orderid;
+    that.setData({
+      canPay: 2
+    })
     wx.login({
       success: resp => {
         let infoOpt = {
@@ -172,28 +177,63 @@ Page({
         let infoCb = {}
         infoCb.success = function(res) {
           console.log(res);
-          wx.requestPayment({
-            timeStamp: res.timeStamp,
-            nonceStr: res.nonceStr,
-            package: res.pkg,
-            signType: 'MD5',
-            paySign: res.paySign,
-            success(res) {
-              console.log(res)
-              wx.navigateTo({
-                url: '../secondHandPaySuccess/secondHandPaySuccess',
-              })
+          wx.hideLoading();
+          if (res.message =='宝贝已经被人抢走了'){
+            wx.showModal({
+              title: '提示',
+              content: '宝贝已经被人抢走了',
+              showCancel: false,
+              success(res) {
+                if (res.confirm) {
+                  that.setData({
+                    payText: '去付款',
+                    canPay: 1
+                  })
+                }
+              }
+            })
+          }
+          else{
+            wx.requestPayment({
+              timeStamp: res.timeStamp,
+              nonceStr: res.nonceStr,
+              package: res.pkg,
+              signType: 'MD5',
+              paySign: res.paySign,
+              success(res) {
+                console.log(res)
+                wx.navigateTo({
+                  url: '../secondHandPaySuccess/secondHandPaySuccess',
+                })
 
-            },
-            fail(res) {
-              console.log(res)
-            }
+              },
+              fail(res) {
+                // wx.hideLoading();
+                that.setData({
+                  canPay: 1,
+                  payText: '去付款'
+                })
+                console.log(res)
+              }
+            })
+          }
+        }
+        infoCb.beforeSend = () => {
+          wx.showLoading({
+            title: '加载中',
+          })
+          that.setData({
+            payText: '付款中…'
           })
         }
-        infoCb.beforeSend = () => {}
         sendAjax(infoOpt, infoCb, () => {});
       }
     })
+
+  },
+
+  //不能去支付
+  toPayno:function(){
   },
   //申请退款输入
   input_refund:function(e){

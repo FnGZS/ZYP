@@ -34,7 +34,7 @@
     <view class='orderBtn'>
       <view class='order-all'>
         <view class='btn-cancelOrder' wx:if="{{item.orderState == 0}}" data-orderid='{{item.orderId}}' catchtap='cancelOrder'>取消订单</view>
-        <view class='btn-pay' wx:if="{{item.orderState == 0}}" catchtap='toPay' data-price='{{item.orderPrice}}' data-orderid='{{item.orderId}}'>去付款</view>
+        <view class='btn-pay' wx:if="{{item.orderState == 0}}" catchtap='{{canPay == 1 ? "toPay":"toPayno"}}' data-price='{{item.orderPrice}}' data-orderid='{{item.orderId}}'>{{payText}}</view>
         <view class='btn-stay' wx:if="{{item.orderState == 1 && item.logistics == 0 }}">等待卖家发货</view>
         <view class='btn-refund' wx:if="{{item.orderState == 1 && item.logistics == 0 }}" catchtap='refundOrder' data-orderid='{{item.orderId}}'>申请退款</view>
         <view class='btn-refund' wx:if="{{item.orderState == 3 && item.logistics == 0 }}">申请退款中</view>
