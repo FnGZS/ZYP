@@ -26,9 +26,32 @@ Page({
   },
   callphone:function(){
     var that=this;
-    wx.makePhoneCall({
-      phoneNumber: that.data.message.personal.phone
+    wx.showModal({
+      title: '联系方式',
+      content: that.data.message.contact,
+      cancelText:'取消',
+      confirmText:'复制',
+      success(res) {
+        if (res.confirm) {
+          wx.setClipboardData({
+            data: that.data.message.contact,
+            success(res) {
+              wx.getClipboardData({
+                success(res) {
+                  console.log(res.data) // data
+                }
+              })
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+
     })
+    // wx.makePhoneCall({
+    //   phoneNumber: that.data.message.contact
+    // })
   },
   getdetail: function (detail){
     console.log(detail)

@@ -23,7 +23,8 @@ Page({
     phone: null,
     traydingWay: [],
     traydingWayId: 1,
-    lodingHidden: true
+    lodingHidden: true,
+    canPublish: 1,
   },
   onLoad: function(options) {
     var userInfo = wx.getStorageSync('userinfo');
@@ -164,16 +165,25 @@ Page({
           showCancel: false,
           success(res){
             if(res.confirm){
+              wx.hideLoading();
+              that.setData({
+                canPublish:1
+              })
               wx.navigateBack();
             }
           }
         })
       }
     }
-    infoCb.beforeSend = () => { }
+    infoCb.beforeSend = () => {
+      wx.showLoading({
+        title: '加载中',
+      })
+     }
     sendAjax(infoOpt, infoCb, () => { });
   },
   publishBtn:function(){
+    var that = this;
     var userInfo = this.data.userInfo;
     var userId = this.data.userId;
     var imgUrls = this.data.imgUrls;
@@ -185,7 +195,9 @@ Page({
     var oldPrice = this.data.oldPrice;
     var phone = this.data.phone;
     var traydingWayId = this.data.traydingWayId;
-
+    that.setData({
+      canPublish: 2
+    })
     if (userInfo.isbound != 1){
       wx.showModal({
         title: '提示',

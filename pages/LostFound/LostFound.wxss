@@ -148,10 +148,7 @@ swiper {
 }
 
 .current-img {
-
-  /* background: antiquewhite; */
-  margin: -10rpx 0 10rpx 30rpx;
-  /* float: left; */
+  margin: 0rpx 0 10rpx 5%;
 }
 
 .current-img image {
@@ -162,14 +159,11 @@ swiper {
 }
 
 .current-text-cont {
-  margin-left: 20rpx;
-  width: 250rpx;
-  height: 20rpx;
+  margin-top: 20rpx;
+  margin-left: 4%;
+  width: 80%;
   font-size: 27rpx;
-  padding: 15rpx;
-  margin-top: 10rpx;
   overflow: hidden;
-  /* background: azure; */
   float: left;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;

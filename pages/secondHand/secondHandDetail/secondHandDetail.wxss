@@ -131,7 +131,7 @@
 }
 .goods-tradingWay{
   position: absolute;
-  width: 10%;
+  /* width: 10%; */
   right:7%;
   top: 10rpx;
   font-size: 23rpx;
@@ -140,6 +140,7 @@
   text-align: center;
   height: 30rpx;
   line-height: 30rpx;
+  padding:5rpx 10rpx;
 }
 .goodsImg {
   margin-left: 5%;

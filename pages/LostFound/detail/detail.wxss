@@ -102,11 +102,13 @@ padding-bottom: 25rpx;
   width:30%;
   height:10%;
   margin-bottom: 15rpx;
+    margin-right: 3%;
 }
 .three{
   display: flex;
   flex-wrap:wrap;
-  justify-content: space-between;
+
+  /* justify-content: space-between; */
 }
 .detail-pic image{
 width: 100%;

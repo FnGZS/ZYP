@@ -57,7 +57,7 @@
       </view>
     </view>
   </view>
-  <view class='barBottom' bindtap='publishBtn'>发布
+  <view class='barBottom' bindtap='{{canPublish == 1 ? "publishBtn" :""}}'>发布
   </view>
 </view>
 <view>
