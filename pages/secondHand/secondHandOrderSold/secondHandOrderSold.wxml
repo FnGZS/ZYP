@@ -34,6 +34,7 @@
         <view class='btn-confirm' wx:if="{{item.orderState == 1 && item.logistics == 0 }}" catchtap='confirmSend' data-orderid='{{item.orderId}}' data-goodsname='{{item.goodsTitle}}' data-buyname='{{item.consignee}}' data-buyphone='{{item.receivePhone}}' data-buyaddress='{{item.receiveAddress}}' data-userid='{{item.userId}}'>确认发货</view>
         <view class='btn-stay' wx:if="{{item.orderState == 1 && item.logistics == 1 }}">等待买家收货</view>
         <view class='btn-finish' wx:if="{{item.orderState == 2}}">订单已完成</view>
+        <!-- <view class='btn-finish' wx:if="{{item.orderState == 3}}">申请退款中</view> -->
       </view>
     </view>
 

@@ -89,6 +89,7 @@ Page({
     var that = this;
     var price = e.currentTarget.dataset.price;
     var orderId = e.currentTarget.dataset.orderid;
+    var goodsId = e.currentTarget.dataset.goodsid;
     that.setData({
       canPay: 2
     })
@@ -101,7 +102,8 @@ Page({
             platCode: resp.code,
             fee: price,
             orderId: orderId,
-            type: 1
+            type: 1,
+            goodsId: goodsId
           },
           header: {
             'content-type': 'application/json',

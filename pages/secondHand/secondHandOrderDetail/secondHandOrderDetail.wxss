@@ -35,7 +35,7 @@ page {
 }
 
 .orderStatus {
-  background: url('http://zjw77.club/someimg/orderDetailBac.jpg');
+  background: url('http://www.sxscott.com/crazyBirdimg/secondHand/orderDetailBac.jpg');
   background-size: 100% 100%;
   width: 100%;
   height: 200rpx;

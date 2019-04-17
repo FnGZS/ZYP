@@ -212,7 +212,7 @@ Page({
         title: '请先添加地址',
         icon: 'none'
       })
-    } else if (price == null || oldPrice == null || price > oldPrice){
+    } else if (price == null || oldPrice == null || parseFloat(price) > parseFloat(oldPrice)){
       wx.showToast({
         title: '请输入正确的价格',
         icon: 'none'

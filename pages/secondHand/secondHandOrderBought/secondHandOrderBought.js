@@ -3,6 +3,7 @@ const sendAjax = require('../../../utils/sendAjax.js')
 const templeMsg = require('../../../utils/templeMsg.js')
 Page({
   data: {
+    userId:null,
     currentTab: 0,
     status: '',
     pageNo: 1,
@@ -32,13 +33,22 @@ Page({
         }
       })
     }else{
+      var userId = wx.getStorageSync('userinfo').userId;
+      console.log(userId)
       this.setData({
         orderList: [],
         pageNo: 1,
+        userId: userId
       })
       this.getOrderList();
     }
    
+  },
+  beRobbed:function(e){
+    var a = e.currentTarget.dataset.a;
+    var b = e.currentTarget.dataset.b;
+    console.log(a);
+    console.log(b);
   },
   //单击导航栏
   clickMenu: function(e) {
@@ -156,6 +166,8 @@ Page({
     var that = this;
     var price = e.currentTarget.dataset.price;
     var orderId = e.currentTarget.dataset.orderid;
+    var goodsId = e.currentTarget.dataset.goodsid;
+    console.log(goodsId)
     that.setData({
       canPay: 2
     })
@@ -168,7 +180,8 @@ Page({
             platCode: resp.code,
             fee: price,
             orderId: orderId,
-            type: 1
+            type: 1,
+            goodsId: goodsId
           },
           header: {
             'content-type': 'application/json',
