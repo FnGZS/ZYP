@@ -15,13 +15,14 @@ Page({
    */
   //图片预览
   openpic: function (e) {
-     
-    console.log(e);
     var img = e.currentTarget.dataset.img;
     var pic = this.data.message.foundPic;
     wx.previewImage({
-      // current: img, 
-      urls: pic, 
+      current: img, //当前图片地址
+      urls: pic, //所有要预览的图片的地址集合 数组形式
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   callphone:function(){

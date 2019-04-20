@@ -204,35 +204,56 @@ Page({
         content: '请先绑定学号',
         showCancel:false
       })
+      that.setData({
+        canPublish: 1
+      })
     } else if (imgUrls.length == 0){
       wx.showToast({
         title: '请先添加图片',
         icon:'none'
+      })
+      that.setData({
+        canPublish: 1
       })
     }else if(title == ''){
       wx.showToast({
         title: '请输入标题',
         icon: 'none'
       })
+      that.setData({
+        canPublish: 1
+      })
     } else if (content == '') {
       wx.showToast({
         title: '请输入内容',
         icon: 'none'
+      })
+      that.setData({
+        canPublish: 1
       })
     }else if (address == null || address ==''){
       wx.showToast({
         title: '请先添加地址',
         icon: 'none'
       })
+      that.setData({
+        canPublish: 1
+      })
     } else if (price == null || oldPrice == null || parseFloat(price) > parseFloat(oldPrice)){
       wx.showToast({
         title: '请输入正确的价格',
         icon: 'none'
       })
+      that.setData({
+        canPublish: 1
+      })
     } else if (phone == null || phone == ''){
       wx.showToast({
         title: '请输入正确的手机号',
         icon: 'none'
+      })
+      that.setData({
+        canPublish: 1
       })
     }else{
       this.uploadimg();

@@ -191,27 +191,30 @@ Page({
   },
   addpicture: function() {
     var that = this
-    var cnt = that.data.picurl.length
+    var num = that.data.picurl.length
     var picurl = that.data.picurl
     var index = that.data.picurl.length;
-    if (cnt != 4) {
+    if (num < 4) {
+      var cnt = 4 - num;
       wx.chooseImage({
-        count: 1,
-        sizeType: ['original', 'compressed'],
+        count: cnt,
+        sizeType: ['compressed'],
         sourceType: ['album', 'camera'],
         success(res) {
           var tempFilePaths = res.tempFilePaths
-          console.log(tempFilePaths)
-          for (var i = 0; i < tempFilePaths.length; i++) {
+          for (var i = tempFilePaths.length - 1; i >= 0; i--) {
             picurl.splice(index, 0, tempFilePaths[i])
-
           }
-          // console.log(picurl)
           that.setData({
             picurl: picurl
           })
           console.log(picurl)
         }
+      })
+    } else {
+      wx.showToast({
+        title: '最多上传4张图片噢~',
+        icon: 'none'
       })
     }
     that.imagesshow();
