@@ -263,16 +263,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this;
-    login.wxLogin(0, function (res) {
-      wx.setStorageSync("userinfo", res)
-    console.log(wx.getStorageSync('userinfo'))
 
-    })
-    that.test();
-    that.setImgBroadcast();
-    that.setvoteBroadcast();
-    that.getnewmes();
   },
 
   /**
@@ -286,7 +277,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(wx.getStorageSync('userinfo'))
+    let that = this;
+    login.wxLogin(0, function (res) {
+      wx.setStorageSync("userinfo", res)
+      console.log(wx.getStorageSync('userinfo'))
+
+    })
+    that.test();
+    that.setImgBroadcast();
+    that.setvoteBroadcast();
+    that.getnewmes();
   },
   /**
    * 生命周期函数--监听页面隐藏
@@ -678,6 +678,7 @@ Page({
 
   test:function(){
     var that = this;
+    var isbound = wx.getStorageSync('userinfo').isbound;
     wx.request({
       url: 'https://www.sxscott.com/crazyBird/vote/test', 
       data: {},
@@ -686,7 +687,7 @@ Page({
       },
       success(res) {
         console.log(res)
-        if (res.data.type == 1) {
+        if (res.data.type == 1 && isbound != 1) {
           that.setData({
             hhidden: 1
           })

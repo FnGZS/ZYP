@@ -33,6 +33,7 @@ App({
   },
   test: function() {
     var that = this;
+    var isbound = wx.getStorageSync('userinfo').isbound;
     wx.request({
       url: 'https://www.sxscott.com/crazyBird/vote/test',
       data: {},
@@ -41,7 +42,7 @@ App({
       },
       success(res) {
         console.log(res)
-        if (res.data.type == 1) {
+        if (res.data.type == 1 && isbound != 1) {
           wx.hideTabBar({
 
           })
