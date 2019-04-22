@@ -1,0 +1,67 @@
+<view id='secPublish'>
+  <view class='tishi'>
+    <view class='tishi-text'> 暂不支持发布虚拟物品哦，发布物品后将进入待审核状态，请耐心等待~</view>
+
+  </view>
+  <view class='addPic'>
+    <view class='addPicNoPic' bindtap='addPic' wx:if="{{imgUrls.length == 0}}">
+      <view class='iconfont icon-tianjiazhaopian'></view>
+      <view class='addPicNoPic-text'>添加图片</view>
+    </view>
+    <view class='addPicHasPic' wx:if="{{imgUrls.length > 0}}">
+      <view class='addPicHasPic-btn' bindtap='addPic'>
+        <view class='iconfont icon-tianjiazhaopian'></view>
+        <view class='addPicNoPic-text'>添加图片</view>
+      </view>
+      <view class='imgList' wx:for="{{imgUrls}}" wx:key="key"> 
+        <image class='publishImg' src='{{item}}' mode='aspectFill'></image>
+        <view class='imgDel' data-index='{{index}}' catchtap='removePic'>x</view>
+      </view>
+    </view>
+  </view>
+  <view class='addContent'>
+    <input class='content-title' placeholder-class='input_title' maxlength='30' placeholder='请填写宝贝的标题（限30字）' bindinput='input_title'></input>
+    <textarea class='content-content' placeholder-class='input_content' placeholder='请描述宝贝的转手原因、品牌、规格等' bindinput='input_content'></textarea>
+
+    <view class='content-pos'>
+      <view class='iconfont icon-dizhi'></view>
+      <view class='posText' wx:if="{{isNeedAddress == 1}}" catchtap="addAddress">新增地址</view>
+      <view class='posText' wx:if="{{isNeedAddress == 0}}" catchtap="selectAddress">{{address}}</view>
+    </view>
+  </view>
+  <view class='addDetail'>
+    <view class='type'>
+      <view class='type-title'>分类</view>
+      <!-- <view class='type-text'>官方自营</view> -->
+      <picker  class='type-text' bindchange="bindPickerChange" value="{{index}}" data-typeid='{{typeArray[typeIndex].id}}' range-key="field" range="{{typeArray}}">
+        <view class="picker">{{typeArray[typeIndex].field}}</view>
+      </picker>
+      <view class='type-arrow'>></view>
+    </view>
+    <view class='price'>
+      <view class='price-title'>价格</view>
+      <input class='price-text' placeholder-class='price-input' placeholder='￥请输入商品的价格' type='digit' bindinput='input_price'></input>
+    </view>
+    <view class='oldPrice'>
+      <view class='oldPrice-title'>原价</view>
+      <input class='oldPrice-text' placeholder-class='oldPrice-input' placeholder='￥请输入商品的原价' type='digit' bindinput='input_oldPrice'></input>
+    </view>
+    <view class='phone'>
+      <view class='phone-title'>联系方式</view>
+      <input class='phone-text' placeholder-class='phone-input' maxlength='11' placeholder='请输入您的手机号码' type='number' bindinput='input_phone'></input>
+    </view>
+    <view class='tradingWay'>
+      <view class='tradingWay-title'>交易方式</view>
+      <view class='tradingWayList'>
+        <view class='tradingWayList-main {{traydingWayId == item.id? "tradingWay-active":""}}' wx:for="{{traydingWay}}" data-traydingwayid='{{item.id}}' bindtap='changeTraydingWay' wx:key="key">{{item.field}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='barBottom' bindtap='{{canPublish == 1 ? "publishBtn" :""}}'>发布
+  </view>
+</view>
+<view>
+    <loading hidden="{{lodingHidden}}">
+        加载中..
+    </loading>
+</view>
