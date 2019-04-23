@@ -149,9 +149,9 @@
   margin-right: 0;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  -webkit-transform: translateX(150rpx);
-  transform: translateX(150rpx);
-  margin-left: -150rpx;
+  -webkit-transform: translateX(300rpx);
+  transform: translateX(300rpx);
+  margin-left: -300rpx;
 }
 
 .del {
@@ -169,7 +169,9 @@
   font-size: 30rpx;
   border-bottom: 1px solid #f6f6f6;
 }
-
+.update{
+  background-color: #A6A6A6;
+}
 button::after {
   border: none;
 }

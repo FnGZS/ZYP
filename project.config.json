@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 7,
 			"list": [
 				{
 					"id": 0,
@@ -83,10 +83,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "我买入的",
-					"pathName": "pages/secondHand/secondHandOrderBought/secondHandOrderBought",
-					"query": "id=4&isShare=1"
+					"id": 7,
+					"name": "我发布的",
+					"pathName": "pages/secondHand/secondHandMyPublish/secondHandMyPublish",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -153,6 +154,7 @@
 					"id": -1,
 					"name": "资金提现",
 					"pathName": "pages/user/cash/cash",
+					"query": "",
 					"scene": null
 				}
 			]

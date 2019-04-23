@@ -686,14 +686,23 @@ Page({
         'content-type': 'application/json' 
       },
       success(res) {
-        console.log(res)
-        if (res.data.type == 1 && isbound != 1) {
+        if (res.data.type == 0) {
           that.setData({
-            hhidden: 1
+            hhidden: 0
+          })
+          wx.showTabBar({
+
+          })
+        } else if (res.data.type == 1 && isbound == 1) {
+          that.setData({
+            hhidden: 0
+          })
+          wx.showTabBar({
+
           })
         } else {
           that.setData({
-            hhidden: 0
+            hhidden: 1
           })
         }
       }

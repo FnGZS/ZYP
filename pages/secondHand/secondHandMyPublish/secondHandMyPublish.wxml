@@ -26,6 +26,7 @@
         </view>
       </view>
     </view>
+    <view class="del update" bindtap="update" data-index='{{index}}' data-goodsid='{{item.id}}'>编辑</view>
     <view class="del" bindtap="del" data-index='{{index}}' data-goodsid='{{item.id}}'>删除</view>
   </view>
   <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>

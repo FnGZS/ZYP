@@ -42,13 +42,17 @@ App({
       },
       success(res) {
         console.log(res)
-        if (res.data.type == 1 && isbound != 1) {
-          wx.hideTabBar({
-
-          })
-        } else {
+        if(res.data.type == 0){
           wx.showTabBar({
 
+          })
+        } else if (res.data.type == 1 && isbound == 1){
+          wx.showTabBar({
+
+          })
+        }else {
+          wx.hideTabBar({
+            
           })
         }
       }
