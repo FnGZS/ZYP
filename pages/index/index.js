@@ -263,7 +263,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    that.setImgBroadcast();
+    that.setvoteBroadcast();
+    that.getnewmes();
   },
 
   /**
@@ -284,9 +287,7 @@ Page({
 
     })
     that.test();
-    that.setImgBroadcast();
-    that.setvoteBroadcast();
-    that.getnewmes();
+
   },
   /**
    * 生命周期函数--监听页面隐藏
