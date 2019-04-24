@@ -44,6 +44,7 @@
     "pages/secondHand/secondHandAddressSelect/secondHandAddressSelect",
     "pages/secondHand/secondHandMes/secondHandMes",
     "pages/secondHand/secondHandMesDetail/secondHandMesDetail",
+    "pages/secondHand/secondHandEdit/secondHandEdit",
     "pages/logs/logs",
     "pages/ticket/ticketmian/ticketmian",
     "pages/ticket/ticketadd/ticketadd",

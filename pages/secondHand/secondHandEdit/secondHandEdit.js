@@ -6,6 +6,7 @@ Page({
   data: {
     userInfo: null,
     userId: null,
+    id:null,
     imgUrls: [],
     arr_img: null,
     title: '',
@@ -27,15 +28,62 @@ Page({
     canPublish: 1,
   },
   onLoad: function (options) {
+    var id = options.id;
+    console.log(id)
     var userInfo = wx.getStorageSync('userinfo');
     var userId = wx.getStorageSync('userinfo').userId;
     this.setData({
       userInfo: userInfo,
-      userId: userId
+      userId: userId,
+      id:id
     })
-    this.getAddressList();
+    // this.getAddressList();
     this.getGoodsType();
     this.getTraydingWay();
+    this.getDetail();
+  },
+  //获取商品详情
+  getDetail: function () {
+    var that = this;
+    let infoOpt = {
+      url: '/secondary/goods/' + this.data.id,
+      type: 'GET',
+      data: {},
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    let infoCb = {}
+    infoCb.success = function (res) { 
+      wx.hideLoading();
+      var goodsDetail = res.list[0];
+      var arr = goodsDetail.goodsImg;
+      var typeArray = that.data.typeArray;
+      console.log(goodsDetail);
+      console.log(typeArray);
+      goodsDetail['goodsImg'] = JSON.parse(arr);
+      for (var i = 0; i < typeArray.length ; i ++){
+        if (goodsDetail.goodsType == typeArray[i].field){
+          var typeIndex = i;
+          break;
+        }
+      }
+      that.setData({
+        imgUrls: goodsDetail.goodsImg,
+        title: goodsDetail.goodsTitle,
+        content: goodsDetail.goodsContent,
+        address: goodsDetail.postion,
+        price: goodsDetail.price,
+        oldPrice: goodsDetail.oldPrice,
+        typeIndex: typeIndex
+      })
+    }
+    infoCb.beforeSend = () => {
+      wx.showLoading({
+        title: '加载中',
+      })
+    }
+    sendAjax(infoOpt, infoCb, () => { });
   },
   //添加图片
   addPic: function () {

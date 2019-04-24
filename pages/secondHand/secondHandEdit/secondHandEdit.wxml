@@ -20,8 +20,8 @@
     </view>
   </view>
   <view class='addContent'>
-    <input class='content-title' placeholder-class='input_title' maxlength='30' placeholder='请填写宝贝的标题（限30字）' bindinput='input_title'></input>
-    <textarea class='content-content' placeholder-class='input_content' placeholder='请描述宝贝的转手原因、品牌、规格等' bindinput='input_content'></textarea>
+    <input class='content-title' placeholder-class='input_title' maxlength='30' placeholder='请填写宝贝的标题（限30字）' bindinput='input_title' value="{{title}}"></input>
+    <textarea class='content-content' placeholder-class='input_content' placeholder='请描述宝贝的转手原因、品牌、规格等' bindinput='input_content' value="{{content}}"></textarea>
 
     <view class='content-pos'>
       <view class='iconfont icon-dizhi'></view>
@@ -40,11 +40,11 @@
     </view>
     <view class='price'>
       <view class='price-title'>价格</view>
-      <input class='price-text' placeholder-class='price-input' placeholder='￥请输入商品的价格' type='digit' bindinput='input_price'></input>
+      <input class='price-text' placeholder-class='price-input' placeholder='￥请输入商品的价格' type='digit' bindinput='input_price' value="{{price}}"></input>
     </view>
     <view class='oldPrice'>
       <view class='oldPrice-title'>原价</view>
-      <input class='oldPrice-text' placeholder-class='oldPrice-input' placeholder='￥请输入商品的原价' type='digit' bindinput='input_oldPrice'></input>
+      <input class='oldPrice-text' placeholder-class='oldPrice-input' placeholder='￥请输入商品的原价' type='digit' bindinput='input_oldPrice' value="{{oldPrice}}"></input>
     </view>
     <view class='phone'>
       <view class='phone-title'>联系方式</view>
