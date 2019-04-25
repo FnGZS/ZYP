@@ -59,12 +59,19 @@ Page({
       var goodsDetail = res.list[0];
       var arr = goodsDetail.goodsImg;
       var typeArray = that.data.typeArray;
+      var traydingWay = that.data.traydingWay;
       console.log(goodsDetail);
-      console.log(typeArray);
+      
       goodsDetail['goodsImg'] = JSON.parse(arr);
       for (var i = 0; i < typeArray.length ; i ++){
         if (goodsDetail.goodsType == typeArray[i].field){
           var typeIndex = i;
+          break;
+        }
+      }
+      for (var j = 0; j < traydingWay.length ; j ++){
+        if (goodsDetail.tradingWay == traydingWay[j].field) {
+          var traydingWayId = j + 1;
           break;
         }
       }
@@ -75,102 +82,17 @@ Page({
         address: goodsDetail.postion,
         price: goodsDetail.price,
         oldPrice: goodsDetail.oldPrice,
-        typeIndex: typeIndex
+        typeIndex: typeIndex,
+        phone: goodsDetail.telephone,
+        traydingWayId: traydingWayId
       })
     }
     infoCb.beforeSend = () => {
-      wx.showLoading({
-        title: '加载中',
-      })
     }
     sendAjax(infoOpt, infoCb, () => { });
   },
-  //添加图片
-  addPic: function () {
-    var that = this
-    var num = that.data.imgUrls.length
-    var imgUrls = that.data.imgUrls
-    var index = that.data.imgUrls.length;
-    if (num < 4) {
-      var cnt = 4 - num;
-      wx.chooseImage({
-        count: cnt,
-        sizeType: ['compressed'],
-        sourceType: ['album', 'camera'],
-        success(res) {
-          var tempFilePaths = res.tempFilePaths
-          for (var i = tempFilePaths.length - 1; i >= 0; i--) {
-            imgUrls.splice(index, 0, tempFilePaths[i])
-          }
-          that.setData({
-            imgUrls: imgUrls
-          })
-          console.log(imgUrls)
-        }
-      })
-    } else {
-      wx.showToast({
-        title: '最多上传4张图片噢~',
-        icon: 'none'
-      })
-    }
-
-  },
-  uploadimg: function () {//这里触发图片上传的方法
-    var pics = this.data.imgUrls;
-    var that = this;
-    that.uploadimgs({
-      url: 'https://www.sxscott.com/crazyBird/upload/avatar',//这里是你图片上传的接口
-      path: pics,//这里是选取的图片的地址数组
-      formData: {
-        picType: 'secondHand'
-      }
-    });
-  },
-  uploadimgs: function (data) {
-    var that = this;
-    var i = data.i ? data.i : 0; //当前上传的哪张图片
-    var success = data.success ? data.success : 0; //上传成功的个数
-    var fail = data.fail ? data.fail : 0; //上传失败的个数
-    var pics = data.pics ? data.pics : [];
-    wx.uploadFile({
-      header: {
-        'content-type': 'application/json',
-        'authorization': wx.getStorageSync('userinfo').authorization
-      },
-      url: data.url,
-      filePath: data.path[i],
-      name: 'file', //这里根据自己的实际情况改
-      formData: data.formData, //这里是上传图片时一起上传的数据
-      success: (resp) => {
-        console.log(JSON.parse(resp.data))
-        success++; //图片上传成功，图片上传成功的变量+1
-        pics.push(JSON.parse(resp.data).urlList[0]);
-
-      },
-      fail: (res) => {
-        fail++; //图片上传失败，图片上传失败的变量+1
-        console.log('fail:' + i + "fail:" + fail);
-      },
-      complete: () => {
-        i++; //这个图片执行完上传后，开始上传下一张
-        if (i == data.path.length) { //当图片传完时，停止调用          
-          console.log('成功：' + success + " 失败：" + fail);
-          that.setData({
-            arr_img: pics
-          })
-          that.publish();
-        } else { //若图片还没有传完，则继续调用函数
-          data.i = i;
-          data.success = success;
-          data.fail = fail;
-          data.pics = pics;
-          that.uploadimgs(data);
-        }
-      }
-    });
-  },
   publish: function () {
+    var id = this.data.id;
     var userId = this.data.userId;
     var imgUrls = JSON.stringify(this.data.arr_img);
     var title = this.data.title;
@@ -184,9 +106,10 @@ Page({
     var that = this;
     console.log(111)
     let infoOpt = {
-      url: '/secondary/create',
-      type: 'POST',
+      url: '/secondary/goods/update',
+      type: 'put',
       data: {
+        id:id,
         userId: userId,
         goodsTitle: title,
         goodsContent: content,
@@ -304,7 +227,7 @@ Page({
         canPublish: 1
       })
     } else {
-      this.uploadimg();
+      this.publish();
     }
   },
   //移除图片

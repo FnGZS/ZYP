@@ -4,18 +4,18 @@
 
   </view>
   <view class='addPic'>
-    <view class='addPicNoPic' bindtap='addPic' wx:if="{{imgUrls.length == 0}}">
+    <!-- <view class='addPicNoPic' bindtap='addPic' wx:if="{{imgUrls.length == 0}}">
       <view class='iconfont icon-tianjiazhaopian'></view>
       <view class='addPicNoPic-text'>添加图片</view>
-    </view>
+    </view> -->
     <view class='addPicHasPic' wx:if="{{imgUrls.length > 0}}">
-      <view class='addPicHasPic-btn' bindtap='addPic'>
+      <!-- <view class='addPicHasPic-btn' bindtap='addPic'>
         <view class='iconfont icon-tianjiazhaopian'></view>
         <view class='addPicNoPic-text'>添加图片</view>
-      </view>
+      </view> -->
       <view class='imgList' wx:for="{{imgUrls}}" wx:key="key"> 
         <image class='publishImg' src='{{item}}' mode='aspectFill'></image>
-        <view class='imgDel' data-index='{{index}}' catchtap='removePic'>x</view>
+        <!-- <view class='imgDel' data-index='{{index}}' catchtap='removePic'>x</view> -->
       </view>
     </view>
   </view>
@@ -48,7 +48,7 @@
     </view>
     <view class='phone'>
       <view class='phone-title'>联系方式</view>
-      <input class='phone-text' placeholder-class='phone-input' maxlength='11' placeholder='请输入您的手机号码' type='number' bindinput='input_phone'></input>
+      <input class='phone-text' placeholder-class='phone-input' maxlength='11' placeholder='请输入您的手机号码' type='number'  value="{{phone}}" bindinput='input_phone'></input>
     </view>
     <view class='tradingWay'>
       <view class='tradingWay-title'>交易方式</view>
@@ -57,7 +57,7 @@
       </view>
     </view>
   </view>
-  <view class='barBottom' bindtap='{{canPublish == 1 ? "publishBtn" :""}}'>发布
+  <view class='barBottom' bindtap='{{canPublish == 1 ? "publishBtn" :""}}'>保存
   </view>
 </view>
 <view>
