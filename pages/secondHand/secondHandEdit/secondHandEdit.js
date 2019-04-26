@@ -12,7 +12,6 @@ Page({
     title: '',
     content: '',
     addressList: [],
-    isNeedAddress: null,
     addressId: '',
     address: '',
     isSelect: 0,
@@ -25,7 +24,7 @@ Page({
     traydingWay: [],
     traydingWayId: 1,
     lodingHidden: true,
-    canPublish: 1,
+    canUpdate: 1,
   },
   onLoad: function (options) {
     var id = options.id;
@@ -91,20 +90,20 @@ Page({
     }
     sendAjax(infoOpt, infoCb, () => { });
   },
-  publish: function () {
+  update: function () {
     var id = this.data.id;
     var userId = this.data.userId;
-    var imgUrls = JSON.stringify(this.data.arr_img);
+    var imgUrls = JSON.stringify(this.data.imgUrls);
     var title = this.data.title;
     var content = this.data.content;
     var address = this.data.address;
     var typeId = this.data.typeId;
-    var price = this.data.price;
-    var oldPrice = this.data.oldPrice;
+    var price = parseFloat(this.data.price).toFixed(2) ;
+    var oldPrice = parseFloat(this.data.oldPrice).toFixed(2);
     var phone = this.data.phone;
     var traydingWayId = this.data.traydingWayId;
     var that = this;
-    console.log(111)
+    console.log(imgUrls)
     let infoOpt = {
       url: '/secondary/goods/update',
       type: 'put',
@@ -129,16 +128,16 @@ Page({
     let infoCb = {}
     infoCb.success = function (res) {
       console.log(res);
-      if (res.message == '发布成功') {
+      if (res.code == '200') {
         wx.showModal({
           title: '提示',
-          content: '发布成功，请耐心等待审核',
+          content: '保存成功',
           showCancel: false,
           success(res) {
             if (res.confirm) {
               wx.hideLoading();
               that.setData({
-                canPublish: 1
+                canUpdate: 1
               })
               wx.navigateBack();
             }
@@ -153,7 +152,7 @@ Page({
     }
     sendAjax(infoOpt, infoCb, () => { });
   },
-  publishBtn: function () {
+  updateBtn: function () {
     var that = this;
     var userInfo = this.data.userInfo;
     var userId = this.data.userId;
@@ -167,7 +166,7 @@ Page({
     var phone = this.data.phone;
     var traydingWayId = this.data.traydingWayId;
     that.setData({
-      canPublish: 2
+      canUpdate: 2
     })
     if (userInfo.isbound != 1) {
       wx.showModal({
@@ -176,7 +175,7 @@ Page({
         showCancel: false
       })
       that.setData({
-        canPublish: 1
+        canUpdate: 1
       })
     } else if (imgUrls.length == 0) {
       wx.showToast({
@@ -184,7 +183,7 @@ Page({
         icon: 'none'
       })
       that.setData({
-        canPublish: 1
+        canUpdate: 1
       })
     } else if (title == '') {
       wx.showToast({
@@ -192,7 +191,7 @@ Page({
         icon: 'none'
       })
       that.setData({
-        canPublish: 1
+        canUpdate: 1
       })
     } else if (content == '') {
       wx.showToast({
@@ -200,7 +199,7 @@ Page({
         icon: 'none'
       })
       that.setData({
-        canPublish: 1
+        canUpdate: 1
       })
     } else if (address == null || address == '') {
       wx.showToast({
@@ -208,7 +207,7 @@ Page({
         icon: 'none'
       })
       that.setData({
-        canPublish: 1
+        canUpdate: 1
       })
     } else if (price == null || oldPrice == null || parseFloat(price) > parseFloat(oldPrice)) {
       wx.showToast({
@@ -216,7 +215,7 @@ Page({
         icon: 'none'
       })
       that.setData({
-        canPublish: 1
+        canUpdate: 1
       })
     } else if (phone == null || phone == '') {
       wx.showToast({
@@ -224,79 +223,11 @@ Page({
         icon: 'none'
       })
       that.setData({
-        canPublish: 1
+        canUpdate: 1
       })
     } else {
-      this.publish();
+      this.update();
     }
-  },
-  //移除图片
-  removePic: function (e) {
-    var that = this;
-    var imgUrls = that.data.imgUrls;
-    console.log(e);
-    var index = e.currentTarget.dataset.index;
-    imgUrls.splice(index, 1);
-    console.log(imgUrls)
-    that.setData({
-      imgUrls: imgUrls
-    })
-  },
-  //获取用户的地址
-  getAddressList: function () {
-    var userId = this.data.userId;
-    var that = this;
-    let infoOpt = {
-      url: '/secondary/userAddress/' + userId,
-      type: 'GET',
-      data: {},
-      header: {
-        'content-type': 'application/json',
-        'authorize': wx.getStorageSync('userinfo').authorization
-      },
-    }
-    let infoCb = {}
-    infoCb.success = function (res) {
-      let pages = getCurrentPages();
-      let currPage = pages[pages.length - 1];
-      if (res.list.length == 0) {
-        that.setData({
-          addressId: '',
-          address: '',
-          isNeedAddress: 1,
-          lodingHidden: true,
-          isSelect: 0
-        })
-      } else if (currPage.data.isSelect == 0 && that.data.addressId == '') {
-        that.setData({
-          addressId: res.list[0].id,
-          address: res.list[0].address,
-          isNeedAddress: 0,
-          lodingHidden: true,
-          isSelect: 0
-        })
-      } else if (currPage.data.isSelect == 1) {
-        that.setData({ //将携带的参数赋值
-          addressId: currPage.data.addressId,
-          address: currPage.data.address,
-          isNeedAddress: 0,
-          lodingHidden: true,
-          isSelect: 0
-        });
-      } else {
-        that.setData({
-          isNeedAddress: 0,
-          lodingHidden: true,
-          isSelect: 0
-        });
-      }
-    }
-    infoCb.beforeSend = () => {
-      that.setData({
-        lodingHidden: false
-      })
-    }
-    sendAjax(infoOpt, infoCb, () => { });
   },
   //跳转新增地址
   addAddress: function () {
@@ -361,17 +292,17 @@ Page({
   //输入的价格
   input_price: function (e) {
     var v1 = e.detail.value;
-    var v2 = parseFloat(v1).toFixed(2)
+    // var v2 = parseFloat(v1).toFixed(2)
     this.setData({
-      price: v2
+      price: v1
     })
   },
   //输入的原价
   input_oldPrice: function (e) {
     var v1 = e.detail.value;
-    var v2 = parseFloat(v1).toFixed(2)
+    // var v2 = parseFloat(v1).toFixed(2)
     this.setData({
-      oldPrice: v2
+      oldPrice: v1
     })
   },
   //输入的手机
@@ -412,7 +343,6 @@ Page({
   },
   onReady: function () { },
   onShow: function () {
-    this.getAddressList();
   },
   onHide: function () { },
   onUnload: function () { },

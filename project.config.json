@@ -158,7 +158,7 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 18,
 					"name": "商品编辑",
 					"pathName": "pages/secondHand/secondHandEdit/secondHandEdit",
 					"query": "id=8",

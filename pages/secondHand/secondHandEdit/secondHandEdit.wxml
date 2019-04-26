@@ -25,8 +25,7 @@
 
     <view class='content-pos'>
       <view class='iconfont icon-dizhi'></view>
-      <view class='posText' wx:if="{{isNeedAddress == 1}}" catchtap="addAddress">新增地址</view>
-      <view class='posText' wx:if="{{isNeedAddress == 0}}" catchtap="selectAddress">{{address}}</view>
+      <view class='posText' catchtap="selectAddress">{{address}}</view>
     </view>
   </view>
   <view class='addDetail'>
@@ -57,7 +56,7 @@
       </view>
     </view>
   </view>
-  <view class='barBottom' bindtap='{{canPublish == 1 ? "publishBtn" :""}}'>保存
+  <view class='barBottom' bindtap='{{canUpdate == 1 ? "updateBtn" :""}}'>保存
   </view>
 </view>
 <view>

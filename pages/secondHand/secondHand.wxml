@@ -35,7 +35,7 @@
             <text class='iconfont icon-pos'></text>
             <text>{{item.postion}}</text>
           </view>
-          <view class='goods-list-mes-goodsWay'>{{item.goodsWay}}</view>
+          <view class='goods-list-mes-goodsWay'>{{item.goodsType}}</view>
           <view class='goods-list-mes-browse'>{{item.views}}人浏览过</view>
         </view>
       </button>

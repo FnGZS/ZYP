@@ -202,6 +202,12 @@ Page({
       }
     });
   },
+  update:function(e){
+    var goodsid = e.currentTarget.dataset.goodsid;
+    wx.navigateTo({
+      url: '../secondHandEdit/secondHandEdit?id=' + goodsid,
+    })
+  },
   //跳转详情
   toDetail: function (e) {
     var id = e.currentTarget.dataset.id;
