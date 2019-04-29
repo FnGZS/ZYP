@@ -26,6 +26,9 @@ Page({
         }
       })
     }else{
+      this.setData({
+        goodsList:[]
+      })
       this.getCollectionList();
     }
    },

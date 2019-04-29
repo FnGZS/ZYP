@@ -15,7 +15,7 @@
             <image class="one-two {{ one_two }}" src="{{imgURL}}2.png"></image>
             <view class="one-three {{ one_three }}">小程序/网站/APP</view>
             <view class="one-four {{ one_four }}">个性化定制 </view>
-            <view class="one-five {{ one_five }}">2016-2018 疯鸟网络工作室</view>
+            <view class="one-five {{ one_five }}">2016-2019 疯鸟网络工作室</view>
             <image class="one-six {{ one_six }}" src="{{imgURL}}13.png"></image>
         </view>
         <!--two-->
@@ -84,8 +84,8 @@
   </view> -->
   <view class="weui-footer weui-footer_fixed-bottom">
       <view class="weui-footer__links">
-        <navigator url="" class="weui-footer__link">缘培</navigator>
+        <navigator url="" class="weui-footer__link">在元培</navigator>
       </view>
-      <view class="weui-footer__text">Copyright © 2016-2018 疯鸟网络</view>
+      <view class="weui-footer__text">Copyright © 2016-2019 疯鸟网络</view>
     </view>
 
