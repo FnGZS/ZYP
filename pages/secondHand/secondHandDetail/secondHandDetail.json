@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "二手详情",
+  "navigationBarTitleText": "商品详情",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 50,
   "backgroundTextStyle": "dark"

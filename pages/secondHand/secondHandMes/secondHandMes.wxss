@@ -24,6 +24,20 @@
   content: "\e613";
 }
 
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1557715615015'); /* IE9 */
+  src: url('iconfont.eot?t=1557715615015#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAKcAAsAAAAABjAAAAJRAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAo8WwE2AiQDCAsGAAQgBYRtBzAbgQURBVTJvsKmDPcCgMwuogTljf20h0PkhCuQBjNQAAAAAEA8fO33eu7bfT8bQoWoMpHADrBVDEL/qQNSplNZ1xhbVclGpBkGmeX1gqfuvv2frg73MSaa0SV5vvUs35HfsdOwFAqlkQgDCo2Q08ENefrS8auHMeAEJkhgUX+f53J6E+hAWh8o1z1orEmTAuzFgRTgWIsiK6GMG8YueIHHCbQZtSz23IMLRWaPC8SL9PFdpeCTZZYsQqNhaRaf1Ur1pgqfou/HfytRqNSJXXbyaP+BrV+cNL151XQjIPgJaHWNhGVk4qIxdiQJxiVtsWySYxUHv/w/sIqjmgT76+zCDjAM48Ev3lgBKnisrnoxOOkaonct4o4f7e80BTo/JF/d+2p36axwfp0u76LvjSzaQj9L36oFgi+H7PXda3+FDH5sI2M2zEHZgz34E5KBTdmQ2ZYqa5LG1krvGSratOEKdvX5OVU/eNpUKAYnOFqMZEiKaTKzy6i1W0VDkW5CWOKt7ulHdJFbUfr2AKHHEZUul0h6XMnM3lAb8ouGntDR5npky3azkYoS+owRBFtIw7qSro1FXDzBeFn4lJdFvAVSlwbBNqxy0sMKaYkZ3Sp2mCVIqktwwWlYFDU0VGcYspEwN2PTlE1vMsK6VIRdBPkYioDAFkiFahUZtGei8vkJFFsq+KijoS6+gEgn7R3YDNYA0lNXgxoe5ZXOSszBmAQkUisBFwxChUINNM2DMijEDMmE0saYydxGNlRtbK8t/24HiiLYBi2cfknjkV8ly1RRAAA=') format('woff2'),
+  url('iconfont.woff?t=1557715615015') format('woff'),
+  url('iconfont.ttf?t=1557715615015') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1557715615015#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.icon-fanhui:before {
+  content: "\e62f";
+}
+
+
 page {
   background: #f5f5f5;
 }
@@ -199,4 +213,28 @@ page {
  transition: all 0.4s;
  font-size: 30rpx;
    border-bottom: 1px solid #F6F6F6;
+}
+.fanhui {
+  position: fixed;
+  right: 50rpx;
+  border-radius: 50%;
+  bottom: 100rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #ef696c;
+  text-align: center;
+  /* opacity: 0.9; */
+}
+
+.icon-fanhui {
+  color: white;
+  font-size: 40rpx;
+  line-height: 60rpx;
+  /* margin-top: 20rpx; */
+}
+.fanhui-text{
+  color: #fff;
+  line-height: 60rpx;
+  margin-top: -20rpx;
+  font-size: 25rpx;
 }
