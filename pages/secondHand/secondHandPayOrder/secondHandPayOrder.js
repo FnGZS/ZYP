@@ -110,85 +110,93 @@ Page({
     var goodsName = e.currentTarget.dataset.goodsname;
     var goodsPrice = e.currentTarget.dataset.goodsprice;
     var userId = e.currentTarget.dataset.userid;
-    that.setData({
-      canPay:2
-    })
-    console.log(that.data.goodsDetail)
-    wx.login({
-      success: resp => {
-        var that = this;
-        let infoOpt = {
-          url: '/secondary/order/create',
-          type: 'POST',
-          data: {
-            platCode: resp.code,
-            goodsId: that.data.goodsDetail.id,
-            price: that.data.goodsDetail.price,
-            fee: that.data.goodsDetail.price,
-            consignee: that.data.addressName,
-            receivePhone: that.data.addressPhone,
-            receiveAddress: that.data.address,
-          },
-          header: {
-            'content-type': 'application/json',
-          },
-        }
-        let infoCb = {}
-        infoCb.success = function(res) {
-          console.log(res);
-          wx.hideLoading();
-          wx.requestPayment({
-            timeStamp: res.orderInfo.timeStamp,
-            nonceStr: res.orderInfo.nonceStr,
-            package: res.orderInfo.pkg,
-            signType: 'MD5',
-            paySign: res.orderInfo.paySign,
-            success(res) {
-              console.log(res)
-              var template_id = 'V1SlWA-7qIlDkFEo60ERr1HJRQ4brEvSDBm8FPvpk4A';
-              var page = '/pages/secondHand/secondHandOrderSold/secondHandOrderSold';
-              var data = {
-                "keyword1": {
-                  "value": goodsName
-                },
-                "keyword2": {
-                  "value": goodsPrice
-                },
-                "keyword3": {
-                  "value": '已支付'
-                },
-                "keyword4": {
-                  "value": '微信支付'
-                }
-              };
-              templeMsg.templeMsg(userId, template_id, page, data);
-              
-              wx.navigateTo({
-                url: '../secondHandPaySuccess/secondHandPaySuccess',
-              })
-
+    if (that.data.addressId == ''){
+      wx.showToast({
+        title: '请添加地址',
+        icon:'none'
+      })
+    }else{
+      that.setData({
+        canPay: 2
+      })
+      console.log(that.data.goodsDetail)
+      wx.login({
+        success: resp => {
+          var that = this;
+          let infoOpt = {
+            url: '/secondary/order/create',
+            type: 'POST',
+            data: {
+              platCode: resp.code,
+              goodsId: that.data.goodsDetail.id,
+              price: that.data.goodsDetail.price,
+              fee: that.data.goodsDetail.price,
+              consignee: that.data.addressName,
+              receivePhone: that.data.addressPhone,
+              receiveAddress: that.data.address,
             },
-            fail(res) {
-              console.log(res)
-              that.setData({
-                canPay:1,
-                payText: '支付'
-              })
-              wx.hideLoading();
-            }
-          })
+            header: {
+              'content-type': 'application/json',
+            },
+          }
+          let infoCb = {}
+          infoCb.success = function (res) {
+            console.log(res);
+            wx.hideLoading();
+            wx.requestPayment({
+              timeStamp: res.orderInfo.timeStamp,
+              nonceStr: res.orderInfo.nonceStr,
+              package: res.orderInfo.pkg,
+              signType: 'MD5',
+              paySign: res.orderInfo.paySign,
+              success(res) {
+                console.log(res)
+                var template_id = 'V1SlWA-7qIlDkFEo60ERr1HJRQ4brEvSDBm8FPvpk4A';
+                var page = '/pages/secondHand/secondHandOrderSold/secondHandOrderSold';
+                var data = {
+                  "keyword1": {
+                    "value": goodsName
+                  },
+                  "keyword2": {
+                    "value": goodsPrice
+                  },
+                  "keyword3": {
+                    "value": '已支付'
+                  },
+                  "keyword4": {
+                    "value": '微信支付'
+                  }
+                };
+                templeMsg.templeMsg(userId, template_id, page, data);
+
+                wx.navigateTo({
+                  url: '../secondHandPaySuccess/secondHandPaySuccess',
+                })
+
+              },
+              fail(res) {
+                console.log(res)
+                that.setData({
+                  canPay: 1,
+                  payText: '支付'
+                })
+                wx.hideLoading();
+              }
+            })
+          }
+          infoCb.beforeSend = () => {
+            wx.showLoading({
+              title: '加载中',
+            })
+            that.setData({
+              payText: '支付中…'
+            })
+          }
+          sendAjax(infoOpt, infoCb, () => { });
         }
-        infoCb.beforeSend = () => {
-          wx.showLoading({
-            title: '加载中',
-          })
-          that.setData({
-            payText:'支付中…'
-          })
-        }
-        sendAjax(infoOpt, infoCb, () => {});
-      }
-    })
+      })
+    }
+   
   },
   onReady: function() {},
   onShow: function() {

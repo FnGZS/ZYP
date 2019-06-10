@@ -64,6 +64,7 @@
   <view class='barBottom'>
     <view class='orderStatusBtn'>
       <view class='btn-contact' wx:if="{{isBuyer == 1 && orderDetail.orderState != 0}}" data-phone='{{orderDetail.telephone}}' bindtap='contact'>联系卖家</view>
+      <view class='btn-contact' wx:if="{{isBuyer == 0 && orderDetail.orderState != 0}}" data-phone='{{orderDetail.receivePhone}}' bindtap='contact'>联系买家</view>
       <view class='btn-cancelOrder' wx:if="{{orderDetail.goodsState != 3 && isBuyer == 1 && orderDetail.orderState == 0}}" data-orderid='{{orderDetail.orderId}}' catchtap='cancelOrder'>取消订单</view>
       <view class='btn-payOrder' wx:if="{{orderDetail.goodsState != 3 &&  isBuyer == 1 && orderDetail.orderState == 0}}" catchtap='{{canPay == 1 ? "toPay":"toPayno"}}' data-price='{{orderDetail.orderPrice}}' data-orderid='{{orderDetail.orderId}}' data-goodsid='{{orderDetail.goodsId}}'>{{payText}}</view>
       <view class='btn-cancelOrder' wx:if="{{orderDetail.goodsState == 3 && orderDetail.orderState == 0  &&  isBuyer == 1}}" >宝贝已被抢走</view>

@@ -21,6 +21,7 @@
   </view>
   <view class='addContent'>
     <input class='content-title' placeholder-class='input_title' maxlength='30' placeholder='请填写宝贝的标题（限30字）' bindinput='input_title'></input>
+    <input class='content-title' placeholder-class='input_title' maxlength='30' placeholder='请填写宝贝的标题（限30字）' bindinput='input_title'></input>
     <textarea class='content-content' placeholder-class='input_content' placeholder='请描述宝贝的转手原因、品牌、规格等' bindinput='input_content'></textarea>
 
     <view class='content-pos'>
