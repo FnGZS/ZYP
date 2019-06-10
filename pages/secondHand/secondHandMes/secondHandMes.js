@@ -317,6 +317,11 @@ Page({
       url: '../secondHandDetail/secondHandDetail?id=' + goodsid,
     })
   },
+  fanhui:function(){
+    wx.reLaunch({
+      url: '../secondHand',
+    })
+  },
   onReady: function () {
   },
 

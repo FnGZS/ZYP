@@ -29,7 +29,14 @@
     </view>
      <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
   </view>
-
+  <form bindsubmit="fanhui" report-submit="true">
+    <button form-type="submit">
+      <view class='fanhui' catchtap=''>
+        <view class='iconfont icon-fanhui'></view>
+        <view class='fanhui-text'>市场</view>
+      </view>
+    </button>
+  </form>
 </view>
 <view>
   <loading hidden="{{lodingHidden}}">

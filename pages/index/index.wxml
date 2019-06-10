@@ -62,7 +62,7 @@
                 <image src='/images/icon-ershou.png'></image>
               </view>
             </view>
-            <view class='index-body-icon-bg-content-text'>校园二手</view>
+            <view class='index-body-icon-bg-content-text'>校园市场</view>
           </view>
           <view class='index-body-icon-bg-content' bindtap='LostFound'>
             <view class='index-body-icon-bg-content-icon'>

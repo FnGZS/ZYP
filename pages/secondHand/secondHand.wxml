@@ -1,10 +1,12 @@
 <view id='secondHand'>
-  <view class='search' bindtap='toSearch'>
-    <view class='search-main'>
+  <view class='search' >
+    <view class='search-main' bindtap='toSearch'>
       <text class='iconfont icon-sousuo'></text>
       <text class='search-main-text'>搜索</text>
     </view>
+    
   </view>
+
   <swiper class='secondHand-swiper' autoplay="true" circular="true" interval="3000" duration="1000" indicator-dots="true">
     <block wx:for="{{lunboImg}}" wx:key="key">
       <swiper-item>
@@ -12,18 +14,28 @@
       </swiper-item>
     </block>
   </swiper>
-  <form bindsubmit="getFormId" report-submit="true">
-    <button form-type="submit">
-      <scroll-view class="tab stickyClass" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
-        <block wx:for="{{menuList}}" wx:key="index">
-          <view class="tab-item {{currentTab == index ? 'active' : ''}}" data-current="{{index}}" bindtap='clickMenu' data-typeid='{{item.id}}'>{{item.field}}</view>
-        </block>
-      </scroll-view>
-    </button>
-  </form>
+  <scroll-view class="tab stickyClass" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
+      <block wx:for="{{menuList}}" wx:key="index">
+        <view class="tab-item {{currentTab == index ? 'active' : ''}}" data-current="{{index}}" bindtap='clickMenu' data-typeid='{{item.id}}'>{{item.field}}</view>
+      </block>
+    </scroll-view>
   <view class='goods-list' bindtouchstart="touchStart" bindtouchend="touchEnd">
     <form bindsubmit="getFormId" report-submit="true" wx:for="{{goodsList}}" wx:key="key" data-id='{{item.id}}' bindtap='toDetail'>
-      <button form-type="submit" class='goods-list-main'  hover-class="button-hover">
+      <button form-type="submit" class='goods-list-main' hover-class="button-hover">
+        <image src='{{item.goodsImg[0]}}' mode='aspectFill' class='goods-list-main-img'></image>
+        <view class='goods-list-mes-title'>{{item.goodsTitle}}</view>
+        <view class='goods-list-mes-price'>
+          <view class='goods-list-mes-price-flag'>￥</view>
+          <view class='goods-list-mes-price-num'>{{item.price}}</view>
+        </view>
+        <view class='goods-list-mes-goodsWay'>{{item.goodsType}}</view>
+      </button>
+    </form>
+  </view>
+  <!--   
+  <view class='goods-list' bindtouchstart="touchStart" bindtouchend="touchEnd">
+    <form bindsubmit="getFormId" report-submit="true" wx:for="{{goodsList}}" wx:key="key" data-id='{{item.id}}' bindtap='toDetail'>
+      <button form-type="submit" class='goods-list-main' hover-class="button-hover">
         <image src='{{item.goodsImg[0]}}' mode='aspectFill' class='goods-list-main-img'></image>
         <view class='goods-list-mes'>
           <view class='goods-list-mes-title'>{{item.goodsTitle}}</view>
@@ -41,7 +53,7 @@
       </button>
     </form>
     <view wx:if="{{isBottom ==true}}" class='Bottom'>我是有底线的</view>
-  </view>
+  </view> -->
   <form bindsubmit="fabu" report-submit="true">
     <button form-type="submit">
       <view class='fabu' catchtap=''>

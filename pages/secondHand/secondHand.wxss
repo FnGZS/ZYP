@@ -59,6 +59,7 @@
 
 #secondHand{
   width: 100%;
+
 }
 .search{
   width: 100%;
@@ -71,6 +72,7 @@
 }
 .search-main{
   margin-left: 3%;
+
   height: 100%;
   width: 94%;
   background: #fff;
@@ -90,7 +92,7 @@
   color: #CACACA;
 }
 .secondHand-swiper{
-  padding-top:80rpx;
+  padding-top:70rpx;
 }
 .secondHand-head-swiper-image {
   width: 100%;
@@ -104,7 +106,7 @@
 }
 .tab {
   width: 100%;
-  /* margin-top: 10rpx; */
+  margin-top: 10rpx;
   top: 0;
   left: 0;
   z-index: 100;
@@ -113,7 +115,7 @@
   overflow: hidden;
   line-height: 70rpx;
   background: white;
-  border-top: 10rpx solid #f5f5f5;
+  /* border-top: 10rpx solid #f5f5f5; */
   border-bottom: 2rpx solid #f5f5f5;
   padding-left: 3%;
   padding-right: 3%;
@@ -137,15 +139,81 @@
   background: #ef696c;
 }
 .stickyClass{
-    position: sticky;
+    position: sticky ;
     top: 70rpx;
+    z-index: 9999;
 }
 ::-webkit-scrollbar{
 width: 0;
 height: 0;
 color: transparent;
 }
+.goods-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 20rpx;
+    /* justify-content: center; */
+}
+.goods-list form{
+  width: 47%;
+    margin-left: 2%;
+}
+.goods-list button{
+ border-radius: 0;
+ line-height:40rpx;
+ /* text-align: left; */
+}
 .goods-list-main{
+  width: 100%;
+
+
+  margin-top: 15rpx;
+  padding-bottom: 10rpx;
+  /* border: 1px solid #F6F6F6; */
+   border-radius: 20rpx !important;
+  /* box-shadow: 6rpx 6rpx 3rpx #C2C2C2; */
+      box-shadow: 1rpx 1rpx 20rpx #dddcdc;
+}
+.goods-list-main-img{
+  width: 100%;
+   height: 480rpx;
+}
+.goods-list-mes-title{
+  font-size: 28rpx;
+  margin-left: 3%;
+  line-height: 40rpx;
+  color: #585858;
+  /* font-weight: bold; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.goods-list-mes-price{
+
+  margin-left: 3%;
+  color: #ef696c;
+  display: flex;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+.goods-list-mes-price-flag{
+  font-size: 20rpx;
+}
+.goods-list-mes-price-num{
+  font-size: 28rpx;
+  margin-left: 5rpx;
+}
+.goods-list-mes-goodsWay{
+  position: absolute;
+  font-size: 23rpx;
+  right: 3%;
+  bottom: 10rpx;
+  color: #ABABAB;
+}
+/* .goods-list-main{
   margin-left: 3%;
   width: 94%;
   height: 250rpx;
@@ -198,7 +266,6 @@ color: transparent;
   bottom: 10rpx;
   left: 0;
   margin-left: 3%;
-  /* width: 60%; */
   color: #CCCCCC;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -224,7 +291,7 @@ color: transparent;
   right: 0;
   bottom: 7rpx;
   color: #CCCCCC;
-}
+} */
 .fabu {
   position: fixed;
   right: 50rpx;
