@@ -1,0 +1,237 @@
+.bgPic{
+  width: 100%;
+  height:400rpx;
+   background-color: rgb(176, 213, 243);
+}
+.Hcenter image{
+    width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  border-style: solid; /*声明边框样式*/
+  border-width: 2px;
+  border-color: #ccc;
+   
+}
+.Hcenter{
+display: flex;
+height:250rpx;
+align-items:center;
+justify-content:center;
+}
+.bgPic text{
+ display: flex;
+align-items:center;
+justify-content:center; 
+}
+
+.pf-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: center;/* 水平轴线居中 */
+  margin-top:25rpx;
+  }
+.Vline{
+  margin-left:10rpx;
+  margin-right:10rpx
+}
+.body{
+  margin-left:20px;
+margin-top:10px ;
+}
+.body image{
+  width: 60rpx;
+  height:60rpx;
+  border-radius: 50%;
+margin-right:10px;
+}
+
+.body .Bleft{
+margin-top:10px ;
+margin-bottom:10px ;
+display:flex;
+align-items:center;
+}
+
+.bottom{
+  margin:20px 10px 10px;
+
+}
+
+.bottom .Hmg{
+  margin-bottom:10px ;
+  font-weight: bold;
+}
+.Hbody{
+   font-weight: bold;
+}
+
+
+.page text{
+  font-size: 12px;
+
+}
+.Hhead{
+  font-weight: bold;
+  justify-content: center;/* 水平轴线居中 */
+  display: flex;
+font-size: 20px
+}
+
+
+
+.page{
+  margin-bottom: 10px
+}
+.Scolor{
+  background-color: rgba(241, 147, 23, 0.87)
+}
+.Sdizhi{
+  background-color: rgba(23, 161, 241, 0.87)
+}
+
+.Sphone{
+  background-color: rgba(22, 224, 49, 0.87) 
+}
+
+.Sqq{
+  background-color: rgba(34, 216, 240, 0.87)
+}
+
+.Sweixin{
+  background-color: rgba(15, 221, 32, 0.87)
+}
+
+.page{
+  border-bottom:1px solid #ccc
+}
+
+/*评论区*/
+.home-head {
+  display: flex;
+}
+
+.home-head .bg {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+  border-style: solid; /*声明边框样式*/
+  border-width: 2px;
+  border-color: #ccc;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.home-head .right {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.home-bottom {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.home-bottom .head {
+  margin-bottom: 10px;
+  font-size: 20px
+}
+
+.juxin {
+  width: 100%;
+  height: 100%;
+  background-color: #e6e6e6; /*   背景颜色*/
+  border-radius: 10px / 10px; /* 设置圆角*/
+  flex-direction: column;
+}
+
+.neirong {
+  margin: 10px 10px 0px;
+}
+
+
+
+.img-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom:10px
+}
+.img-list image{
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 10px / 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.img-list img:not(:nth-child(3n)){
+    margin-right: 10rpx;
+}
+
+.home-head .right text:nth-child(1) {
+  font-weight: bold; /*加粗*/
+}
+
+.home-head .right text:nth-child(2) {
+  /*制定第二text的样式*/
+  margin-top: 4px;
+  font-size: 12px;
+  color: #555;
+}
+
+.home-bottom .head text:nth-child(1) {
+  font-weight: bold;
+}
+
+.dianzan {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #555;
+  display: flex;
+ 
+  flex-direction: row;
+}
+
+.dianzan image {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.item {
+  padding: 20rpx;
+  position: relative;
+}
+
+.mleft {
+  flex: 1; /* 重要 */
+  align-items: center;
+}
+
+.mright {
+  position: relative; /*相对定位*/
+  align-items: center; /*定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。*/
+}
+
+
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+swiper {
+  height: 200px;
+}
+
+.splitline+.splitline {
+  border-top: 1px solid #ccc;
+}

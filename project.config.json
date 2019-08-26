@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 20,
 			"list": [
 				{
 					"id": 0,
@@ -162,6 +162,20 @@
 					"name": "商品编辑",
 					"pathName": "pages/secondHand/secondHandEdit/secondHandEdit",
 					"query": "id=8",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/currentaffairs/currentaffairs",
+					"pathName": "pages/currentaffairs/currentaffairs",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "校园社团",
+					"pathName": "pages/team/home/home",
+					"query": "",
 					"scene": null
 				}
 			]

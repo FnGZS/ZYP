@@ -61,7 +61,13 @@
     "pages/Livebroadcast/Livebroadcast",
     "pages/Livebroadcast/Live/Live",
     "pages/contact/contact",
-    "pages/contact/contactDetail/contactDetail"
+    "pages/contact/contactDetail/contactDetail",
+    "pages/team/home/home",
+    "pages/team/team/team",
+    "pages/team/my/my",
+    "pages/team/body/body",
+    "pages/team/profile/profile"
+
   ],
   "window": {
     "backgroundTextStyle": "dark",

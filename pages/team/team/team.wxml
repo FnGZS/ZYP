@@ -1,0 +1,19 @@
+<!--pages/team/team.wxml-->
+<view class='team-head'>
+<input type='text'  placeholder='请输入关键字' maxlength="20" focus="true" class='team-input' bindinput="inputText"></input>
+<button class='team-btn' bindtap="btnClick">搜索</button>
+</view>
+
+
+<view  wx:for='{{message}}' wx:key='index' class='body-hr'>
+<navigator url='/pages/team/profile/profile?name={{item.name}}' hover-class='navigator' class='team-body'>
+<view class='left'><image src='{{item.picture}}'></image></view>
+<view class='right'>
+<view>
+<text class='mright'>{{item.name}}</text>
+<image src='/images/star.png' wx:for='{{item.star}}' wx:key='index'></image>
+</view>
+<text class="body-text">{{item.introduce}}</text>
+</view>
+</navigator>
+</view>

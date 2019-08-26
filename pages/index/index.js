@@ -655,7 +655,7 @@ Page({
   },
   toTicket: function () {
     wx.navigateTo({
-      url: '../ticket/ticketmian/ticketmian',
+      url: '../team/home/home',
     })
   },
   //暂未开发

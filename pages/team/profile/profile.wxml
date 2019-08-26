@@ -1,0 +1,104 @@
+<!--pages/profile/profile.wxml-->
+<view class='page'>
+<!-- 背景图片 -->
+<view class='bgPic'>
+<!-- <image src=''  mode="aspectFill"></image> -->
+<view class='Hcenter'>
+<image src='https://www.gadstru.cn/association/picture/jpg/2.jpg'></image>
+</view>
+<view class='Hhead'>{{name}}</view>
+<view class='pf-bottom'>
+<text>成员{{member}}</text>
+<text class='Vline'>|</text>
+<text>社费{{cost}}</text>
+<text class='Vline'>|</text>
+<text>动态{{activity}}</text>
+<text class='Vline'>|</text>
+<text >获赞{{fabulous}}</text>
+</view>
+</view>
+<view class='body'><!-- 社团资料 -->
+<view class='Hbody'>
+社团资料
+</view>
+<!-- 学校 -->
+<view class='Bleft'>
+<image src="/images/xuexiao.png" class="Scolor"></image>
+<text>{{school}}</text>
+</view>
+<!-- 地址 -->
+<view class='Bleft'>
+<image src="/images/dizhi.png" class="Sdizhi"></image>
+<text>{{address}}</text>
+</view>
+<!-- 联系电话 -->
+<view class='Bleft'>
+<image src="/images/lianxifangshi.png" class="Sphone"></image>
+<text>{{phone}}</text>
+</view>
+
+<!-- qq -->
+<view class='Bleft'>
+<image src="/images/qq.png" class="Sqq"></image>
+<text>{{sQQ}}</text>
+</view>
+
+<!-- 微信 -->
+<view class='Bleft'>
+<image src="/images/weixin.png" class="Sweixin"></image>
+<text>{{sWX}}</text>
+</view>
+
+</view>
+<!-- 社团介绍 -->
+<view class='bottom'>
+<view class='Hmg'>社团介绍</view>
+<text>{{introduce}}</text>
+</view>
+</view>
+
+
+<!-- 活动 -->
+
+<view class='splitline' wx:for='{{message}}' wx:key='index' >
+  <view>
+  <view url='/pages/profile/profile' hover-class='navigator'>
+    <view class='home-head'>
+      <!--头像加社团名-->
+      <view class='left'>
+        <image src='{{item.headUrl}}' class='bg'></image>
+      </view>
+      <view class='right'>
+        <text>{{item.teamName}}</text>
+        <text>{{item.time}}</text>
+      </view>
+    </view>
+    </view>
+    <view class='home-bottom'>
+      <!--主题加内容-->
+      <view class='head'>
+        <text>{{item.head}}</text>
+      </view>
+      <view class='juxin'>
+        <view class='neirong'>{{item.body}}</view>
+        <view class='img-list'>
+        
+         <image wx:for-index='flag'  wx:for='{{item.bodyUrl}}'wx:for-item='image' src="{{image}}" data-src='{{image}}' data-list="{{item.bodyUrl}}" data-liulan="{{item.liulan}}" data-id="{{item.id}}" data-force='{{index}}' bindtap="previewImage"  >
+        </image>
+        </view>
+      </view>
+    </view>
+    <view class='dianzan item'><!--点赞底部-->
+      <view class='mleft'>
+        <text>浏览{{item.liulan}}次</text>
+      </view>
+      <view class='mright'>
+             <image src="/images/dianzan.png" bindtap='btnClick' data-id="{{item.id}}"  data-dianzan="{{item.dianzan}}" data-index='{{index}}'></image>
+        <text>{{item.dianzan}}</text>
+        <!-- <image src='/images/pinglun.png'></image>
+        <text>168</text> -->
+      </view>
+    </view>
+  </view>
+</view>
+

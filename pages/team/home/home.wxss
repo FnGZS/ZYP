@@ -1,0 +1,139 @@
+/* pages/home/home.wxss */
+
+.home-head {
+  display: flex;
+}
+
+.home-head .bg {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+  border-style: solid; /*声明边框样式*/
+  border-width: 2px;
+  border-color: #ccc;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.home-head .right {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.home-bottom {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.home-bottom .head {
+  margin-bottom: 10px;
+  font-size: 20px
+}
+
+.juxin {
+  width: 100%;
+  height: 100%;
+  background-color: #e6e6e6; /*   背景颜色*/
+  border-radius: 10px / 10px; /* 设置圆角*/
+  flex-direction: column;
+}
+
+.neirong {
+  margin: 10px 10px 0px;
+}
+
+
+
+.img-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom:10px
+}
+.img-list image{
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 10px / 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.img-list img:not(:nth-child(3n)){
+    margin-right: 10rpx;
+}
+
+.home-head .right text:nth-child(1) {
+  font-weight: bold; /*加粗*/
+}
+
+.home-head .right text:nth-child(2) {
+  /*制定第二text的样式*/
+  margin-top: 4px;
+  font-size: 12px;
+  color: #555;
+}
+
+.home-bottom .head text:nth-child(1) {
+  font-weight: bold;
+}
+
+.dianzan {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #555;
+  display: flex;
+ 
+  flex-direction: row;
+}
+
+.dianzan image {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.item {
+  padding: 20rpx;
+  position: relative;
+}
+
+.mleft {
+  flex: 1; /* 重要 */
+  align-items: center;
+}
+
+.mright {
+  position: relative; /*相对定位*/
+  align-items: center; /*定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。*/
+}
+
+
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+swiper {
+  height: 200px;
+}
+
+.splitline+.splitline {
+  border-top: 1px solid #ccc;
+}
+
+
+.fenxiang{width: 80rpx; height:80rpx;background:#E9524A;position: fixed; right: 20rpx ; bottom: 130rpx; border-radius: 40rpx;box-shadow: 0px 0px 3px #000; line-height: 60rpx; text-align: center}
+.fenxiang image{
+  width: 10rpx; height:10rpx;
+}
+
+.fenxiang1{width: 80rpx; height:80rpx;background:#E9524A;position: fixed; right: 20rpx ; bottom: 250rpx; border-radius: 40rpx;box-shadow: 0px 0px 3px #000; line-height: 60rpx; text-align: center}

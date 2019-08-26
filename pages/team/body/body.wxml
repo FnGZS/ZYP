@@ -1,0 +1,1 @@
+<image src="{{flag?'/images/dianzan.png':'/images/yidianzan.png'}}"   bindtap="setStr" ></image>
