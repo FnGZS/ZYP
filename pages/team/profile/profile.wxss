@@ -35,30 +35,30 @@ justify-content:center;
   margin-right:10rpx
 }
 .body{
-  margin-left:20px;
-margin-top:10px ;
+  margin-left:20rpx;
+margin-top:10rpx ;
 }
 .body image{
   width: 60rpx;
   height:60rpx;
   border-radius: 50%;
-margin-right:10px;
+margin-right:10rpx;
 }
 
 .body .Bleft{
-margin-top:10px ;
-margin-bottom:10px ;
+margin-top:10rpx ;
+margin-bottom:10rpx ;
 display:flex;
 align-items:center;
 }
 
 .bottom{
-  margin:20px 10px 10px;
+  margin:20rpx 10rpx 10rpx;
 
 }
 
 .bottom .Hmg{
-  margin-bottom:10px ;
+  margin-bottom:10rpx ;
   font-weight: bold;
 }
 .Hbody{
@@ -67,20 +67,20 @@ align-items:center;
 
 
 .page text{
-  font-size: 12px;
+  font-size: 21rpx;
 
 }
 .Hhead{
   font-weight: bold;
   justify-content: center;/* 水平轴线居中 */
   display: flex;
-font-size: 20px
+font-size: 30rpx
 }
 
 
 
 .page{
-  margin-bottom: 10px
+  margin-bottom: 10rpx
 }
 .Scolor{
   background-color: rgba(241, 147, 23, 0.87)
@@ -102,7 +102,7 @@ font-size: 20px
 }
 
 .page{
-  border-bottom:1px solid #ccc
+  border-bottom:1rpx solid #ccc
 }
 
 /*评论区*/
@@ -117,17 +117,17 @@ font-size: 20px
   overflow: hidden;
   text-align: center;
   border-style: solid; /*声明边框样式*/
-  border-width: 2px;
+  border-width: 2rpx;
   border-color: #ccc;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
 }
 
 .home-head .right {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 10rpx;
 }
 
 .home-bottom {
@@ -138,20 +138,20 @@ font-size: 20px
 }
 
 .home-bottom .head {
-  margin-bottom: 10px;
-  font-size: 20px
+  margin-bottom: 10rpx;
+  font-size: 20rpx
 }
 
 .juxin {
   width: 100%;
   height: 100%;
   background-color: #e6e6e6; /*   背景颜色*/
-  border-radius: 10px / 10px; /* 设置圆角*/
+  border-radius: 20rpx / 20rpx; /* 设置圆角*/
   flex-direction: column;
 }
 
 .neirong {
-  margin: 10px 10px 0px;
+  margin: 10rpx 10rpx 0rpx;
 }
 
 
@@ -161,14 +161,14 @@ font-size: 20px
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
-  margin-bottom:10px
+  margin-bottom:10rpx
 }
 .img-list image{
   width: 210rpx;
   height: 210rpx;
-  border-radius: 10px / 10px;
-  margin-left: 10px;
-  margin-top: 10px;
+  border-radius: 20rpx / 20rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
 }
 
 .img-list img:not(:nth-child(3n)){
@@ -176,23 +176,25 @@ font-size: 20px
 }
 
 .home-head .right text:nth-child(1) {
+   margin-top: 10rpx;
+  font-size: 24rpx;
   font-weight: bold; /*加粗*/
 }
 
 .home-head .right text:nth-child(2) {
   /*制定第二text的样式*/
-  margin-top: 4px;
-  font-size: 12px;
+  margin-top: 4rpx;
+  font-size: 21rpx;
   color: #555;
 }
-
 .home-bottom .head text:nth-child(1) {
+  font-size:30rpx;
   font-weight: bold;
 }
 
 .dianzan {
-  margin-left: 10px;
-  font-size: 12px;
+  margin-left: 10rpx;
+  font-size: 23rpx;
   color: #555;
   display: flex;
  
@@ -200,14 +202,14 @@ font-size: 20px
 }
 
 .dianzan image {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  margin-left: 5px;
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 5rpx;
+  margin-left: 5rpx;
 }
 
 .item {
-  padding: 20rpx;
+  padding: 10rpx;
   position: relative;
 }
 
@@ -221,17 +223,6 @@ font-size: 20px
   align-items: center; /*定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。*/
 }
 
-
-
-swiper-item image {
-  width: 100%;
-  height: 100%;
-}
-
-swiper {
-  height: 200px;
-}
-
 .splitline+.splitline {
-  border-top: 1px solid #ccc;
+  border-top: 1rpx solid #ccc;
 }

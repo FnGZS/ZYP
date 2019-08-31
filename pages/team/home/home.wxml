@@ -49,9 +49,9 @@
 </view>
 
 <view>
-<image src='/images/shetuanhuodong.png' class='fenxiang' bindtap="tiaozhuan"></image>
+<image src='/images/tuandui.png' class='fenxiang' bindtap="tiaozhuan"></image>
 </view>
 
 <view>
-<image src='/images/jiantoushangsheng.png' class='fenxiang1' bindtap="backTop"></image>
+<image src='/images/fanhuidingbu.png' class='fenxiang1' bindtap="backTop"></image>
 </view>

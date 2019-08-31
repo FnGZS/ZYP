@@ -11,17 +11,17 @@
   overflow: hidden;
   text-align: center;
   border-style: solid; /*声明边框样式*/
-  border-width: 2px;
+  border-width: 2rpx;
   border-color: #ccc;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
 }
 
 .home-head .right {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 10rpx;
 }
 
 .home-bottom {
@@ -32,20 +32,20 @@
 }
 
 .home-bottom .head {
-  margin-bottom: 10px;
-  font-size: 20px
+  margin-bottom: 10rpx;
+  font-size: 20rpx
 }
 
 .juxin {
   width: 100%;
   height: 100%;
   background-color: #e6e6e6; /*   背景颜色*/
-  border-radius: 10px / 10px; /* 设置圆角*/
+  border-radius: 20rpx / 20rpx; /* 设置圆角*/
   flex-direction: column;
 }
 
 .neirong {
-  margin: 10px 10px 0px;
+  margin: 10rpx 10rpx 0rpx;
 }
 
 
@@ -55,14 +55,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
-  margin-bottom:10px
+  margin-bottom:10rpx
 }
 .img-list image{
   width: 210rpx;
   height: 210rpx;
-  border-radius: 10px / 10px;
-  margin-left: 10px;
-  margin-top: 10px;
+  border-radius: 20rpx / 20rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
 }
 
 .img-list img:not(:nth-child(3n)){
@@ -70,23 +70,25 @@
 }
 
 .home-head .right text:nth-child(1) {
+   margin-top: 10rpx;
+  font-size: 24rpx;
   font-weight: bold; /*加粗*/
 }
 
 .home-head .right text:nth-child(2) {
   /*制定第二text的样式*/
-  margin-top: 4px;
-  font-size: 12px;
+  margin-top: 4rpx;
+  font-size: 21rpx;
   color: #555;
 }
-
 .home-bottom .head text:nth-child(1) {
+  font-size:30rpx;
   font-weight: bold;
 }
 
 .dianzan {
-  margin-left: 10px;
-  font-size: 12px;
+  margin-left: 10rpx;
+  font-size: 23rpx;
   color: #555;
   display: flex;
  
@@ -94,14 +96,14 @@
 }
 
 .dianzan image {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  margin-left: 5px;
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 5rpx;
+  margin-left: 5rpx;
 }
 
 .item {
-  padding: 20rpx;
+  padding: 10rpx;
   position: relative;
 }
 
@@ -122,18 +124,16 @@ swiper-item image {
   height: 100%;
 }
 
-swiper {
-  height: 200px;
-}
+
 
 .splitline+.splitline {
-  border-top: 1px solid #ccc;
+  border-top: 1rpx solid #ccc;
 }
 
 
-.fenxiang{width: 80rpx; height:80rpx;background:#E9524A;position: fixed; right: 20rpx ; bottom: 130rpx; border-radius: 40rpx;box-shadow: 0px 0px 3px #000; line-height: 60rpx; text-align: center}
+.fenxiang{width: 80rpx; height:80rpx;background:#fff;position: fixed; right: 20rpx ; bottom: 130rpx;box-shadow: 0px 0px 3px #000; line-height: 60rpx; text-align: center;opacity:0.8}
 .fenxiang image{
   width: 10rpx; height:10rpx;
 }
 
-.fenxiang1{width: 80rpx; height:80rpx;background:#E9524A;position: fixed; right: 20rpx ; bottom: 250rpx; border-radius: 40rpx;box-shadow: 0px 0px 3px #000; line-height: 60rpx; text-align: center}
+.fenxiang1{width: 80rpx; height:80rpx;background:#fff;position: fixed; right: 20rpx ; bottom: 230rpx; box-shadow: 0px 0px 3px #000; line-height: 60rpx; text-align: center;opacity:0.8}

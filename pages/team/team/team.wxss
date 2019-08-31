@@ -2,23 +2,23 @@
 .team-head{
   display: flex;
 
-  box-shadow: 2px 2px 5px #888
+  box-shadow: 2rpx 2rpx 5rpx #888
 }
 .team-head .team-input{
-  font-size:12px;
+  font-size:23rpx;
   margin-left: 100rpx;
-  margin-top:5px;
+  margin-top:5rpx;
   margin-right: 100rpx;
 }
 
 .team-head .team-btn{
-  font-size:12px;
+  font-size:23rpx;
   height:60rpx;
   width: 100rpx;
   background-color: rgb(29, 25, 25);
   color:white;
-  margin-bottom: 5px;
-  margin-top:5px
+  margin-bottom: 5rpx;
+  margin-top:5rpx
 }
 
 .team-body{
@@ -26,22 +26,22 @@
   padding: 10px;
 }
 .team-body .left image{
-  width: 120px;
-  height:120px;
+  width: 180rpx;
+  height:180rpx;
   display: block;
   border-radius: 10%;
   margin-right: 5px;
 }
 .team-body .right{
-  margin-left: 10px;
-  font-size: 20px;
+  margin-left: 10rpx;
+  font-size: 30rpx;
  display: flex;
    flex-direction: column;/*方向为纵向*/ 
  /*  justify-content: space-around/*分散对齐*/
 }
 .team-body .body-text{
-  font-size: 15px;
-  margin-top: 20px;
+  font-size: 20rpx;
+  margin-top: 20rpx;
   word-break: break-all;
   overflow:hidden;/* 一定要写 */
   text-overflow: ellipsis;/* 超出省略号 */
@@ -61,7 +61,7 @@
   
 }
 .body-hr+.body-hr{
-  border-top: 1px solid #ccc;
+  border-top: 1rpx solid #ccc;
 }
 
 .team-body .right text:nth-child(1){
