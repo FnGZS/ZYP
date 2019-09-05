@@ -1,5 +1,5 @@
 // pages/profile/profile.js
-var url = "https://www.gadstru.cn/association"
+var url = "https://www.sxscott.com/association"
 Page({
 
   /**
