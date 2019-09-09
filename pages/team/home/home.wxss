@@ -27,8 +27,8 @@
 .home-bottom {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
 }
 
 .home-bottom .head {
@@ -40,12 +40,12 @@
   width: 100%;
   height: 100%;
   background-color: #e6e6e6; /*   背景颜色*/
-  border-radius: 20rpx / 20rpx; /* 设置圆角*/
+  border-radius: 15rpx / 15rpx; /* 设置圆角*/
   flex-direction: column;
 }
 
 .neirong {
-  margin: 10rpx 10rpx 0rpx;
+  margin: 20rpx 20rpx 0rpx;
 }
 
 
@@ -55,20 +55,20 @@
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
-  margin-bottom:10rpx
-}
-.img-list image{
-  width: 210rpx;
-  height: 210rpx;
-  border-radius: 20rpx / 20rpx;
-  margin-left: 10rpx;
-  margin-top: 10rpx;
+  margin-bottom:20rpx
 }
 
 .img-list img:not(:nth-child(3n)){
     margin-right: 10rpx;
 }
-
+.img-list image{
+  width: 210rpx; 
+  height:210rpx;
+  border-radius: 20rpx / 20rpx;
+  margin-left: 15rpx;
+   margin-top: 15rpx;
+  
+}
 .home-head .right text:nth-child(1) {
    margin-top: 10rpx;
   font-size: 24rpx;
@@ -88,7 +88,7 @@
 
 .dianzan {
   margin-left: 10rpx;
-  font-size: 23rpx;
+  font-size: 25rpx;
   color: #555;
   display: flex;
  
@@ -96,12 +96,11 @@
 }
 
 .dianzan image {
-  width: 30rpx;
-  height: 30rpx;
-  margin-right: 5rpx;
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 10rpx;
   margin-left: 5rpx;
 }
-
 .item {
   padding: 10rpx;
   position: relative;
@@ -110,30 +109,44 @@
 .mleft {
   flex: 1; /* 重要 */
   align-items: center;
+  margin: 0 auto;
+  line-height: 24.8px;
 }
 
 .mright {
-  position: relative; /*相对定位*/
-  align-items: center; /*定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。*/
+/*   position: relative; /*相对定位
+  align-items: center; /*定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。
+  text-align: center;
+  line-height: 24.8px; */
+  
 }
-
+swiper{
+   width: 100%;
+   height:400rpx
+}
 
 
 swiper-item image {
   width: 100%;
   height: 100%;
 }
-
-
-
-.splitline+.splitline {
-  border-top: 1rpx solid #ccc;
+/* 消息卡片格式 */
+.splitline{
+  background-color:#fff;
+  margin:20rpx;
+  border-radius: 20rpx/20rpx;
+  box-shadow: 10rpx 10rpx 10rpx rgb(128, 138,135,0.7) ;
+  
+}
+.cloud{
+   background-color:#0bced4
+}
+page{
+    background-color:#0bced4
 }
 
 
-.fenxiang{width: 80rpx; height:80rpx;background:#fff;position: fixed; right: 20rpx ; bottom: 130rpx;box-shadow: 0px 0px 3px #000; line-height: 60rpx; text-align: center;opacity:0.8}
-.fenxiang image{
-  width: 10rpx; height:10rpx;
-}
+/*  class='fenxiang1' bindtap="backTop" box-shadow: 0px 0px 3px #000;  */
+.fenxiang{position: fixed; right: 20rpx ; bottom: 130rpx;line-height: 60rpx; text-align: center}
 
-.fenxiang1{width: 80rpx; height:80rpx;background:#fff;position: fixed; right: 20rpx ; bottom: 230rpx; box-shadow: 0px 0px 3px #000; line-height: 60rpx; text-align: center;opacity:0.8}
+.fenxiang1{position: fixed; right: 20rpx ; bottom: 230rpx;  line-height: 60rpx; text-align: center;opacity:0.8}

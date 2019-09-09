@@ -1,9 +1,15 @@
 <!--pages/profile/profile.wxml-->
+<van-notice-bar
+  mode="closeable"
+  text="点击社团头像可以跳转到报名界面哦"
+/>
 <view class='page'>
 <!-- 背景图片 -->
 <view class='bgPic'>
 <!-- <image src=''  mode="aspectFill"></image> -->
-<view class='Hcenter'>
+
+<view class='Hcenter' bindtap="toSubmit">
+
 <image src='https://www.gadstru.cn/association/picture/jpg/2.jpg'></image>
 </view>
 <view class='Hhead'>{{name}}</view>
@@ -17,6 +23,7 @@
 <text >获赞{{fabulous}}</text>
 </view>
 </view>
+<view class='pageColor'>
 <view class='body'><!-- 社团资料 -->
 <view class='Hbody'>
 社团资料
@@ -56,7 +63,7 @@
 <text>{{introduce}}</text>
 </view>
 </view>
-
+</view>
 
 <!-- 活动 -->
 
@@ -83,7 +90,7 @@
         <view class='neirong'>{{item.body}}</view>
         <view class='img-list'>
         
-         <image wx:for-index='flag'  wx:for='{{item.bodyUrl}}'wx:for-item='image' src="{{image}}" data-src='{{image}}' data-list="{{item.bodyUrl}}" data-liulan="{{item.liulan}}" data-id="{{item.id}}" data-force='{{index}}' bindtap="previewImage"  >
+        <image wx:for-index='flag' mode='aspectFill' wx:for='{{item.bodyUrl}}'wx:for-item='image' src="{{image}}" data-src='{{image}}' data-list="{{item.bodyUrl}}" data-liulan="{{item.liulan}}" data-id="{{item.id}}" data-force='{{index}}' bindtap="previewImage"  >
         </image>
         </view>
       </view>
@@ -93,7 +100,7 @@
         <text>浏览{{item.liulan}}次</text>
       </view>
       <view class='mright'>
-             <image src="/images/dianzan.png" bindtap='btnClick' data-id="{{item.id}}"  data-dianzan="{{item.dianzan}}" data-index='{{index}}'></image>
+        <image src="/images/dianzan.png" bindtap='btnClick' data-id="{{item.id}}"  data-dianzan="{{item.dianzan}}" data-index='{{index}}'></image>
         <text>{{item.dianzan}}</text>
         <!-- <image src='/images/pinglun.png'></image>
         <text>168</text> -->
@@ -101,4 +108,4 @@
     </view>
   </view>
 </view>
-
+<van-toast id="van-toast" />

@@ -1,1 +1,24 @@
-<image src="{{flag?'/images/dianzan.png':'/images/yidianzan.png'}}"   bindtap="setStr" ></image>
+
+<view class='head'>
+  <form bind:submit='signUp'>
+    <van-cell-group>
+      <van-field value="{{name}}" name='name' required clearable label="姓名" placeholder="请输入姓名" />
+
+      <van-field value="{{sclass }}" name='sclass' label="班级" placeholder="请输入班级" required border="{{ false }}" />
+      <van-field value="{{team}}" name='team' label="社团" disabled border="{{ false }}" />
+
+      <van-field value="{{ phone }}" name='phone' label="电话" placeholder="请输入电话" required border="{{ false }}" />
+
+      <van-field value="{{ sqq }}" name='sqq' label="QQ" placeholder="请输入QQ" required border="{{ false }}" />
+    </van-cell-group>
+    <button form-type="submit">提交</button>
+  </form>
+</view>
+<view class='bottom'>
+   <text>注意</text>
+   <text>1、带红星的都要填</text>
+   <text>2、社团不用填</text>
+   <text>3、可以报名多个社团</text>
+</view>
+
+<van-toast id="van-toast" />

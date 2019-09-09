@@ -1,4 +1,5 @@
 <!--pages/home/home.wxml-->
+<view class='cloud'>
 <swiper autoplay indicator-dots circular interval='2000'>
   <swiper-item wx:for='{{swiper}}' wx:key='index'>
     <image src="{{item.swiper_url}}"></image>
@@ -29,7 +30,7 @@
         <view class='neirong'>{{item.body}}</view>
         <view class='img-list'>
         
-        <image wx:for-index='flag'  wx:for='{{item.bodyUrl}}'wx:for-item='image' src="{{image}}" data-src='{{image}}' data-list="{{item.bodyUrl}}" data-liulan="{{item.liulan}}" data-id="{{item.id}}" data-force='{{index}}' bindtap="previewImage"  >
+        <image wx:for-index='flag' mode='aspectFill' wx:for='{{item.bodyUrl}}'wx:for-item='image' src="{{image}}" data-src='{{image}}' data-list="{{item.bodyUrl}}" data-liulan="{{item.liulan}}" data-id="{{item.id}}" data-force='{{index}}' bindtap="previewImage"  >
         </image>
         </view>
       </view>
@@ -38,9 +39,10 @@
       <view class='mleft'>
         <text>浏览{{item.liulan}}次</text>
       </view>
-      <view class='mright'>
-        <image src="/images/dianzan.png" bindtap='btnClick' data-id="{{item.id}}"  data-dianzan="{{item.dianzan}}" data-index='{{index}}'></image>
-        <text>{{item.dianzan}}</text>
+      <view class='mright' bindtap='btnClick' data-id="{{item.id}}"  data-dianzan="{{item.dianzan}}" data-index='{{index}}'>
+        <!-- <image src="/images/dianzan.png" bindtap='btnClick' data-id="{{item.id}}"  data-dianzan="{{item.dianzan}}" data-index='{{index}}'></image> -->
+        <van-icon name="good-job-o" size='20px'/>
+        <!-- <text>{{item.dianzan}}</text> -->
         <!-- <image src='/images/pinglun.png'></image>
         <text>168</text> -->
       </view>
@@ -48,10 +50,14 @@
   </view>
 </view>
 
-<view>
-<image src='/images/tuandui.png' class='fenxiang' bindtap="tiaozhuan"></image>
+<view class='fenxiang' bindtap="tiaozhuan">
+ <van-icon name="wap-home" size='2em'color='#E9524A'/>
+<!-- <image src='/images/tuandui.png' class='fenxiang' bindtap="tiaozhuan" ></image> -->
+
+</view>
 </view>
 
-<view>
-<image src='/images/fanhuidingbu.png' class='fenxiang1' bindtap="backTop"></image>
+<view  class='fenxiang1' bindtap="backTop">
+ <van-icon name="upgrade" size='2em' color='#E9524A'/>
+<!-- <image src='/images/fanhuidingbu.png'  class='fenxiang1' bindtap="backTop"></image> -->
 </view>

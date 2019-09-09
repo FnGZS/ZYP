@@ -1,7 +1,7 @@
 // pages/team/team.js
 var url = "https://www.sxscott.com/association"
 Page({
-
+  
   /**
    * 页面的初始数据
    */
@@ -87,10 +87,11 @@ Page({
     })
   },
   inputText: function(e) {
+  
     this.setData({
-      name: e.detail.value
+      name: e.detail
     })
-
+    
   },
   /* 鼠标单击，搜索要寻找的社团 */
   btnClick: function() {
@@ -119,7 +120,8 @@ Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性
         } else {
           that.setData({
             message: res.data.list,
-            pages: res.data.totalPage
+            pages: res.data.totalPage,
+           
           })
         }
       }

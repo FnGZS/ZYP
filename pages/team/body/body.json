@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+
+"navigationBarTitleText": "社团报名",
+"backgroundTextStyle": "dark",
+"enablePullDownRefresh": true
+
 }

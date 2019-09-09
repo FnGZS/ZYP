@@ -1,7 +1,9 @@
 .bgPic{
-  width: 100%;
-  height:400rpx;
-   background-color: rgb(176, 213, 243);
+  height:360rpx;
+  background-color:#fff;
+  margin:20rpx;
+  border-radius: 20rpx/20rpx;
+  box-shadow: 10rpx 10rpx 10rpx rgb(128, 138,135,0.7) ;
 }
 .Hcenter image{
     width: 180rpx;
@@ -9,14 +11,15 @@
   border-radius: 50%;
   border-style: solid; /*声明边框样式*/
   border-width: 2px;
-  border-color: #ccc;
-   
+  box-shadow: 10rpx 10rpx 10rpx rgba(128, 138,135,0.7);
+   border-color:#fff
 }
 .Hcenter{
 display: flex;
 height:250rpx;
 align-items:center;
 justify-content:center;
+
 }
 .bgPic text{
  display: flex;
@@ -35,33 +38,44 @@ justify-content:center;
   margin-right:10rpx
 }
 .body{
-  margin-left:20rpx;
-margin-top:10rpx ;
+  margin-left:40rpx;
+  padding-top:40rpx
+}
+
+.pageColor{
+  
+background-color:#fff;
+  margin:20rpx;
+  border-radius: 20rpx/20rpx;
+  box-shadow: 10rpx 10rpx 10rpx rgb(128, 138,135,0.7) ;
+
 }
 .body image{
-  width: 60rpx;
-  height:60rpx;
+  width: 40rpx;
+  height:40rpx;
   border-radius: 50%;
 margin-right:10rpx;
 }
 
 .body .Bleft{
-margin-top:10rpx ;
-margin-bottom:10rpx ;
+margin-top:20rpx ;
+margin-bottom:20rpx ;
 display:flex;
 align-items:center;
 }
 
 .bottom{
-  margin:20rpx 10rpx 10rpx;
-
+  margin:0rpx 40rpx 40rpx;
+  padding-bottom: 40rpx
 }
 
 .bottom .Hmg{
+  
   margin-bottom:10rpx ;
   font-weight: bold;
 }
 .Hbody{
+  
    font-weight: bold;
 }
 
@@ -101,9 +115,7 @@ font-size: 30rpx
   background-color: rgba(15, 221, 32, 0.87)
 }
 
-.page{
-  border-bottom:1rpx solid #ccc
-}
+
 
 /*评论区*/
 .home-head {
@@ -133,8 +145,8 @@ font-size: 30rpx
 .home-bottom {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
 }
 
 .home-bottom .head {
@@ -146,12 +158,12 @@ font-size: 30rpx
   width: 100%;
   height: 100%;
   background-color: #e6e6e6; /*   背景颜色*/
-  border-radius: 20rpx / 20rpx; /* 设置圆角*/
+  border-radius: 15rpx / 15rpx; /* 设置圆角*/
   flex-direction: column;
 }
 
 .neirong {
-  margin: 10rpx 10rpx 0rpx;
+  margin: 20rpx 20rpx 0rpx;
 }
 
 
@@ -161,20 +173,20 @@ font-size: 30rpx
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
-  margin-bottom:10rpx
-}
-.img-list image{
-  width: 210rpx;
-  height: 210rpx;
-  border-radius: 20rpx / 20rpx;
-  margin-left: 10rpx;
-  margin-top: 10rpx;
+  margin-bottom:20rpx
 }
 
 .img-list img:not(:nth-child(3n)){
     margin-right: 10rpx;
 }
-
+.img-list image{
+  width: 210rpx; 
+  height:210rpx;
+  border-radius: 20rpx / 20rpx;
+  margin-left: 15rpx;
+   margin-top: 15rpx;
+  
+}
 .home-head .right text:nth-child(1) {
    margin-top: 10rpx;
   font-size: 24rpx;
@@ -194,7 +206,7 @@ font-size: 30rpx
 
 .dianzan {
   margin-left: 10rpx;
-  font-size: 23rpx;
+  font-size: 25rpx;
   color: #555;
   display: flex;
  
@@ -202,12 +214,11 @@ font-size: 30rpx
 }
 
 .dianzan image {
-  width: 30rpx;
-  height: 30rpx;
-  margin-right: 5rpx;
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 10rpx;
   margin-left: 5rpx;
 }
-
 .item {
   padding: 10rpx;
   position: relative;
@@ -222,7 +233,27 @@ font-size: 30rpx
   position: relative; /*相对定位*/
   align-items: center; /*定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式。*/
 }
+swiper{
+   width: 100%;
+   height:400rpx
+}
 
-.splitline+.splitline {
-  border-top: 1rpx solid #ccc;
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+/* 消息卡片格式 */
+.splitline{
+  background-color:#fff;
+  margin:20rpx;
+  border-radius: 20rpx/20rpx;
+  box-shadow: 10rpx 10rpx 10rpx rgb(128, 138,135,0.7) ;
+  
+}
+.cloud{
+   background-color:#0bced4
+}
+page{
+   background-color:#0bced4
 }

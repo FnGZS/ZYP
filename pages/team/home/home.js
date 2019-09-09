@@ -12,7 +12,9 @@ Page({
     article: [99999, 10000],
     count: 0,
     pages: 999,
+
   },
+ 
   previewImage: function(e) {
     let that = this
     let sum = e.currentTarget.dataset.liulan
@@ -66,6 +68,7 @@ Page({
    */
   onLoad: function(options) {
     let that = this
+    
     wx.setStorage({
       key: "article",
       data: []

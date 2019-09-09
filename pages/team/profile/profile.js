@@ -1,5 +1,6 @@
 // pages/profile/profile.js
 var url = "https://www.sxscott.com/association"
+import Toast from '../../../dist/toast/toast'
 Page({
 
   /**
@@ -24,6 +25,7 @@ Page({
     article: [99999, 10000],
     count: 0,
     page: 1,
+    cc:[]
   },
   previewImage: function (e) {
     let that = this
@@ -61,14 +63,46 @@ Page({
       message: upList
     })
   },
+
+  /**
+   * 跳转到报名界面
+   */
+  toSubmit:function(){
+    let that=this
+    let name = that.data.name
+    let flag=1
+    let cc=that.data.cc
+    console.log(cc)
+    console.log(cc)
+    for(var i in cc){
+      console.log(cc[i])
+      if(cc[i]==name){
+        flag = 0
+        break;
+       
+      }
+      
+    }
+  if(flag==1){
+    wx.reLaunch({
+      url: '../../../pages/team/body/body?name='+name+'',
+    })
+    }else{
+      Toast('已报名，请耐心等待审核结果');
+    }
+    
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     let that = this
+   let cc= wx.getStorageSync('code')
     console.log(options.name)
     that.setData({
-      name: options.name
+      name: options.name,
+      cc:cc
     })
 
     wx.request({

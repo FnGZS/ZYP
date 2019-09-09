@@ -1,9 +1,18 @@
 <!--pages/team/team.wxml-->
-<view class='team-head'>
-<input type='text'  placeholder='请输入关键字' maxlength="20" focus="true" class='team-input' bindinput="inputText"></input>
-<button class='team-btn' bindtap="btnClick">搜索</button>
-</view>
+<view class='all'>
+<!-- <view class='team-head'>
+ <input type='text'  placeholder='请输入关键字' maxlength="20" focus="true" class='team-input' bindinput=""></input>
+<button class='team-btn' bindtap="btnClick">搜索</button> 
+</view> -->
 
+<van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  bind:change="inputText"
+>
+  <view slot="action" bindtap="btnClick">搜索</view>
+</van-search>
 
 <view  wx:for='{{message}}' wx:key='index' class='body-hr'>
 <navigator url='/pages/team/profile/profile?name={{item.name}}' hover-class='navigator' class='team-body'>
@@ -16,4 +25,5 @@
 <text class="body-text">{{item.introduce}}</text>
 </view>
 </navigator>
+</view>
 </view>
