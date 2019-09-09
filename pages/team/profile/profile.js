@@ -25,7 +25,8 @@ Page({
     article: [99999, 10000],
     count: 0,
     page: 1,
-    cc:[]
+    cc:[],
+    pic:'https://www.gadstru.cn/association/picture/jpg/2.jpg'
   },
   previewImage: function (e) {
     let that = this
@@ -126,8 +127,9 @@ Page({
           fabulous: res.data.fabulous,
           picture: res.data.picture,
           cost: res.data.cost,
-          introduce: res.data.introduce
-
+          introduce: res.data.introduce,
+          pic:res.data.picture
+          
         })
 
       }

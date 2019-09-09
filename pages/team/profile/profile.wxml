@@ -10,7 +10,7 @@
 
 <view class='Hcenter' bindtap="toSubmit">
 
-<image src='https://www.gadstru.cn/association/picture/jpg/2.jpg'></image>
+<image src='{{pic}}'></image>
 </view>
 <view class='Hhead'>{{name}}</view>
 <view class='pf-bottom'>
