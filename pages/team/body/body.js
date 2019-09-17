@@ -41,10 +41,35 @@ Page({
          success(res){
            console.log(res.data)
            if(res.data.code=='200'){
-             Toast('报名成功，请耐心等待审核结果');
              cc.push(cteam)
             wx.setStorageSync('code',cc)
-       
+            
+
+             wx.showToast({
+
+                title: '报名成功',
+
+                icon: 'success',
+
+                duration: 2000,
+
+                success: function () {
+
+                  setTimeout(function () {
+
+                    wx.reLaunch({
+
+                      url: '/pages/team/team/team',
+
+                    })
+
+                  }, 2000);
+
+                }
+
+             })
+           
+             
            }else{
              Toast('已报名或者报名失败');
            }
@@ -59,15 +84,21 @@ Page({
    */
   onLoad: function (options) {
     let cc = wx.getStorageSync('code')
-    if(cc=='')
-    wx.setStorage({
-      key: "code",
-      data: []
-    })
     
+    if(cc!=''){
     this.setData({
       team:options.name,
       code:cc
+    })
+  }else{
+      this.setData({
+        team: options.name
+      })
+  }
+    
+    wx.setStorage({
+      key: "code",
+      data: []
     })
   },
 

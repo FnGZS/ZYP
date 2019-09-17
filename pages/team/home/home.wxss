@@ -139,10 +139,10 @@ swiper-item image {
   
 }
 .cloud{
-   background-color:#0bced4
+   background-color:rgb(231, 224, 224)
 }
 page{
-    background-color:#0bced4
+    background-color:rgb(238, 234, 234)
 }
 
 

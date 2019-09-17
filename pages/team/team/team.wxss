@@ -78,6 +78,6 @@
 
 page{ height:100%;}
 
-page{background-color: #0bced4
+page{background-color: rgb(238, 234, 234)
 }
   
